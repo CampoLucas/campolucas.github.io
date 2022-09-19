@@ -5,6 +5,33 @@
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
+	<style>
+		.tooltip {
+		  	position: relative;
+		  	display: inline-block;
+		}
+		
+		.tooltip .tooltiptext {
+		  	visibility: hidden;
+		  	width: 220px;
+  			bottom: 100%;
+  			left: 50%;
+  			margin-left: -110px;
+			background-color: black;
+		  	color: #fff;
+		  	text-align: center;
+		  	border-radius: 6px;
+		  	padding: 5px 0;
+		
+		  /* Position the tooltip */
+		  position: absolute;
+		  z-index: 1;
+		}
+		
+		.tooltip:hover .tooltiptext {
+		  visibility: visible;
+		}
+	</style>
 	<head>
 		<title>Landed by HTML5 UP</title>
 		<meta charset="utf-8" />
@@ -81,18 +108,24 @@
 
 			<!-- Footer -->
 				<footer id="footer">
+					
+					
 					<ul class="icons">
-						<li><a href="https://www.linkedin.com/in/lucas-campo-65a5081b6/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
-						<li><a href="https://github.com/CampoLucas" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-						<li><a href="#" class="icon solid alt fa-envelope"><span class="label">Email</span></a></li>
-						<li><a href="#" class="icon solid alt fa-phone"><span class="label">Phone</span></a></li>
+						<li><a href="https://www.linkedin.com/in/lucas-campo-65a5081b6/" class="icon brands alt fa-linkedin-in"><span class="label" span class="tooltiptext">LinkedIn</span></a></li>
+						<li><a href="https://github.com/CampoLucas" class="icon brands alt fa-github"><span class="label" span class="tooltiptext">GitHub</span></a></li>
+						<li class="tooltip"><a class="icon solid alt fa-envelope"><span class="tooltiptext">campolucas2001@gmail.com</span></a></li>
+						<li class="tooltip"><a class="icon solid alt fa-phone"><span class="tooltiptext">+54 1127403576</span></a></li>
 					</ul>
 					<ul class="copyright">
 						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 					</ul>
 				</footer>
+				
 
 		</div>
+
+		
+
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
