@@ -129,76 +129,83 @@
 
 	<hr style="border: 2px solid rgb(83, 83, 83); width: 50%; border-radius: 3px;">
 
-	<!-- Professional Experience -->
-	<div id="fh5co-about" class="fh5co-bg-color">
+	<!-- Professional Experience (improved: semantic, accessible, responsive, lazy images) -->
+	<section id="fh5co-experience" class="fh5co-bg-color py-5" aria-labelledby="experience-heading" role="region"></section>
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Professional Experience</h2>
+					<h2 id="experience-heading">Professional Experience</h2>
 				</div>
 			</div>
 
-			<div class="timeline">
+			<style>
+				/* Minimal local styles for timeline spacing and image sizing */
+				.timeline { margin: 1.5rem 0 0; padding: 0; list-style: none; }
+				.timeline-item { padding: 1rem 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+				.timeline-figure { max-width: 220px; margin: 0 auto; }
+				.timeline-figure img { width: 100%; height: auto; display: block; border-radius: 8px; }
+				@media (min-width: 768px) { .timeline-figure { max-width: 160px; } }
+			</style>
 
-				<!-- Timeline Item -->
-				<div class="timeline-item mb-5">
-					<div class="text-center animate-box mb-4">
-						<h3 class="fw-bold mb-1">Eggscape</h3>
-						<span class="company d-block">May 2023 - Feb 2025</span>
+			<ul class="timeline">
+				<li class="timeline-item row align-items-start">
+					<!-- Images / media -->
+					<div class="col-12 col-sm-4 col-md-3 timeline-figure">
+						<figure class="mb-3">
+							<img src="images/Profesional Experience/Eggscape-02.png"
+									 alt="Eggscape - level preview"
+									 class="img-fluid animate-box"
+									 loading="lazy">
+							<figcaption class="sr-only">Eggscape screenshot 1</figcaption>
+						</figure>
+
+						<figure>
+							<img src="images/Profesional Experience/Eggscape-01.png"
+									 alt="Eggscape - character preview"
+									 class="img-fluid animate-box"
+									 loading="lazy">
+							<figcaption class="sr-only">Eggscape screenshot 2</figcaption>
+						</figure>
 					</div>
 
-					<div class="row">
-						<!-- Image Column -->
-						<div class="col-md-3 col-sm-4" style="padding-bottom: 20px;">
-							<div style="padding-bottom: 20px;">
-								<img class="animate-box img-fluid rounded mb-6" 
-								src="images/Profesional Experience/Eggscape-02.png" 
-								alt="Eggscape Image 1"
-								style="max-width: 90%; height: auto; margin: 0 auto; display: block; border-radius: 8px;">
-							</div>
-							
-							<img class="animate-box img-fluid rounded" 
-								src="images/Profesional Experience/Eggscape-01.png" 
-								alt="Eggscape Image 2"
-								style="max-width: 90%; height: auto; margin: 0 auto; display: block; border-radius: 8px;">
-						</div>
+					<!-- Text / details -->
+					<div class="col-12 col-sm-8 col-md-9">
+						<header class="mb-2 text-center text-sm-start animate-box">
+							<h3 class="h4 mb-1">Eggscape</h3>
+							<span class="text-muted d-block">May 2023 — Feb 2025</span>
+						</header>
 
-						<!-- Text Column -->
-						<div class="col-12 col-sm-7 col-md-9">
-							<div class="animate-box">
-								<h4 class="timeline-title mb-3">3Dar - AR/VR</h4>
+						<dl class="row mb-3">
+							<dt class="col-3">Role</dt>
+							<dd class="col-9">Gameplay Programmer</dd>
 
-								<ul class="info list-unstyled">
-								<li><strong>Role:</strong> Gameplay Programmer</li>
-								<li><strong>Engine:</strong> Unity</li>
-								<li>
-									<strong>Summary:</strong> An AR/VR multiplayer platformer that received the "Lion in la Biennale di Venezia" in 2022.
-								</li>
-								<li>
-									<strong>Contributions:</strong>
-									<ul class="ms-3">
-									<li><strong>Enemy AI System:</strong> Implemented enemy behaviors, including decision-making, movement, and combat.</li>
-									<li><strong>Player Mechanics:</strong> Built and implemented parkour and combat systems.</li>
-									<li><strong>Bug Fixing & Optimization:</strong> Fixed gameplay bugs and improved performance.</li>
-									<li><strong>Multiplayer & AR/VR Integration:</strong> Helped develop multiplayer and AR/VR features.</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="fh5co-social-icons animate-box list-inline mt-3">
-									<li class="list-inline-item">
-										<a href="https://www.eggscape.com/" target="_blank"><i class="icon-link"></i></a>
-									</li>
-									</ul>
-								</li>
-								</ul>
-							</div>
+							<dt class="col-3">Engine</dt>
+							<dd class="col-9">Unity</dd>
+
+							<dt class="col-3">Summary</dt>
+							<dd class="col-9">An AR/VR multiplayer platformer awarded "Lion" at la Biennale di Venezia (2022).</dd>
+						</dl>
+
+						<div class="animate-box">
+							<h5 class="mb-2">Contributions</h5>
+							<ul>
+								<li><strong>Enemy AI System:</strong> Implemented decision-making, navigation and combat behaviors.</li>
+								<li><strong>Player Mechanics:</strong> Built parkour and combat systems focused on responsiveness and polish.</li>
+								<li><strong>Optimization & QA:</strong> Fixed gameplay bugs and improved performance for AR/VR targets.</li>
+								<li><strong>Multiplayer & AR/VR:</strong> Integrated networking and platform-specific AR/VR features.</li>
+							</ul>
+
+							<p class="mt-3 mb-0">
+								<a href="https://www.eggscape.com/" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-secondary" aria-label="Visit Eggscape website">
+									Visit project
+								</a>
+							</p>
 						</div>
 					</div>
-				</div>
-
-			</div>
+				</li>
+			</ul>
 		</div>
-	</div>
+	</section>
 
 	<hr style="border: 2px solid rgb(83, 83, 83); width: 50%; border-radius: 3px;">
 	
