@@ -49,8 +49,7 @@
 		<script src="js/respond.min.js"></script>
 		<![endif]-->
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 	
 
 	</head>
@@ -211,232 +210,231 @@
 			</div>
 
 			<!-- Games Grid -->
+			<style>
+			.game-img {
+				width: 100%;
+				max-width: 315px;
+				aspect-ratio: 315 / 250;
+				object-fit: cover;
+				border-radius: 16px;
+				cursor: pointer;
+				display: block;
+				margin: 0 auto;
+			}
+			.game-card { margin-bottom: 30px; transition: transform 0.3s ease; }
+			.game-card:hover { transform: scale(1.05); }
+			</style>
+
+			<!-- Top row: 2 centered -->
 			<div class="row">
-				<ul class="timeline">
-					<li class="timeline-heading text-center animate-box">
-						<h3 class="fw-bold mb-1">Rush Rift</h3>
-						<span class="company d-block">Mar 2025 - Currently</span>
-					</li>
-					
-					<div class="col-md-12 col-md-offset-0">
-						<div class="animate-box col-md-8 col-md-offset-2 text-center">
-							<div id="rushRiftSlides" class="carousel slide" data-ride="carousel">
-								<!-- Indicators -->
-								<ol class="carousel-indicators">
-								<li data-target="#rushRiftSlides" data-slide-to="0" class="active"></li>
-								<li data-target="#rushRiftSlides" data-slide-to="1"></li>
-								<li data-target="#rushRiftSlides" data-slide-to="2"></li>
-								<li data-target="#rushRiftSlides" data-slide-to="3"></li>
-								<li data-target="#rushRiftSlides" data-slide-to="4"></li>
-								<li data-target="#rushRiftSlides" data-slide-to="5"></li>
-								</ol>
-							
-								<!-- Wrapper for slides -->
-								<div class="carousel-inner" style="border-radius: 8px;">
-								<div class="item active">
-									<img src="images/RushRift/Gif1_HighRes.gif" alt="Los Angeles" style="width:100%;">
-								</div>
-							
-								<div class="item">
-									<img src="images/RushRift/Gif2_HighRes.gif" alt="Chicago">
-								</div>
-								
-							
-								<div class="item">
-									<img src="images/RushRift/Gif3_HighRes.gif" alt="Chicago">
-								</div>
-								
-							
-								<div class="item">
-									<img src="images/RushRift/Gif4_HighRes.gif" alt="Chicago">
-								</div>
-								
-							
-								<div class="item">
-									<img src="images/RushRift/Gif5_HighRes.gif" alt="Chicago">
-								</div>
-								
-							
-								<div class="item">
-									<img src="images/RushRift/Gif6_HighRes.gif" alt="Chicago">
-								</div>
-								</div>
-							
-								<!-- Left and right controls -->
-								<a class="left carousel-control" href="#rushRiftSlides" data-slide="prev" style="border-radius: 8px;">
-								<span class="glyphicon glyphicon-chevron-left"></span>
-								<span class="sr-only">Previous</span>
-								</a>
-								<a class="right carousel-control" href="#rushRiftSlides" data-slide="next" style="border-radius: 8px;">
-								<span class="glyphicon glyphicon-chevron-right"></span>
-								<span class="sr-only">Next</span>
-								</a>
-							</div>
-						</div>
-
-
-						<div class="col-md-8 col-md-offset-2 text-center fh5co-heading" style="margin-top: 20px;">
-							<div class="timeline-heading animate-box">
-								<span class="timeline-title">Lead Programmer · Gameplay & Systems</span>
-							</div>
-							
-							<div class="timeline-body animate-box">
-								<p>A fast-paced first-person action game centered on momentum and precision.</p>
-								<p>I developed the core <b>movement</b>, <b>dash</b>, and <b>attack systems</b>, as well as the <b>additive level-loading architecture</b>, focusing on scalability, performance, and clean modular code in Unity.</p>							
-							</div>
-							<p>
-								<ul class="fh5co-social-icons animate-box">
-									<li><a href="https://luinbucket.itch.io/rushrift"><i class="icon-link2"></i></a></li>
-								</ul>
-							</p>
-						</div>
-
-						
+				<div class="col-sm-6 col-md-4 col-md-offset-2 text-center animate-box">
+					<div class="game-card" data-toggle="modal" data-target="#rushRiftModal">
+						<img src="images/RushRift/RR_Gif2.gif" alt="Rush Rift" class="game-img img-responsive">
+						<h3>Rush Rift</h3>
 					</div>
-
-					
-					
-
-				</ul>
-			</div>
-
-
-			<div class="row">
-				<div class="col-md-12 col-md-offset-0">
-					<ul class="timeline">
-						<li class="timeline-heading text-center animate-box">
-							<h3 class="fw-bold mb-1">Mystic Catacombs</h3>
-  							<span class="company d-block">Apr 2023 - May 2025</span>
-						</li>
-						
-						<div class="col-md-12 col-md-offset-0">
-							<div class="animate-box col-md-8 col-md-offset-2 text-center">
-								<div id="mysticCatacomsSlides" class="carousel slide" data-ride="carousel">
-								  <!-- Indicators -->
-								  <ol class="carousel-indicators">
-									<li data-target="#mysticCatacomsSlides" data-slide-to="0" class="active"></li>
-									<li data-target="#mysticCatacomsSlides" data-slide-to="1"></li>
-								  </ol>
-							  
-								  <!-- Wrapper for slides -->
-								  <div class="carousel-inner" style="border-radius: 8px;">
-									<div class="item active">
-									  <img src="images/mysticcatacombs.jpg" alt="Los Angeles" style="width:100%;">
-									</div>
-							  
-									<div class="item">
-									  <img src="https://img.itch.zone/aW1hZ2UvMjcxOTcxMy8xNjIxNTcyOC5qcGc=/original/zZ7mwQ.jpg" alt="Chicago">
-									</div>
-								  </div>
-							  
-								  <!-- Left and right controls -->
-								  <a class="left carousel-control" href="#mysticCatacomsSlides" data-slide="prev" style="border-radius: 8px;">
-									<span class="glyphicon glyphicon-chevron-left"></span>
-									<span class="sr-only">Previous</span>
-								  </a>
-								  <a class="right carousel-control" href="#mysticCatacomsSlides" data-slide="next" style="border-radius: 8px;">
-									<span class="glyphicon glyphicon-chevron-right"></span>
-									<span class="sr-only">Next</span>
-								  </a>
-								</div>
-							</div>
-
-
-							<div class="col-md-8 col-md-offset-2 text-center fh5co-heading" style="margin-top: 20px;">
-								<div class="timeline-heading animate-box">
-									<span class="timeline-title">Solo Project · Design & Programming</span>
-								</div>
-								
-								<div class="timeline-body animate-box">
-									<p>A personal project focused on AI development and combat mechanics, created to experiment with system design and gameplay feel.</p>
-									<p>Developed independently from start to finish to strengthen my technical and design skills in Unity.</p>								
-								</div>
-								<p>
-									<ul class="fh5co-social-icons animate-box">
-										<li><a href="https://github.com/CampoLucas/MysticCatacombs"><i class="icon-github2"></i></a></li>
-										<li><a href="https://luinbucket.itch.io/mystic-catacombs"><i class="icon-link2"></i></a></li>
-									</ul>
-								</p>
-							</div>
-
-							
-						</div>
-
-						
-						
-
-			    	</ul>
 				</div>
-				
+
+				<div class="col-sm-6 col-md-4 text-center animate-box">
+					<div class="game-card" data-toggle="modal" data-target="#mysticCatacombsModal">
+						<img src="images/mysticcatacombs.jpg" alt="Mystic Catacombs" class="game-img img-responsive">
+						<h3>Mystic Catacombs</h3>
+					</div>
+				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-md-12 col-md-offset-0">
-					<ul class="timeline">
-						<li class="timeline-heading text-center animate-box">
-							<h3 class="fw-bold mb-1">Gun Bandit</h3>
-  							<span class="company d-block">Aug 2022 - Nov 2022</span>
-						</li>
-						
-						<div class="col-md-12 col-md-offset-0">
-							<div class="animate-box col-md-8 col-md-offset-2 text-center">
-								<div id="gunBanditSlide" class="carousel slide" data-ride="carousel">
-								  <!-- Indicators -->
-								  <ol class="carousel-indicators">
-									<li data-target="#gunBanditSlide" data-slide-to="0" class="active"></li>
-									<li data-target="#gunBanditSlide" data-slide-to="1"></li>
-									<li data-target="#gunBanditSlide" data-slide-to="3"></li>
-								  </ol>
-							  
-								  <!-- Wrapper for slides -->
-								  <div class="carousel-inner" style="border-radius: 8px;">
-									<div class="item active">
-									  <img src="images/GunBandit/Gif1_HighRes.gif" alt="" style="width:100%;">
-									</div>
-							  
-									<div class="item">
-									  <img src="images/GunBandit/Gif2_HighRes.gif" alt="" style="width:100%;">
-									</div>
-									
-									<div class="item">
-										<img src="images/GunBandit/Gif3_HighRes.gif" alt="" style="width:100%;">
-									  </div>
-								  </div>
-							  
-								  <!-- Left and right controls -->
-								  <a class="left carousel-control" href="#gunBanditSlide" data-slide="prev" style="border-radius: 8px;">
-									<span class="glyphicon glyphicon-chevron-left"></span>
-									<span class="sr-only">Previous</span>
-								  </a>
-								  <a class="right carousel-control" href="#gunBanditSlide" data-slide="next" style="border-radius: 8px;">
-									<span class="glyphicon glyphicon-chevron-right"></span>
-									<span class="sr-only">Next</span>
-								  </a>
-								</div>
-							</div>
+			<!-- Bottom row: 2 centered -->
+			<div class="row" style="margin-top: 15px;">
+				<div class="col-sm-6 col-md-4 col-md-offset-2 text-center animate-box">
+					<div class="game-card" data-toggle="modal" data-target="#gunBanditModal">
+						<img src="images/GunBandit/gif3.gif" alt="Gun Bandit" class="game-img img-responsive">
+						<h3>Gun Bandit</h3>
+					</div>
+				</div>
 
-
-							<div class="col-md-8 col-md-offset-2 text-center fh5co-heading" style="margin-top: 20px;">
-								<div class="timeline-heading animate-box">
-									<span class="timeline-title">Lead Programmer · Core Gameplay</span>
-								</div>
-								
-								<div class="timeline-body animate-box">
-									<p>A top-down shooter/puzzle game, where the player needs to complete an objective either stealthily or head on.</p>
-									<p>In this project I was the sole programmer, I was responsible for programming the player, weapon system, enemies and UI</p>								
-								</div>
-								<p>
-									<ul class="fh5co-social-icons animate-box">
-										<li><a href="https://github.com/CampoLucas/GunBandit"><i class="icon-github2"></i></a></li>
-										<li><a href="https://luinbucket.itch.io/gunbandit"><i class="icon-link2"></i></a></li>
-									</ul>
-								</p>
-							</div>
-						</div>
-			    	</ul>
+				<div class="col-sm-6 col-md-4 text-center animate-box">
+					<div class="game-card" data-toggle="modal" data-target="#3047Modal">
+						<img src="images/3047.jpg" alt="3047" class="game-img img-responsive" style="aspect-ratio: 315 / 250;">
+						<h3>3047</h3>
+					</div>
 				</div>
 			</div>
 		</div>
+
+		<!-- Rush Rift Modal -->
+		<div class="modal fade" id="rushRiftModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title text-center">Rush Rift</h3>
+						<p class="text-center">Mar 2025 - Present</p>
+					</div>
+					<div class="modal-body">
+						<div id="rushRiftCarousel" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="item active">
+									<img src="images/RushRift/Gif1_HighRes.gif" alt="Rush Rift Gameplay">
+								</div>
+								<div class="item">
+									<img src="images/RushRift/Gif2_HighRes.gif" alt="Rush Rift Gameplay">
+								</div>
+								<div class="item">
+									<img src="images/RushRift/Gif3_HighRes.gif" alt="Rush Rift Gameplay">
+								</div>
+								<div class="item">
+									<img src="images/RushRift/Gif4_HighRes.gif" alt="Rush Rift Gameplay">
+								</div>
+								<div class="item">
+									<img src="images/RushRift/Gif5_HighRes.gif" alt="Rush Rift Gameplay">
+								</div>
+								<div class="item">
+									<img src="images/RushRift/Gif6_HighRes.gif" alt="Rush Rift Gameplay">
+								</div>
+								<!-- Add other slides -->
+							</div>
+							<a class="left carousel-control" href="#rushRiftCarousel" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left"></span>
+							</a>
+							<a class="right carousel-control" href="#rushRiftCarousel" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+						</div>
+						
+						<div class="game-description">
+							<h4>About the Game</h4>
+							<p>A fast-paced first-person action game centered on momentum and precision.</p>
+							
+							<h4>My Role</h4>
+							<p>As Lead Programmer, I developed the core movement, dash, and attack systems, as well as the additive level-loading architecture, focusing on scalability, performance, and clean modular code in Unity.</p>
+							
+							<div class="text-center">
+								<a href="https://luinbucket.itch.io/rushrift" class="btn btn-primary">Play Game</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Mystic Catacombs Modal -->
+		<div class="modal fade" id="mysticCatacombsModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title text-center">Mystic Catacombs</h3>
+						<p class="text-center">Apr 2023 - May 2025</p>
+					</div>
+					<div class="modal-body">
+						<div id="mysticCatacombsCarousel" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="item active">
+									<img src="images/mysticcatacombs.jpg" alt="Rush Rift Gameplay">
+								</div>
+								<div class="item">
+									<img src="https://img.itch.zone/aW1hZ2UvMjcxOTcxMy8xNjIxNTcyOC5qcGc=/original/zZ7mwQ.jpg" alt="Mystic Catacombs Gameplay">
+								</div>
+								<div class="item">
+									<img src="https://img.itch.zone/aW1hZ2UvMjcxOTcxMy8xNjIxNTc0Ny5qcGc=/original/2gdCEq.jpg" alt="Mystic Catacombs Gameplay">
+								</div>
+								<!-- Add other slides -->
+							</div>
+							<a class="left carousel-control" href="#mysticCatacombsCarousel" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left"></span>
+							</a>
+							<a class="right carousel-control" href="#mysticCatacombsCarousel" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+						</div>
+						
+						<div class="game-description">
+							<h4>About the Game</h4>
+							<p>A personal project focused on AI development and combat mechanics, created to experiment with system design and gameplay feel.</p>
+							<p>Developed independently from start to finish to strengthen my technical and design skills in Unity.</p>
+							
+							<div class="text-center">
+								<a href="https://luinbucket.itch.io/mystic-catacombs" class="btn btn-primary">Play Game</a>
+								<a href="https://github.com/CampoLucas/MysticCatacombs" class="btn btn-primary">Git</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Gun bandit Modal -->
+		<div class="modal fade" id="gunBanditModal" tabindex="-1" role="dialog">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h3 class="modal-title text-center">Gun Bandit</h3>
+						<p class="text-center">Aug 2022 - Nov 2022</p>
+					</div>
+					<div class="modal-body">
+						<div id="gunBanditCarousel" class="carousel slide" data-ride="carousel">
+							<div class="carousel-inner">
+								<div class="item active">
+									<img src="images/GunBandit/Gif1_HighRes.gif" alt="Gun Bandit Gameplay">
+								</div>
+								<div class="item">
+									<img src="images/GunBandit/Gif2_HighRes.gif" alt="Gun Bandit Gameplay">
+								</div>
+								<div class="item">
+									<img src="images/GunBandit/Gif3_HighRes.gif" alt="Gun Bandit Gameplay">
+								</div>
+								<!-- Add other slides -->
+							</div>
+							<a class="left carousel-control" href="#gunBanditCarousel" data-slide="prev">
+								<span class="glyphicon glyphicon-chevron-left"></span>
+							</a>
+							<a class="right carousel-control" href="#gunBanditCarousel" data-slide="next">
+								<span class="glyphicon glyphicon-chevron-right"></span>
+							</a>
+						</div>
+						
+						<div class="game-description">
+							<h4>About the Game</h4>
+							<p>A top-down shooter/puzzle game, where the player needs to complete an objective either stealthily or head on.</p>
+							
+							<h4>My Role</h4>
+							<p>As Lead Programmer, In this project I was the sole programmer, I was responsible for programming the player, weapon system, enemies and UI.</p>
+							
+							<div class="text-center">
+								<a href="https://luinbucket.itch.io/rushrift" class="btn btn-primary">Play Game</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Similar modals for Mystic Catacombs and Gun Bandit -->
+		<!-- Copy the modal structure above and adjust content accordingly -->
+
+		<style>
+		.game-card {
+			margin-bottom: 30px;
+			transition: transform 0.3s ease;
+		}
+		.game-card:hover {
+			transform: scale(1.05);
+		}
+		.modal-body {
+			padding: 20px;
+		}
+		.game-description {
+			margin-top: 20px;
+			padding: 20px;
+		}
+		.carousel-control {
+			background-image: none !important;
+		}
+		.carousel-control span {
+			color: #fff;
+			text-shadow: 0 0 3px rgba(0,0,0,0.8);
+		}
+		</style>
 	</div>
 
 	<hr style="border: 2px solid rgb(83, 83, 83); width: 50%; border-radius: 3px;">
