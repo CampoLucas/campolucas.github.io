@@ -530,6 +530,21 @@
 	<!-- Main -->
 	<script src="js/main.js"></script>
 
+	<!-- Fix: ensure body padding-right doesn't accumulate if Bootstrap handlers were duplicated previously -->
+	<script>
+	// When a modal is fully hidden, if no other modal is open, clear any inline body padding-right added by modals.
+	// Defensive: only runs when jQuery + Bootstrap are available.
+	if (window.jQuery) {
+		(function($){
+			$(document).on('hidden.bs.modal', function(){
+				if ($('.modal.in').length === 0) {
+					$('body').css('padding-right','');
+				}
+			});
+		})(jQuery);
+	}
+	</script>
+
 	</body>
 </html>
 
