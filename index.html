@@ -31,6 +31,17 @@
 		<!-- Theme style  -->
 		<link rel="stylesheet" href="css/style.css">
 
+		<!-- Small custom styles for Skills section (no progress bars / labels) -->
+		<style>
+		/* Skills section visuals */
+		.skill-list { list-style: none; padding: 0; margin: 0; }
+		.skill-list li { margin-bottom: 10px; }
+		.skill-item { font-weight:600; padding:6px 0; }
+		.skill-chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
+		.skill-chip { background:#f1f1f1; padding:6px 10px; border-radius:16px; font-size:13px; }
+		@media (max-width:767px){ .skill-item{font-size:14px} }
+		</style>
+
 		<!-- Modernizr JS -->
 		<script src="js/modernizr-2.6.2.min.js"></script>
 		<!-- FOR IE9 below -->
@@ -437,52 +448,57 @@
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
 					<h2>Skills</h2>
+					<p class="sub-text">Tools, languages and core programming concepts I use to build games and systems.</p>
 				</div>
 			</div>
 
 			<div class="row row-pb-md">
-				<div>
-					<h3>Tools</h3>
-					<ul>
-						<li><p>Unity</p></li>
-						<li><p>Unreal Engine 5</p></li>
-						<li><p>Git</p></li>
-						<li><p>Photon</p></li>
-						<li><p>Rider</p></li>
-						<li><p>Oculus XR</p></li>
-					</ul>
-				</div>
-				<div>
-					<h3>Code</h3>
-					<ul>
-						<li><p>C#</p></li>
-						<li><p>C++</p></li>
-						<li><p>Phython</p></li>
-						<li><p>HTML5</p></li>
+				<div class="col-sm-12 col-md-4">
+					<h4>Tools</h4>
+					<ul class="skill-list">
+						<li><div class="skill-chip">Unity</div></li>
+						<li><div class="skill-chip">Unreal Engine 5</div></li>
+						<li><div class="skill-chip">Git</div></li>
+						<li><div class="skill-chip">Photon (multiplayer)</div></li>
+						<li><div class="skill-chip">Rider</div></li>
+						<li><div class="skill-chip">Oculus / XR</div></li>
 					</ul>
 				</div>
 
-				<div>
-					<h3>Skills</h3>
-					<ul>
-						<li><p>Documentation</p></li>
-						<li><p>Agile</p></li>
-						<li><p>QA</p></li>
-						<li><p>UI/UX</p></li>
-						<li><p>Problem Solving</p></li>
+				<div class="col-sm-12 col-md-4">
+					<h4>Languages</h4>
+					<ul class="skill-list">
+						<li><div class="skill-chip">C#</div></li>
+						<li><div class="skill-chip">C++</div></li>
+						<li><div class="skill-chip">Python</div></li>
+						<li><div class="skill-chip">HTML / CSS / JS</div></li>
 					</ul>
+				</div>
+
+				<div class="col-sm-12 col-md-4">
+					<h4>Skills & Practices</h4>
+					<div class="skill-list">
+						<li><div class="skill-chip">Documentation</div></li>
+						<li><div class="skill-chip">Agile</div></li>
+						<li><div class="skill-chip">QA</div></li>
+						<li><div class="skill-chip">UI/UX</div></li>
+						<li><div class="skill-chip">Problem Solving</div></li>
+					</div>
 				</div>
 			</div>
 			
-			<div class="col-md-6 col-sm-6 col-xs-12">
-					<h3>Programming Concepts</h3>
+			<!-- Programming Concepts as full-width row under the three columns -->
+			<div class="row" style="margin-top:18px;">
+				<div class="col-md-12 programming-concepts">
+					<h4>Programming Concepts</h4>
 					<ul>
-						<li><p>Proficient in applying <strong>design patterns</strong> to game development, including <strong>Factory, Builder, Command, Mediator, Strategy, Observer, Object Pooling</strong>, and others.</p></li>
-						<li><p>Experienced with the <strong>MVC</strong> architectural pattern.</p></li>
-						<li><p>Hands-on experience implementing <strong>AI algorithms</strong> such as <strong>A* Pathfinding, Dijkstra, FSM, Steering Behaviors, Obstacle Avoidance, Roulette, Flocking, Decision Trees</strong>, and <strong>Behavior Trees</strong>.</p></li>
-						<li><p>Familiar with <strong>multiplayer architectures</strong>, including <strong>Full Authoritative</strong> and <strong>Non-Authoritative</strong> models.</p></li>
+						<li>Design patterns: Factory, Builder, Command, Mediator, Strategy, Observer, Object Pooling</li>
+						<li>MVC architecture</li>
+						<li>AI algorithms: A*, Dijkstra, FSM, Steering Behaviors, Obstacle Avoidance, Roulette, Flocking, Decision Trees, Behavior Trees</li>
+						<li>Multiplayer architectures: Full-Authoritative and Non-Authoritative models</li>
 					</ul>
 				</div>
+			</div>
 		</div>
 	</div>
 
