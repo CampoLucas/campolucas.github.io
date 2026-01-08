@@ -12,7 +12,9 @@
     background-image: url("../../img/icons/linkedin.svg");
 }
 
-
+.icon.doc {
+    background-image: url("../../img/icons/doc.svg");
+}
 
 .icon.email {
     background-image: url("../../img/icons/email.svg");
