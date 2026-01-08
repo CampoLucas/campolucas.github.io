@@ -1,0 +1,22 @@
+.section-separator {
+    width: 100%;
+    padding: 3rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.section-separator__line {
+    width: min(520px, 85%);
+    height: 3px;
+    background: radial-gradient(circle at center,
+        rgba(255, 255, 255, 0.35) 0%,
+        rgba(255, 255, 255, 0.15) 40%,
+        rgba(255, 255, 255, 0) 70%
+    ),
+    linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.2),
+        rgba(255, 255, 255, 0)
+    );
+}

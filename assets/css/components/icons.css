@@ -1,0 +1,47 @@
+.icon,
+.icon:hover {
+    display: inline-block;
+    background-position: center; 
+    background-repeat: no-repeat;
+
+    width: 44px;
+    aspect-ratio: 1/1;
+}
+
+.icon.linkedin {
+    background-image: url("../../img/icons/linkedin.svg");
+}
+
+
+
+.icon.email {
+    background-image: url("../../img/icons/email.svg");
+}
+
+.icon.github {
+    background-image: url("../../img/icons/github.svg");
+}
+
+.icon.link-1 {
+    background-image: url("../../img/icons/link01.svg");
+}
+
+.icon.link-2 {
+    background-image: url("../../img/icons/link02.svg");
+}
+
+.icon.smart-phone {
+    background-image: url("../../img/icons/smart-phone.svg");
+}
+
+.icon.itch {
+    background-image: url("../../img/icons/itch.svg");
+}
+
+.icon.website {
+    background-image: url("../../img/icons/website.svg");
+}
+
+.icon.meta {
+    background-image: url("../../img/icons/meta.svg");
+}

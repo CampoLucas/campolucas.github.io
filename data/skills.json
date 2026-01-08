@@ -1,0 +1,36 @@
+{
+    "skills": {
+        "baseId": "skills",
+        "titleId": "title",
+        "categories": [
+            { 
+                "titleId": null,
+                "items": [
+                    { 
+                        "nameId": "sections.programming",
+                        "items": [ "C#", "C++", "Python", "JavaScript", "HTML5", "CSS", "HLSL" ]
+                    },
+                    { 
+                        "nameId": "sections.tools",
+                        "items": [ "Unity", "Unreal Engine 5", "Git", "Photon (Multiplayer)", "Rider", "Oculus", "Django", "Bootstrap" ]
+                    },
+                    { 
+                        "nameId": "sections.practices",
+                        "items": [ "Documentation", "Agile", "QA", "UI/UX", "Problem Solving" ]
+                    }
+                ],
+                "styleClass": "column-list"
+            },
+            {
+                "titleId": "languages.title",
+                "itemsId": [ "languages.en", "languages.es", "languages.jp" ],
+                "styleClass": "column-vertical"
+            },
+            {
+                "titleId": "concepts.title",
+                "itemsId": [ "concepts.designPatterns", "concepts.mvcArchitecture", "concepts.aiAlgorithms", "concepts.multiplayerArchitecture" ]
+            }
+        ]
+
+    }
+}

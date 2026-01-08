@@ -1,618 +1,475 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title>Lucas Campo &mdash; Game Dev Portfolio</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="description" content="Lucas Campo's Portfolio" />
-		<meta name="keywords" content="Portfolio" />
-		<meta name="author" content="Lucas Campo" />
-		<meta property="og:title" content=""/>
-		<meta property="og:image" content=""/>
-		<meta property="og:url" content=""/>
-		<meta property="og:site_name" content=""/>
-		<meta property="og:description" content=""/>
-		<meta name="twitter:title" content="" />
-		<meta name="twitter:image" content="" />
-		<meta name="twitter:url" content="" />
-		<meta name="twitter:card" content="" />
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Full-Stack Portfolio</title>
+    <link href="./assets/css/style.css" rel="stylesheet">
+</head>
+<body id="app" aria-busy="true">
+    <div class="loaderWrap" role="status" aria-live="polite" aria-label="Loading">
+        <div class="throbber-container">
+            <div class="throbber pulse" aria-hidden="true"></div>
+            <div class="hint" id="loadingText">Loading</div>
+        </div>
+    </div>
 
-		<link href="https://fonts.googleapis.com/css?family=Space+Mono" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
-		
-		<!-- Animate.css -->
-		<link rel="stylesheet" href="css/animate.css">
-		<!-- Icomoon Icon Fonts-->
-		<link rel="stylesheet" href="css/icomoon.css">
-		<!-- Bootstrap  -->
-		<link rel="stylesheet" href="css/bootstrap.css">
+    <main>
+        <!-- Hero Page -->
+        <section class="hero-page" id="hero-page">
+            <canvas id="particles-background"></canvas>
+            <div class="hero-top" id="hero-top">
+                <div class="hero-content">
+                    <div class="gradient"></div>
+                </div>
+            </div>
+            <div class="hero-center" id="hero-center">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1 id="hero-title" class="header-title">I'm <span class="accent">Lucas Campo</span></h1>
+                        
+                        <ul id="hero-roles" class="hero-roles">
+                            <li class="hero-role">Game Developer</li>
+                            <li class="hero-role ceparator">|</li>
+                            <li class="hero-role">Full-Stack Developer</li>
+                        </ul>
+                        <div id="hero-btn-cnt" class="hero-contact">
+                            <a href="#contact" class="cta-btn">Contact</a>
+                        </div>
+                    </div>
 
-		<!-- Theme style  -->
-		<link rel="stylesheet" href="css/style.css">
+                    <div class="profile-shadow">
+                        <img id="hero-pic" src="" class="profile-pic">
+                    </div>
+                </div>
+                
+            </div>
+            <div class="hero-bottom" id="hero-bottom">
+                <div class="hero-content">
+                    <div class="gradient"></div>
+                </div> 
+            </div>
+        </section>
 
-		<!-- Small custom styles for Skills section (no progress bars / labels) -->
-		<style>
-		/* Skills section visuals */
-		.skill-list { list-style: none; padding: 0; margin: 0; }
-		.skill-list li { margin-bottom: 10px; }
-		.skill-item { font-weight:600; padding:6px 0; }
-		.skill-chips { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; }
-		.skill-chip { background:#f1f1f1; padding:6px 10px; border-radius:16px; font-size:13px; }
-		@media (max-width:767px){ .skill-item{font-size:14px} }
-		</style>
+        <section class="background content"><div class="showcase-viewport">
+            <!-- About Me -->
+            <section class="section-viewport" id="contact">
+                <h2 id="about-title" class="text title">About Me</h2>
+                <ul class="about-me-container">
+                    <li id="about-desc" class="about-me-text">
+                        <p class="text description">Hey! I'm a gameplay programmer with over two years of experience. I focus on building solid and flexible architecture, with a strong interest in AI behaviors, gameplay systems, and complex mechanics.</p>
+                        <p class="text description">I've always been drawn to games that reward curiosity and skill, and I try to bring that same mindset into my work. For me, programming isn't just about making things function, it's about helping the player feel something through how the game responds.</p>
+                    </li>
+                    <!-- <li class="about-me-image">
+                        <img id="about-pic" src="./assets/images/about/profile-pic.jpeg" />
+                    </li> -->
+                </ul>
+                <div id="about-contacts" class="contact-info" style="padding-bottom: 2rem;">
+                    <a href="mailto:campolucas2001@gmail.com" class="contact-link">campolucas2001@gmail.com</a>
+                    <span class="contact-sep">•</span>
+                    <a href="tel:+541127403576" class="contact-link">+54 11 2740-3576</a>
+                </div>
 
-		<!-- Modernizr JS -->
-		<script src="js/modernizr-2.6.2.min.js"></script>
-		<!-- FOR IE9 below -->
-		<!--[if lt IE 9]>
-		<script src="js/respond.min.js"></script>
-		<![endif]-->
+                <div id="about-buttons" class="social" style="justify-content: center;">
+                    <a class="icon linkedin social-link" href="https://www.linkedin.com/in/lucascampo3333/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"></a>
+                    <a class="icon github social-link" href="https://github.com/CampoLucas" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"></a>
+                    <a class="icon email social-link" href="mailto:campolucas2001@gmail.com" aria-label="Send email"></a>
+                    <a class="icon website social-link" href="https://campolucas.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Game developer portfolio"></a>                            
+                </div>
+            </section>
+            
+            <div class="section-separator">
+                <span class="section-separator__line"></span>
+            </div>
+
+            <!-- Experience -->
+            <section class="section-viewport">
+                <h2 id="experience-title" class="title">Experience</h2>
+                <div id="experiences-cnt">
+                    <div class="section-exp">
+                        <div class="section-exp-title">
+                            <h3 class="exp-title">3Dar - Eggscape</h3>
+                            <h4 class="exp-sub-title">May 2023 - Feb 2025</h4>
+                        </div>
+                        <ul>
+                            <li class="carousel-container">
+                                <div class="carousel" data-carousel>
+                                    <div class="carousel-viewport">
+                                        <img src="./assets/img/experience/three-dar/eggscape-01.png" alt="" class="active">
+                                        <img src="./assets/img/experience/three-dar/eggscape-02.png" alt="">
+                                        <img src="./assets/img/experience/three-dar/eggscape-03.png" alt="">
+                                        <img src="./assets/img/experience/three-dar/eggscape-04.png" alt="">
+    
+                                        <div class="carousel-arrows">
+                                            <button class="left" data-prev arial-label="Previous">‹</button>
+                                            <button class="right" data-next arial-label="Next">›</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Desktop -->
+                                    <div class="carousel-thumbs">
+                                        <div class="carousel-thumbs-track">
+                                            <button><img src="./assets/img/experience/three-dar/eggscape-01.png"></button>
+                                            <button><img src="./assets/img/experience/three-dar/eggscape-02.png"></button>
+                                            <button><img src="./assets/img/experience/three-dar/eggscape-03.png"></button>
+                                            <button><img src="./assets/img/experience/three-dar/eggscape-04.png"></button>
+                                        </div>
+                                        <div class="carousel-thumb-scroll">
+                                            <button class="left" data-prev aria-label="Scroll thumbnails left">‹</button>
+                                            <div class="carousel-thumb-scroll-track">
+                                                <div class="carousel-thumb-scroll-handle"></div>
+                                            </div>
+                                            <button class="right" data-next aria-label="Scroll thumbnails right">›</button>
+                                        </div>
+                                    </div>
+    
+                                    <!-- Mobile -->
+                                    <div class="carousel-dots">
+                                        <button data-index="0" class="active"></button>
+                                        <button data-index="1"></button>
+                                        <button data-index="2"></button>
+                                        <button data-index="3"></button>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="description-container">
+                                <p><strong>Role:</strong> Game Programmer</p>
+                                <p><strong>Summary:</strong> An AR/VR multiplayer platformer that received the "Lion in la Biennale di Venezia" in 2022.</p>
+                                <p><strong>Contributions</strong></p>
+                                <ul style="padding-left: 1.5rem;">
+                                    <li><strong>Enemy AI System:</strong> Implemented enemy behaviors, including decision-making, movement, and combat.</li>
+                                    <li><strong>Player Mechanics:</strong> Built and implemented parkour and combat systems.</li>
+                                    <li><strong>Bug Fixing & Optimization:</strong> Fixed gameplay bugs and improved performance.</li>
+                                    <li><strong>Multiplayer & AR/VR Integration:</strong> Helped develop multiplayer and AR/VR features.</li>
+                                </ul>
+    
+                                <div class="social" style="">
+                                    <a class="icon meta social-link" 
+                                        href="https://www.meta.com/experiences/eggscape/8895235860528889/?srsltid=AfmBOoppVZw7WgkzJgnG3FH3D0DXFqSv7HuNa3Odx-XDng9FYDOT87Dm" 
+                                        target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                                    </a>
+                                    <a class="icon link-2 social-link" href="https://www.eggscape.com/" target="_blank" rel="noopener noreferrer" aria-label="Game developer portfolio"></a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                
+                
+            </section>
+
+            <div class="section-separator">
+                <span class="section-separator__line"></span>
+            </div>
+
+            <!-- Projects -->
+            <section class="section-viewport">
+                <h2 id="proj-title" class="title">Projects</h2>
+                
+                <div id="proj-cap-cnt">
+                    <!-- Projects here -->
+                </div>
+            </section>
+
+            <div class="section-separator">
+                <span class="section-separator__line"></span>
+            </div>
+
+            <!-- Skills -->
+            <!-- <section class="section-viewport">
+                <h2 id="skills-title" class="title">Skills</h2>
+                <p class="sub-title">Tools, languages and core programming concepts I use to build games and web pages.</p>
+                
+                <ul class="c-l-cnt">
+                    <li class="c-l"> 
+                        <h3><strong>Code</strong></h3>
+                        <ul>
+                            <li>C#</li>
+                            <li>C++</li>
+                            <li>JavaScript</li>
+                            <li>Python</li>
+                            <li>HTML</li>
+                            <li>CSS</li>
+                        </ul>
+                    </li>
+                    <li class="c-l"> 
+                        <h3><strong>Tools</strong></h3>
+                        <ul>
+                            <li>Unity</li>
+                            <li>Unreal Engine 5</li>
+                            <li>Oculus / XR</li>
+                            <li>Photon Fusion</li>
+                            <li>Photon Quantum</li>
+                            <li>Netcode</li>
+                            <li>Rider</li>
+                            <li>Git</li>
+                            <li>Django</li>
+                        </ul>
+                    </li>
+                    <li class="c-l"> 
+                        <h3><strong>Skills & Practices</strong></h3>
+                        <ul>
+                            <li>OOP</li>
+                            <li>ECS</li>
+                            <li>Agile</li>
+                            <li>QA</li>
+                            <li>UI/UX</li>
+                            <li>Problem Solving</li>
+                            <li>Code Documentation</li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3><strong>Languages</strong></h3>
+                <ul class="h-l">
+                    <li>English — Fluent</li>
+                    <li>Spanish — Native</li>
+                    <li>Japanese — Intermediate</li>
+                </ul>
+                <h3><strong>Programming Concepts</strong></h3>
+                <ul>
+                    <li><strong>Design patterns:</strong> Factory, Builder, Command, Mediator, Strategy, Observer, Object Pooling</li>
+                    <li><strong>MVC architecture</strong></li>
+                    <li><strong>AI algorithms:</strong> A*, Dijkstra, FSM, Steering Behaviors, Obstacle Avoidance, Roulette, Flocking, Decision Trees, Behavior Trees</li>
+                    <li><strong>Multiplayer architectures:</strong> Full-Authoritative and Non-Authoritative models</li>
+                </ul>
+            </section> -->
+
+            <!-- Skills -->
+            <section class="section-viewport">
+                <h2 id="skills-title" class="title">Skills</h2>
+                <p class="sub-title">Tools, languages and core programming concepts I use to build games and web pages.</p>
+                
+                <ul class="c-l-cnt">
+                    <li class="c-l"> 
+                        <h3><strong>Code</strong></h3>
+                        <div class="info-tags" style="max-width: calc(100% - 8px);">
+                            <div class="info-tag">C#</div>
+                            <div class="info-tag">C++</div>
+                            <div class="info-tag">JavaScript</div>
+                            <div class="info-tag">Python</div>
+                            <div class="info-tag">HTML</div>
+                            <div class="info-tag">CSS</div>
+                        </div>
+                    </li>
+                    <li class="c-l"> 
+                        <h3><strong>Tools</strong></h3>
+                        <div class="info-tags" style="max-width: calc(100% - 8px);">
+                            <div class="info-tag">Unity</div>
+                            <div class="info-tag">Unreal Engine 5</div>
+                            <div class="info-tag">Oculus / XR</div>
+                            <div class="info-tag">Photon Fusion</div>
+                            <div class="info-tag">Photon Quantum</div>
+                            <div class="info-tag">Netcode</div>
+                            <div class="info-tag">Rider</div>
+                            <div class="info-tag">Git</div>
+                            <div class="info-tag">Django</div>
+                        </div>
+                    </li>
+                    <li class="c-l"> 
+                        <h3><strong>Skills & Knoledge</strong></h3>
+                        <div class="info-tags" style="max-width: calc(100% - 8px);">
+                            <div class="info-tag">OOP</div>
+                            <div class="info-tag">ECS</div>
+                            <div class="info-tag">Agile</div>
+                            <div class="info-tag">QA</div>
+                            <div class="info-tag">UI/UX</div>
+                            <div class="info-tag">Problem Solving</div>
+                            <div class="info-tag">Code Documentation</div>
+                            <div class="info-tag">Design Patterns</div>
+                        </div>
+                    </li>
+                </ul>
+                <h3><strong>Languages</strong></h3>
+                <div class="info-tags" style="max-width: calc(100% - 8px);">
+                    <div class="info-tag">English — Fluent</div>
+                    <div class="info-tag">Spanish — Native</div>
+                    <div class="info-tag">Japanese — Intermediate</div>
+                </div>
+        
+                <h3><strong>Programming Concepts</strong></h3>
+                <ul>
+                    <li><strong>Design patterns:</strong> Factory, Builder, Command, Mediator, Strategy, Observer, Object Pooling</li>
+                    <li><strong>MVC architecture</strong></li>
+                    <li><strong>AI algorithms:</strong> A*, Dijkstra, FSM, Steering Behaviors, Obstacle Avoidance, Roulette, Flocking, Decision Trees, Behavior Trees</li>
+                    <li><strong>Multiplayer architectures:</strong> Full-Authoritative and Non-Authoritative models</li>
+                </ul>
+            </section>
+        </section></div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <div class="footer-contacts" role="contentinfo">
+                <div class="social">
+                    <a class="icon linkedin social-link" href="https://www.linkedin.com/in/lucascampo3333/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"></a>
+                    <a class="icon email social-link" href="mailto:campolucas2001@gmail.com" aria-label="Send email"></a>
+                </div>
+
+                <div class="contact-info">
+                    <a href="mailto:campolucas2001@gmail.com" class="contact-link">campolucas2001@gmail.com</a>
+                    <span class="contact-sep">•</span>
+                    <a href="tel:+541127403576" class="contact-link">+54 11 2740-3576</a>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
-	
+    <!-- Templates -->
+    <!-- Experience element for games -->
+    <template id="game-experience">
+        <div class="section-exp">
+            <div class="section-exp-title">
+                <h3 id="exp-role"></h3>
+                <h4 id="exp-company"></h4>
+                <h5 id="exp-period"></h4>
+            </div>
 
-	</head>
-	<body>
-		
-	<div class="fh5co-loader"></div>
-	
-	<!-- Page -->
-	<div id="page">	
-	<header id="fh5co-header" class="fh5co-cover js-fullheight" role="banner" style="background-image:url(images/background-image.jpeg);" data-stellar-background-ratio="0.5">
-		<div class="overlay"></div>
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center">
-					<div class="display-t js-fullheight">
-						<div class="display-tc js-fullheight animate-box" data-animate-effect="fadeIn">
-							<div class="profile-thumb" style="background: url(images/profile-pic.jpg);"></div>
-							<h1><span>Lucas Campo</span></h1>
-							<h3><span>Game Developer</span></h3>
-							<p>
-								<ul class="fh5co-social-icons">
-									<li><a href="https://www.linkedin.com/in/lucas-campo-65a5081b6/"><i class="icon-linkedin2"></i></a></li>
-									<li><a href="https://github.com/CampoLucas"><i class="icon-github2"></i></a></li>
-									<li><a href="https://luinbucket.itch.io/"><i class="icon-play"></i></a></li>
-								</ul>
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+            <ul>
+                <li id="carousel-cnt" class="carousel-cnt"></li>
+                <li id="description-cnt"></li>
+            </ul>
 
-	<!-- About me -->
-	<div id="fh5co-about" class="animate-box">
-		<div class="container my-5">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>About Me</h2>
-				</div>
-			</div>
+            <div id="links-btn-cnt" class="social" style="justify-content: center;">
+            </div>
+        </div>
+    </template>
 
-			<div class="row align-items-center">
-				<!-- Info Column -->
-				<div class="col-xs-12" style="padding: 0 30px;">
-					<p>
-						Hey! I'm a <strong>gameplay programmer with over two years of experience</strong>. 
-						I focus on building solid and flexible architecture, with a strong interest in <strong>AI behaviors, gameplay systems, and complex mechanics</strong>.
-					</p>
-					<p>
-						I've always been drawn to games that reward curiosity and skill, and I try to bring that same mindset into my work. 
-						For me, programming isn't just about making things function, it's about <u>helping the player feel something through how the game responds</u>.
-					</p>
+    <!-- Carousel -->
+    <template id="game-carousel">
+        <div class="carousel" data-carousel>
+            <div class="carousel-viewport">
+                <!-- Images -->
+                <div class="carousel-img-cnt" img-cnt></div>
+            </div>
+            
+            <!-- Desktop -->
+            <div class="carousel-thumbs">
+                <!-- Thumnails -->
+                <div class="carousel-thumbs-track" thumb-cnt></div>
+                <div class="carousel-thumb-scroll">
+                    <button class="left" data-prev aria-label="Scroll thumbnails left">‹</button>
+                    <div class="carousel-thumb-scroll-track">
+                        <div class="carousel-thumb-scroll-handle"></div>
+                    </div>
+                    <button class="right" data-next aria-label="Scroll thumbnails right">›</button>
+                </div>
+            </div>
+            
+            <!-- Mobile -->
+        
+            <div class="carousel-arrows">
+                <button class="arrow left" data-prev arial-label="Previous"><span>‹</span></button>
+                <div class="carousel-dots" dot-cnt></div>
+                <button class="arrow right" data-next arial-label="Next"><span>›</span></button>
+            </div>
+        </div>
+    </template>
 
-					<ul class="list-unstyled">
-						<li class="mb-2">
-							<strong class="d-block text-muted">Email</strong>
-							<span><a href="mailto:campolucas2001@gmail.com">campolucas2001@gmail.com</a></span>
-						<li class="mb-2">
-							<strong class="d-block text-muted">Phone</strong>
-							<span><a href="tel:+541127403576">+54 11 2740-3576</a></span>
-						</li>
-					</ul>
+    <!-- Popup -->
+    <template id="popup-template">
+        <div class="popup">
+            <div class="bg-cnt">
+                <div class="bg-color"></div>
+                <div class="bg-img-cnt">
+                    <img id="bg-popup" class="bg-img" src=""/>
+                </div>
+                <div class="bg-overlay-cnt">
+                    <div class="bg-overlay"></div>
+                    <div class="bg-gradient"></div>
+                </div>
 
-					<div class="mt-3">
-						<ul class="fh5co-social-icons">
-							<li><a href="https://www.linkedin.com/in/lucascampo3333/"><i class="icon-linkedin2"></i></a></li>
-							<li><a href="https://github.com/CampoLucas"><i class="icon-github2"></i></a></li>
-							<li><a href="https://luinbucket.itch.io/"><i class="icon-play"></i></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+            </div>
+            <div class="popup-panel background content"> 
+                <div class="showcase-viewport bg-content">
+                    <div id="popup-viewport" class="section-viewport">
+                        <!-- game-experience template here, reuse all the methods -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </template>
+
+    <template id="game-project">
+        <div class="section-exp">
+            <div style="display: flex; justify-content: space-between;">
+                <div class="section-exp-title">
+                    <h3 id="project-title" style="font-size: 30px;"></h3>
+                    <h4 id="project-period"></h4>
+                </div>
+                <button id="close-popup-btn" class="close-popup">X</button>
+
+            </div>
+
+            <div style="background-color: rgba(0, 0, 0, .2); padding: 12px;">
+
+                <ul style="margin-top: 0;">
+                    <li id="carousel-cnt" class="carousel-cnt"></li>
+                    <li>
+                        <div id="description-cnt"></div>
+                        <div id="tags-cnt"></div>
+                    </li>
+                </ul>
+    
+                <div id="links-btn-cnt" class="social" style="justify-content: center;">
+            </div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Capsule Carousel Templates -->
+
+    <template id="cap-carousel-temp">
+        <div class="projects-carousel">
+            <div class="title-grid">
+                <div class="section-title"><span id="cap-carousel-title"></span></div>
+            </div>
+            <div class="carousel-container">
+                <div class="carousel-items">
+                    <div id="cap-cnt" class="focus">
+                        
+                    </div>
+                </div>
+                <div class="carousel-thumbs"></div>
+                <div class="arrow left hidden"><div></div></div>
+                <div class="arrow right hidden"><div></div></div>
+            </div>
+        </div>
+    </template>
+
+    <template id="cap-game-el">
+        <a id="cap-link" class="game-capsule" href="">
+            <div class="capsule-img-cnt">
+                <img id="cap-banner-img" class="capsule-img" src="" />
+                <img id="cap-banner-video" class="capsule-video" src="" />
+            </div>
+            <div class="info-cnt">
+                <div id="cap-tag-cnt" class="info-tags">
+                    <!-- <div class="info-tag">Bullet hell</div> -->
+                    
+                </div>
+            </div>
+        </a>
+    </template>
+
+    <template id="cap-web-el">
+        <a id="cap-link" class="website-capsule" href="">
+            <div class="capsule-img-cnt">
+                <img id="cap-banner-img" src="" style="width: 100%;"/>
+            </div>
+            <div class="info-cnt">
+                <p id="cap-title"></p>
+            </div>
+        </a>
+    </template>
+    
 
 
-	<hr style="border: 2px solid rgb(83, 83, 83); width: 50%; border-radius: 3px;">
+    <script src="./src/particles/particles.js"></script>
+    <script type="module" src="./src/core/App.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 
-	<!-- Professional Experience -->
-	<div id="fh5co-about" class="fh5co-bg-color">
-		<div class="container my-5">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Professional Experience</h2>
-				</div>
-			</div>
-
-			<div class="timeline">
-
-				<!-- Timeline Item -->
-				<div class="timeline-item mb-5">
-					<div class="text-center animate-box mb-4">
-						<h3 class="fw-bold mb-1">Eggscape</h3>
-						<span class="company d-block">May 2023 - Feb 2025</span>
-					</div>
-
-					<div class="row">
-						<!-- Image Column -->
-						<div class="col-md-3 col-sm-4" style="padding-bottom: 20px;">
-							<div style="padding-bottom: 20px;">
-								<img class="animate-box img-fluid rounded mb-6" 
-								src="images/Profesional Experience/Eggscape-02.png" 
-								alt="Eggscape Image 1"
-								style="max-width: 90%; height: auto; margin: 0 auto; display: block; border-radius: 8px;">
-							</div>
-							
-							<img class="animate-box img-fluid rounded" 
-								src="images/Profesional Experience/Eggscape-01.png" 
-								alt="Eggscape Image 2"
-								style="max-width: 90%; height: auto; margin: 0 auto; display: block; border-radius: 8px;">
-						</div>
-
-						<!-- Text Column -->
-						<div class="col-12 col-sm-7 col-md-9" style="padding: 0 30px;">
-							<div class="animate-box">
-								<h4 class="timeline-title mb-3">3Dar - AR/VR</h4>
-
-								<ul class="info list-unstyled">
-								<li><strong>Role:</strong> Gameplay Programmer</li>
-								<li><strong>Engine:</strong> Unity</li>
-								<li>
-									<strong>Summary:</strong> An AR/VR multiplayer platformer that received the "Lion in la Biennale di Venezia" in 2022.
-								</li>
-								<li>
-									<strong>Contributions:</strong>
-									<ul class="ms-3">
-									<li><strong>Enemy AI System:</strong> Implemented enemy behaviors, including decision-making, movement, and combat.</li>
-									<li><strong>Player Mechanics:</strong> Built and implemented parkour and combat systems.</li>
-									<li><strong>Bug Fixing & Optimization:</strong> Fixed gameplay bugs and improved performance.</li>
-									<li><strong>Multiplayer & AR/VR Integration:</strong> Helped develop multiplayer and AR/VR features.</li>
-									</ul>
-								</li>
-								<li>
-									<ul class="fh5co-social-icons animate-box list-inline mt-3">
-									<li class="list-inline-item">
-										<a href="https://www.eggscape.com/" target="_blank"><i class="icon-link"></i></a>
-									</li>
-									</ul>
-								</li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-
-	<hr style="border: 2px solid rgb(83, 83, 83); width: 50%; border-radius: 3px;">
-	
-	<!-- My Games -->
-	<div id="fh5co-about" class="fh5co-bg-color">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>My Games</h2>
-				</div>
-			</div>
-
-			<!-- Games Grid -->
-			<style>
-			.game-img {
-				width: 100%;
-				max-width: 315px;
-				aspect-ratio: 315 / 250;
-				object-fit: cover;
-				border-radius: 16px;
-				cursor: pointer;
-				display: block;
-				margin: 0 auto;
-			}
-			.game-card { margin-bottom: 30px; transition: transform 0.3s ease; }
-			.game-card:hover { transform: scale(1.05); }
-			</style>
-
-			<!-- Top row: 2 centered -->
-			<div class="row">
-				<div class="col-sm-6 col-md-4 col-md-offset-2 text-center animate-box">
-					<div class="game-card" data-toggle="modal" data-target="#rushRiftModal">
-						<img src="images/RushRift/RR_Gif2.gif" alt="Rush Rift" class="game-img img-responsive">
-						<h3>Rush Rift</h3>
-					</div>
-				</div>
-
-				<div class="col-sm-6 col-md-4 text-center animate-box">
-					<div class="game-card" data-toggle="modal" data-target="#mysticCatacombsModal">
-						<img src="images/MC/MC_Giff1_Med.gif" alt="Mystic Catacombs" class="game-img img-responsive">
-						<h3>Mystic Catacombs</h3>
-					</div>
-				</div>
-			</div>
-
-			<!-- Bottom row: 2 centered -->
-			<div class="row" style="margin-top: 15px;">
-				<div class="col-sm-6 col-md-4 col-md-offset-2 text-center animate-box">
-					<div class="game-card" data-toggle="modal" data-target="#gunBanditModal">
-						<img src="images/GunBandit/gif3.gif" alt="Gun Bandit" class="game-img img-responsive">
-						<h3>Gun Bandit</h3>
-					</div>
-				</div>
-
-				<div class="col-sm-6 col-md-4 text-center animate-box">
-					<div class="game-card" data-toggle="modal" data-target="#3047Modal">
-						<img src="images/3047/47_Gif3_LowRes.gif" alt="3047" class="game-img img-responsive" style="aspect-ratio: 315 / 250;">
-						<h3>3047</h3>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Rush Rift Modal -->
-		<div class="modal fade" id="rushRiftModal" tabindex="-1" role="dialog">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h3 class="modal-title text-center">Rush Rift</h3>
-						<p class="text-center">Mar 2025 - Present</p>
-					</div>
-					<div class="modal-body">
-						<div id="rushRiftCarousel" class="carousel slide" data-ride="carousel">
-							<div class="carousel-inner">
-								<div class="item active">
-									<img src="images/RushRift/Gif1_HighRes.gif" alt="Rush Rift Gameplay">
-								</div>
-								<div class="item">
-									<img src="images/RushRift/Gif2_HighRes.gif" alt="Rush Rift Gameplay">
-								</div>
-								<div class="item">
-									<img src="images/RushRift/Gif3_HighRes.gif" alt="Rush Rift Gameplay">
-								</div>
-								<div class="item">
-									<img src="images/RushRift/Gif4_HighRes.gif" alt="Rush Rift Gameplay">
-								</div>
-								<div class="item">
-									<img src="images/RushRift/Gif5_HighRes.gif" alt="Rush Rift Gameplay">
-								</div>
-								<div class="item">
-									<img src="images/RushRift/Gif6_HighRes.gif" alt="Rush Rift Gameplay">
-								</div>
-								<!-- Add other slides -->
-							</div>
-							<a class="left carousel-control" href="#rushRiftCarousel" data-slide="prev">
-								<span class="glyphicon glyphicon-chevron-left"></span>
-							</a>
-							<a class="right carousel-control" href="#rushRiftCarousel" data-slide="next">
-								<span class="glyphicon glyphicon-chevron-right"></span>
-							</a>
-						</div>
-						
-						<div class="game-description">
-							<h4>About the Game</h4>
-							<p>A fast-paced first-person action game centered on momentum and precision.</p>
-							
-							<h4>My Role</h4>
-							<p>As Lead Programmer, I developed the core movement, dash, and attack systems, as well as the additive level-loading architecture, focusing on scalability, performance, and clean modular code in Unity.</p>
-							
-							<div class="text-center">
-								<a href="https://luinbucket.itch.io/rushrift" class="btn btn-primary">Play Game</a>
-								<a href="https://github.com/CampoLucas/RushRift" class="btn btn-primary">Git Hub</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Mystic Catacombs Modal -->
-		<div class="modal fade" id="mysticCatacombsModal" tabindex="0" role="dialog">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h3 class="modal-title text-center">Mystic Catacombs</h3>
-						<p class="text-center">Apr 2023 - May 2025</p>
-					</div>
-					<div class="modal-body">
-						<div id="mysticCatacombsCarousel" class="carousel slide" data-ride="carousel">
-							<div class="carousel-inner">
-								<div class="item active">
-									<img src="images/mysticcatacombs.jpg" alt="Rush Rift Gameplay">
-								</div>
-								<div class="item">
-									<img src="images/MC/MC_Giff2_High.gif" alt="Mystic Catacombs Gameplay">
-								</div>
-								<div class="item">
-									<img src="images/MC/MC_Giff1_High.gif" alt="Mystic Catacombs Gameplay">
-								</div>
-								<!-- Add other slides -->
-							</div>
-							<a class="left carousel-control" href="#mysticCatacombsCarousel" data-slide="prev">
-								<span class="glyphicon glyphicon-chevron-left"></span>
-							</a>
-							<a class="right carousel-control" href="#mysticCatacombsCarousel" data-slide="next">
-								<span class="glyphicon glyphicon-chevron-right"></span>
-							</a>
-						</div>
-						
-						<div class="game-description">
-							<h4>About the Game</h4>
-							<p>A personal project focused on AI development and combat mechanics, created to experiment with system design and gameplay feel.</p>
-							<p>Developed independently from start to finish to strengthen my technical and design skills in Unity.</p>
-							
-							<div class="text-center">
-								<a href="https://luinbucket.itch.io/mystic-catacombs" class="btn btn-primary">Play Game</a>
-								<a href="https://github.com/CampoLucas/MysticCatacombs" class="btn btn-primary">Git Hub</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Gun bandit Modal -->
-		<div class="modal fade" id="gunBanditModal" tabindex="1" role="dialog">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h3 class="modal-title text-center">Gun Bandit</h3>
-						<p class="text-center">Aug 2022 - Nov 2022</p>
-					</div>
-					<div class="modal-body">
-						<div id="gunBanditCarousel" class="carousel slide" data-ride="carousel">
-							<div class="carousel-inner">
-								<div class="item active">
-									<img src="images/GunBandit/Gif1_HighRes.gif" alt="Gun Bandit Gameplay">
-								</div>
-								<div class="item">
-									<img src="images/GunBandit/Gif2_HighRes.gif" alt="Gun Bandit Gameplay">
-								</div>
-								<div class="item">
-									<img src="images/GunBandit/Gif3_HighRes.gif" alt="Gun Bandit Gameplay">
-								</div>
-								<!-- Add other slides -->
-							</div>
-							<a class="left carousel-control" href="#gunBanditCarousel" data-slide="prev">
-								<span class="glyphicon glyphicon-chevron-left"></span>
-							</a>
-							<a class="right carousel-control" href="#gunBanditCarousel" data-slide="next">
-								<span class="glyphicon glyphicon-chevron-right"></span>
-							</a>
-						</div>
-						
-						<div class="game-description">
-							<h4>About the Game</h4>
-							<p>A top-down shooter/puzzle game, where the player needs to complete an objective either stealthily or head on.</p>
-							
-							<h4>My Role</h4>
-							<p>As Lead Programmer, In this project I was the sole programmer, I was responsible for programming the player, weapon system, enemies and UI.</p>
-							
-							<div class="text-center">
-								<a href="https://luinbucket.itch.io/gunbandit" class="btn btn-primary">Play Game</a>
-								
-								<a href="https://github.com/CampoLucas/GunBandit" class="btn btn-primary">Git Hub</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- 3047 Modal -->
-		<div class="modal fade" id="3047Modal" tabindex="2" role="dialog">
-			<div class="modal-dialog modal-lg">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h3 class="modal-title text-center">3047</h3>
-						<p class="text-center">Mar 2022 - Aug 2022</p>
-					</div>
-					<div class="modal-body">
-						<div id="spaceCarousel" class="carousel slide" data-ride="carousel">
-							<div class="carousel-inner">
-								<div class="item active">
-									<img src="images/3047/47_Gif1_HighRes.gif" alt="3047 Gameplay">
-								</div>
-								<div class="item">
-									<img src="images/3047/47_Gif2_HighRes.gif" alt="3047 Gameplay">
-								</div>
-								<div class="item">
-									<img src="images/3047/47_Gif3_HighRes.gif" alt="3047 Gameplay">
-								</div>
-								<!-- Add other slides -->
-							</div>
-							<a class="left carousel-control" href="#spaceCarousel" data-slide="prev">
-								<span class="glyphicon glyphicon-chevron-left"></span>
-							</a>
-							<a class="right carousel-control" href="#spaceCarousel" data-slide="next">
-								<span class="glyphicon glyphicon-chevron-right"></span>
-							</a>
-						</div>
-						
-						
-						<div class="game-description">
-							<h4>About the Game</h4>
-							<p>A 3D shoot ‘em up with bullet hell elements.</p>
-							
-							<h4>My Role</h4>
-							<p>I coded the player, damage system, UI, animations, enemies and boss behaviour.</p>
-							
-							<div class="text-center">
-								<a href="https://luinbucket.itch.io/the3047" class="btn btn-primary">Play Game</a>
-								
-								<a href="https://github.com/CampoLucas/3047" class="btn btn-primary">Git Hub</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<!-- Similar modals for Mystic Catacombs and Gun Bandit -->
-		<!-- Copy the modal structure above and adjust content accordingly -->
-
-		<style>
-		.game-card {
-			margin-bottom: 30px;
-			transition: transform 0.3s ease;
-		}
-		.game-card:hover {
-			transform: scale(1.05);
-		}
-		.modal-body {
-			padding: 20px;
-		}
-		.game-description {
-			margin-top: 20px;
-			padding: 20px;
-		}
-		.carousel-control {
-			background-image: none !important;
-		}
-		.carousel-control span {
-			color: #fff;
-			text-shadow: 0 0 3px rgba(0,0,0,0.8);
-		}
-		</style>
-	</div>
-
-	<hr style="border: 2px solid rgb(83, 83, 83); width: 50%; border-radius: 3px;">
-
-	<!-- Skills -->
-	<div id="fh5co-skills" class="animate-box">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-					<h2>Skills</h2>
-					<p class="sub-text">Tools, languages and core programming concepts I use to build games and systems.</p>
-				</div>
-			</div>
-
-			<div class="row  row-pb-sm">
-				<div class="col-sm-12 col-md-4" style="padding-bottom: 30px;">
-					<h4>Tools</h4>
-					<ul class="skill-list">
-						<li><div class="skill-chip">Unity</div></li>
-						<li><div class="skill-chip">Unreal Engine 5</div></li>
-						<li><div class="skill-chip">Git</div></li>
-						<li><div class="skill-chip">Photon (multiplayer)</div></li>
-						<li><div class="skill-chip">Rider</div></li>
-						<li><div class="skill-chip">Oculus / XR</div></li>
-					</ul>
-				</div>
-
-				<div class="col-sm-12 col-md-4" style="padding-bottom: 30px;">
-					<h4>Code</h4>
-					<ul class="skill-list">
-						<li><div class="skill-chip">C#</div></li>
-						<li><div class="skill-chip">C++</div></li>
-						<li><div class="skill-chip">Python</div></li>
-						<li><div class="skill-chip">HTML / CSS</div></li>
-					</ul>
-				</div>
-
-				<div class="col-sm-12 col-md-4" style="padding-bottom: 30px;">
-					<h4>Skills & Practices</h4>
-					<div class="skill-list">
-						<li><div class="skill-chip">Documentation</div></li>
-						<li><div class="skill-chip">Agile</div></li>
-						<li><div class="skill-chip">QA</div></li>
-						<li><div class="skill-chip">UI/UX</div></li>
-						<li><div class="skill-chip">Problem Solving</div></li>
-					</div>
-				</div>
-			</div>
-			
-			<!-- Languages (spoken) -->
-			<div class="row row-pb-sm">
-				<div class="col-md-12">
-					<h4>Languages</h4>
-					<div class="skill-chips">
-						<div class="skill-chip">English — Fluent</div>
-						<div class="skill-chip">Spanish — Native</div>
-						<div class="skill-chip">Japanese — Conversational</div>
-					</div>
-				</div>
-			</div>
-
-			<!-- Programming Concepts as full-width row under the sections -->
-			<div class="row row-pb-sm" style="margin-top:18px;">
-				<div class="col-md-12 programming-concepts">
-					<h4>Programming Concepts</h4>
-					<ul>
-						<li>Design patterns: Factory, Builder, Command, Mediator, Strategy, Observer, Object Pooling</li>
-						<li>MVC architecture</li>
-						<li>AI algorithms: A*, Dijkstra, FSM, Steering Behaviors, Obstacle Avoidance, Roulette, Flocking, Decision Trees, Behavior Trees</li>
-						<li>Multiplayer architectures: Full-Authoritative and Non-Authoritative models</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	
-	<div id="fh5co-footer" class="bg-dark">
-		<div class="container ">
-			<div class="row">
-				
-			</div>
-		</div>
-	</div>
-
-	<div class="gototop js-top">
-		<a href="#" class="js-gotop"><i class="icon-arrow-up22"></i></a>
-	</div>
-	
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Stellar Parallax -->
-	<script src="js/jquery.stellar.min.js"></script>
-	<!-- Easy PieChart -->
-	<script src="js/jquery.easypiechart.min.js"></script>
-	<!-- Google Map -->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCefOgb1ZWqYtj7raVSmN4PL2WkTrc-KyA&sensor=false"></script>
-	<script src="js/google_map.js"></script>
-	
-	<!-- Main -->
-	<script src="js/main.js"></script>
-
-	<!-- Fix: ensure body padding-right doesn't accumulate if Bootstrap handlers were duplicated previously -->
-	<script>
-	// When a modal is fully hidden, if no other modal is open, clear any inline body padding-right added by modals.
-	// Defensive: only runs when jQuery + Bootstrap are available.
-	if (window.jQuery) {
-		(function($){
-			$(document).on('hidden.bs.modal', function(){
-				if ($('.modal.in').length === 0) {
-					$('body').css('padding-right','');
-				}
-			});
-		})(jQuery);
-	}
-	</script>
-
-	</body>
+</body>
 </html>
-

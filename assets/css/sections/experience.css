@@ -1,0 +1,135 @@
+.section-exp {
+    
+}
+
+.section-exp-title {
+}
+
+.section-exp ul {
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+    padding: 0;
+}
+
+.section-exp .carousel-cnt {
+    min-width: 40%;
+    max-width: 650px;
+}
+
+.section-exp .description-cnt .social {
+    justify-content: start; 
+    padding-top: 1.5rem;
+}
+
+.section-exp h3, 
+.section-exp h4 {
+    margin-bottom: 5px;
+}
+
+.section-exp h4, 
+.section-exp h5 {
+    margin-top: 5px; 
+    font-weight: 100; 
+    font-size: 14px;
+}
+
+.section-exp h3 {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.section-exp h5 {
+    color: rgba(240, 248, 255, 0.607)
+}
+
+.block-cnt h3 {
+    margin-top: 0;
+}
+
+.block-cnt li,
+.block-cnt p {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.block-cnt {
+    margin-bottom: 14px;
+}
+
+.block-cnt .list {
+    flex-direction: column;
+    
+    list-style-type: disc;
+    padding-inline-start: 30px;
+    unicode-bidi: isolate;
+}
+
+.block-cnt li {
+    display: list-item;
+}
+
+.block-cnt .info-tags {
+    box-sizing: border-box;
+    /* height: 47px; */
+    /* padding: 8px; */
+}
+
+.skill-chip {
+    background: #f1f1f173;
+    padding: 6px 10px;
+    border-radius: 16px;
+    font-size: 13px;
+}
+
+
+@media (max-width: 1200px) {
+    .section-exp .carousel-cnt {
+        max-width: 100%;
+    }
+    
+    .section-exp ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .section-exp {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+
+@media only screen and (orientation: portrait) and (max-width:640px) {
+    /* #experiences-cnt {
+        margin-inline: 25px;
+    } */
+    
+    .section-exp ul {
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    .section-exp .carousel-cnt {
+        width: 100%;
+    }
+
+    .section-exp .description-cnt .social {
+        justify-content: center;
+    }
+}
+
+
+
+@media only screen and (orientation: landscape) and (max-width:1000px) {
+    
+    
+    
+    
+    
+    .section-exp .description-cnt .social {
+        justify-content: center;
+    }
+}
+

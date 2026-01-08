@@ -1,0 +1,206 @@
+{
+    "hero": {
+        "title": [
+            { "text": "I'm ", "style": "normal" },
+            { "text": "Lucas Campo", "style": "accent" }
+        ],
+        "roles": [ "Game Developer", "Web Developer" ],
+        "imgAlt": "Profile picture",
+        "contactBtn": "Contact",
+        "contactBtnHover": "Go to contacts"
+    },
+    "about": {
+        "title": "About Me",
+        "description": [
+            "Hey! I'm a gameplay programmer with over two years of experience. I focus on building solid and flexible architecture, with a strong interest in AI behaviors, gameplay systems, and complex mechanics.",
+            "I've always been drawn to games that reward curiosity and skill, and I try to bring that same mindset into my work. For me, programming isn't just about making things function, it's about helping the player feel something through how the game responds."
+        ],
+        "imgAlt": "About picture",
+        "linkedInHover": "Check out my LinkedIn!",
+        "githubHover": "Check out my github!",
+        "emailHover": "Contact me!",
+        "itchHover": "Check out my Games!",
+        "portfolioHover": "Previous portfolio"
+    },
+    "experience": {
+        "title": "Experience",
+        "threeDar": {
+            "company": "3Dar",
+            "product": "Eggscape",
+            "period": "May 2023 - Feb 2025",
+            "role": "Game Developer",
+            "imgAlt": "Eggscape showcase image",
+            "blocks": [
+                    { 
+                        "type": "desc", 
+                        "title": "Project",
+                        "text": "AR/VR multiplayer platformer developed for Oculus, awarded the Lion at the Biennale di Venezia (2022)."
+                    },
+                    {
+                        "type": "ul",
+                        "title": "Key Contributions",
+                        "items": [
+                            "Designed and implemented an enemy AI system using a finite state machine combined with behavior trees, supporting coordinated enemy interactions and multiple states such as idle, chase, and attack.",
+                            "Built core player mechanics including wall-climbing parkour and a combo-based combat system with input-driven attacks, mid-air moves, and chained abilities.",
+                            "Worked on an authoritative server multiplayer model, ensuring player interactions such as attacks, item pickup, and item throwing felt responsive and consistent despite network latency.",
+                            "Developed gameplay systems specifically for VR, working hands-on with Oculus headsets and integrating input and interaction using the XR Toolkit."
+                        ]
+                    },
+                    {
+                        "type": "hr-ul",
+                        "title": "Skills & Knoledge",
+                        "items": [
+                            "Multiplayer Architecture", 
+                            "Optimization",
+                            "Design Patterns",
+                            "OOP",
+                            "Behavior Trees",
+                            "Finate State Machines",
+                            "Pathfinding",
+                            "Combat AI"
+                        ]
+                    },
+                    {
+                        "type": "hr-ul",
+                        "title": "Tools",
+                        "items": [
+                            "Unity", 
+                            "C#",
+                            "Photon",
+                            "Oculus VR", 
+                            "XR Interaction Toolkit",
+                            "Git"
+                        ]
+                    }
+                ]
+        }
+    },
+    "projects": {
+        "title": "Projects",
+        "projects": {
+            "rushRift": {
+                "title": "Rush Rift",
+                "period": "Mar 2025 - Present",
+                "blocks": [
+                        { 
+                            "type": "desc", 
+                            "title": "About the Game",
+                            "text": "Rush Rift is a fast-paced first-person speedrunner game where every second counts. Dash through cyberpunk arenas, chain attacks with precision, and keep your momentum alive as you race toward the finish."
+                        },
+                        { 
+                            "type": "desc", 
+                            "title": "My Role",
+                            "text": "As Lead Programmer, I developed the core movement, dash, and attack systems, as well as the additive level-loading architecture, focusing on scalability, performance, and clean modular code in Unity."
+                        }
+                    ],
+                "roles": [ "Lead Programmer" ],
+                "imgAlt": "Rush Rift showcase"
+            },
+            "mysticCatacombs": {
+                "title": "Mystic Catacombs",
+                "period": "Apr 2025 - May 2025",
+                "blocks": [
+                        { 
+                            "type": "desc", 
+                            "title": "About the Game",
+                            "text": "A personal project focused on AI development and combat mechanics, created to experiment with system design and gameplay feel."
+                        },
+                        { 
+                            "type": "desc", 
+                            "title": "My Role",
+                            "text": "Developed independently from start to finish to strengthen my technical and design skills in Unity."
+                        }
+                    ],
+                "roles": [ "Programmer" ],
+                "imgAlt": "Rush Rift showcase"
+            },
+            "gunBandit": {
+                "title": "Gun Bandit",
+                "period": "Aug 2022 - Nov 2022",
+                "blocks": [
+                        { 
+                            "type": "desc", 
+                            "title": "About the Game",
+                            "text": [ 
+                                "Gun Bandit is a 2D top-down shooter/puzzle game where you play as a mercenary hired to carry out dangerous missions inpired in Hotline Miami.",
+                                "Play your way, go in guns blazing, or take a stealthy approach and avoid detection. Every mission is a choice: fight or sneak.",
+                                "Simple prototype to demonstrate pathfinding, state machine, and enemy AI."
+                            ]
+                        },
+                        { 
+                            "type": "desc", 
+                            "title": "My Role",
+                            "text": "As Lead Programmer, In this project I was the sole programmer, I was responsible for programming the player, weapon system, enemies and UI."
+                        }
+                    ],
+                "roles": [ "Lead Programmer" ],
+                "imgAlt": "Rush Rift showcase"
+            },
+            "spaceGame": {
+                "title": "3047",
+                "period": "Mar 2022 - Aug 2022",
+                "blocks": [
+                        { 
+                            "type": "desc", 
+                            "title": "About the Game",
+                            "text": [
+                                "In 3047 you play as a space bounty hunter, where you were task to eliminate groups of bandits and save the galaxy.",
+                                "It is a 3D shoot em up, until the boss battle starts, and it becomes a bullet hell."
+                            ]
+                        },
+                        { 
+                            "type": "desc", 
+                            "title": "My Role",
+                            "text": "I coded the player, damage system, UI, animations, enemies and boss behaviour."
+                        }
+                    ],
+                "roles": [ "Programmer" ],
+                "imgAlt": "Rush Rift showcase"
+            },
+            "langGame": {
+                "title": "Vocab Match",
+                "shortDesc": "A web based vocabulary trainer",
+                "desc": [
+                    "A JSON driven language learning game.",
+                    "Supports multiple languages and game modes."
+                ],
+                "roles": [ "Frontend Programmer" ],
+                "imgAlt": "Vocab Match showcase"
+            },
+            "greatestMovies": {
+                "title": "Greatest Movies",
+                "shortDesc": "A web based vocabulary trainer",
+                "desc": [
+                    "A JSON driven language learning game.",
+                    "Supports multiple languages and game modes."
+                ],
+                "roles": [ "Frontend Programmer" ],
+                "imgAlt": "Greatest Movies showcase"
+            }
+        },        
+        "categories": {
+            "websitesTitle": "Web Pages",
+            "gamesTitle": "Games"
+        }
+    },
+    "skills": {
+        "sections": {
+            "programming": "Code",
+            "practices": "Skills & Practices",
+            "tools": "Tools"
+        },
+        "languages": {
+            "title": "Languages",
+            "en": { "title": "English", "desc": "Fluent" },
+            "es": { "title": "Spanish", "desc": "Native" },
+            "jp": { "title": "Japanese", "desc": "Conversational" }
+        },
+        "concepts": {
+            "title": "Programming Concepts",
+            "designPatterns": { "title": "Design patterns", "desc": "Factory, Builder, Command, Mediator, Strategy, Observer, Object Pooling" },
+            "mvcArchitecture": { "title": "MVC architecture", "desc": null },
+            "aiAlgorithms": { "title": "AI algorithms", "desc": "A*, Dijkstra, FSM, Steering Behaviors, Obstacle Avoidance, Roulette, Flocking, Decision Trees, Behavior Trees" },
+            "multiplayerArchitecture": { "title": "Multiplayer architectures", "desc": "Full-Authoritative and Non-Authoritative models" }
+        }
+    }
+}

@@ -1,0 +1,18 @@
+:root {
+    --page-bg: rgb(22, 9, 34);
+    --hero-page-bg: rgb(4, 2, 11);
+    --particle-color: rgb(231, 186, 230);
+    --particle-links-color: rgb(234, 75, 223);
+    --particle-width: 3;
+
+
+    --text-scale: clamp(0.8rem, 1.5svw, 2rem);
+    --accent-color1: #ff4141;
+    --accent-color2: #ff8801;
+
+    /* --title-color1: #a422c1;
+    --title-color2: #37ff7a; */
+
+    --title-color1: var(--accent-color2);
+    --title-color2: var(--accent-color1);
+}

@@ -1,0 +1,175 @@
+.hero-page {
+    position: relative;
+    height: 100svh;
+    width: 100%;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: var(--hero-page-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-top,
+.hero-center,
+.hero-bottom {
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+}
+
+.hero-top {
+    top: 0;
+}
+
+.hero-center {
+    top: 50%;
+    transform: translateY(-50%);
+    align-self: center;
+    flex-direction: column;
+}
+
+.hero-bottom {
+    bottom: 0;
+}
+
+
+
+.hero-top .gradient,
+.hero-center .gradient,
+.hero-bottom .gradient {
+    height: 20svh;
+}
+
+.hero-top .gradient{
+    top: 0;
+    background: linear-gradient(to bottom, var(--page-bg), rgba(0, 0, 0, 0));
+}
+
+.hero-bottom .gradient {
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, var(--page-bg) 100%);
+}
+
+.hero-content {
+    width: 100%;
+    width: 100%;
+    /* padding: 0 12%; */
+    display: flex;
+    gap: 5rem;
+    justify-content: center;
+    pointer-events: auto; 
+    box-sizing: border-box;
+    align-items: center;
+}
+
+.hero-center .hero-content {
+    padding-bottom: 15svh;
+    
+}
+
+.hero-text {
+    display: flex;
+    flex: 15svw 1 110px;
+    flex-direction: column;
+    font-size: var(--text-scale);
+    
+}
+
+.hero-page > * {
+    
+    z-index: 1; /* ensures text + image stay above particles */
+}
+
+.hero-roles {
+    color: aliceblue; 
+    list-style: none; 
+    display: flex; 
+    gap: 1rem;
+    padding: 0;
+}
+
+.hero-contact {
+    display: flex;
+}
+
+
+
+@media only screen and (max-width:1000px) {
+    .hero-roles {
+        flex-direction: column;
+        gap: .25rem;
+        font-size: larger;
+    }
+    
+    .hero-role.ceparator {
+        display: none;
+    }
+
+    .hero-contact {
+    }
+}
+
+@media only screen and (orientation: portrait) and (max-width:640px) {
+    .hero-top,
+    .hero-center,
+    .hero-bottom {
+        position: static;
+        transform: none;
+        width: 100%;
+    }
+
+    .hero-page {
+        padding-bottom: 2rem;
+    }
+
+    .hero-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 5%;
+    }
+
+    .hero-text {
+        order: 2;
+    }
+
+    .hero-text {
+        --text-scale: clamp(1rem, 2svw, 3rem);
+        font-size: var(--text-scale);
+    }
+
+    .hero-center .hero-content {
+        padding-inline: 15svw;
+        padding-bottom: 0;
+        gap: 1.25rem;
+    }
+
+    .hero-top .gradient,
+    .hero-center .gradient,
+    .hero-bottom .gradient {
+        height: 15svh;
+    }
+
+    .hero-contact {
+        align-self: center;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 1000px){
+    .hero-center .hero-content {
+        padding-inline: 15svw;
+        padding-bottom: 15svh;
+        
+    }
+
+    .hero-top .gradient,
+    .hero-center .gradient,
+    .hero-bottom .gradient {
+        height: 15svh;
+    }
+
+    
+}

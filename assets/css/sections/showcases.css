@@ -1,0 +1,61 @@
+/* background section */
+
+.background {
+    background: rgba(255, 255, 255, .03);
+    backdrop-filter: blur(4px);
+}
+
+.background.content {
+    padding: 10svh 0;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    display: flex; justify-content: center; 
+}
+
+.inner {
+    max-width: 900x;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+
+.showcase-viewport {
+    width: 100%;
+    max-width: 1200px;
+    display: flex; 
+    justify-content: center; 
+    flex-direction: column;
+    color: aliceblue;
+    box-sizing: border-box;
+    padding-inline: 25px;
+}
+
+.section-viewport {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    font-family: "Motiva Sans", Sans-serif;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+}
+
+@media only screen and (orientation: portrait) and (max-width:640px) {
+    .showcase-viewport {
+        width: 100%;
+    }
+    
+    .section-viewport {
+        font-size: 14px;
+        padding-bottom: 1.5rem;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width:1000px) {
+    .showcase-viewport {
+        width: 90%;
+        
+    }
+
+    .section-viewport {
+        font-size: 14px;
+        padding-bottom: 1.5rem;
+    }
+}

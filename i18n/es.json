@@ -1,0 +1,25 @@
+{
+    "hero": {
+        "title": [
+            { "text": "Soy ", "style": "normal" },
+            { "text": "Lucas Campo", "style": "accent" }
+        ],
+        "roles": [ "Desarrollador de Videojuegos", "Desarrollador Full-Stack" ],
+        "imgAlt": "Imagen de perfil",
+        "contactBtn": "Contacto",
+        "contactBtnHover": "Ir a contactos"
+    },
+    "about": {
+        "title": "Sobre Mi",
+        "description": [
+            "Soy desarrollador de videojuegos con más de dos años de experiencia. Me enfoco en crear arquitecturas sólidas, flexibles y tengo un gran interes en comportamientos IA, los systemas complejos y mecanicas. Trabaje en projectos de VR/XR y multijugador, así que estoy acostumbrado a lidiar con todo tipo de problemas de rendimiento y esos casos raros que solo aparecen cuando los jugadores juegan el juego.",
+            "Me gusta arreglar problemas, bugs, como pathfindings rotos, errores de sincronización extraños o mecánicas que no terminan de encajar hasta que las rehaces tres veces. Trabajo bien con diseñadores y artistas porque me importa cómo encaja todo, no solo cómo corre el código."
+        ],
+        "imgAlt": "Imagen sobre mi",
+        "linkedInHover": "Mi LinkedIn",
+        "githubHover": "Mis projectos",
+        "emailHover": "Contacta me!",
+        "itchHover": "Proba mis juegos!",
+        "portfolioHover": "Anterior portfolio"
+    }
+}

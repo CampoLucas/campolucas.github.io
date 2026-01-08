@@ -1,0 +1,104 @@
+
+.profile-shadow {
+    --profile-pic-size: clamp(5em, 25svw, 20em);
+    --profile-pic-shadow: rgb(38, 20, 74);
+    width: var(--profile-pic-size);
+    height: auto;
+    aspect-ratio: 1/1;
+    filter: url("../../img/profile/profile-pib-shape.svg") drop-shadow(0 0 calc(var(--profile-pic-size) * .25) var(--profile-pic-shadow));
+}
+
+.profile-pic {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    display: block;
+
+    -webkit-mask: url("../../img/profile/profile-pib-shape.svg");
+    mask: url("../../img/profile/profile-pib-shape.svg");
+    
+    /* box-shadow: 0 0 calc(var(--profile-pic-size) * .5) var(--profile-pic-shadow); */
+}
+
+.social {
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    z-index: 9;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background-color: rgba(255,255,255,0.06);
+    color: #fff;
+    text-decoration: none;
+    transition: transform 140ms ease, background-color 140ms ease;
+    z-index: 9;
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    background-color: rgba(255,255,255,0.12);
+    z-index: 9;
+}
+
+.social-link svg { 
+    display: block; 
+}
+
+.contact-info { 
+    display: flex;
+    gap: 0.6rem;
+    align-items: center;
+    justify-content: center;
+    z-index: 9;
+}
+
+.contact-link {
+    color: #f3f3f3;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 9;
+    font-size: 1rem;
+}
+
+.contact-sep { 
+    color: #f3f3f3;
+    /* opacity: 0.5;  */
+}
+
+@media only screen and (orientation: portrait) and (max-width:640px) {
+    .social-link { 
+        width: 40px; 
+        height: 40px; 
+    }
+
+    .contact-link {
+        font-size: .85rem;
+    }
+
+    #about-contacts .contact-link {
+        font-size: .7rem;
+    }
+
+    .profile-shadow {
+        --profile-pic-size: clamp(15svw, 25svw, 50svw);
+        height: auto;
+    }
+
+    .profile-shadow {
+        order: 1;
+    }
+}
+
+@media only screen and (orientation: portrait) and (max-width: 450px) {
+    .profile-shadow {
+        --profile-pic-size: 60svw;
+    }
+}

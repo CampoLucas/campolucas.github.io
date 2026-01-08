@@ -1,0 +1,327 @@
+:root {
+    --items-padding: 6px;
+    --capsule-gap: 12px;
+    --visible-games: 4;
+    --visible-websites: 5;
+
+    --tag-h-pad: 5px;
+    --tag-w-pad: 8px;
+    --tag-height: 18px;
+    --tag-total-height: calc((var(--tag-h-pad) * 2) + var(--tag-height));
+    
+    --tag-font-size: 12px;
+
+    --max-tag-columns: 2;
+    --tags-gap: 8px;
+    --tags-padding: 8px;
+    --max-height: calc(
+        (var(--tag-total-height) * var(--max-tag-columns)) +
+        (var(--tags-gap) * (var(--max-tag-columns) - 1)) + 
+        (var(--tags-padding) * 2)
+    );
+}
+
+.projects-carousel {
+    margin-top: 20px;
+}
+
+
+
+.title-grid {
+    display: grid;
+    z-index: 3;
+    position: relative;
+    padding: 0 0 10px calc(10px + var(--items-padding));
+
+}
+
+.section-title {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 20px;
+    font-family: "Motiva Sans", Sans-serif;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.projects-carousel .carousel-container {
+    position: relative;
+}
+
+/* .projects-carousel .carousel-items > * {
+    width: 100%;
+} */
+
+.projects-carousel .carousel-items{
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    padding: var(--items-padding);
+    box-sizing: border-box;
+    /* gap: var(--capsule-gap); */
+    transition: opacity 400ms;
+}
+
+.projects-carousel .carousel-items > *.focus {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.focus {
+    display: flex;
+    gap: var(--capsule-gap);
+    overflow: visible;
+}
+
+.projects-carousel a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+/* Capsules */
+
+.website-capsule:hover,
+.game-capsule:hover {
+    z-index: 5;
+}
+
+.carousel-items {
+    display: flex;
+    gap: 12px;
+    overflow: hidden;
+    padding: var(--items-padding);
+    box-sizing: border-box;
+}
+
+
+.game-capsule,
+.website-capsule {
+    position: relative;
+    z-index: 1;
+    flex: 0 0 auto;
+    flex-shrink: 0;
+    display: block;
+    box-sizing: border-box;
+    isolation: isolate;
+    scroll-snap-align: start;
+}
+
+
+.game-capsule {
+    /* capsule width - the gap */
+    --w: calc((100% / var(--visible-games)) - (var(--capsule-gap) * (var(--visible-games) - 1)) / var(--visible-games));
+    /* width: calc(25% - (var(--capsule-gap) * (4 - 1)) / 4); */
+    flex: 0 0 var(--w);
+    width: var(--w);
+}
+
+.website-capsule {
+    /* capsule width - the gap */
+    --w: calc((100% / var(--visible-websites)) - (var(--capsule-gap) * (var(--visible-websites) - 1)) / var(--visible-websites));
+    /* width: calc(20% - (var(--capsule-gap) * (5 - 1)) / 5); */
+    flex: 0 0 var(--w);
+    width: var(--w);
+}
+
+.projects-carousel .game-capsule,
+.projects-carousel .website-capsule {
+    
+    scroll-snap-align: start;
+}
+
+.capsule-img-cnt {
+    position: relative;
+    /* width: 100%; */
+    display: block;
+    z-index: 2;
+    transition: transform 0.2s ease, z-index 0s;
+    overflow: hidden;
+    box-sizing: border-box;
+    /* object-fit: scale-down; */
+}
+
+.game-capsule .capsule-img-cnt {
+    aspect-ratio: 16/9;
+}
+
+.website-capsule .capsule-img-cnt {
+    aspect-ratio: 1/1;
+    border-radius: 20%;
+    background: linear-gradient(-45deg, #74747424, #dbdbdb);
+}
+
+.game-capsule:hover .capsule-img-cnt,
+.website-capsule:hover .capsule-img-cnt {
+    transform: scale(1.05);
+    z-index: 3;
+}
+
+.game-capsule:hover .capsule-img {
+    opacity: 0;
+}
+
+.game-capsule:hover .capsule-video {
+    opacity: 1;
+}
+
+
+.capsule-img,
+.capsule-video {
+    position: absolute;
+    inset: 0;
+    
+    width: 100%;
+    height: 100%;
+    
+    object-fit: cover;
+    object-position: center;
+
+    min-width: 0;
+    min-height: 0;
+
+    -webkit-user-drag: none;
+    border: none;
+
+    transition: opacity .25s ease-in-out;
+}
+
+.capsule-img {
+    opacity: 1;
+}
+
+.capsule-video {
+    opacity: 0;
+}
+
+
+
+/* Game info */
+.info-cnt {
+    
+}
+
+.info-cnt p {
+    margin-top: 5px;
+}
+
+.info-tags {
+    /* aspect-ratio: 3.78/1; */
+    
+    width: 100%;
+    max-height: var(--max-height);
+    box-sizing: border-box;
+    
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    padding: var(--tags-padding);
+    gap: var(--tags-gap);
+    background: linear-gradient(0.35turn, #74747424, #a8a8a824, #e1e1e124);
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.info-tag {
+    background: #74747424;
+    color: #dbdbdb;
+    border-radius: 3px;
+    line-height: var(--tag-height);
+    padding: var(--tag-h-pad) var(--tag-w-pad);
+    font-size: var(--tag-font-size);
+    text-wrap: nowrap;
+    justify-self: start;
+}
+
+/* Thumbs */
+
+.projects-carousel .carousel-thumbs{
+    text-align: center;
+    min-height: 37px;
+}
+
+/* Arrows */
+.projects-carousel .arrow {
+    position: absolute;
+    top: calc(50% - 54px);
+    width: 23px;
+    height: 36px;
+    padding: 36px 11px;
+    cursor: pointer;
+    z-index: 3;
+
+    transform: translateY(calc(-50% + 37px));
+    background: none;
+    transition: all .15s ease-in-out;
+}
+
+.projects-carousel .arrow.left {
+    left: -50px;
+}
+
+.projects-carousel .arrow.right {
+    right: -50px;
+}
+
+.projects-carousel .arrow > div {
+    width: 23px;
+    height: 36px;
+    background-repeat: no-repeat;
+}
+
+.projects-carousel .arrow.left > div {
+    background-image: url(https://cdn.fastly.steamstatic.com/store/icons/arrow_left.svg);
+}
+
+.projects-carousel .arrow.right > div {
+    background-image: url(https://cdn.fastly.steamstatic.com/store/icons/arrow_right.svg);
+}
+
+@media only screen and (max-width: 1000px) {
+    .focus {
+        overflow: visible;
+        overflow-x: auto;
+        overflow-y: visible;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .projects-carousel .arrow {
+        display: none;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 1000px) {
+    :root {
+        --visible-games: 3;
+        --visible-websites: 4;
+
+        --tag-h-pad: 3px;
+        --tag-w-pad: 4px;
+        --tag-font-size: 10px;
+        --tag-height: 11px;
+
+        --tags-gap: 5px;
+        --tags-padding: 6px;
+    }
+}
+
+@media only screen and (orientation: portrait) and (max-width: 640px) {
+    :root {
+        --visible-games: 2;
+        --visible-websites: 3;
+
+        --tag-h-pad: 3px;
+        --tag-w-pad: 4px;
+        --tag-font-size: 10px;
+        --tag-height: 11px;
+        
+        --tags-gap: 5px;
+        --tags-padding: 6px;
+    }
+}
+
+.hidden {
+    display: none;
+}

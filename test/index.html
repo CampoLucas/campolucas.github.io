@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Hash Popup Demo</title>
+    <style>
+        .popup {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.75);
+            display: grid;
+            place-items: center;
+        }
+
+        .popup-content {
+            background: #111;
+            color: white;
+            padding: 24px;
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="open">Open popup</button>
+
+    <script>
+        // Add the hash when clicked
+        document.getElementById("open").onclick = () => {
+            location.hash = "demoooo";
+        };
+
+        // When it loads check if it has the hash
+        window.addEventListener("load", handleRoute);
+
+        // Also check it when it changes
+        window.addEventListener("hashchange", handleRoute);
+
+        function handleRoute() {
+            const slug = location.hash.slice(1);
+
+            removePopup();
+
+            if (!slug) return;
+
+            createPopup(slug);
+        }
+
+        // Create the pop-up
+        function createPopup(slug) {
+            const popup = document.createElement("div");
+            popup.className = "popup";
+
+            popup.innerHTML = `
+                <div class="popup-content">
+                <h2>Popup: ${slug}</h2>
+                <p>This only exists when the hash exists.</p>
+                <button id="close">Close</button>
+                </div>
+            `;
+
+            popup.querySelector("#close").onclick = () => {
+                history.pushState("", document.title, window.location.pathname);
+                removePopup();
+            };
+
+            document.body.appendChild(popup);
+        }
+
+        // Remove the pop up
+        function removePopup() {
+            document.querySelector(".popup")?.remove();
+        }
+    </script>
+</body>
+</html>

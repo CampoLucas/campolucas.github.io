@@ -1,0 +1,67 @@
+#app[aria-busy="false"] .loaderWrap { display: none; }
+
+.loaderWrap {
+    position: fixed;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    gap: 14px;
+    
+    /* semi-transparent overlay */
+    background: rgba(11, 15, 23, 0.45);
+
+    /* THIS is the blur */
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(10px);
+
+    z-index: 9999;
+    pointer-events: all;
+}
+
+.throbber-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+/* Animated throbber (no SVG needed) */
+.throbber {
+    width: 64px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    border: 6px solid rgba(232, 238, 252, 0.18);
+    border-top-color: rgba(232, 238, 252, 0.95);
+    animation: spin 0.85s linear infinite;
+    will-change: transform;
+}
+
+/* Optional pulse ring to make it feel more "alive" */
+.pulse {
+    position: relative;
+}
+.pulse::after {
+    content: "";
+    position: absolute;
+    inset: -14px;
+    border-radius: 50%;
+    border: 2px solid rgba(232, 238, 252, 0.18);
+    transform: scale(0.9);
+    opacity: 0;
+    animation: pulse 1.2s ease-out infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+@keyframes pulse {
+    0%   { transform: scale(0.9); opacity: 0.0; }
+    30%  { opacity: 0.35; }
+    100% { transform: scale(1.25); opacity: 0.0; }
+}
+
+.hint {
+    font-size: 14px;
+    font-weight: bold;
+    opacity: 0.75;
+    letter-spacing: 0.2px;
+    color: aliceblue;
+    text-align: center;
+}

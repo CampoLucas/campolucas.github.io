@@ -1,0 +1,32 @@
+/* Foundation */
+@import url("./foundation/variables.css");
+@import url("./foundation/typography.css");
+
+/* Layout */
+@import url("./layout/layout.css");
+
+/* Components */
+@import url("./components/buttons.css");
+@import url("./components/icons.css");
+@import url("./components/social.css");
+@import url("./components/carousel.css");
+@import url("./components/carousel-projects.css");
+@import url("./components/throbber.css");
+@import url("./components/separator.css");
+
+/* Sections */
+@import url("./sections/hero.css");
+@import url("./sections/projects.css");
+@import url("./sections/experience.css");
+@import url("./sections/showcases.css");
+@import url("./sections/footer.css");
+@import url("./sections/popup.css");
+@import url("./sections/skills.css");
+
+/* Effects */
+@import url("./effects/particles.css");
+@import url("./effects/gradient.css");
+
+.disabled {
+    display: none;
+}

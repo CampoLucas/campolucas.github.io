@@ -1,0 +1,83 @@
+
+
+h1.header-title {
+    white-space: nowrap;
+    font-size: 2em;
+    color: white;
+    margin-top: .25rem;
+    margin-bottom: .25rem;
+}
+
+.header-title .accent {
+    background: linear-gradient(
+        -70deg,
+        var(--accent-color1),
+        var(--accent-color2),
+        var(--accent-color1)
+    );
+
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: gradient-move 4s linear infinite;
+}
+
+h2.title {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 1.15;
+    text-wrap: pretty;
+
+    background: linear-gradient(
+        -45deg, 
+        var(--title-color1), 
+        var(--title-color2), 
+        var(--title-color1));
+    
+    background-size: 200% 200%;
+    background-position: 0% 50%;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    animation: gradient-move 15s linear infinite;
+    text-align: center;
+}
+
+@keyframes gradient-move {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+
+.header-description {
+    overflow-wrap: anywhere;
+    margin: 10px 0;
+    font-size: 13px;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.section-viewport p,
+.section-viewport li {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+
+@media ((orientation: portrait) and (max-width:640px)) or ((orientation: landscape) and (max-width:1000px)) {
+    .section-viewport p,
+    .section-viewport li {
+        font-size: 14px;
+    }
+}

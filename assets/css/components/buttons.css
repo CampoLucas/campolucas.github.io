@@ -1,0 +1,19 @@
+.cta-btn {
+    background: #ff4141;
+    color: white;
+    padding: 12px 26px;
+    border-radius: 6px;
+    /* margin-top: 20px; */
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.cta-btn.more {
+    background-color: #802525;
+    margin-top: 10px;
+    padding: 12px 12px;
+}
+
+

@@ -1,0 +1,65 @@
+{
+    "hero": {
+        "baseId": "hero",
+        "titleId": "title",
+        "rolesId": "roles",
+        "picture": { "img": "./assets/img/profile/hero-pic.jpeg", "altId": "imgAlt" },
+        "buttons": [
+            { 
+                "id": "contacts",
+                "link": "#contact", 
+                "classList": [ "cta-btn" ],
+                "label": "contactBtn",
+                "hoverTextId": "contactBtnHover",
+                "type": "link",
+                "newTab": false
+            }
+        ]
+    },
+    "about": {
+        "baseId": "about",
+        "titleId": "title",
+        "descriptionId": "description",
+        "contact": { "email": "campolucas2001@gmail.com", "phone": "+54 11 2740-3576" },
+        "buttons": [
+            { 
+                "id": "linked-in",
+                "link": "https://www.linkedin.com/in/lucascampo3333/", 
+                "classList": [ "icon", "social-link", "linkedin" ],
+                "icon": "linkedin", 
+                "hoverTextId": "linkedInHover",
+                "type": "link",
+                "newTab": true
+            },
+            { 
+                "id": "github", 
+                "link": "https://github.com/CampoLucas", 
+                "classList": [ "icon", "social-link", "github" ],
+                "icon": "github", 
+                "hoverTextId": "githubHover",
+                "type": "link",
+                "newTab": true
+            },
+            { 
+                "id": "mail", 
+                "link": "campolucas2001@gmail.com", 
+                "classList": [ "icon", "social-link", "email"],
+                "icon": "email", 
+                "hoverTextId": "emailHover",
+                "type": "email",
+                "disabled": true
+            },
+            { 
+                "id": "itch", 
+                "link": "https://luinbucket.itch.io/", 
+                "classList": [ "icon", "social-link", "itch"],
+                "icon": "itch", 
+                "hoverTextId": "itchHover",
+                "type": "link",
+                "newTab": true
+            }
+        ],
+        "picture": { "img": "https://images.hobbydb.com/processed_uploads/subject_photo/subject_photo/image/138021/Adam-Sandler-getty-H-2023_png.new0f7be117-12a1-4121-bdc3-ffd988ca5b8d_large.png", "altId": "imgAlt" }
+    }
+}
+

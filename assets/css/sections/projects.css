@@ -1,0 +1,167 @@
+
+
+/* about me */
+
+.about-me-container {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+    
+}
+
+.about-me-text {
+    flex: 1;
+    max-width: 75%;
+}
+
+.about-me-image {
+    flex: 1;
+    
+    max-width: 35%;
+    display: flex;
+    
+}
+
+.about-me-image img {
+    width: 80%;
+    max-width: 500px;
+}
+
+.about-me-text .contact-sep {
+    color: rgb(222, 222, 222);
+}
+
+@media only screen and (orientation: portrait) and (max-width: 768px) {
+    .about-me-container {
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    .about-me-text,
+    .about-me-image {
+        max-width: 100%;
+    }
+
+    .about-me-image {
+        order: 0;
+        justify-content: center;
+    }
+
+    .about-me-text {
+        order: 1;
+    }
+
+    .about-me-image img {
+        width: 60%;
+    }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 1000px) {
+    .about-me-container {
+        gap: 1rem;
+        flex-direction: column;
+    }
+
+    .about-me-text,
+    .about-me-image {
+        max-width: 100%;
+    }
+
+    .about-me-image {
+        order: 0;
+        justify-content: center;
+    }
+
+    .about-me-text {
+        order: 1;
+    }
+
+    .about-me-image img {
+        width: 60%;
+    }
+}
+
+
+/* .projects {
+    padding: 10svh 10svw;
+    background: rgba(255,255,255,0.03);
+    backdrop-filter: blur(4px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+} */
+
+.projects-inner {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.projects-title {
+    font-size: 2.4rem;
+    color: white;
+    margin-bottom: 2rem;
+    letter-spacing: 0.03em;
+    text-align: center;
+}
+
+.projects-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.2rem;
+}
+
+.project-card a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 1.2rem 1.6rem;
+    border-radius: 12px;
+
+    background-color: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+
+    transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.project-card a:hover {
+    background: rgba(255,255,255,0.12);
+    transform: translateY(-3px);
+}
+
+.project-card .arrow {
+    opacity: 0.6;
+    transition: transform 150ms ease, opacity 150ms ease;
+}
+
+.project-card a:hover .arrow {
+    transform: translateX(6px);
+    opacity: 1;
+}
+
+/* Mobile adjustments */
+@media only screen and (orientation: portrait) and (max-width:640px) {
+    .projects {
+        padding: 8svh 6svw;
+    }
+
+    .projects-title {
+        font-size: 2rem;
+    }
+
+    .project-card a {
+        font-size: 1.1rem;
+        padding: 1rem 1.3rem;
+    }
+}
+
+/* Games */
+

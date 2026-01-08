@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Page</title>
+    <style>
+        :root { color-scheme: dark; }
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+            background: #0b0f17;
+            color: #e8eefc;
+        }
+
+        /* Only show loader at first */
+        #app[aria-busy="true"] .content { display: none; }
+        #app[aria-busy="false"] .loaderWrap { display: none; }
+
+        .loaderWrap {
+            display: grid;
+            place-items: center;
+            gap: 14px;
+        }
+
+        /* Animated throbber (no SVG needed) */
+        .throbber {
+            width: 64px;
+            aspect-ratio: 1;
+            border-radius: 50%;
+            border: 6px solid rgba(232, 238, 252, 0.18);
+            border-top-color: rgba(232, 238, 252, 0.95);
+            animation: spin 0.85s linear infinite;
+            will-change: transform;
+        }
+
+        /* Optional pulse ring to make it feel more "alive" */
+        .pulse {
+            position: relative;
+        }
+        .pulse::after {
+            content: "";
+            position: absolute;
+            inset: -14px;
+            border-radius: 50%;
+            border: 2px solid rgba(232, 238, 252, 0.18);
+            transform: scale(0.9);
+            opacity: 0;
+            animation: pulse 1.2s ease-out infinite;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+        @keyframes pulse {
+            0%   { transform: scale(0.9); opacity: 0.0; }
+            30%  { opacity: 0.35; }
+            100% { transform: scale(1.25); opacity: 0.0; }
+        }
+
+        .hint {
+            font-size: 14px;
+            opacity: 0.75;
+            letter-spacing: 0.2px;
+        }
+
+        .content {
+            width: min(720px, 92vw);
+            text-align: center;
+        }
+        h1 { margin: 0 0 10px; font-size: 34px; }
+        p  { margin: 0; opacity: 0.9; font-size: 16px; line-height: 1.45; }
+    </style>
+</head>
+<body>
+    <main id="app" aria-busy="true">
+        <div class="loaderWrap" role="status" aria-live="polite" aria-label="Loading">
+            <div class="throbber pulse" aria-hidden="true"></div>
+            <div class="hint" id="loadingText">Loading</div>
+        </div>
+
+        <section class="content">
+            <h1 id="title"></h1>
+            <p id="subtitle"></p>
+        </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+</body>
+</html>
