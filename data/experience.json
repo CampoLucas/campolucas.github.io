@@ -10,6 +10,12 @@
                 "periodId": "period", 
                 "roleId": "role",
                 "blocksId": "blocks",
+                "skillsId": "skills",
+                "logo": {
+                    "src": "./assets/img/experience/three-dar/logo.jpeg",
+                    "altId": "iconAlt",
+                    "altDefault": "3Dar's Logo"
+                },
                 "images": [ 
                     "./assets/img/experience/three-dar/eggscape-01.png", 
                     "./assets/img/experience/three-dar/eggscape-02.png",
@@ -33,6 +39,49 @@
                         "classList": [ "icon", "social-link", "website" ],
                         "icon": "website", 
                         "hoverTextId": "metaHover",
+                        "type": "link",
+                        "newTab": true
+                    }
+                ]
+            },
+            {
+                "baseId": "independent-work",
+                "companyId": "company",
+                "periodId": "period", 
+                "roleId": "role",
+                "blocksId": "blocks",
+                "skillsId": "skills",
+                "buttons": [
+                    { 
+                        "id": "itchIo",
+                        "link": "https://luinbucket.itch.io/rushrift", 
+                        "classList": [ "icon", "social-link", "itch" ],
+                        "icon": "meta", 
+                        "hoverTextId": "linkedInHover",
+                        "type": "link",
+                        "newTab": true
+                    }
+                ]
+            },
+            {
+                "baseId": "skynetGames",
+                "companyId": "company",
+                "periodId": "period", 
+                "roleId": "role",
+                "blocksId": "blocks",
+                "skillsId": "skills",
+                "logo": {
+                    "src": "./assets/img/experience/skynet-games/logo.jpeg",
+                    "altId": "iconAlt",
+                    "altDefault": "Skynet Game's Logo"
+                },
+                "buttons": [
+                    { 
+                        "id": "linkedIn",
+                        "link": "https://www.linkedin.com/company/skynetgames/", 
+                        "classList": [ "icon", "social-link", "linkedin" ],
+                        "icon": "meta", 
+                        "hoverTextId": "linkedInHover",
                         "type": "link",
                         "newTab": true
                     }

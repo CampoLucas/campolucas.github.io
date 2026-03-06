@@ -28,7 +28,7 @@
             "company": "3Dar",
             "product": "Eggscape",
             "period": "May 2023 - Feb 2025",
-            "role": "Game Developer",
+            "role": "Unity Game Developer",
             "imgAlt": "Eggscape showcase image",
             "blocks": [
                     { 
@@ -45,7 +45,9 @@
                             "Worked on an authoritative server multiplayer model, ensuring player interactions such as attacks, item pickup, and item throwing felt responsive and consistent despite network latency.",
                             "Developed gameplay systems specifically for VR, working hands-on with Oculus headsets and integrating input and interaction using the XR Toolkit."
                         ]
-                    },
+                    }
+                ],
+            "skills": [
                     {
                         "type": "hr-ul",
                         "title": "Skills & Knoledge",
@@ -54,6 +56,7 @@
                             "Optimization",
                             "Design Patterns",
                             "OOP",
+                            "ECS",
                             "Behavior Trees",
                             "Finate State Machines",
                             "Pathfinding",
@@ -67,9 +70,60 @@
                             "Unity", 
                             "C#",
                             "Photon",
+                            "Photon Quantum",
                             "Oculus VR", 
                             "XR Interaction Toolkit",
                             "Git"
+                        ]
+                    }
+                ]
+        },
+        "independent-work": {
+            "company": "Self-employed",
+            "period": "March 2025 - Present",
+            "role": "Independent Game Developer",
+            "blocks": [
+                    { 
+                        "type": "desc",
+                        "title": "Summary",
+                        "text": "Worked on Rush Rift and several Unity editor tools, gameplay systems and portfolio projects."
+                    }
+                ],
+            "skills": [
+                {
+                    "type": "hr-ul",
+                    "title": "Skills & Knoledge",
+                    "items": [
+                        "Unity",
+                        "C#", 
+                        "Optimization",
+                        "Design Patterns",
+                        "OOP",
+                        "Unity Editor Tools",
+                        "Behavior Trees",
+                        "UI",
+                        "Shaders"
+                    ]
+                }
+            ]
+        },
+        "skynetGames": {
+            "company": "Skynet Games",
+            "period": "Feb 2026 - Present",
+            "role": "Unity Game Developer",
+            "linkedInHover": "LinkedIn Page",
+            "blocks": [
+                    { 
+                        "type": "desc", 
+                        "title": "Summary",
+                        "text": "Recently joined a team working on a game in Unity."
+                    },
+                    {
+                        "type": "ul",
+                        "title": "Responsabilities",
+                        "items": [
+                            "Gameplay programming in C#",
+                            "Collaboration with design to integrate mechanics into the game"
                         ]
                     }
                 ]

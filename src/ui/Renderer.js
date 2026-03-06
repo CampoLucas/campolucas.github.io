@@ -155,23 +155,57 @@ export class Renderer {
         container.appendChild(clone);
         
         // Set the title section
+        const headerEl = clone.querySelector("#exp-header");
+
+        if (headerEl) {
+            const imgEl = headerEl.querySelector('img');
+            if (imgEl){
+                if (block.logo){
+                    imgEl.src = block.logo.src;
+                    imgEl.alt = baseId[block.logo.altId] ? baseId[block.logo.altId] : block.logo.altDefault;
+                }
+                else {
+                    
+                    imgEl.classList.add("hidden");
+                }
+            }
+        }
         const titleEl = clone.querySelector("#exp-role");
         titleEl.textContent = `${baseId[block.roleId]}`;
         
         const subTitle = clone.querySelector("#exp-company");
-        subTitle.textContent = `${baseId[block.companyId]} - ${baseId[block.productId]}`;
+
+        const subtitleText = block.productId ? `${baseId[block.companyId]} - ${baseId[block.productId]}` : `${baseId[block.companyId]}`;
+        subTitle.textContent = subtitleText;
         
         const thirdTitle = clone.querySelector("#exp-period");
         thirdTitle.textContent = `${baseId[block.periodId]}`;
 
         // Add the img carousel
         const imgCnt = clone.querySelector("#carousel-cnt");
-        const carouselTemp = document.getElementById("game-carousel");
-        this.addImgCarousel(imgCnt, carouselTemp, block.images, baseId[block.productId]);
+        if (block && block.images && block.images.length >= 0){
+
+            const carouselTemp = document.getElementById("game-carousel");
+            this.addImgCarousel(imgCnt, carouselTemp, block.images, baseId[block.productId]);
+        }
+        else {
+            imgCnt.classList.add("hidden");
+        }
 
         // Add the experience description
         const descCnt = clone.querySelector("#description-cnt");
         this.renderCustomText(descCnt, baseId[block.blocksId]);
+
+        // Skills
+        const skillEl = clone.querySelector("#skills-cnt");
+        if (skillEl) {
+            if (block.skillsId && baseId[block.skillsId]) {
+                this.renderCustomText(skillEl, baseId[block.skillsId]);
+            }
+            else {
+                skillEl.classList.add("hidden");
+            }
+        }
 
         // Buttons
         const btnCnt = clone.querySelector("#links-btn-cnt");
@@ -338,7 +372,7 @@ export class Renderer {
         const cntEl = this.getBlockCntEl();
         
         if (block.title) {
-            const titleEl = document.createElement("h3");
+            const titleEl = document.createElement("h4");
             titleEl.textContent = block.title;
             cntEl.appendChild(titleEl);
         } 
@@ -363,7 +397,7 @@ export class Renderer {
         const cntEl = this.getBlockCntEl();
         
         if (block.title) {
-            const titleEl = document.createElement("h3");
+            const titleEl = document.createElement("h4");
             titleEl.textContent = block.title;
             cntEl.appendChild(titleEl);
         }
@@ -389,8 +423,6 @@ export class Renderer {
 
         return cntEl;
     }
-
-    
 
     renderStylizedRoles(container, blocks, elementClass, ceparatorClass = null) {
         container.innerHTML = "";
@@ -466,6 +498,8 @@ export class Renderer {
 
     renderContactButtons(container, buttons, baseId = null) {
         container.innerHTML = "";
+
+        if (!buttons) return;
 
         for (let i = 0; i < buttons.length; i++) {
             const btn = buttons[i];
