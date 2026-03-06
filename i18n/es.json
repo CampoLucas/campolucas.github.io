@@ -4,22 +4,257 @@
             { "text": "Soy ", "style": "normal" },
             { "text": "Lucas Campo", "style": "accent" }
         ],
-        "roles": [ "Desarrollador de Videojuegos", "Desarrollador Full-Stack" ],
-        "imgAlt": "Imagen de perfil",
+        "roles": [ "Game Developer", "Web Developer" ],
+        "imgAlt": "Foto de perfil",
         "contactBtn": "Contacto",
         "contactBtnHover": "Ir a contactos"
     },
     "about": {
-        "title": "Sobre Mi",
+        "title": "Sobre mí",
         "description": [
-            "Soy desarrollador de videojuegos con más de dos años de experiencia. Me enfoco en crear arquitecturas sólidas, flexibles y tengo un gran interes en comportamientos IA, los systemas complejos y mecanicas. Trabaje en projectos de VR/XR y multijugador, así que estoy acostumbrado a lidiar con todo tipo de problemas de rendimiento y esos casos raros que solo aparecen cuando los jugadores juegan el juego.",
-            "Me gusta arreglar problemas, bugs, como pathfindings rotos, errores de sincronización extraños o mecánicas que no terminan de encajar hasta que las rehaces tres veces. Trabajo bien con diseñadores y artistas porque me importa cómo encaja todo, no solo cómo corre el código."
+            "¡Hola! Soy un gameplay programmer con más de dos años de experiencia. Me enfoco en construir una arquitectura sólida y flexible, con un fuerte interés en AI behaviors, gameplay systems y complex mechanics.",
+            "Siempre me atrajeron los juegos que recompensan la curiosidad y la habilidad, e intento llevar esa misma mentalidad a mi trabajo. Para mí, programar no es solo hacer que las cosas funcionen, sino ayudar a que el jugador sienta algo a través de cómo responde el juego."
         ],
-        "imgAlt": "Imagen sobre mi",
-        "linkedInHover": "Mi LinkedIn",
-        "githubHover": "Mis projectos",
-        "emailHover": "Contacta me!",
-        "itchHover": "Proba mis juegos!",
-        "portfolioHover": "Anterior portfolio"
+        "imgAlt": "Imagen sobre mí",
+        "linkedInHover": "¡Mirá mi LinkedIn!",
+        "githubHover": "¡Mirá mi github!",
+        "emailHover": "¡Contactame!",
+        "itchHover": "¡Mirá mis juegos!",
+        "portfolioHover": "Portfolio anterior"
+    },
+    "experience": {
+        "title": "Experiencia",
+        "threeDar": {
+            "company": "3Dar",
+            "product": "Eggscape",
+            "period": "May 2023 - Feb 2025",
+            "role": "Unity Game Developer",
+            "imgAlt": "Imagen de muestra de Eggscape",
+            "blocks": [
+                { 
+                    "type": "desc", 
+                    "title": "Proyecto",
+                    "text": "Plataforma multiplayer de AR/VR desarrollada para Oculus, ganadora del León en la Biennale di Venezia (2022)."
+                },
+                {
+                    "type": "ul",
+                    "title": "Aportes clave",
+                    "items": [
+                        "Diseñé e implementé un sistema de enemy AI usando una finite state machine combinada con behavior trees, permitiendo interacciones coordinadas entre enemigos y múltiples estados como idle, chase y attack.",
+                        "Desarrollé mecánicas centrales del jugador, incluyendo wall-climbing parkour y un sistema de combate basado en combos en el aire y combinaciones de inputs.",
+                        "Trabajé en un modelo multiplayer de authoritative server, asegurando que interacciones del jugador como ataques, item pickup y lanzamiento de objetos se sintieran responsivas y consistentes a pesar de la network latency.",
+                        "Desarrollé gameplay systems específicamente para VR, trabajando directamente con headsets de Oculus e integrando input e interacción usando XR Toolkit."
+                    ]
+                }
+            ],
+            "skills": [
+                {
+                    "type": "hr-ul",
+                    "title": "Skills & Knowledge",
+                    "items": [
+                        "Multiplayer Architecture", 
+                        "Optimization",
+                        "Design Patterns",
+                        "OOP",
+                        "ECS",
+                        "Behavior Trees",
+                        "Finate State Machines",
+                        "Pathfinding",
+                        "Combat AI"
+                    ]
+                },
+                {
+                    "type": "hr-ul",
+                    "title": "Tools",
+                    "items": [
+                        "Unity", 
+                        "C#",
+                        "Photon",
+                        "Photon Quantum",
+                        "Oculus VR", 
+                        "XR Interaction Toolkit",
+                        "Git"
+                    ]
+                }
+            ]
+        },
+        "independent-work": {
+            "company": "Self-employed",
+            "period": "Mar 2025 - Present",
+            "role": "Independent Game Developer",
+            "blocks": [
+                { 
+                    "type": "desc",
+                    "title": "Resumen",
+                    "text": "Trabajé en Rush Rift y en varias Unity editor tools, gameplay systems y projectos para mi portafolio."
+                }
+            ],
+            "skills": [
+                {
+                    "type": "hr-ul",
+                    "title": "Skills & Knowledge",
+                    "items": [
+                        "Unity",
+                        "C#", 
+                        "Optimization",
+                        "Design Patterns",
+                        "OOP",
+                        "Unity Editor Tools",
+                        "Behavior Trees",
+                        "UI",
+                        "Shaders"
+                    ]
+                }
+            ]
+        },
+        "skynetGames": {
+            "company": "Skynet Games",
+            "period": "Feb 2026 - Present",
+            "role": "Unity Game Developer",
+            "linkedInHover": "Página de LinkedIn",
+            "blocks": [
+                { 
+                    "type": "desc", 
+                    "title": "Resumen",
+                    "text": "Trabajo en el desarrollo de un videojuego en Unity como parte de un equipo."
+                },
+                {
+                    "type": "ul",
+                    "title": "Responsabilidades",
+                    "items": [
+                        "Gameplay programming en C#",
+                        "Colaboración con design para integrar mecánicas en el juego"
+                    ]
+                }
+            ]
+        }
+    },
+    "projects": {
+        "title": "Proyectos",
+        "projects": {
+            "rushRift": {
+                "title": "Rush Rift",
+                "period": "Mar 2025 - Present",
+                "blocks": [
+                    { 
+                        "type": "desc", 
+                        "title": "Sobre el juego",
+                        "text": "Rush Rift es un juego de speedrunning en primera persona y ritmo rápido donde cada segundo cuenta. Atravesá arenas cyberpunk, encadená ataques con precisión y mantené tu impulso mientras corrés hacia la meta."
+                    },
+                    { 
+                        "type": "desc", 
+                        "title": "Mi rol",
+                        "text": "Como Lead Programmer, desarrollé los sistemas principales de movimiento, dash y ataque, así como la arquitectura de additive level-loading, enfocándome en escalabilidad, rendimiento y código limpio y modular en Unity."
+                    }
+                ],
+                "roles": [ "Lead Programmer" ],
+                "imgAlt": "Muestra de Rush Rift"
+            },
+            "mysticCatacombs": {
+                "title": "Mystic Catacombs",
+                "period": "Apr 2025 - May 2025",
+                "blocks": [
+                    { 
+                        "type": "desc", 
+                        "title": "Sobre el juego",
+                        "text": "Un proyecto personal enfocado en AI development y combat mechanics, creado para experimentar con system design y gameplay feel."
+                    },
+                    { 
+                        "type": "desc", 
+                        "title": "Mi rol",
+                        "text": "Desarrollado de forma independiente de principio a fin para fortalecer mis habilidades técnicas y de diseño en Unity."
+                    }
+                ],
+                "roles": [ "Programmer" ],
+                "imgAlt": "Muestra de Rush Rift"
+            },
+            "gunBandit": {
+                "title": "Gun Bandit",
+                "period": "Aug 2022 - Nov 2022",
+                "blocks": [
+                    { 
+                        "type": "desc", 
+                        "title": "Sobre el juego",
+                        "text": [ 
+                            "Gun Bandit es un shooter/puzzle 2D top-down donde jugás como un mercenario contratado para llevar a cabo misiones peligrosas inspiradas en Hotline Miami.",
+                            "Jugá a tu manera, entrando a los tiros o tomando un enfoque stealth y evitando ser detectado. Cada misión es una elección: pelear o escabullirte.",
+                            "Prototype simple para demostrar pathfinding, state machine y enemy AI."
+                        ]
+                    },
+                    { 
+                        "type": "desc", 
+                        "title": "Mi rol",
+                        "text": "Como Lead Programmer, en este proyecto fui el único programador y fui responsable de programar al jugador, el weapon system, los enemigos y la UI."
+                    }
+                ],
+                "roles": [ "Lead Programmer" ],
+                "imgAlt": "Muestra de Rush Rift"
+            },
+            "spaceGame": {
+                "title": "3047",
+                "period": "Mar 2022 - Aug 2022",
+                "blocks": [
+                    { 
+                        "type": "desc", 
+                        "title": "Sobre el juego",
+                        "text": [
+                            "En 3047 jugás como un space bounty hunter, cuya misión es eliminar grupos de bandidos y salvar la galaxia.",
+                            "Es un shoot em up 3D, hasta que empieza la boss battle y se convierte en un bullet hell."
+                        ]
+                    },
+                    { 
+                        "type": "desc", 
+                        "title": "Mi rol",
+                        "text": "Programé al jugador, el damage system, la UI, las animaciones, los enemigos y el comportamiento del boss."
+                    }
+                ],
+                "roles": [ "Programmer" ],
+                "imgAlt": "Muestra de Rush Rift"
+            },
+            "langGame": {
+                "title": "Vocab Match",
+                "shortDesc": "Un vocabulary trainer basado en web",
+                "desc": [
+                    "Un juego de aprendizaje de idiomas impulsado por JSON.",
+                    "Soporta múltiples idiomas y game modes."
+                ],
+                "roles": [ "Frontend Programmer" ],
+                "imgAlt": "Muestra de Vocab Match"
+            },
+            "greatestMovies": {
+                "title": "Greatest Movies",
+                "shortDesc": "Un vocabulary trainer basado en web",
+                "desc": [
+                    "Un juego de aprendizaje de idiomas impulsado por JSON.",
+                    "Soporta múltiples idiomas y game modes."
+                ],
+                "roles": [ "Frontend Programmer" ],
+                "imgAlt": "Muestra de Greatest Movies"
+            }
+        },        
+        "categories": {
+            "websitesTitle": "Páginas web",
+            "gamesTitle": "Juegos"
+        }
+    },
+    "skills": {
+        "sections": {
+            "programming": "Código",
+            "practices": "Skills & Practices",
+            "tools": "Tools"
+        },
+        "languages": {
+            "title": "Idiomas",
+            "en": { "title": "English", "desc": "Fluido" },
+            "es": { "title": "Spanish", "desc": "Nativo" },
+            "jp": { "title": "Japanese", "desc": "Conversacional" }
+        },
+        "concepts": {
+            "title": "Conceptos de programación",
+            "designPatterns": { "title": "Design patterns", "desc": "Factory, Builder, Command, Mediator, Strategy, Observer, Object Pooling" },
+            "mvcArchitecture": { "title": "Arquitectura MVC", "desc": null },
+            "aiAlgorithms": { "title": "AI algorithms", "desc": "A*, Dijkstra, FSM, Steering Behaviors, Obstacle Avoidance, Roulette, Flocking, Decision Trees, Behavior Trees" },
+            "multiplayerArchitecture": { "title": "Arquitecturas multiplayer", "desc": "Modelos Full-Authoritative y Non-Authoritative" }
+        }
     }
 }
