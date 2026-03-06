@@ -50,7 +50,7 @@
             "skills": [
                     {
                         "type": "hr-ul",
-                        "title": "Skills & Knoledge",
+                        "title": "Skills & knowledge",
                         "items": [
                             "Multiplayer Architecture", 
                             "Optimization",
@@ -58,7 +58,7 @@
                             "OOP",
                             "ECS",
                             "Behavior Trees",
-                            "Finate State Machines",
+                            "Finite State Machines",
                             "Pathfinding",
                             "Combat AI"
                         ]
@@ -92,7 +92,7 @@
             "skills": [
                 {
                     "type": "hr-ul",
-                    "title": "Skills & Knoledge",
+                    "title": "Skills & knowledge",
                     "items": [
                         "Unity",
                         "C#", 
@@ -116,11 +116,11 @@
                     { 
                         "type": "desc", 
                         "title": "Summary",
-                        "text": "Recently joined a team working on a game in Unity."
+                        "text": "I work on the development of a video game in Unity as part of a team."
                     },
                     {
                         "type": "ul",
-                        "title": "Responsabilities",
+                        "title": "Responsibilities",
                         "items": [
                             "Gameplay programming in C#",
                             "Collaboration with design to integrate mechanics into the game"
@@ -176,7 +176,7 @@
                             "type": "desc", 
                             "title": "About the Game",
                             "text": [ 
-                                "Gun Bandit is a 2D top-down shooter/puzzle game where you play as a mercenary hired to carry out dangerous missions inpired in Hotline Miami.",
+                                "Gun Bandit is a 2D top-down shooter/puzzle game where you play as a mercenary hired to carry out dangerous missions inspired in Hotline Miami.",
                                 "Play your way, go in guns blazing, or take a stealthy approach and avoid detection. Every mission is a choice: fight or sneak.",
                                 "Simple prototype to demonstrate pathfinding, state machine, and enemy AI."
                             ]
