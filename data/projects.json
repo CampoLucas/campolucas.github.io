@@ -24,12 +24,15 @@
                         "capsuleImg": "./assets/img/projects/rushrift/banners/banner2.jpeg",
                         "capsuleVideo": "./assets/img/projects/rushrift/gifs/gif2.gif",
                         "carouselImages": [
-                            "./assets/img/projects/rushrift/gifs/gif1-high.gif",
-                            "./assets/img/projects/rushrift/gifs/gif2-high.gif",
-                            "./assets/img/projects/rushrift/gifs/gif3-high.gif",
-                            "./assets/img/projects/rushrift/gifs/gif4-high.gif",
-                            "./assets/img/projects/rushrift/gifs/gif5-high.gif",
-                            "./assets/img/projects/rushrift/gifs/gif6-high.gif"
+                            "./assets/img/projects/rushrift/screenshots/screenshot-1.png",
+                            "./assets/img/projects/rushrift/screenshots/screenshot-2.png",
+                            "./assets/img/projects/rushrift/screenshots/screenshot-3.png",
+                            "./assets/img/projects/rushrift/screenshots/screenshot-4.png",
+                            "./assets/img/projects/rushrift/screenshots/screenshot-5.png",
+                            "./assets/img/projects/rushrift/screenshots/screenshot-6.png",
+                            "./assets/img/projects/rushrift/screenshots/screenshot-7.png",
+                            "./assets/img/projects/rushrift/screenshots/screenshot-8.png",
+                            "./assets/img/projects/rushrift/screenshots/screenshot-9.png"
                         ]
                     },
                     "imgAltId": "imgAlt",
