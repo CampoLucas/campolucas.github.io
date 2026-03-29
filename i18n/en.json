@@ -86,7 +86,7 @@
                     { 
                         "type": "desc",
                         "title": "Summary",
-                        "text": "Developed a 3D Fisrt Person Speedrunnign game from scratch, at the same time, I made custom editor tools to make the development process easier."
+                        "text": "Developed a 3D First Person Speedrunnign game from scratch in Unity, building custom editor tools to make the development process easier. Also designed and made websites from scratch using JavaScript, HTML5, CSS and JSON, including this portfolio."
                     }
                 ],
             "skills": [
@@ -94,15 +94,26 @@
                     "type": "hr-ul",
                     "title": "Skills & knowledge",
                     "items": [
-                        "Unity",
-                        "C#", 
                         "Optimization",
                         "Design Patterns",
                         "OOP",
-                        "Unity Editor Tools",
                         "Behavior Trees",
                         "UI",
                         "Shaders"
+                    ]
+                },
+                {
+                    "type": "hr-ul",
+                    "title": "Tools",
+                    "items": [
+                        "Unity", 
+                        "Unity Editor Tools",
+                        "C#",
+                        "Git",
+                        "JavaScript",
+                        "HTML5",
+                        "CSS",
+                        "JSON"
                     ]
                 }
             ]
