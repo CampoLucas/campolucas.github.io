@@ -13,7 +13,7 @@
         "title": "About Me",
         "description": [
             "Hey! I'm a gameplay programmer with over two years of experience. I focus on building solid and flexible architecture, with a strong interest in AI behaviors, gameplay systems, and complex mechanics.",
-            "I've always been drawn to games that reward curiosity and skill, and I try to bring that same mindset into my work. For me, programming isn't just about making things function, it's about helping the player feel something through how the game responds."
+            "I've always been drawn to games that reward curiosity and skill, and I try to bring that same mindset into my work. For me, programming isn't just about making things work, it's about helping the player feel something through how the game responds."
         ],
         "imgAlt": "About picture",
         "linkedInHover": "Check out my LinkedIn!",
@@ -40,9 +40,9 @@
                         "type": "ul",
                         "title": "Key Contributions",
                         "items": [
-                            "Designed and implemented an enemy AI system using a finite state machine combined with behavior trees, supporting coordinated enemy interactions and multiple states such as idle, chase, and attack.",
+                            "Built an enemy AI system using a finite state machine with behavior trees, so enemies could react to each other and suport multiple states such as idle, chase and attack.",
                             "Built core player mechanics including wall-climbing parkour and a combo-based combat system with input-driven attacks, mid-air moves, and chained abilities.",
-                            "Worked on an authoritative server multiplayer model, ensuring player interactions such as attacks, item pickup, and item throwing felt responsive and consistent despite network latency.",
+                            "Worked on an authoritative server multiplayer model, making sure that attacks, pickups and throwing items felt right even under network lag.",
                             "Developed gameplay systems specifically for VR, working hands-on with Oculus headsets and integrating input and interaction using the XR Toolkit."
                         ]
                     }
@@ -86,7 +86,7 @@
                     { 
                         "type": "desc",
                         "title": "Summary",
-                        "text": "Worked on Rush Rift and several Unity editor tools, gameplay systems and portfolio projects."
+                        "text": "Developed a 3D Fisrt Person Speedrunnign game from scratch, at the same time, I made custom editor tools to make the development process easier."
                     }
                 ],
             "skills": [
@@ -116,14 +116,15 @@
                     { 
                         "type": "desc", 
                         "title": "Summary",
-                        "text": "I work on the development of a video game in Unity as part of a team."
+                        "text": "Early stage development of a mobile platform where companies can market their own products throug minigames. Currently working on the first prototype, covering gamplay programming and making the game customizable for the clients."
                     },
                     {
                         "type": "ul",
                         "title": "Responsibilities",
                         "items": [
-                            "Gameplay programming in C#",
-                            "Collaboration with design to integrate mechanics into the game"
+                            "Programming a mobile minigame using Unity.",
+                            "Build the game in a way that is easy to customize for different clients.",
+                            "Implementing UI, fucusing on clarity and responsiveness across different mobile screen sizes."
                         ]
                     }
                 ]
