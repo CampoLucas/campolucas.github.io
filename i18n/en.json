@@ -42,8 +42,7 @@
                         "items": [
                             "Built an enemy AI system using a finite state machine with behavior trees, so enemies could react to each other and suport multiple states such as idle, chase and attack.",
                             "Built core player mechanics including wall-climbing parkour and a combo-based combat system with input-driven attacks, mid-air moves, and chained abilities.",
-                            "Worked on an authoritative server multiplayer model, making sure that attacks, pickups and throwing items felt right even under network lag.",
-                            "Developed gameplay systems specifically for VR, working hands-on with Oculus headsets and integrating input and interaction using the XR Toolkit."
+                            "Worked on an authoritative server multiplayer model, making attacks, pickups and throwing items felt right even under network lag."
                         ]
                     }
                 ],
@@ -245,7 +244,7 @@
             }
         },        
         "categories": {
-            "websitesTitle": "Web Pages",
+            "websitesTitle": "Websites",
             "gamesTitle": "Games"
         }
     },

@@ -8,15 +8,15 @@
                 "items": [
                     { 
                         "nameId": "sections.programming",
-                        "items": [ "C#", "C++", "Python", "JavaScript", "HTML5", "CSS", "HLSL" ]
+                        "items": [ "C#", "Python", "JavaScript", "HTML5", "CSS", "HLSL", "JSON" ]
                     },
                     { 
                         "nameId": "sections.tools",
-                        "items": [ "Unity", "Unreal Engine 5", "Git", "Photon (Multiplayer)", "Rider", "Oculus", "Django", "Bootstrap" ]
+                        "items": [ "Unity", "Git", "Photon (Multiplayer)", "Rider", "Oculus", "Django", "Bootstrap" ]
                     },
                     { 
                         "nameId": "sections.practices",
-                        "items": [ "Documentation", "Agile", "QA", "UI/UX", "Problem Solving" ]
+                        "items": [ "Documentation", "Agile", "QA", "UI/UX" ]
                     }
                 ],
                 "styleClass": "column-list"
