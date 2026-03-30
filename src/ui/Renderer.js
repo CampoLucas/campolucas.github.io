@@ -171,7 +171,7 @@ export class Renderer {
             }
         }
         const titleEl = clone.querySelector("#exp-role");
-        titleEl.textContent = `${baseId[block.roleId]}`;
+        titleEl.innerHTML = `${baseId[block.roleId]}`;
         
         const subTitle = clone.querySelector("#exp-company");
 
@@ -373,20 +373,20 @@ export class Renderer {
         
         if (block.title) {
             const titleEl = document.createElement("h4");
-            titleEl.textContent = block.title;
+            titleEl.innerHTML = block.title;
             cntEl.appendChild(titleEl);
         } 
         
         if (Array.isArray(block.text)) {
             block.text.forEach(t => {
                 const el = document.createElement("p");
-                el.textContent = t;
+                el.innerHTML = t;
                 cntEl.appendChild(el);
             });
         }
         else {
             const textEl = document.createElement("p");
-            textEl.textContent = block.text;
+            textEl.innerHTML = block.text;
             cntEl.appendChild(textEl);
         }
 
@@ -398,7 +398,7 @@ export class Renderer {
         
         if (block.title) {
             const titleEl = document.createElement("h4");
-            titleEl.textContent = block.title;
+            titleEl.innerHTML = block.title;
             cntEl.appendChild(titleEl);
         }
 
@@ -408,7 +408,7 @@ export class Renderer {
         ulEl.classList.add(styleClass);
         for (let i = 0; i < block.items.length; i++) {
             const liEl = document.createElement(isList ? "li" : "div");
-            liEl.textContent = block.items[i];
+            liEl.innerHTML = block.items[i];
 
             if (itemClass) {
                 liEl.classList = itemClass;

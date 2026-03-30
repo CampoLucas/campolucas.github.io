@@ -40,9 +40,11 @@
                         "type": "ul",
                         "title": "Key Contributions",
                         "items": [
-                            "Built an enemy AI system using a finite state machine with behavior trees, so enemies could react to each other and suport multiple states such as idle, chase and attack.",
-                            "Built core player mechanics including wall-climbing parkour and a combo-based combat system with input-driven attacks, mid-air moves, and chained abilities.",
-                            "Worked on an authoritative server multiplayer model, making attacks, pickups and throwing items felt right even under network lag."
+                            "Worked on the <b>enemy AI</b> using <b>pathfinding, obstacle avoidance, FSM, and behavior trees</b> with unique states and a custom combat system.",
+                            "Worked on <b>player's combat mechanics</b>, implemented a flying kick and a spinning kick and a <b>wall climbing mechanic</b>.",
+                            "Made a <b>grabbing and throwing system</b>, including grabbing weapons.",
+                            "<b>Fixed</b> a large number of <b>asynchronous bugs</b> in the game.",
+                            "Implemented a <b>lobby shop</b> with clothing and skin selection, <b>including cinematics</b> for entering it."
                         ]
                     }
                 ],
@@ -85,7 +87,7 @@
                     { 
                         "type": "desc",
                         "title": "Summary",
-                        "text": "Developed a 3D First Person Speedrunnign game from scratch in Unity, building custom editor tools to make the development process easier. Also designed and made websites from scratch using JavaScript, HTML5, CSS and JSON, including this portfolio."
+                        "text": "Developed a <b>3D First Person Speedrunnign game</b> from scratch in Unity, building <b>custom editor tools</b> to make the development process easier. Also designed and made <b>websites</b> from scratch using <b>JavaScript, HTML5, CSS and JSON</b>, including this portfolio."
                     }
                 ],
             "skills": [
@@ -126,7 +128,7 @@
                     { 
                         "type": "desc", 
                         "title": "Summary",
-                        "text": "Early stage development of a mobile platform where companies can market their own products throug minigames. Currently working on the first prototype, covering gamplay programming and making the game customizable for the clients."
+                        "text": "Early stage development of a <b>mobile platform</b> where companies can market their own products throug minigames. Currently working on the first prototype, covering <b>gamplay programming</b> and making the game <b>customizable</b> for the clients."
                     },
                     {
                         "type": "ul",
