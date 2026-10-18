@@ -1,3 +1,9 @@
+import { createMedia, loadMedia, normalizeMedia, playMedia, pauseMedia } from "./Media.js";
+
+const visibilityObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => entry.target.mediaCarousel?.setVisible(entry.isIntersecting));
+}, { rootMargin: "200px 0px" });
+
 export class MediaCarousel {
     constructor(root, thumbsPerView = 4, autoInterval = null, images = null, alt = null) {
         this.root = root;
@@ -11,6 +17,7 @@ export class MediaCarousel {
             this.images = [];
             this.thumbButtons = [];
             this.dotButtons = [];
+            this.pendingThumbs = new Map();
 
             // set images, thumbs and buttons
             const imgCntEl = root.querySelector("[img-cnt]");
@@ -18,12 +25,12 @@ export class MediaCarousel {
             const dotCntEl = root.querySelector("[dot-cnt]");
 
             for (let i = 0; i < images.length; i++) {
-                const img = images[i];        
-                
+                const media = normalizeMedia(images[i]);
+                if (!media) continue;
+                const index = this.images.length;
+
                 // preview img
-                const previewEl = document.createElement("img");
-                previewEl.src = img;
-                previewEl.alt = `${alt} preview ${i + 1}`;
+                const previewEl = createMedia(media, { lazy: true, alt: `${alt} preview ${index + 1}` });
                 imgCntEl.appendChild(previewEl);
 
                 this.images.push(previewEl);
@@ -32,15 +39,24 @@ export class MediaCarousel {
                 const thumbEl = document.createElement("img");
                 const thumbBtnEl = document.createElement("button");
                 thumbBtnEl.appendChild(thumbEl);
-                thumbEl.src = img;
-                thumbEl.alt = `${alt} thumbnail ${i + 1}`;
+                thumbEl.alt = `${alt} thumbnail ${index + 1}`;
+                thumbEl.decoding = "async";
+
+                const thumbSrc = media.thumb ?? media.poster;
+                if (thumbSrc) {
+                    thumbEl.dataset.src = thumbSrc;
+                }
+                else if (!media.isVideo) {
+                    this.pendingThumbs.set(index, { el: thumbEl, src: media.src });
+                }
                 thumbCntEl.appendChild(thumbBtnEl);
 
                 this.thumbButtons.push(thumbBtnEl);
 
                 // dot
                 const dotEl = document.createElement("button");
-                dotEl.setAttribute("data-index", `${i}`);
+                dotEl.setAttribute("data-index", `${index}`);
+                dotEl.setAttribute("aria-label", `Show ${index + 1}`);
                 dotCntEl.appendChild(dotEl);
 
                 this.dotButtons.push(dotEl);
@@ -60,6 +76,7 @@ export class MediaCarousel {
 
         this.autoInterval = autoInterval;
         this.autoTimer = null;
+        this.visible = false;
 
         this.isDraggingScrollbar = false;
         this.dragGrabOffsetPx = 0;
@@ -69,7 +86,9 @@ export class MediaCarousel {
         this.setupThumbs();
         this.bind();
         this.update();
-        this.startAuto();
+
+        this.root.mediaCarousel = this;
+        visibilityObserver.observe(this.root);
     }
 
     setupThumbs() {
@@ -129,7 +148,7 @@ export class MediaCarousel {
                 this.isDraggingScrollbar = true;
             });
 
-            window.addEventListener('mousemove', (e) => {
+            this.onWindowMouseMove = (e) => {
                 if (!this.isDraggingScrollbar) return;
                 if (!this.canScrollThumbs()) return;
 
@@ -150,11 +169,14 @@ export class MediaCarousel {
 
                 this.update();
                 this.resetAuto();
-            });
+            };
 
-            window.addEventListener('mouseup', () => {
+            this.onWindowMouseUp = () => {
                 this.isDraggingScrollbar = false;
-            });
+            };
+
+            window.addEventListener('mousemove', this.onWindowMouseMove);
+            window.addEventListener('mouseup', this.onWindowMouseUp);
 
             // Click on the track to jump the handle
             this.scrollTrack.addEventListener('mousedown', (e) => {
@@ -245,10 +267,66 @@ export class MediaCarousel {
                 scrollHandle.style.transform = `translateX(${handleOffset}%)`;
             }
         }
+
+        this.syncMedia();
+    }
+
+    syncMedia() {
+        const len = this.images.length;
+        if (!this.visible || len === 0) return;
+
+        const current = this.images[this.currentIndex];
+        loadMedia(current);
+        this.fillPendingThumb(this.currentIndex);
+
+        if (len > 1) {
+            const nextIndex = (this.currentIndex + 1) % len;
+            loadMedia(this.images[nextIndex]);
+            this.fillPendingThumb(nextIndex);
+        }
+
+        this.images.forEach(el => {
+            if (el === current) playMedia(el);
+            else pauseMedia(el);
+        });
+    }
+
+    fillPendingThumb(index) {
+        const pending = this.pendingThumbs?.get(index);
+        if (!pending) return;
+
+        pending.el.src = pending.src;
+        this.pendingThumbs.delete(index);
+    }
+
+    setVisible(visible) {
+        if (this.visible === visible) return;
+        this.visible = visible;
+
+        if (visible) {
+            this.thumbButtons.forEach(btn => loadMedia(btn.querySelector("img")));
+            this.syncMedia();
+            this.startAuto();
+        }
+        else {
+            this.stopAuto();
+            this.images.forEach(pauseMedia);
+        }
+    }
+
+    destroy() {
+        this.stopAuto();
+        this.visible = false;
+        this.images.forEach(pauseMedia);
+        visibilityObserver.unobserve(this.root);
+        delete this.root.mediaCarousel;
+
+        if (this.onWindowMouseMove) window.removeEventListener('mousemove', this.onWindowMouseMove);
+        if (this.onWindowMouseUp) window.removeEventListener('mouseup', this.onWindowMouseUp);
     }
 
     startAuto() {
-        if (this.autoInterval == null) return;
+        if (this.autoInterval == null || !this.visible || this.autoTimer) return;
 
         this.autoTimer = setInterval(() => {
             this.move(1);

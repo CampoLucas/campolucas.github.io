@@ -1,5 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
+const tsParticlesUrl = "https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js";
 
+function initParticles() {
     // Get CSS variables
     const rootStyles = getComputedStyle(document.documentElement);
     const heroBg = rootStyles.getPropertyValue('--hero-page-bg').trim();
@@ -39,4 +40,30 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
     });
-});
+}
+
+function loadParticles() {
+    const script = document.createElement("script");
+    script.src = tsParticlesUrl;
+    script.async = true;
+    script.onload = initParticles;
+    document.head.appendChild(script);
+}
+
+function whenIdle(callback) {
+    if ("requestIdleCallback" in window) {
+        requestIdleCallback(callback, { timeout: 2000 });
+    }
+    else {
+        setTimeout(callback, 200);
+    }
+}
+
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (document.readyState === "complete") {
+        whenIdle(loadParticles);
+    }
+    else {
+        window.addEventListener("load", () => whenIdle(loadParticles), { once: true });
+    }
+}

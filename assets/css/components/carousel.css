@@ -15,7 +15,12 @@
     overflow: hidden;
 }
 
-.carousel-viewport img {
+.carousel-viewport {
+    background: var(--skeleton-base);
+}
+
+.carousel-viewport img,
+.carousel-viewport video {
     position: absolute;
     inset: 0;
     width: 100%;
@@ -27,7 +32,8 @@
     bottom: 0;
 }
 
-.carousel-viewport img.active {
+.carousel-viewport img.active,
+.carousel-viewport video.active {
     opacity: 1;
 }
 
@@ -118,7 +124,7 @@
 .carousel-thumbs-track button {
     padding: 0;
     border: none;
-    background: none;
+    background: var(--skeleton-base);
     flex-shrink: 0;
     opacity: 0.4;
     transition: opacity 0.3s ease;
@@ -131,8 +137,14 @@
 .carousel-thumbs-track img {
     width: 100%;
     height: auto;
+    aspect-ratio: 16 / 9;
     display: block;
     object-fit: cover;
+}
+
+.carousel-viewport img:not([src]),
+.carousel-thumbs-track img:not([src]) {
+    visibility: hidden;
 }
 
 .carousel-thumbs-track {

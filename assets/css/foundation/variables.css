@@ -16,3 +16,9 @@
     --title-color1: var(--accent-color2);
     --title-color2: var(--accent-color1);
 }
+:root {
+    --skeleton-base: rgba(255, 255, 255, 0.06);
+    --skeleton-highlight: rgba(255, 255, 255, 0.14);
+    --skeleton-radius: 6px;
+    --skeleton-speed: 1.4s;
+}

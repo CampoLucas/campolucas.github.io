@@ -1,4 +1,5 @@
 import { MediaCarousel } from "./elements/MediaCarousel.js";
+import { normalizeMedia } from "./elements/Media.js";
 import { CapsuleCarousel } from "./elements/CapsuleCarousel/CapsuleCarousel.js";
 
 // HTML Ids
@@ -37,7 +38,10 @@ export class Renderer {
 
         // Image
         const heroImg = document.getElementById("hero-pic");
-        heroImg.src = data.picture.img;
+        const heroPic = normalizeMedia(data.picture.img);
+        if (heroPic && heroImg.getAttribute("src") !== heroPic.src) {
+            heroImg.src = heroPic.src;
+        }
         heroImg.alt = this.t(baseId, data.picture.altId) ?? "";
 
         // Buttons
@@ -109,6 +113,8 @@ export class Renderer {
             console.log(`WARNING: The project's carousel container with the id: ${projectsCarouselCnt} wasn't found`);
             return;
         }
+
+        projectsCnt.innerHTML = "";
 
         // Render each category
         if (!data.categories || data.categories.length === 0) {
@@ -224,7 +230,6 @@ export class Renderer {
         container.appendChild(clone);
 
         // Set the title section
-        console.log(`base id is ${baseId}`);
         const titleEl = clone.querySelector("#project-title");
         titleEl.textContent = `${baseId[block.titleId]}`;
 
@@ -266,8 +271,9 @@ export class Renderer {
         const popup = document.querySelector(".popup");
 
         // image
-        if (background.img) {
-            img.src = background.img;
+        const bgImg = normalizeMedia(background.img);
+        if (bgImg) {
+            img.src = bgImg.src;
         } 
         else {
             img.classList.add("disabled");
@@ -288,6 +294,15 @@ export class Renderer {
         container.appendChild(clone);
 
         this.carousels.push(new MediaCarousel(clone, 5, 4000, images, alt));
+    }
+
+    destroyCarouselsIn(root) {
+        this.carousels = this.carousels.filter(carousel => {
+            if (!root.contains(carousel.root)) return true;
+
+            carousel.destroy();
+            return false;
+        });
     }
 
     
@@ -518,7 +533,7 @@ export class Renderer {
             a.href = isLink ? btn.link : `mailto:${btn.link}`;
             
             if (btn.classList) {
-                for (let i = 0; i <= btn.classList.length; i++) {
+                for (let i = 0; i < btn.classList.length; i++) {
                     a.classList.add(btn.classList[i]);
                 }
             }

@@ -157,11 +157,11 @@
     z-index: 3;
 }
 
-.game-capsule:hover .capsule-img {
+.game-capsule:hover .capsule-img-cnt:has(.capsule-video.is-ready) .capsule-img {
     opacity: 0;
 }
 
-.game-capsule:hover .capsule-video {
+.game-capsule:hover .capsule-video.is-ready {
     opacity: 1;
 }
 

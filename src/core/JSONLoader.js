@@ -7,21 +7,23 @@ export class JSONLoader {
 
     // Loads and parses a JSON file
     // Uses cache to avoid fetching the same file twice
-    async load(path) {
+    load(path) {
         // return cached
         if (this.cache.has(path)) {
             return this.cache.get(path);
         }
 
-        const response = await fetch(path);
-        if (!response.ok) {
-            throw new Error(`Failed to load JSON: ${path}`);
-        }
+        const promise = fetch(path).then(response => {
+            if (!response.ok) {
+                throw new Error(`Failed to load JSON: ${path}`);
+            }
+            return response.json();
+        });
 
         // save to cache
-        const data = await response.json();
-        this.cache.set(path, data);
-        return data;
+        this.cache.set(path, promise);
+        promise.catch(() => this.cache.delete(path));
+        return promise;
     }
 
     // Loads all jsons from a folder

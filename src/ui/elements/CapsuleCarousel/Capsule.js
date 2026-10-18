@@ -1,8 +1,12 @@
+import { createMedia, loadMedia, normalizeMedia, playMedia, pauseMedia } from "../Media.js";
+
 const titleId = "cap-title";
 const imgId = "cap-banner-img";
 const videoId = "cap-banner-video";
 const linkId = "cap-link";
 const tagCntId = "cap-tag-cnt";
+
+const canHover = window.matchMedia("(hover: hover)").matches;
 
 export class Capsule {
     constructor(data, container, tempId) {
@@ -38,16 +42,29 @@ export class Capsule {
         }
 
         // Set the banner
-        if (data.img) {
+        const img = normalizeMedia(data.img?.media);
+        if (img) {
             const el = this.element.querySelector(`#${imgId}`);
             if (el) {
-                el.src = data.img.media;
+                if (img.width) el.width = img.width;
+                if (img.height) el.height = img.height;
+                el.alt = data.img.alt ?? "";
+                el.src = img.src;
             }
         }
-        if (data.video) {
-            const el = this.element.querySelector(`#${videoId}`);
-            if (el) {
-                el.src = data.video.media;
+
+        const placeholder = this.element.querySelector(`#${videoId}`);
+        if (placeholder) {
+            const preview = data.video && canHover
+                ? createMedia(data.video.media, { lazy: true, className: "capsule-video" })
+                : null;
+
+            if (preview) {
+                placeholder.replaceWith(preview);
+                this.bindPreview(preview);
+            }
+            else {
+                placeholder.remove();
             }
         }
 
@@ -64,5 +81,18 @@ export class Capsule {
             }
         }
         
+    }
+
+    bindPreview(preview) {
+        const start = () => {
+            loadMedia(preview);
+            playMedia(preview);
+        };
+        const stop = () => pauseMedia(preview);
+
+        this.element.addEventListener("pointerenter", start);
+        this.element.addEventListener("focus", start);
+        this.element.addEventListener("pointerleave", stop);
+        this.element.addEventListener("blur", stop);
     }
 }
