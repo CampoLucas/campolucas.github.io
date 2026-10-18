@@ -5,7 +5,7 @@
     width: var(--profile-pic-size);
     height: auto;
     aspect-ratio: 1/1;
-    filter: url("../../img/profile/profile-pib-shape.svg") drop-shadow(0 0 calc(var(--profile-pic-size) * .25) var(--profile-pic-shadow));
+    filter: url("../../media/profile/profile-pib-shape.svg") drop-shadow(0 0 calc(var(--profile-pic-size) * .25) var(--profile-pic-shadow));
 }
 
 .profile-pic {
@@ -15,8 +15,8 @@
     object-fit: cover;
     display: block;
 
-    -webkit-mask: url("../../img/profile/profile-pib-shape.svg");
-    mask: url("../../img/profile/profile-pib-shape.svg");
+    -webkit-mask: url("../../media/profile/profile-pib-shape.svg");
+    mask: url("../../media/profile/profile-pib-shape.svg");
     
     /* box-shadow: 0 0 calc(var(--profile-pic-size) * .5) var(--profile-pic-shadow); */
 }

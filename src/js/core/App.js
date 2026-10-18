@@ -4,7 +4,7 @@ import { PopupHandler } from "../ui/PopupHandler.js";
 
 const dataPath = "./data";
 const langPath = "./i18n";
-const imgPath = "./assets/img";
+const imgPath = "./src/media";
 const defaultLang = "en";
 
 export class App {

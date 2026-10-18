@@ -14,25 +14,25 @@
                     "roleId": "roles",
                     "blocksId": "blocks",
                     "media": {
-                        "banner": "./assets/img/projects/rushrift/banners/banner.jpeg",
+                        "banner": "./src/media/projects/rushrift/banners/banner.jpeg",
                         "background": {
-                            "img": "./assets/img/projects/rushrift/banners/banner2.jpeg",
+                            "img": "./src/media/projects/rushrift/banners/banner2.jpeg",
                             "baseColor": "#0103265e",
                             "overlayColor": "#00000018",
                             "gradientEdgeColor": "#6000893b"
                         },
-                        "capsuleImg": "./assets/img/projects/rushrift/banners/banner2.jpeg",
-                        "capsuleVideo": "./assets/img/projects/rushrift/gifs/gif2.gif",
+                        "capsuleImg": "./src/media/projects/rushrift/banners/banner2.jpeg",
+                        "capsuleVideo": "./src/media/projects/rushrift/gifs/gif2.gif",
                         "carouselImages": [
-                            "./assets/img/projects/rushrift/screenshots/screenshot-1.png",
-                            "./assets/img/projects/rushrift/screenshots/screenshot-2.png",
-                            "./assets/img/projects/rushrift/screenshots/screenshot-3.png",
-                            "./assets/img/projects/rushrift/screenshots/screenshot-4.png",
-                            "./assets/img/projects/rushrift/screenshots/screenshot-5.png",
-                            "./assets/img/projects/rushrift/screenshots/screenshot-6.png",
-                            "./assets/img/projects/rushrift/screenshots/screenshot-7.png",
-                            "./assets/img/projects/rushrift/screenshots/screenshot-8.png",
-                            "./assets/img/projects/rushrift/screenshots/screenshot-9.png"
+                            "./src/media/projects/rushrift/screenshots/screenshot-1.png",
+                            "./src/media/projects/rushrift/screenshots/screenshot-2.png",
+                            "./src/media/projects/rushrift/screenshots/screenshot-3.png",
+                            "./src/media/projects/rushrift/screenshots/screenshot-4.png",
+                            "./src/media/projects/rushrift/screenshots/screenshot-5.png",
+                            "./src/media/projects/rushrift/screenshots/screenshot-6.png",
+                            "./src/media/projects/rushrift/screenshots/screenshot-7.png",
+                            "./src/media/projects/rushrift/screenshots/screenshot-8.png",
+                            "./src/media/projects/rushrift/screenshots/screenshot-9.png"
                         ]
                     },
                     "imgAltId": "imgAlt",
@@ -64,22 +64,22 @@
                     "roleId": "roles",
                     "blocksId": "blocks",
                     "media": {
-                        "banner": "./assets/img/projects/mysticcatacombs/banner2.jpeg",
+                        "banner": "./src/media/projects/mysticcatacombs/banner2.jpeg",
                         "background": {
-                            "img": "./assets/img/projects/mysticcatacombs/banner2.jpeg",
+                            "img": "./src/media/projects/mysticcatacombs/banner2.jpeg",
                             "baseColor": "#5D6473",
                             "overlayColor": "#0000007d",
                             "gradientEdgeColor": "#281c18"
                         },
-                        "capsuleImg": "./assets/img/projects/mysticcatacombs/banner2.jpeg",
-                        "capsuleVideo": "./assets/img/projects/mysticcatacombs/gifs/gif1-med.gif",
+                        "capsuleImg": "./src/media/projects/mysticcatacombs/banner2.jpeg",
+                        "capsuleVideo": "./src/media/projects/mysticcatacombs/gifs/gif1-med.gif",
                         "carouselImages": [
-                            "./assets/img/projects/mysticcatacombs/gifs/gif1-high.gif",
-                            "./assets/img/projects/mysticcatacombs/gifs/gif2-high.gif",
-                            "./assets/img/projects/mysticcatacombs/captures/capture1.jpeg",
-                            "./assets/img/projects/mysticcatacombs/captures/capture2.jpeg",
-                            "./assets/img/projects/mysticcatacombs/captures/capture3.jpeg",
-                            "./assets/img/projects/mysticcatacombs/captures/capture4.jpeg"
+                            "./src/media/projects/mysticcatacombs/gifs/gif1-high.gif",
+                            "./src/media/projects/mysticcatacombs/gifs/gif2-high.gif",
+                            "./src/media/projects/mysticcatacombs/captures/capture1.jpeg",
+                            "./src/media/projects/mysticcatacombs/captures/capture2.jpeg",
+                            "./src/media/projects/mysticcatacombs/captures/capture3.jpeg",
+                            "./src/media/projects/mysticcatacombs/captures/capture4.jpeg"
                         ]
                     },
                     "imgAltId": "imgAlt",
@@ -111,21 +111,21 @@
                     "roleId": "roles",
                     "blocksId": "blocks",
                     "media": {
-                        "banner": "./assets/img/projects/gunbandit/banner2.png",
+                        "banner": "./src/media/projects/gunbandit/banner2.png",
                         "background": {
-                            "img": "./assets/img/projects/gunbandit/background.png",
+                            "img": "./src/media/projects/gunbandit/background.png",
                             "baseColor": "#000000",
                             "overlayColor": "#0000001a",
                             "gradientEdgeColor": "#0328411a"
                         },
-                        "capsuleImg": "./assets/img/projects/gunbandit/banner2.png",
+                        "capsuleImg": "./src/media/projects/gunbandit/banner2.png",
                         "capsuleVideo": "https://img.itch.zone/aW1hZ2UvMTgwMzM5NS8yMzkzMTg3Mi5naWY=/original/MfEPRE.gif",
                         "carouselImages": [
-                            "./assets/img/projects/gunbandit/gifs/gif1-high.gif",
-                            "./assets/img/projects/gunbandit/gifs/gif2-high.gif",
-                            "./assets/img/projects/gunbandit/captures/capture1.jpeg",
-                            "./assets/img/projects/gunbandit/captures/capture2.jpeg",
-                            "./assets/img/projects/gunbandit/captures/capture3.jpeg"
+                            "./src/media/projects/gunbandit/gifs/gif1-high.gif",
+                            "./src/media/projects/gunbandit/gifs/gif2-high.gif",
+                            "./src/media/projects/gunbandit/captures/capture1.jpeg",
+                            "./src/media/projects/gunbandit/captures/capture2.jpeg",
+                            "./src/media/projects/gunbandit/captures/capture3.jpeg"
                         ]
                     },
                     "imgAltId": "imgAlt",
@@ -157,22 +157,22 @@
                     "roleId": "roles",
                     "blocksId": "blocks",
                     "media": {
-                        "banner": "./assets/img/projects/3047/banners/banner.jpeg",
+                        "banner": "./src/media/projects/3047/banners/banner.jpeg",
                         "background": {
-                            "img": "./assets/img/projects/3047/banners/banner.jpeg",
+                            "img": "./src/media/projects/3047/banners/banner.jpeg",
                             "baseColor": "#5D6473",
                             "overlayColor": "#000000e3",
                             "gradientEdgeColor": "#3E000551"
                         },
-                        "capsuleImg": "./assets/img/projects/3047/banners/banner.jpeg",
-                        "capsuleVideo": "./assets/img/projects/3047/gifs/gif3-low.gif",
+                        "capsuleImg": "./src/media/projects/3047/banners/banner.jpeg",
+                        "capsuleVideo": "./src/media/projects/3047/gifs/gif3-low.gif",
                         "carouselImages": [
-                            "./assets/img/projects/3047/gifs/gif1-high.gif",
-                            "./assets/img/projects/3047/gifs/gif2-high.gif",
-                            "./assets/img/projects/3047/gifs/gif3-high.gif",
-                            "./assets/img/projects/3047/gifs/gif4-high.gif",
-                            "./assets/img/projects/3047/gifs/gif5-high.gif",
-                            "./assets/img/projects/3047/captures/capture1.jpeg"
+                            "./src/media/projects/3047/gifs/gif1-high.gif",
+                            "./src/media/projects/3047/gifs/gif2-high.gif",
+                            "./src/media/projects/3047/gifs/gif3-high.gif",
+                            "./src/media/projects/3047/gifs/gif4-high.gif",
+                            "./src/media/projects/3047/gifs/gif5-high.gif",
+                            "./src/media/projects/3047/captures/capture1.jpeg"
                         ]
                     },
                     "imgAltId": "imgAlt",

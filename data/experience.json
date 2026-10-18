@@ -12,15 +12,15 @@
                 "blocksId": "blocks",
                 "skillsId": "skills",
                 "logo": {
-                    "src": "./assets/img/experience/three-dar/logo.jpeg",
+                    "src": "./src/media/experience/three-dar/logo.jpeg",
                     "altId": "iconAlt",
                     "altDefault": "3Dar's Logo"
                 },
                 "images": [ 
-                    "./assets/img/experience/three-dar/eggscape-01.png", 
-                    "./assets/img/experience/three-dar/eggscape-02.png",
-                    "./assets/img/experience/three-dar/eggscape-03.png",
-                    "./assets/img/experience/three-dar/eggscape-04.png" 
+                    "./src/media/experience/three-dar/eggscape-01.png", 
+                    "./src/media/experience/three-dar/eggscape-02.png",
+                    "./src/media/experience/three-dar/eggscape-03.png",
+                    "./src/media/experience/three-dar/eggscape-04.png" 
                 ],
                 "imgAltId": "imgAlt",
                 "buttons": [
@@ -71,7 +71,7 @@
                 "blocksId": "blocks",
                 "skillsId": "skills",
                 "logo": {
-                    "src": "./assets/img/experience/skynet-games/logo.jpeg",
+                    "src": "./src/media/experience/skynet-games/logo.jpeg",
                     "altId": "iconAlt",
                     "altDefault": "Skynet Game's Logo"
                 },

@@ -3,7 +3,7 @@
         "baseId": "hero",
         "titleId": "title",
         "rolesId": "roles",
-        "picture": { "img": "./assets/img/profile/hero-pic.jpeg", "altId": "imgAlt" },
+        "picture": { "img": "./src/media/profile/hero-pic.jpeg", "altId": "imgAlt" },
         "buttons": [
             { 
                 "id": "contacts",

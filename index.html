@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas Campo - Portfolio</title>
-    <link rel="icon" type="image/svg" href="./assets/img/icons/favicon.svg" />
+    <link rel="icon" type="image/svg" href="./src/media/icons/favicon.svg" />
 
     <script>
         (function () {
@@ -27,35 +27,35 @@
     <link rel="preconnect" href="https://img.itch.zone">
     <link rel="preconnect" href="https://cdn.fastly.steamstatic.com">
 
-    <link href="./assets/css/foundation/variables.css" rel="stylesheet" />
-    <link href="./assets/css/foundation/typography.css" rel="stylesheet" />
-    <link href="./assets/css/layout/layout.css" rel="stylesheet" />
-    <link href="./assets/css/components/buttons.css" rel="stylesheet" />
-    <link href="./assets/css/components/icons.css" rel="stylesheet" />
-    <link href="./assets/css/components/social.css" rel="stylesheet" />
-    <link href="./assets/css/components/carousel.css" rel="stylesheet" />
-    <link href="./assets/css/components/carousel-projects.css" rel="stylesheet" />
-    <link href="./assets/css/components/skeleton.css" rel="stylesheet" />
-    <link href="./assets/css/components/separator.css" rel="stylesheet" />
-    <link href="./assets/css/sections/hero.css" rel="stylesheet" />
-    <link href="./assets/css/sections/projects.css" rel="stylesheet" />
-    <link href="./assets/css/sections/experience.css" rel="stylesheet" />
-    <link href="./assets/css/sections/showcases.css" rel="stylesheet" />
-    <link href="./assets/css/sections/footer.css" rel="stylesheet" />
-    <link href="./assets/css/sections/popup.css" rel="stylesheet" />
-    <link href="./assets/css/sections/skills.css" rel="stylesheet" />
-    <link href="./assets/css/effects/particles.css" rel="stylesheet" />
-    <link href="./assets/css/effects/gradient.css" rel="stylesheet" />
+    <link href="./src/css/foundation/variables.css" rel="stylesheet" />
+    <link href="./src/css/foundation/typography.css" rel="stylesheet" />
+    <link href="./src/css/layout/layout.css" rel="stylesheet" />
+    <link href="./src/css/components/buttons.css" rel="stylesheet" />
+    <link href="./src/css/components/icons.css" rel="stylesheet" />
+    <link href="./src/css/components/social.css" rel="stylesheet" />
+    <link href="./src/css/components/carousel.css" rel="stylesheet" />
+    <link href="./src/css/components/carousel-projects.css" rel="stylesheet" />
+    <link href="./src/css/components/skeleton.css" rel="stylesheet" />
+    <link href="./src/css/components/separator.css" rel="stylesheet" />
+    <link href="./src/css/sections/hero.css" rel="stylesheet" />
+    <link href="./src/css/sections/projects.css" rel="stylesheet" />
+    <link href="./src/css/sections/experience.css" rel="stylesheet" />
+    <link href="./src/css/sections/showcases.css" rel="stylesheet" />
+    <link href="./src/css/sections/footer.css" rel="stylesheet" />
+    <link href="./src/css/sections/popup.css" rel="stylesheet" />
+    <link href="./src/css/sections/skills.css" rel="stylesheet" />
+    <link href="./src/css/effects/particles.css" rel="stylesheet" />
+    <link href="./src/css/effects/gradient.css" rel="stylesheet" />
 
-    <link rel="modulepreload" href="./src/core/App.js" />
-    <link rel="modulepreload" href="./src/core/JSONLoader.js" />
-    <link rel="modulepreload" href="./src/ui/Renderer.js" />
-    <link rel="modulepreload" href="./src/ui/PopupHandler.js" />
-    <link rel="modulepreload" href="./src/ui/elements/Media.js" />
-    <link rel="modulepreload" href="./src/ui/elements/MediaCarousel.js" />
-    <link rel="modulepreload" href="./src/ui/elements/CapsuleCarousel/CapsuleCarousel.js" />
-    <link rel="modulepreload" href="./src/ui/elements/CapsuleCarousel/Capsule.js" />
-    <link rel="modulepreload" href="./src/ui/elements/CapsuleCarousel/CapsuleType.js" />
+    <link rel="modulepreload" href="./src/js/core/App.js" />
+    <link rel="modulepreload" href="./src/js/core/JSONLoader.js" />
+    <link rel="modulepreload" href="./src/js/ui/Renderer.js" />
+    <link rel="modulepreload" href="./src/js/ui/PopupHandler.js" />
+    <link rel="modulepreload" href="./src/js/ui/elements/Media.js" />
+    <link rel="modulepreload" href="./src/js/ui/elements/MediaCarousel.js" />
+    <link rel="modulepreload" href="./src/js/ui/elements/CapsuleCarousel/CapsuleCarousel.js" />
+    <link rel="modulepreload" href="./src/js/ui/elements/CapsuleCarousel/Capsule.js" />
+    <link rel="modulepreload" href="./src/js/ui/elements/CapsuleCarousel/CapsuleType.js" />
 
     <link rel="preload" href="./data/home.json" as="fetch" crossorigin />
     <link rel="preload" href="./data/experience.json" as="fetch" crossorigin />
@@ -91,7 +91,7 @@
                     </div>
 
                     <div class="profile-shadow">
-                        <img id="hero-pic" src="./assets/img/profile/hero-pic.jpeg" class="profile-pic" alt=""
+                        <img id="hero-pic" src="./src/media/profile/hero-pic.jpeg" class="profile-pic" alt=""
                             width="640" height="640" fetchpriority="high" decoding="async">
                     </div>
                 </div>
@@ -120,7 +120,7 @@
                         <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 55%;" aria-hidden="true"></span>
                     </li>
                     <!-- <li class="about-me-image">
-                        <img id="about-pic" src="./assets/images/about/profile-pic.jpeg" />
+                        <img id="about-pic" src="./src/media/legacy/about/profile-pic.jpeg" />
                     </li> -->
                 </ul>
                 <div id="about-contacts" class="contact-info" style="padding-bottom: 2rem;">
@@ -520,8 +520,8 @@
     
 
 
-    <script type="module" src="./src/core/App.js"></script>
-    <script src="./src/particles/particles.js" defer></script>
+    <script type="module" src="./src/js/core/App.js"></script>
+    <script src="./src/js/particles/particles.js" defer></script>
 
 </body>
 </html>
