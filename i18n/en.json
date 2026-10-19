@@ -136,12 +136,20 @@
                         "title": "Responsibilities",
                         "items": [
                             "Programming a mobile minigame using Unity.",
-                            "Build the game in a way that is easy to customize for different clients.",
-                            "Implementing UI, fucusing on clarity and responsiveness across different mobile screen sizes."
+                            "Facilitate customization for different clients.",
+                            "Implementing UI, focusing on clarity and responsiveness across different mobile screen sizes.",
+                            "Collaboration with the design team to integrate educational games."
                         ]
                     }
                 ],
-            "iconAlt": "Skynet icon"
+            "iconAlt": "Skynet icon",
+            "skills": [
+                {
+                    "type": "hr-ul",
+                    "title": "Skills",
+                    "items": [ "Unity", "C#", "Optimization", "OPP", "UI/UX" ]
+                }
+            ]
         }
     },
     "projects": {

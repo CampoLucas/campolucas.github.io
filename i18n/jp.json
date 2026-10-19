@@ -16,5 +16,38 @@
         "linkedInHover": "LinkedInチェックしてください!",
         "githubHover": "GitHubチェックしてください!",
         "emailHover": "連絡して下さい！"
+    },
+    "experience": {
+        "skynetGames": {
+            "company": "Skynet Games",
+            "period": "Feb 2026 - Present",
+            "role": "Unity Game Developer",
+            "linkedInHover": "LinkedIn Page",
+            "blocks": [
+                {
+                    "type": "desc",
+                    "title": "Summary",
+                    "text": "Early stage development of a <b>mobile platform</b> where companies can market their own products throug minigames. Currently working on the first prototype, covering <b>gamplay programming</b> and making the game <b>customizable</b> for the clients."
+                },
+                {
+                    "type": "ul",
+                    "title": "Responsibilities",
+                    "items": [
+                        "Programming a mobile minigame using Unity.",
+                        "Facilitate customization for different clients.",
+                        "Implementing UI, focusing on clarity and responsiveness across different mobile screen sizes.",
+                        "Collaboration with the design team to integrate educational games."
+                    ]
+                }
+            ],
+            "iconAlt": "Skynet icon",
+            "skills": [
+                {
+                    "type": "hr-ul",
+                    "title": "Skills",
+                    "items": [ "Unity", "C#", "Optimization", "OPP", "UI/UX" ]
+                }
+            ]
+        }
     }
 }

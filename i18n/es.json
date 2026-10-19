@@ -117,18 +117,29 @@
                 { 
                     "type": "desc", 
                     "title": "Resumen",
-                    "text": "Trabajo en el desarrollo de un videojuego en Unity como parte de un equipo."
+                    "text": [
+                        "Desarrollo en fase inicial de una <b>plataforma móvil</b> que permite a las empresas comercializar sus propios productos mediante minijuegos. Actualmente estamos trabajando en el primer prototipo, lo que incluye la <b>programación de la jugabilidad</b> y la creación de un sistema que permite a los clientes <b>personalizar</b> el juego."
+                    ]
                 },
                 {
                     "type": "ul",
                     "title": "Responsabilidades",
                     "items": [
-                        "Gameplay programming en C#",
-                        "Colaboración con design para integrar mecánicas en el juego"
+                        "Programación de un minijuego para utilizando Unity.",
+                        "Facilitar la personalizacion para los differentes clientes.",
+                        "Implementación de la interfaz de usuario, priorizando claridad y adaptabilidad para los distintos dispositivos.",
+                        "Colaboración con el equipo de diseño para integrar juegos educativos."
                     ]
                 }
             ],
-            "iconAlt": "Icono de Skynet"
+            "iconAlt": "Icono de Skynet",
+            "skills": [
+                {
+                    "type": "hr-ul",
+                    "title": "Skills",
+                    "items": [ "Unity", "C#", "Optimization", "OPP", "UI/UX" ]
+                }
+            ]
         }
     },
     "projects": {

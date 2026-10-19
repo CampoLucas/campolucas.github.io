@@ -113,7 +113,7 @@
                             "newTab": true
                         }
                     ],
-                    "tags": ["Speedrunning", "FPS", "Unity", "Singleplayer", "Shooter", "Fast-paced"]
+                    "tags": ["Speedrunning", "FPS", "Unity", "Singleplayer", "Shooter", "Fast-paced", "EVA2026"]
                 },
                 {
                     "baseId": "idleAirport",
@@ -126,10 +126,59 @@
                             "src": "./src/media/projects/idle-airport/capsule.png",
                             "width": 209,
                             "height": 117
+                        },
+                        "capsuleVideo": {
+                            "src": "./src/media/projects/idle-airport/capsule-preview.mp4",
+                            "width": 640,
+                            "height": 360
+                        },
+                        "carouselImages": [
+                            {
+                                "src": "./src/media/projects/idle-airport/carousel/01.mp4",
+                                "width": 1280,
+                                "height": 720,
+                                "thumb": "./src/media/projects/idle-airport/carousel/01-thumb.webp"
+                            },
+                            {
+                                "src": "./src/media/projects/idle-airport/carousel/02.png",
+                                "width": 960,
+                                "height": 542,
+                                "thumb": "./src/media/projects/idle-airport/carousel/02-thumb.webp"
+                            },
+                            {
+                                "src": "./src/media/projects/idle-airport/carousel/03.png",
+                                "width": 960,
+                                "height": 540,
+                                "thumb": "./src/media/projects/idle-airport/carousel/03-thumb.webp"
+                            },
+                            {
+                                "src": "./src/media/projects/idle-airport/carousel/04.png",
+                                "width": 960,
+                                "height": 540,
+                                "thumb": "./src/media/projects/idle-airport/carousel/04-thumb.webp"
+                            }
+                        ],
+                        "background": {
+                            "img": {
+                                "src": "./src/media/projects/idle-airport/background.png",
+                                "width": 209,
+                                "height": 117
+                            },
+                            "baseColor": "#39238454",
+                            "overlayColor": "#f4a63e57",
+                            "gradientEdgeColor": "#110b2756"
                         }
                     },
-                    "buttons": [],
-                    "link": "https://danidieguez.itch.io/idle-airport",
+                    "buttons": [
+                        {
+                            "id": "itch",
+                            "link": "https://https://danidieguez.itch.io/idle-airport",
+                            "classList": [ "icon", "social-link", "itch" ],
+                            "hoverTextId": "itchHover",
+                            "type": "link",
+                            "newTab": true
+                        }
+                    ],
                     "tags": [ "Unity 6", "Play in browser", "Incremental", "Simulation", "2D" ]
                 },
                 {
