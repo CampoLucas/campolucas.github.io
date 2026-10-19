@@ -56,11 +56,79 @@
 .projects-carousel .carousel-items{
     width: 100%;
     display: block;
-    overflow: hidden;
+    overflow: visible;
     padding: var(--items-padding);
     box-sizing: border-box;
-    /* gap: var(--capsule-gap); */
     transition: opacity 400ms;
+}
+
+.projects-carousel .focus {
+    --scroll-room: var(--items-padding);
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: var(--scroll-room);
+    margin: calc(var(--scroll-room) * -1);
+    scroll-padding-inline: var(--scroll-room);
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.projects-carousel .focus::-webkit-scrollbar {
+    display: none;
+}
+
+.projects-carousel.is-scrubbing .focus {
+    scroll-snap-type: none;
+    scroll-behavior: auto;
+}
+
+.cap-scroll-track {
+    position: relative;
+    width: min(360px, 60%);
+    height: 6px;
+    margin: 14px auto 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    cursor: pointer;
+    touch-action: none;
+    transition: height .15s ease, background-color .15s ease;
+}
+
+.cap-scroll-track::before {
+    content: "";
+    position: absolute;
+    inset: -10px 0;
+}
+
+.cap-scroll-track:hover,
+.projects-carousel.is-scrubbing .cap-scroll-track {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.cap-scroll-handle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    border-radius: inherit;
+    background: rgba(255, 255, 255, 0.55);
+    cursor: grab;
+    transition: background-color .15s ease;
+}
+
+.cap-scroll-track:hover .cap-scroll-handle,
+.projects-carousel.is-scrubbing .cap-scroll-handle {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.projects-carousel.is-scrubbing,
+.projects-carousel.is-scrubbing .cap-scroll-handle {
+    cursor: grabbing;
+    user-select: none;
 }
 
 .projects-carousel .carousel-items > *.focus {
@@ -209,7 +277,7 @@
     /* aspect-ratio: 3.78/1; */
     
     width: 100%;
-    max-height: var(--max-height);
+    height: var(--max-height);
     box-sizing: border-box;
     
     display: flex;
@@ -279,14 +347,6 @@
 }
 
 @media only screen and (max-width: 1000px) {
-    .focus {
-        overflow: visible;
-        overflow-x: auto;
-        overflow-y: visible;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-    }
-
     .projects-carousel .arrow {
         display: none;
     }

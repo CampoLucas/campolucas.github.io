@@ -19,22 +19,54 @@
     background: var(--skeleton-base);
 }
 
+.carousel-viewport.is-loading::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(
+        90deg,
+        var(--skeleton-base) 0%,
+        var(--skeleton-highlight) 50%,
+        var(--skeleton-base) 100%
+    );
+    background-size: 200% 100%;
+    animation: skeleton-shimmer var(--skeleton-speed) ease-in-out infinite;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .carousel-viewport.is-loading::before {
+        animation: none;
+        background: var(--skeleton-base);
+    }
+}
+
 .carousel-viewport img,
 .carousel-viewport video {
     position: absolute;
     inset: 0;
+    z-index: 1;
     width: 100%;
     height: 100%;
     object-fit: cover;
     opacity: 0;
+    pointer-events: none;
     transition: opacity 0.3s ease;
     top: 0;
     bottom: 0;
 }
 
-.carousel-viewport img.active,
-.carousel-viewport video.active {
+.carousel-viewport video {
+    object-fit: contain;
+    background: #000;
+}
+
+.carousel-viewport img.active.is-ready,
+.carousel-viewport video.active.is-ready {
     opacity: 1;
+    pointer-events: auto;
+    z-index: 2;
 }
 
 /* arrows */
@@ -102,6 +134,7 @@
     border-radius: 50%;
     border: none;
     opacity: 0.4;
+    cursor: pointer;
     transition: opacity 0.3s ease;
 }
 
@@ -128,7 +161,13 @@
     background: var(--skeleton-base);
     flex-shrink: 0;
     opacity: 0.4;
+    cursor: pointer;
     transition: opacity 0.3s ease;
+}
+
+.carousel-thumbs-track button:hover,
+.carousel-thumbs-track button:focus-visible {
+    opacity: 0.75;
 }
 
 .carousel-thumbs-track button.is-video::before {
@@ -175,7 +214,13 @@
 }
 
 .carousel-thumbs-track {
-    transition: transform .25s ease;
+    transition: transform .3s cubic-bezier(.2, .7, .2, 1);
+    will-change: transform;
+}
+
+.carousel.is-scrubbing .carousel-thumbs-track,
+.carousel.is-scrubbing .carousel-thumb-scroll-handle {
+    transition: none;
 }
 
 @media only screen and (orientation: portrait) and (max-width:600px) {
@@ -201,7 +246,25 @@
     height: 6px;
     background: rgba(255,255,255,0.15);
     border-radius: 999px;
-    overflow: hidden;
+    cursor: pointer;
+    touch-action: none;
+    transition: height .15s ease, background-color .15s ease;
+}
+
+.carousel-thumb-scroll-track::before {
+    content: "";
+    position: absolute;
+    inset: -9px 0;
+}
+
+.carousel:not(.thumbs-scrollable) .carousel-thumb-scroll-track {
+    cursor: default;
+}
+
+.carousel.thumbs-scrollable .carousel-thumb-scroll-track:hover,
+.carousel.is-dragging-scrollbar .carousel-thumb-scroll-track {
+    height: 8px;
+    background: rgba(255,255,255,0.22);
 }
 
 .carousel-thumb-scroll-handle {
@@ -211,12 +274,20 @@
     height: 100%;
     background: rgba(255,255,255,0.6);
     border-radius: inherit;
-    transition: transform 0.25s ease;
+    transition: left .3s cubic-bezier(.2, .7, .2, 1), background-color .15s ease;
     cursor: grab;
+    touch-action: none;
 }
 
-.carousel-thumb-scroll-handle:active {
+.carousel.thumbs-scrollable .carousel-thumb-scroll-handle:hover,
+.carousel.is-dragging-scrollbar .carousel-thumb-scroll-handle {
+    background: rgba(255,255,255,0.9);
+}
+
+.carousel.is-dragging-scrollbar,
+.carousel.is-dragging-scrollbar .carousel-thumb-scroll-handle {
     cursor: grabbing;
+    user-select: none;
 }
 
 .carousel-thumb-scroll button {
@@ -224,5 +295,9 @@
     border: none;
     color: white;
     font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.carousel-arrows .arrow {
     cursor: pointer;
 }

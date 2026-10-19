@@ -12,7 +12,7 @@ export function normalizeMedia(entry) {
     return media;
 }
 
-export function createMedia(entry, { lazy = true, alt = "", className = null } = {}) {
+export function createMedia(entry, { lazy = true, alt = "", className = null, controls = false } = {}) {
     const media = normalizeMedia(entry);
     if (!media) return null;
 
@@ -20,7 +20,8 @@ export function createMedia(entry, { lazy = true, alt = "", className = null } =
     if (media.isVideo) {
         el = document.createElement("video");
         el.muted = true;
-        el.loop = true;
+        el.loop = !controls;
+        el.controls = controls;
         el.playsInline = true;
         el.preload = "none";
         el.setAttribute("muted", "");
@@ -59,6 +60,10 @@ export function loadMedia(el) {
 
 export function isVideo(el) {
     return el instanceof HTMLVideoElement;
+}
+
+export function isReady(el) {
+    return !!el && el.classList.contains("is-ready");
 }
 
 export function playMedia(el) {
