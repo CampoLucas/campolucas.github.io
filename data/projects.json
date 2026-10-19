@@ -36,7 +36,8 @@
                                 "src": "./src/media/projects/rush-rift/carousel/02.mp4",
                                 "width": 854,
                                 "height": 480,
-                                "thumb": "./src/media/projects/rush-rift/carousel/02-thumb.webp"
+                                "thumb": "./src/media/projects/rush-rift/carousel/02-thumb.webp",
+                                "poster": "./src/media/projects/rush-rift/carousel/02-poster.png"
                             },
                             {
                                 "src": "./src/media/projects/rush-rift/carousel/03.webp",
