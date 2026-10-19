@@ -21,18 +21,77 @@
                             "overlayColor": "#00000018",
                             "gradientEdgeColor": "#6000893b"
                         },
-                        "capsuleImg": "./src/media/projects/rushrift/banners/banner2.jpeg",
-                        "capsuleVideo": "./src/media/projects/rushrift/gifs/gif2.gif",
+                        "capsuleImg": {
+                            "src": "./src/media/projects/rush-rift/capsule.webp",
+                            "width": 640,
+                            "height": 360
+                        },
+                        "capsuleVideo": {
+                            "src": "./src/media/projects/rush-rift/capsule-preview.mp4",
+                            "width": 640,
+                            "height": 360
+                        },
                         "carouselImages": [
-                            "./src/media/projects/rushrift/screenshots/screenshot-1.png",
-                            "./src/media/projects/rushrift/screenshots/screenshot-2.png",
-                            "./src/media/projects/rushrift/screenshots/screenshot-3.png",
-                            "./src/media/projects/rushrift/screenshots/screenshot-4.png",
-                            "./src/media/projects/rushrift/screenshots/screenshot-5.png",
-                            "./src/media/projects/rushrift/screenshots/screenshot-6.png",
-                            "./src/media/projects/rushrift/screenshots/screenshot-7.png",
-                            "./src/media/projects/rushrift/screenshots/screenshot-8.png",
-                            "./src/media/projects/rushrift/screenshots/screenshot-9.png"
+                            {
+                                "src": "./src/media/projects/rush-rift/carousel/02.mp4",
+                                "width": 1280,
+                                "height": 720,
+                                "thumb": "./src/media/projects/rush-rift/carousel/02-thumb.webp"
+                            },
+                            {
+                                "src": "./src/media/projects/rush-rift/carousel/03.webp",
+                                "width": 1920,
+                                "height": 1080,
+                                "thumb": "./src/media/projects/rush-rift/carousel/03-thumb.webp"
+                            },
+                            {
+                                "src": "./src/media/projects/rush-rift/carousel/04.webp",
+                                "width": 1920,
+                                "height": 1080,
+                                "thumb": "./src/media/projects/rush-rift/carousel/04-thumb.webp"
+                            },
+                            {
+                                "src": "./src/media/projects/rush-rift/carousel/05.webp",
+                                "width": 1920,
+                                "height": 1080,
+                                "thumb": "./src/media/projects/rush-rift/carousel/05-thumb.webp"
+                            },
+                            {
+                                "src": "./src/media/projects/rush-rift/carousel/06.webp",
+                                "width": 1920,
+                                "height": 1080,
+                                "thumb": "./src/media/projects/rush-rift/carousel/06-thumb.webp"
+                            },
+                            {
+                                "src": "./src/media/projects/rush-rift/carousel/07.webp",
+                                "width": 1920,
+                                "height": 1080,
+                                "thumb": "./src/media/projects/rush-rift/carousel/07-thumb.webp"
+                            },
+                            {
+                                "src": "./src/media/projects/rush-rift/carousel/08.webp",
+                                "width": 1920,
+                                "height": 1080,
+                                "thumb": "./src/media/projects/rush-rift/carousel/08-thumb.webp"
+                            },
+                            {
+                                "src": "./src/media/projects/rush-rift/carousel/09.webp",
+                                "width": 1920,
+                                "height": 1080,
+                                "thumb": "./src/media/projects/rush-rift/carousel/09-thumb.webp"
+                            },
+                            {
+                                "src": "./src/media/projects/rush-rift/carousel/10.webp",
+                                "width": 1920,
+                                "height": 1080,
+                                "thumb": "./src/media/projects/rush-rift/carousel/10-thumb.webp"
+                            },
+                            {
+                                "src": "./src/media/projects/rush-rift/carousel/11.webp",
+                                "width": 1920,
+                                "height": 1080,
+                                "thumb": "./src/media/projects/rush-rift/carousel/11-thumb.webp"
+                            }
                         ]
                     },
                     "imgAltId": "imgAlt",
