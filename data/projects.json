@@ -116,51 +116,21 @@
                     "tags": ["Speedrunning", "FPS", "Unity", "Singleplayer", "Shooter", "Fast-paced"]
                 },
                 {
-                    "baseId": "mysticCatacombs",
+                    "baseId": "idleAirport",
                     "titleId": "title",
-                    "category": "games",
                     "periodId": "period",
-                    "roleId": "roles",
                     "blocksId": "blocks",
-                    "media": {
-                        "banner": "./src/media/projects/mysticcatacombs/banner2.jpeg",
-                        "background": {
-                            "img": "./src/media/projects/mysticcatacombs/banner2.jpeg",
-                            "baseColor": "#5D6473",
-                            "overlayColor": "#0000007d",
-                            "gradientEdgeColor": "#281c18"
-                        },
-                        "capsuleImg": "./src/media/projects/mysticcatacombs/banner2.jpeg",
-                        "capsuleVideo": "./src/media/projects/mysticcatacombs/gifs/gif1-med.gif",
-                        "carouselImages": [
-                            "./src/media/projects/mysticcatacombs/gifs/gif1-high.gif",
-                            "./src/media/projects/mysticcatacombs/gifs/gif2-high.gif",
-                            "./src/media/projects/mysticcatacombs/captures/capture1.jpeg",
-                            "./src/media/projects/mysticcatacombs/captures/capture2.jpeg",
-                            "./src/media/projects/mysticcatacombs/captures/capture3.jpeg",
-                            "./src/media/projects/mysticcatacombs/captures/capture4.jpeg"
-                        ]
-                    },
                     "imgAltId": "imgAlt",
-                    "buttons": [
-                        { 
-                            "id": "itch",
-                            "link": "https://luinbucket.itch.io/mystic-catacombs", 
-                            "classList": [ "icon", "social-link", "itch" ],
-                            "hoverTextId": "itchHover",
-                            "type": "link",
-                            "newTab": true
-                        },
-                        { 
-                            "id": "github",
-                            "link": "https://github.com/CampoLucas/MysticCatacombs", 
-                            "classList": [ "icon", "social-link", "github" ],
-                            "hoverTextId": "itchHover",
-                            "type": "link",
-                            "newTab": true
+                    "media": {
+                        "capsuleImg": {
+                            "src": "./src/media/projects/idle-airport/capsule.png",
+                            "width": 209,
+                            "height": 117
                         }
-                    ],
-                    "tags": ["Unity", "Top-down", "Prototype", "3D", "Fantasy", "Magic"]
+                    },
+                    "buttons": [],
+                    "link": "https://danidieguez.itch.io/idle-airport",
+                    "tags": [ "Unity 6", "Play in browser", "Incremental", "Simulation", "2D" ]
                 },
                 {
                     "baseId": "gunBandit",
@@ -254,6 +224,53 @@
                         }
                     ],
                     "tags": ["Bullet hell", "Shoot em up", "Unity", "Space", "3D"]
+                },
+                {
+                    "baseId": "mysticCatacombs",
+                    "titleId": "title",
+                    "category": "games",
+                    "periodId": "period",
+                    "roleId": "roles",
+                    "blocksId": "blocks",
+                    "media": {
+                        "banner": "./src/media/projects/mysticcatacombs/banner2.jpeg",
+                        "background": {
+                            "img": "./src/media/projects/mysticcatacombs/banner2.jpeg",
+                            "baseColor": "#5D6473",
+                            "overlayColor": "#0000007d",
+                            "gradientEdgeColor": "#281c18"
+                        },
+                        "capsuleImg": "./src/media/projects/mysticcatacombs/banner2.jpeg",
+                        "capsuleVideo": "./src/media/projects/mysticcatacombs/gifs/gif1-med.gif",
+                        "carouselImages": [
+                            "./src/media/projects/mysticcatacombs/gifs/gif1-high.gif",
+                            "./src/media/projects/mysticcatacombs/gifs/gif2-high.gif",
+                            "./src/media/projects/mysticcatacombs/captures/capture1.jpeg",
+                            "./src/media/projects/mysticcatacombs/captures/capture2.jpeg",
+                            "./src/media/projects/mysticcatacombs/captures/capture3.jpeg",
+                            "./src/media/projects/mysticcatacombs/captures/capture4.jpeg"
+                        ]
+                    },
+                    "imgAltId": "imgAlt",
+                    "buttons": [
+                        { 
+                            "id": "itch",
+                            "link": "https://luinbucket.itch.io/mystic-catacombs", 
+                            "classList": [ "icon", "social-link", "itch" ],
+                            "hoverTextId": "itchHover",
+                            "type": "link",
+                            "newTab": true
+                        },
+                        { 
+                            "id": "github",
+                            "link": "https://github.com/CampoLucas/MysticCatacombs", 
+                            "classList": [ "icon", "social-link", "github" ],
+                            "hoverTextId": "itchHover",
+                            "type": "link",
+                            "newTab": true
+                        }
+                    ],
+                    "tags": ["Unity", "Top-down", "Prototype", "3D", "Fantasy", "Magic"]
                 }
             ]
         },
@@ -276,24 +293,7 @@
                         "capsuleImg": "https://campolucas.github.io/Greatest-Movies/assets/media/favicon.png"
                     },
                     "imgAltId": "imgAlt",
-                    "buttons": [
-                        { 
-                            "id": "itch",
-                            "link": "https://luinbucket.itch.io/rushrift", 
-                            "classList": [ "icon", "social-link", "itch" ],
-                            "hoverTextId": "itchHover",
-                            "type": "link",
-                            "newTab": true
-                        },
-                        { 
-                            "id": "github",
-                            "link": "https://github.com/CampoLucas/RushRift", 
-                            "classList": [ "icon", "social-link", "github" ],
-                            "hoverTextId": "itchHover",
-                            "type": "link",
-                            "newTab": true
-                        }
-                    ],
+                    "buttons": [],
                     "link": "https://campolucas.github.io/Greatest-Movies/"
                 },
                 {
@@ -311,25 +311,20 @@
                         "capsuleImg": "https://campolucas.github.io/Vocab-Match/assets/img/favicon2.svg"
                     },
                     "imgAltId": "imgAlt",
-                    "buttons": [
-                        { 
-                            "id": "itch",
-                            "link": "https://luinbucket.itch.io/rushrift", 
-                            "classList": [ "icon", "social-link", "itch" ],
-                            "hoverTextId": "itchHover",
-                            "type": "link",
-                            "newTab": true
-                        },
-                        { 
-                            "id": "github",
-                            "link": "https://github.com/CampoLucas/RushRift", 
-                            "classList": [ "icon", "social-link", "github" ],
-                            "hoverTextId": "itchHover",
-                            "type": "link",
-                            "newTab": true
-                        }
-                    ],
+                    "buttons": [],
                     "link": "https://campolucas.github.io/Vocab-Match/"
+                },
+                {
+                    "baseId": "roasteryShopper",
+                    "titleId": "title",
+                    "periodId": "period",
+                    "blocksId": "blocks",
+                    "imgAltId": "imgAlt",
+                    "media": {
+                        "capsuleImg": "https://campolucas.github.io/Roastery-Shopper/src/media/fav-icon.svg"
+                    },
+                    "buttons": [],
+                    "link": "https://campolucas.github.io/Roastery-Shopper/"
                 }
             ]
         }

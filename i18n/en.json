@@ -245,6 +245,30 @@
                 ],
                 "roles": [ "Frontend Programmer" ],
                 "imgAlt": "Greatest Movies showcase"
+            },
+            "idleAirport": {
+                "title": "Idle Airport",
+                "period": "Mar 2026 - July 2026",
+                "imgAlt": "Idle Airport",
+                "blocks": [
+                    {
+                        "type": "desc",
+                        "title": "About",
+                        "text": "An idle airport where you scan passengers, automate security, buy shops, and grow your terminal."
+                    }
+                ]
+            },
+            "roasteryShopper": {
+                "title": "Roastery Shopper",
+                "period": "",
+                "imgAlt": "Roastery Shopper",
+                "blocks": [
+                    {
+                        "type": "desc",
+                        "title": "About",
+                        "text": ""
+                    }
+                ]
             }
         },        
         "categories": {
