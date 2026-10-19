@@ -138,7 +138,8 @@
                                 "src": "./src/media/projects/idle-airport/carousel/01.mp4",
                                 "width": 1280,
                                 "height": 720,
-                                "thumb": "./src/media/projects/idle-airport/carousel/01-thumb.webp"
+                                "thumb": "./src/media/projects/idle-airport/carousel/01-thumb.webp",
+                                "poster": "./src/media/projects/idle-airport/carousel/01-poster.png"
                             },
                             {
                                 "src": "./src/media/projects/idle-airport/carousel/02.png",
