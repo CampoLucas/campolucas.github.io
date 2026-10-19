@@ -77,7 +77,8 @@
                             "Git"
                         ]
                     }
-                ]
+                ],
+            "iconAlt": "Three Dar icon"
         },
         "independent-work": {
             "company": "Self-employed",
@@ -139,7 +140,8 @@
                             "Implementing UI, fucusing on clarity and responsiveness across different mobile screen sizes."
                         ]
                     }
-                ]
+                ],
+            "iconAlt": "Skynet icon"
         }
     },
     "projects": {

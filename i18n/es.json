@@ -76,7 +76,8 @@
                         "Git"
                     ]
                 }
-            ]
+            ],
+            "iconAlt": "Icono de Tres Dar"
         },
         "independent-work": {
             "company": "Self-employed",
@@ -126,7 +127,8 @@
                         "Colaboración con design para integrar mecánicas en el juego"
                     ]
                 }
-            ]
+            ],
+            "iconAlt": "Icono de Skynet"
         }
     },
     "projects": {

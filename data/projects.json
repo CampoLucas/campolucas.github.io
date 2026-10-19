@@ -34,8 +34,8 @@
                         "carouselImages": [
                             {
                                 "src": "./src/media/projects/rush-rift/carousel/02.mp4",
-                                "width": 1280,
-                                "height": 720,
+                                "width": 854,
+                                "height": 480,
                                 "thumb": "./src/media/projects/rush-rift/carousel/02-thumb.webp"
                             },
                             {
@@ -273,15 +273,7 @@
                             "overlayColor": "#00000018",
                             "gradientEdgeColor": "#6000893b"
                         },
-                        "capsuleImg": "https://campolucas.github.io/Greatest-Movies/assets/media/favicon.png",
-                        "carouselImages": [
-                            "https://campolucas.github.io/images/RushRift/Gif1_HighRes.gif",
-                            "https://campolucas.github.io/images/RushRift/Gif2_HighRes.gif",
-                            "https://campolucas.github.io/images/RushRift/Gif3_HighRes.gif",
-                            "https://campolucas.github.io/images/RushRift/Gif4_HighRes.gif",
-                            "https://campolucas.github.io/images/RushRift/Gif5_HighRes.gif",
-                            "https://campolucas.github.io/images/RushRift/Gif6_HighRes.gif"
-                        ]
+                        "capsuleImg": "https://campolucas.github.io/Greatest-Movies/assets/media/favicon.png"
                     },
                     "imgAltId": "imgAlt",
                     "buttons": [
@@ -316,15 +308,7 @@
                             "overlayColor": "#00000018",
                             "gradientEdgeColor": "#6000893b"
                         },
-                        "capsuleImg": "https://campolucas.github.io/Vocab-Match/assets/img/favicon2.svg",
-                        "carouselImages": [
-                            "https://campolucas.github.io/images/RushRift/Gif1_HighRes.gif",
-                            "https://campolucas.github.io/images/RushRift/Gif2_HighRes.gif",
-                            "https://campolucas.github.io/images/RushRift/Gif3_HighRes.gif",
-                            "https://campolucas.github.io/images/RushRift/Gif4_HighRes.gif",
-                            "https://campolucas.github.io/images/RushRift/Gif5_HighRes.gif",
-                            "https://campolucas.github.io/images/RushRift/Gif6_HighRes.gif"
-                        ]
+                        "capsuleImg": "https://campolucas.github.io/Vocab-Match/assets/img/favicon2.svg"
                     },
                     "imgAltId": "imgAlt",
                     "buttons": [

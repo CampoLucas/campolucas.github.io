@@ -17,10 +17,30 @@
                     "altDefault": "3Dar's Logo"
                 },
                 "images": [ 
-                    "./src/media/experience/three-dar/eggscape-01.png", 
-                    "./src/media/experience/three-dar/eggscape-02.png",
-                    "./src/media/experience/three-dar/eggscape-03.png",
-                    "./src/media/experience/three-dar/eggscape-04.png" 
+                    {
+                        "src": "./src/media/experience/three-dar/carousel/01.webp",
+                        "width": 1280,
+                        "height": 720,
+                        "thumb": "./src/media/experience/three-dar/carousel/01-thumb.webp"
+                    }, 
+                    {
+                        "src": "./src/media/experience/three-dar/carousel/02.webp",
+                        "width": 1440,
+                        "height": 810,
+                        "thumb": "./src/media/experience/three-dar/carousel/02-thumb.webp"
+                    },
+                    {
+                        "src": "./src/media/experience/three-dar/carousel/03.webp",
+                        "width": 1440,
+                        "height": 810,
+                        "thumb": "./src/media/experience/three-dar/carousel/03-thumb.webp"
+                    },
+                    {
+                        "src": "./src/media/experience/three-dar/carousel/04.webp",
+                        "width": 1440,
+                        "height": 810,
+                        "thumb": "./src/media/experience/three-dar/carousel/04-thumb.webp"
+                    } 
                 ],
                 "imgAltId": "imgAlt",
                 "buttons": [
