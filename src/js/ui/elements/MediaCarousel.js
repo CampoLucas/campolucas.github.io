@@ -39,6 +39,7 @@ export class MediaCarousel {
                 const thumbEl = document.createElement("img");
                 const thumbBtnEl = document.createElement("button");
                 thumbBtnEl.appendChild(thumbEl);
+                if (media.isVideo) thumbBtnEl.classList.add("is-video");
                 thumbEl.alt = `${alt} thumbnail ${index + 1}`;
                 thumbEl.decoding = "async";
 

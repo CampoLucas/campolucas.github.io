@@ -122,12 +122,39 @@
 }
 
 .carousel-thumbs-track button {
+    position: relative;
     padding: 0;
     border: none;
     background: var(--skeleton-base);
     flex-shrink: 0;
     opacity: 0.4;
     transition: opacity 0.3s ease;
+}
+
+.carousel-thumbs-track button.is-video::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 32%;
+    max-width: 40px;
+    aspect-ratio: 1;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+}
+
+.carousel-thumbs-track button.is-video::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-35%, -50%);
+    border-style: solid;
+    border-width: 7px 0 7px 12px;
+    border-color: transparent transparent transparent #fff;
+    pointer-events: none;
 }
 
 .carousel-thumbs-track button.active {
