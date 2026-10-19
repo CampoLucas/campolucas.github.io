@@ -22,6 +22,12 @@ export function createMedia(entry, { lazy = true, alt = "", className = null, co
         el.muted = true;
         el.loop = !controls;
         el.controls = controls;
+        if (controls) {
+            el.setAttribute("controlslist", "nodownload noplaybackrate noremoteplayback");
+            el.disablePictureInPicture = true;
+            el.disableRemotePlayback = true;
+            el.addEventListener("contextmenu", e => e.preventDefault());
+        }
         el.playsInline = true;
         el.preload = "none";
         el.setAttribute("muted", "");
