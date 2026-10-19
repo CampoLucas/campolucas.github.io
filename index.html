@@ -4,16 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lucas Campo - Portfolio</title>
-    <link rel="icon" type="image/svg" href="./assets/img/icons/favicon.svg" />
-    <link href="./assets/css/style.css" rel="stylesheet" />
+    <link rel="icon" type="image/svg" href="./src/media/icons/favicon.svg" />
+
+    <script>
+        (function () {
+            var lang = new URLSearchParams(location.search).get("lang") || "en";
+            if (!/^[a-z-]+$/i.test(lang)) lang = "en";
+            document.documentElement.lang = lang === "jp" ? "ja" : lang;
+
+            if (lang !== "en") {
+                var link = document.createElement("link");
+                link.rel = "preload";
+                link.as = "fetch";
+                link.crossOrigin = "anonymous";
+                link.href = "./i18n/" + lang + ".json";
+                document.head.appendChild(link);
+            }
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://img.itch.zone">
+    <link rel="preconnect" href="https://cdn.fastly.steamstatic.com">
+
+    <link href="./src/css/foundation/variables.css" rel="stylesheet" />
+    <link href="./src/css/foundation/typography.css" rel="stylesheet" />
+    <link href="./src/css/layout/layout.css" rel="stylesheet" />
+    <link href="./src/css/components/buttons.css" rel="stylesheet" />
+    <link href="./src/css/components/icons.css" rel="stylesheet" />
+    <link href="./src/css/components/social.css" rel="stylesheet" />
+    <link href="./src/css/components/carousel.css" rel="stylesheet" />
+    <link href="./src/css/components/carousel-projects.css" rel="stylesheet" />
+    <link href="./src/css/components/skeleton.css" rel="stylesheet" />
+    <link href="./src/css/components/separator.css" rel="stylesheet" />
+    <link href="./src/css/sections/hero.css" rel="stylesheet" />
+    <link href="./src/css/sections/projects.css" rel="stylesheet" />
+    <link href="./src/css/sections/experience.css" rel="stylesheet" />
+    <link href="./src/css/sections/showcases.css" rel="stylesheet" />
+    <link href="./src/css/sections/footer.css" rel="stylesheet" />
+    <link href="./src/css/sections/popup.css" rel="stylesheet" />
+    <link href="./src/css/sections/skills.css" rel="stylesheet" />
+    <link href="./src/css/effects/particles.css" rel="stylesheet" />
+    <link href="./src/css/effects/gradient.css" rel="stylesheet" />
+
+    <link rel="modulepreload" href="./src/js/core/App.js" />
+    <link rel="modulepreload" href="./src/js/core/JSONLoader.js" />
+    <link rel="modulepreload" href="./src/js/ui/Renderer.js" />
+    <link rel="modulepreload" href="./src/js/ui/PopupHandler.js" />
+    <link rel="modulepreload" href="./src/js/ui/elements/Media.js" />
+    <link rel="modulepreload" href="./src/js/ui/elements/MediaCarousel.js" />
+    <link rel="modulepreload" href="./src/js/ui/elements/CapsuleCarousel/CapsuleCarousel.js" />
+    <link rel="modulepreload" href="./src/js/ui/elements/CapsuleCarousel/Capsule.js" />
+    <link rel="modulepreload" href="./src/js/ui/elements/CapsuleCarousel/CapsuleType.js" />
+
+    <link rel="preload" href="./data/home.json" as="fetch" crossorigin />
+    <link rel="preload" href="./data/experience.json" as="fetch" crossorigin />
+    <link rel="preload" href="./data/projects.json" as="fetch" crossorigin />
+    <link rel="preload" href="./data/skills.json" as="fetch" crossorigin />
+    <link rel="preload" href="./i18n/en.json" as="fetch" crossorigin />
 </head>
 <body id="app" aria-busy="true">
-    <div class="loaderWrap" role="status" aria-live="polite" aria-label="Loading">
-        <div class="throbber-container">
-            <div class="throbber pulse" aria-hidden="true"></div>
-            <div class="hint" id="loadingText">Loading</div>
-        </div>
-    </div>
 
     <main>
         <!-- Hero Page -->
@@ -27,20 +77,22 @@
             <div class="hero-center" id="hero-center">
                 <div class="hero-content">
                     <div class="hero-text">
-                        <h1 id="hero-title" class="header-title">I'm <span class="accent">Lucas Campo</span></h1>
-                        
+                        <h1 id="hero-title" class="header-title">
+                            <span class="skeleton skeleton-line skeleton-title" style="--sk-w: 9em;" aria-hidden="true"></span>
+                        </h1>
+
                         <ul id="hero-roles" class="hero-roles">
-                            <li class="hero-role">Game Developer</li>
-                            <li class="hero-role ceparator">|</li>
-                            <li class="hero-role">Full-Stack Developer</li>
+                            <li class="skeleton skeleton-line" style="--sk-w: 8em;" aria-hidden="true"></li>
+                            <li class="skeleton skeleton-line" style="--sk-w: 7em;" aria-hidden="true"></li>
                         </ul>
                         <div id="hero-btn-cnt" class="hero-contact">
-                            <a href="#contact" class="cta-btn">Contact</a>
+                            <span class="skeleton skeleton-pill" aria-hidden="true"></span>
                         </div>
                     </div>
 
                     <div class="profile-shadow">
-                        <img id="hero-pic" src="" class="profile-pic">
+                        <img id="hero-pic" src="./src/media/profile/hero-pic.jpeg" class="profile-pic" alt=""
+                            width="640" height="640" fetchpriority="high" decoding="async">
                     </div>
                 </div>
                 
@@ -55,27 +107,30 @@
         <section class="background content"><div class="showcase-viewport">
             <!-- About Me -->
             <section class="section-viewport" id="contact">
-                <h2 id="about-title" class="text title">About Me</h2>
+                <h2 id="about-title" class="text title">
+                    <span class="skeleton skeleton-line" style="--sk-w: 6em;" aria-hidden="true"></span>
+                </h2>
                 <ul class="about-me-container">
                     <li id="about-desc" class="about-me-text">
-                        <p class="text description">Hey! I'm a gameplay programmer with over two years of experience. I focus on building solid and flexible architecture, with a strong interest in AI behaviors, gameplay systems, and complex mechanics.</p>
-                        <p class="text description">I've always been drawn to games that reward curiosity and skill, and I try to bring that same mindset into my work. For me, programming isn't just about making things function, it's about helping the player feel something through how the game responds.</p>
+                        <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
+                        <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
+                        <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 70%;" aria-hidden="true"></span>
+                        <span class="skeleton skeleton-line skeleton-text skeleton-gap" aria-hidden="true"></span>
+                        <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
+                        <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 55%;" aria-hidden="true"></span>
                     </li>
                     <!-- <li class="about-me-image">
-                        <img id="about-pic" src="./assets/images/about/profile-pic.jpeg" />
+                        <img id="about-pic" src="./src/media/legacy/about/profile-pic.jpeg" />
                     </li> -->
                 </ul>
                 <div id="about-contacts" class="contact-info" style="padding-bottom: 2rem;">
-                    <a href="mailto:campolucas2001@gmail.com" class="contact-link">campolucas2001@gmail.com</a>
-                    <span class="contact-sep">•</span>
-                    <a href="tel:+541127403576" class="contact-link">+54 11 2740-3576</a>
+                    <span class="skeleton skeleton-line" style="--sk-w: 16em;" aria-hidden="true"></span>
                 </div>
 
                 <div id="about-buttons" class="social" style="justify-content: center;">
-                    <a class="icon linkedin social-link" href="https://www.linkedin.com/in/lucascampo3333/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"></a>
-                    <a class="icon github social-link" href="https://github.com/CampoLucas" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"></a>
-                    <a class="icon email social-link" href="mailto:campolucas2001@gmail.com" aria-label="Send email"></a>
-                    <a class="icon website social-link" href="https://campolucas.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Game developer portfolio"></a>                            
+                    <span class="skeleton skeleton-icon" aria-hidden="true"></span>
+                    <span class="skeleton skeleton-icon" aria-hidden="true"></span>
+                    <span class="skeleton skeleton-icon" aria-hidden="true"></span>
                 </div>
             </section>
             
@@ -85,76 +140,43 @@
 
             <!-- Experience -->
             <section class="section-viewport">
-                <h2 id="experience-title" class="title">Experience</h2>
+                <h2 id="experience-title" class="title">
+                    <span class="skeleton skeleton-line" style="--sk-w: 7em;" aria-hidden="true"></span>
+                </h2>
                 <div id="experiences-cnt" class="experiences-cnt">
-                    <div class="section-exp">
-                        <div class="section-exp-title">
-                            <h3 class="exp-title">3Dar - Eggscape</h3>
-                            <h4 class="exp-sub-title">May 2023 - Feb 2025</h4>
+                    <div class="skeleton-exp" aria-hidden="true">
+                        <div class="skeleton-exp-header">
+                            <span class="skeleton skeleton-logo"></span>
+                            <div class="skeleton-stack">
+                                <span class="skeleton skeleton-line" style="--sk-w: 12em;"></span>
+                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 8em;"></span>
+                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 6em;"></span>
+                            </div>
                         </div>
-                        <ul>
-                            <li class="carousel-container">
-                                <div class="carousel" data-carousel>
-                                    <div class="carousel-viewport">
-                                        <img src="./assets/img/experience/three-dar/eggscape-01.png" alt="" class="active">
-                                        <img src="./assets/img/experience/three-dar/eggscape-02.png" alt="">
-                                        <img src="./assets/img/experience/three-dar/eggscape-03.png" alt="">
-                                        <img src="./assets/img/experience/three-dar/eggscape-04.png" alt="">
-    
-                                        <div class="carousel-arrows">
-                                            <button class="left" data-prev arial-label="Previous">‹</button>
-                                            <button class="right" data-next arial-label="Next">›</button>
-                                        </div>
-                                    </div>
-                                    
-                                    <!-- Desktop -->
-                                    <div class="carousel-thumbs">
-                                        <div class="carousel-thumbs-track">
-                                            <button><img src="./assets/img/experience/three-dar/eggscape-01.png"></button>
-                                            <button><img src="./assets/img/experience/three-dar/eggscape-02.png"></button>
-                                            <button><img src="./assets/img/experience/three-dar/eggscape-03.png"></button>
-                                            <button><img src="./assets/img/experience/three-dar/eggscape-04.png"></button>
-                                        </div>
-                                        <div class="carousel-thumb-scroll">
-                                            <button class="left" data-prev aria-label="Scroll thumbnails left">‹</button>
-                                            <div class="carousel-thumb-scroll-track">
-                                                <div class="carousel-thumb-scroll-handle"></div>
-                                            </div>
-                                            <button class="right" data-next aria-label="Scroll thumbnails right">›</button>
-                                        </div>
-                                    </div>
-    
-                                    <!-- Mobile -->
-                                    <div class="carousel-dots">
-                                        <button data-index="0" class="active"></button>
-                                        <button data-index="1"></button>
-                                        <button data-index="2"></button>
-                                        <button data-index="3"></button>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="description-container">
-                                <p><strong>Role:</strong> Game Programmer</p>
-                                <p><strong>Summary:</strong> An AR/VR multiplayer platformer that received the "Lion in la Biennale di Venezia" in 2022.</p>
-                                <p><strong>Contributions</strong></p>
-                                <ul style="padding-left: 1.5rem;">
-                                    <li><strong>Enemy AI System:</strong> Implemented enemy behaviors, including decision-making, movement, and combat.</li>
-                                    <li><strong>Player Mechanics:</strong> Built and implemented parkour and combat systems.</li>
-                                    <li><strong>Bug Fixing & Optimization:</strong> Fixed gameplay bugs and improved performance.</li>
-                                    <li><strong>Multiplayer & AR/VR Integration:</strong> Helped develop multiplayer and AR/VR features.</li>
-                                </ul>
-    
-                                <div class="social" style="">
-                                    <a class="icon meta social-link" 
-                                        href="https://www.meta.com/experiences/eggscape/8895235860528889/?srsltid=AfmBOoppVZw7WgkzJgnG3FH3D0DXFqSv7HuNa3Odx-XDng9FYDOT87Dm" 
-                                        target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
-                                    </a>
-                                    <a class="icon link-2 social-link" href="https://www.eggscape.com/" target="_blank" rel="noopener noreferrer" aria-label="Game developer portfolio"></a>
-                                </div>
-                            </li>
-                        </ul>
+                        <div class="skeleton-exp-body">
+                            <span class="skeleton skeleton-media"></span>
+                            <div class="skeleton-stack">
+                                <span class="skeleton skeleton-line skeleton-text"></span>
+                                <span class="skeleton skeleton-line skeleton-text"></span>
+                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 80%;"></span>
+                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 60%;"></span>
+                            </div>
+                        </div>
                     </div>
-
+                    <div class="skeleton-exp" aria-hidden="true">
+                        <div class="skeleton-exp-header">
+                            <span class="skeleton skeleton-logo"></span>
+                            <div class="skeleton-stack">
+                                <span class="skeleton skeleton-line" style="--sk-w: 10em;"></span>
+                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 7em;"></span>
+                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 6em;"></span>
+                            </div>
+                        </div>
+                        <div class="skeleton-stack">
+                            <span class="skeleton skeleton-line skeleton-text"></span>
+                            <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 75%;"></span>
+                        </div>
+                    </div>
                 </div>
                 
                 
@@ -166,10 +188,20 @@
 
             <!-- Projects -->
             <section class="section-viewport">
-                <h2 id="proj-title" class="title">Projects</h2>
-                
+                <h2 id="proj-title" class="title">
+                    <span class="skeleton skeleton-line" style="--sk-w: 6em;" aria-hidden="true"></span>
+                </h2>
+
                 <div id="proj-cap-cnt">
-                    <!-- Projects here -->
+                    <div class="skeleton-projects" aria-hidden="true">
+                        <span class="skeleton skeleton-line" style="--sk-w: 5em;"></span>
+                        <div class="skeleton-capsules">
+                            <span class="skeleton skeleton-media"></span>
+                            <span class="skeleton skeleton-media"></span>
+                            <span class="skeleton skeleton-media"></span>
+                            <span class="skeleton skeleton-media"></span>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -321,7 +353,7 @@
     <template id="game-experience">
         <div class="section-exp">
             <div class="header" id="exp-header">
-                <img />
+                <img width="70" height="70" loading="lazy" decoding="async" alt="" />
                 <div class="section-exp-title">
                     <h3 id="exp-role"></h3>
                     <h4 id="exp-company"></h4>
@@ -366,9 +398,9 @@
             <!-- Mobile -->
         
             <div class="carousel-arrows">
-                <button class="arrow left" data-prev arial-label="Previous"><span>‹</span></button>
+                <button class="arrow left" data-prev aria-label="Previous"><span>‹</span></button>
                 <div class="carousel-dots" dot-cnt></div>
-                <button class="arrow right" data-next arial-label="Next"><span>›</span></button>
+                <button class="arrow right" data-next aria-label="Next"><span>›</span></button>
             </div>
         </div>
     </template>
@@ -379,7 +411,7 @@
             <div class="bg-cnt">
                 <div class="bg-color"></div>
                 <div class="bg-img-cnt">
-                    <img id="bg-popup" class="bg-img" src=""/>
+                    <img id="bg-popup" class="bg-img" alt="" decoding="async" />
                 </div>
                 <div class="bg-overlay-cnt">
                     <div class="bg-overlay"></div>
@@ -395,6 +427,21 @@
                 </div>
             </div>
 
+        </div>
+    </template>
+
+    <template id="popup-skeleton">
+        <div class="skeleton-exp skeleton-popup" aria-hidden="true">
+            <span class="skeleton skeleton-line skeleton-title" style="--sk-w: 10em;"></span>
+            <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 8em;"></span>
+            <div class="skeleton-exp-body">
+                <span class="skeleton skeleton-media"></span>
+                <div class="skeleton-stack">
+                    <span class="skeleton skeleton-line skeleton-text"></span>
+                    <span class="skeleton skeleton-line skeleton-text"></span>
+                    <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 70%;"></span>
+                </div>
+            </div>
         </div>
     </template>
 
@@ -448,8 +495,8 @@
     <template id="cap-game-el">
         <a id="cap-link" class="game-capsule" href="">
             <div class="capsule-img-cnt">
-                <img id="cap-banner-img" class="capsule-img" src="" />
-                <img id="cap-banner-video" class="capsule-video" src="" />
+                <img id="cap-banner-img" class="capsule-img" alt="" loading="lazy" decoding="async" />
+                <span id="cap-banner-video" class="capsule-video"></span>
             </div>
             <div class="info-cnt">
                 <div id="cap-tag-cnt" class="info-tags">
@@ -463,7 +510,7 @@
     <template id="cap-web-el">
         <a id="cap-link" class="website-capsule" href="">
             <div class="capsule-img-cnt">
-                <img id="cap-banner-img" src="" style="width: 100%;"/>
+                <img id="cap-banner-img" alt="" loading="lazy" decoding="async" style="width: 100%;" />
             </div>
             <div class="info-cnt">
                 <p id="cap-title"></p>
@@ -473,9 +520,8 @@
     
 
 
-    <script src="./src/particles/particles.js"></script>
-    <script type="module" src="./src/core/App.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+    <script type="module" src="./src/js/core/App.js"></script>
+    <script src="./src/js/particles/particles.js" defer></script>
 
 </body>
 </html>
