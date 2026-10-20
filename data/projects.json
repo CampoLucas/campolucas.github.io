@@ -96,10 +96,26 @@
                         ]
                     },
                     "imgAltId": "imgAlt",
+                    "display": {
+                        "featured": true,
+                        "showDescription": true,
+                        "showTags": true,
+                        "showBadge": true,
+                        "showLinks": true,
+                        "descriptionId": "featuredDesc",
+                        "badgeId": "badge",
+                        "media": {
+                            "img": {
+                                "src": "./src/media/projects/rush-rift/carousel/03.webp",
+                                "width": 1920,
+                                "height": 1080
+                            }
+                        }
+                    },
                     "buttons": [
-                        { 
+                        {
                             "id": "itch",
-                            "link": "https://luinbucket.itch.io/rushrift", 
+                            "link": "https://luinbucket.itch.io/rushrift",
                             "classList": [ "icon", "social-link", "itch" ],
                             "hoverTextId": "itchHover",
                             "type": "link",
@@ -342,6 +358,7 @@
                     "periodId": "period",
                     "blocksId": "blocks",
                     "imgAltId": "imgAlt",
+                    "displayTags": [ "Editor Tool", "Mesh", "Level Optimization" ],
                     "media": {
                         "capsuleImg": "https://assetstorev1-prd-cdn.unity3d.com/key-image/a92eba85-fa1c-46fe-b2ab-03b0bbe00dee.jpg",
                         "carouselImages": [

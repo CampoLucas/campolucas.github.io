@@ -17,7 +17,6 @@ export class App {
         this.experience = [];
         this.projects = [];
         this.skills = [];
-        this.featured = null;
         this.sections = null;
         this.popups = new Map();
 
@@ -33,7 +32,7 @@ export class App {
         // Get the language from the url
         const lang = getLangFromURL();
 
-        const [structData, sectionsData, featuredData, langData, defaultLangData] = await Promise.all([
+        const [structData, sectionsData, langData, defaultLangData] = await Promise.all([
             this.json.loadAllFromFolder(dataPath, [
                 "home",
                 "experience",
@@ -41,7 +40,6 @@ export class App {
                 "skills"
             ]),
             this.json.load(`${dataPath}/sections.json`).catch(() => null),
-            this.json.load(`${dataPath}/featured.json`).catch(() => null),
             this.json.load(`${langPath}/${lang}.json`).catch(() => null),
             lang !== defaultLang ? this.json.load(`${langPath}/${defaultLang}.json`) : null
         ]);
@@ -51,7 +49,6 @@ export class App {
         this.projects = structData.projects;
         this.skills = structData.skills;
         this.sections = sectionsData;
-        this.featured = featuredData;
 
         this.lang = langData ?? defaultLangData;
         this.defaultLang = defaultLangData;

@@ -2,7 +2,7 @@ const layouts = ["carouselLeft", "carouselRight", "carouselTop", "none"];
 
 const projectDefaults = {
     layout: "carouselLeft",
-    blocks: ["carousel", "video", "description", "tags", "links"]
+    blocks: ["carousel", "video", "capsule", "description", "meta", "tags", "links"]
 };
 
 const experienceDefaults = {
@@ -17,14 +17,20 @@ export function resolveConfig(config, defaults) {
     };
 }
 
-export function projectModel(project, text) {
+export function projectModel(project, text, labels = {}) {
     const media = project.media ?? {};
+    const roles = project.roleId ? text[project.roleId] : null;
     return {
         id: project.baseId,
         title: text[project.titleId],
         subtitle: null,
-        period: text[project.periodId] ?? null,
+        period: null,
         logo: null,
+        capsule: media.capsuleImg ?? null,
+        meta: [
+            { label: labels.released, value: text[project.periodId] },
+            { label: labels.role, value: Array.isArray(roles) ? roles.join(", ") : roles }
+        ],
         alt: text[project.imgAltId] ?? text[project.titleId] ?? "",
         images: media.carouselImages ?? [],
         video: media.video ?? null,

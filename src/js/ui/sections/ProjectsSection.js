@@ -1,6 +1,8 @@
 import { CapsuleCarousel } from "../elements/CapsuleCarousel/CapsuleCarousel.js";
 import { CapsuleType } from "../elements/CapsuleCarousel/CapsuleType.js";
+import { normalizeMedia } from "../elements/Media.js";
 import { projectModel } from "../popup/PopupModels.js";
+import { findFeaturedProject } from "./FeaturedSection.js";
 
 const kindOrder = ["GAME", "WEBPAGE", "TOOL"];
 const allKind = "ALL";
@@ -24,7 +26,8 @@ export class ProjectsSection {
         document.getElementById("proj-title").textContent = renderer.t(data.baseId, data.titleId);
         container.innerHTML = "";
 
-        const featuredId = this.app.featured?.projectId;
+        const featuredId = findFeaturedProject(data)?.baseId;
+        const labels = { released: renderer.t("popup", "released"), role: renderer.t("popup", "role") };
         const wrapper = document.createElement("div");
         wrapper.id = blocksId;
         wrapper.setAttribute("role", "tabpanel");
@@ -40,7 +43,7 @@ export class ProjectsSection {
                     return;
                 }
 
-                this.app.popups.set(project.baseId.toLowerCase(), () => projectModel(project, text));
+                this.app.popups.set(project.baseId.toLowerCase(), () => projectModel(project, text, labels));
                 if (project.baseId !== featuredId) entries.push({ project, text });
             });
 
@@ -54,7 +57,7 @@ export class ProjectsSection {
             this.blocks.push(block);
 
             if (type === "TOOL") this.renderToolGrid(block, title, entries);
-            else this.renderCapsules(block, type, title, entries);
+            else this.renderCapsules(block, type, title, entries, category.maxVisible);
         });
 
         if (!this.blocks.length) return;
@@ -64,7 +67,7 @@ export class ProjectsSection {
         this.select(allKind);
     }
 
-    renderCapsules(block, type, title, entries) {
+    renderCapsules(block, type, title, entries, maxVisible) {
         const capsules = entries.map(({ project, text }) => {
             const media = project.media ?? {};
             const alt = text[project.imgAltId] ?? null;
@@ -75,64 +78,69 @@ export class ProjectsSection {
                 img: media.capsuleImg ? { media: media.capsuleImg, alt } : null,
                 video: media.capsuleVideo ? { media: media.capsuleVideo, alt } : null,
                 tags: project.tags ?? null,
-                link: project.link ?? null
+                link: project.link ?? null,
+                graphic: media.featureGraphic ?? null,
+                subtitle: text[project.periodId] ?? null
             };
         });
 
-        this.carousels.push(new CapsuleCarousel({ type, title, capsules }, block));
+        this.carousels.push(new CapsuleCarousel({ type, title, capsules, maxVisible }, block));
     }
 
     renderToolGrid(block, title, entries) {
         if (title) {
             const heading = document.createElement("h3");
-            heading.className = "asset-heading";
+            heading.className = "tool-heading";
             heading.textContent = title;
             block.appendChild(heading);
         }
 
         const grid = document.createElement("div");
-        grid.className = "asset-grid";
-        entries.forEach(({ project, text }, index) => grid.appendChild(this.buildAssetCard(project, text, title, index)));
+        grid.className = "tool-grid";
+        entries.forEach(({ project, text }) => grid.appendChild(this.buildToolCard(project, text)));
         block.appendChild(grid);
     }
 
-    buildAssetCard(project, text, category, index) {
+    buildToolCard(project, text) {
         const card = document.createElement("a");
-        card.className = "asset-card";
+        card.className = "tool-card";
         card.href = project.link ?? `#${project.baseId}`;
         if (project.link) {
             card.target = "_blank";
             card.rel = "noopener noreferrer";
         }
 
-        const hue = (index * 47 + 200) % 360;
-        const thumb = document.createElement("span");
-        thumb.className = "asset-thumb";
-        thumb.style.background = `linear-gradient(135deg, hsl(${hue} 35% 34%), hsl(${(hue + 40) % 360} 40% 20%))`;
+        const preview = document.createElement("div");
+        preview.className = "tool-image";
 
-        const capsule = project.media?.capsuleImg;
-        const src = typeof capsule === "string" ? capsule : capsule?.src;
-        if (src) {
+        const source = normalizeMedia(project.media?.capsuleImg);
+        if (source) {
             const image = document.createElement("img");
-            image.src = src;
+            image.src = source.src;
             image.alt = text[project.imgAltId] ?? "";
             image.loading = "lazy";
             image.decoding = "async";
-            thumb.appendChild(image);
+            preview.appendChild(image);
         }
 
-        const body = document.createElement("span");
-        body.className = "asset-text";
-        body.appendChild(this.createLine("asset-title", text[project.titleId]));
-        body.appendChild(this.createLine("asset-category", category));
-        body.appendChild(this.createLine("asset-meta", text[project.periodId]));
+        const body = document.createElement("div");
+        body.className = "tool-body";
+        body.appendChild(this.createLine("tool-title", text[project.titleId]));
+        body.appendChild(this.createLine("tool-meta", text[project.periodId]));
 
-        card.append(thumb, body);
+        if (project.displayTags?.length) {
+            const tags = document.createElement("div");
+            tags.className = "display-tags";
+            project.displayTags.forEach(label => tags.appendChild(this.createLine("display-tag", label, "span")));
+            body.appendChild(tags);
+        }
+
+        card.append(preview, body);
         return card;
     }
 
-    createLine(className, content) {
-        const line = document.createElement("span");
+    createLine(className, content, tag = "p") {
+        const line = document.createElement(tag);
         line.className = className;
         line.textContent = content ?? "";
         line.hidden = !content;

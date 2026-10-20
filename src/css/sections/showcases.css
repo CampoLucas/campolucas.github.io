@@ -7,7 +7,7 @@
 
 .background.content {
     padding: 10svh 0;
-    border-top: 1px solid rgba(255, 255, 255, .1);
+    border-top: 1px solid var(--border);
     display: flex; justify-content: center; 
 }
 
@@ -23,7 +23,7 @@
     display: flex; 
     justify-content: center; 
     flex-direction: column;
-    color: aliceblue;
+    color: var(--text);
     box-sizing: border-box;
     padding-inline: 25px;
 }
@@ -32,7 +32,7 @@
     width: 100%;
     box-sizing: border-box;
     font-size: 1.2rem;
-    font-family: "Motiva Sans", Sans-serif;
+    font-family: var(--font-body);
     margin: 0 auto;
     padding-bottom: 5rem;
 }

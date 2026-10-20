@@ -1,4 +1,4 @@
-import { createMedia } from "../elements/Media.js";
+import { createMedia, normalizeMedia } from "../elements/Media.js";
 
 const mediaTypes = new Set(["carousel", "video"]);
 
@@ -21,6 +21,36 @@ const builders = {
         const element = document.createElement("div");
         element.className = "popup-block popup-video-block";
         element.appendChild(video);
+        return element;
+    },
+
+    capsule(model) {
+        const image = normalizeMedia(model.capsule);
+        if (!image) return null;
+
+        const element = document.createElement("div");
+        element.className = "popup-block popup-capsule";
+        const img = document.createElement("img");
+        img.src = image.src;
+        img.alt = model.alt ?? "";
+        img.decoding = "async";
+        element.appendChild(img);
+        return element;
+    },
+
+    meta(model) {
+        const rows = model.meta?.filter(row => row?.value);
+        if (!rows?.length) return null;
+
+        const element = document.createElement("dl");
+        element.className = "popup-block popup-meta";
+        rows.forEach(row => {
+            const label = document.createElement("dt");
+            label.textContent = row.label;
+            const value = document.createElement("dd");
+            value.textContent = row.value;
+            element.append(label, value);
+        });
         return element;
     },
 
@@ -74,6 +104,10 @@ export function normalizeBlock(spec) {
 
 export function isMediaBlock(spec) {
     return mediaTypes.has(normalizeBlock(spec)?.type);
+}
+
+export function isFooterBlock(spec) {
+    return normalizeBlock(spec)?.type === "links";
 }
 
 export function buildBlock(spec, model, renderer, host) {

@@ -22,20 +22,12 @@
         "footer": "Contacto"
     },
     "popup": {
-        "close": "Cerrar"
+        "close": "Cerrar",
+        "released": "Lanzamiento",
+        "role": "Rol"
     },
     "featured": {
-        "title": "Destacado",
-        "badge": "Seleccionado para EVA 2026",
-        "programmedTitle": "Lo que programé",
-        "programmed": [
-            "Movimiento principal",
-            "Dash",
-            "Sistemas de ataque",
-            "Arquitectura de carga aditiva de niveles"
-        ],
-        "toolsTitle": "Herramientas",
-        "moreBtn": "Ver más"
+        "title": "Destacado"
     },
     "about": {
         "title": "Sobre mí",
@@ -52,7 +44,6 @@
     },
     "experience": {
         "title": "Experiencia",
-        "viewDetails": "Ver detalles",
         "present": "Actual",
         "threeDar": {
             "company": "3Dar",
@@ -151,6 +142,8 @@
             "rushRift": {
                 "title": "Rush Rift",
                 "period": "Mar. 2025 - Actualidad",
+                "featuredDesc": "Rush Rift es un juego de speedrunning en primera persona y ritmo rápido donde cada segundo cuenta. Atravesá arenas cyberpunk, encadená ataques con precisión y mantené tu impulso mientras corrés hacia la meta.",
+                "badge": "Seleccionado para EVA 2026",
                 "blocks": [
                     { 
                         "type": "desc", 

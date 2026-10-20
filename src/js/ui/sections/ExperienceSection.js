@@ -29,7 +29,6 @@ export class ExperienceSection {
     renderRows(container, group, entries) {
         const renderer = this.app.renderer;
         const template = document.getElementById(templateId);
-        const viewDetails = renderer.t("experience", "viewDetails") ?? "";
         const presentLabel = renderer.t("experience", "present") ?? "";
 
         entries.forEach(entry => {
@@ -65,7 +64,6 @@ export class ExperienceSection {
             const present = row.querySelector(".exp-present");
             present.textContent = presentLabel;
             present.hidden = !entry.current;
-            row.querySelector(".exp-more").textContent = viewDetails;
 
             container.appendChild(row);
         });

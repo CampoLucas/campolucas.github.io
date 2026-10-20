@@ -1,4 +1,4 @@
-const VERSION = "v31";
+const VERSION = "v32";
 const SHELL_CACHE = `shell-${VERSION}`;
 const MEDIA_CACHE = `media-${VERSION}`;
 
@@ -15,7 +15,7 @@ const SHELL = [
     "./src/css/components/carousel.css",
     "./src/css/components/carousel-projects.css",
     "./src/css/components/project-card.css",
-    "./src/css/components/asset-grid.css",
+    "./src/css/components/tool-card.css",
     "./src/css/components/side-nav.css",
     "./src/css/components/skeleton.css",
     "./src/css/components/separator.css",
@@ -55,7 +55,6 @@ const SHELL = [
     "./data/projects.json",
     "./data/skills.json",
     "./data/sections.json",
-    "./data/featured.json",
     "./i18n/en.json"
 ];
 

@@ -36,7 +36,7 @@
     <link href="./src/css/components/carousel.css" rel="stylesheet" />
     <link href="./src/css/components/carousel-projects.css" rel="stylesheet" />
     <link href="./src/css/components/project-card.css" rel="stylesheet" />
-    <link href="./src/css/components/asset-grid.css" rel="stylesheet" />
+    <link href="./src/css/components/tool-card.css" rel="stylesheet" />
     <link href="./src/css/components/side-nav.css" rel="stylesheet" />
     <link href="./src/css/components/skeleton.css" rel="stylesheet" />
     <link href="./src/css/components/separator.css" rel="stylesheet" />
@@ -50,6 +50,9 @@
     <link href="./src/css/sections/skills.css" rel="stylesheet" />
     <link href="./src/css/effects/particles.css" rel="stylesheet" />
     <link href="./src/css/effects/gradient.css" rel="stylesheet" />
+<!--theme:start-->
+    <style id="theme">:root{--page-bg:#160922;--hero-page-bg:#04020b;--surface:#ffffff0d;--surface-raised:#ffffff1a;--border:#ffffff1a;--text:#f0f8ff;--text-muted:#f0f8ff99;--accent-color1:#ff4141;--accent-color2:#ff8801;--tag-bg:#74747424;--tag-text:#dbdbdb;--overlay:#00000047;--font-hero:"Motiva Sans", sans-serif;--font-section-title:"Motiva Sans", sans-serif;--font-row-title:"Motiva Sans", sans-serif;--font-body:"Motiva Sans", sans-serif;--font-label:"Motiva Sans", sans-serif;}</style>
+<!--theme:end-->
 
     <link rel="modulepreload" href="./src/js/core/App.js" />
     <link rel="modulepreload" href="./src/js/core/JSONLoader.js" />
@@ -75,7 +78,6 @@
     <link rel="preload" href="./data/projects.json" as="fetch" crossorigin />
     <link rel="preload" href="./data/skills.json" as="fetch" crossorigin />
     <link rel="preload" href="./data/sections.json" as="fetch" crossorigin />
-    <link rel="preload" href="./data/featured.json" as="fetch" crossorigin />
     <link rel="preload" href="./i18n/en.json" as="fetch" crossorigin />
 </head>
 <body id="app" aria-busy="true">
@@ -268,11 +270,13 @@
         <a class="exp-row" href="#">
             <img class="exp-logo" width="56" height="56" loading="lazy" decoding="async" alt="" />
             <div class="exp-main">
-                <h3 class="exp-role"></h3>
+                <div class="exp-head">
+                    <h3 class="exp-role"></h3>
+                    <span class="exp-present"></span>
+                </div>
                 <p class="exp-company"></p>
-                <p class="exp-dates"><span class="exp-period"></span><span class="exp-present"></span></p>
+                <p class="exp-period"></p>
                 <p class="exp-summary"></p>
-                <span class="exp-more"></span>
             </div>
         </a>
     </template>
@@ -350,10 +354,15 @@
     <template id="cap-web-el">
         <a id="cap-link" class="website-capsule" href="">
             <div class="capsule-img-cnt">
-                <img id="cap-banner-img" alt="" loading="lazy" decoding="async" style="width: 100%;" />
+                <img id="cap-banner-img" class="capsule-img" alt="" loading="lazy" decoding="async" />
+                <img id="cap-band-icon" class="band-icon" alt="" loading="lazy" decoding="async" />
             </div>
-            <div class="info-cnt">
-                <p id="cap-title"></p>
+            <div class="info-cnt web-info">
+                <img id="cap-icon-img" class="web-icon" alt="" loading="lazy" decoding="async" />
+                <div class="web-text">
+                    <p id="cap-title"></p>
+                    <p id="cap-sub" class="web-sub"></p>
+                </div>
             </div>
         </a>
     </template>

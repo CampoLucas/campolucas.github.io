@@ -7,9 +7,9 @@
 }
 
 .project-filter {
-    font: inherit;
+    font-family: var(--font-label);
     font-size: 14px;
-    color: #dbdbdb;
+    color: var(--tag-text);
     background: rgba(255, 255, 255, .06);
     border: 1px solid rgba(255, 255, 255, .14);
     border-radius: 999px;
@@ -19,7 +19,7 @@
 }
 
 .project-filter:hover {
-    background: rgba(255, 255, 255, .12);
+    background: var(--surface-raised);
 }
 
 .project-filter:focus-visible {

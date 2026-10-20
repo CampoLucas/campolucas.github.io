@@ -1,0 +1,117 @@
+.tool-heading {
+    margin: 1.5rem 0 .5rem;
+    padding-left: calc(10px + var(--items-padding, 6px));
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+    padding: 10px;
+}
+
+.tool-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    overflow: hidden;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+
+.tool-card:hover,
+.tool-card:focus-visible {
+    transform: translateY(-3px);
+    background: var(--surface-raised);
+    border-color: var(--accent-color2);
+}
+
+.tool-card:focus-visible {
+    outline: 2px solid var(--accent-color2);
+    outline-offset: 2px;
+}
+
+.tool-image {
+    position: relative;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color1) 35%, var(--page-bg)), color-mix(in srgb, var(--accent-color2) 25%, var(--page-bg)));
+}
+
+.tool-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.tool-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 16px 16px;
+}
+
+.tool-card .tool-title,
+.tool-card .tool-meta {
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tool-card .tool-title {
+    font-family: var(--font-row-title);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+}
+
+.tool-card .tool-meta {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+.display-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.display-tag {
+    padding: 2px 8px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    font-family: var(--font-label);
+    color: var(--accent-color2);
+    border: 1px solid var(--accent-color2);
+    border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tool-card {
+        transition: none;
+    }
+
+    .tool-card:hover,
+    .tool-card:focus-visible {
+        transform: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .tool-grid {
+        grid-template-columns: 1fr;
+    }
+}

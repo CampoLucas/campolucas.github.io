@@ -1,5 +1,5 @@
 import { normalizeMedia } from "../elements/Media.js";
-import { buildBlock, isMediaBlock } from "./PopupBlocks.js";
+import { buildBlock, isFooterBlock, isMediaBlock } from "./PopupBlocks.js";
 
 const focusableSelector = "a[href], button:not([disabled]), input:not([disabled]), select, textarea, video[controls], [tabindex]:not([tabindex='-1'])";
 const backgroundVars = {
@@ -61,12 +61,15 @@ export class Popup {
         const info = this.createColumn("popup-info");
         this.body.replaceChildren(media, info);
 
+        this.footer.replaceChildren();
+
         blocks.forEach(spec => {
             const isMedia = isMediaBlock(spec);
             if (isMedia && layout === "none") return;
 
-            const element = buildBlock(spec, model, this.renderer, isMedia ? media : info);
-            if (element) (isMedia ? media : info).appendChild(element);
+            const host = isFooterBlock(spec) ? this.footer : isMedia ? media : info;
+            const element = buildBlock(spec, model, this.renderer, host);
+            if (element) host.appendChild(element);
         });
 
         const columns = [media, info].filter(column => column.childElementCount);
@@ -142,7 +145,7 @@ export class Popup {
         close.type = "button";
         close.className = "close-popup";
         close.setAttribute("aria-label", this.renderer.t("popup", "close") ?? "Close");
-        close.textContent = "X";
+        close.innerHTML = '<svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>';
         close.addEventListener("click", () => this.requestClose());
 
         header.append(logo, heading, close);
@@ -152,7 +155,9 @@ export class Popup {
 
         const body = document.createElement("div");
         body.className = "popup-body";
-        box.appendChild(body);
+        const footer = document.createElement("div");
+        footer.className = "popup-footer";
+        box.append(body, footer);
 
         dialog.append(header, box);
         scroller.appendChild(dialog);
@@ -176,6 +181,7 @@ export class Popup {
         this.subtitle = subtitle;
         this.period = period;
         this.body = body;
+        this.footer = footer;
     }
 
     createColumn(className) {

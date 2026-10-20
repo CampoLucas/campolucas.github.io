@@ -8,16 +8,16 @@
     --nav-neutral: rgba(235, 235, 245, .85);
     --nav-hover: #ffffff;
     --nav-active: var(--accent-color2);
-    --nav-cell: 44px;
+    --nav-cell: 52px;
     position: fixed;
     left: 12px;
     top: 50%;
     z-index: 500;
     transform: translateY(-50%);
-    padding: 6px;
+    padding: 16px 6px;
     border-radius: 26px;
-    background: rgba(20, 10, 34, .4);
-    border: 1px solid rgba(255, 255, 255, .1);
+    background: color-mix(in srgb, var(--page-bg) 55%, transparent);
+    border: 1px solid var(--border);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
 }
@@ -25,7 +25,7 @@
 .side-nav-list {
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 6px;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -35,7 +35,7 @@
     --scroll-d: 0;
     --hover-d: 9;
     --d: min(var(--scroll-d), var(--hover-d));
-    width: var(--nav-cell);
+    width: 44px;
     height: var(--nav-cell);
 }
 
@@ -78,15 +78,13 @@
 }
 
 .side-nav-label {
+    font-family: var(--font-label);
     position: absolute;
     left: calc(100% + 10px);
     top: 50%;
-    padding: 4px 12px;
     white-space: nowrap;
     color: #fff;
-    background: rgba(20, 10, 34, .9);
-    border: 1px solid rgba(255, 255, 255, .12);
-    border-radius: 6px;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .9), 0 0 2px rgba(0, 0, 0, .9);
     opacity: 0;
     pointer-events: none;
     transform: translate(-8px, -50%);
@@ -118,7 +116,7 @@
     }
 
     .side-nav {
-        --nav-cell: 40px;
+        --nav-cell: 44px;
         left: 50%;
         top: auto;
         bottom: 8px;

@@ -1,6 +1,7 @@
 
 
 h1.header-title {
+    font-family: var(--font-hero);
     white-space: nowrap;
     font-size: 2em;
     color: white;
@@ -27,6 +28,7 @@ h1.header-title {
 }
 
 h2.title {
+    font-family: var(--font-section-title);
     margin-top: 0;
     margin-bottom: 5px;
     font-weight: 700;

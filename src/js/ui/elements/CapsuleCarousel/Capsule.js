@@ -5,6 +5,9 @@ const imgId = "cap-banner-img";
 const videoId = "cap-banner-video";
 const linkId = "cap-link";
 const tagCntId = "cap-tag-cnt";
+const iconId = "cap-icon-img";
+const bandIconId = "cap-band-icon";
+const subtitleId = "cap-sub";
 
 const canHover = window.matchMedia("(hover: hover)").matches;
 
@@ -41,15 +44,39 @@ export class Capsule {
             titleEl.textContent = data.title;
         }
 
-        // Set the banner
-        const img = normalizeMedia(data.img?.media);
+        const iconEl = this.element.querySelector(`#${iconId}`);
+        const bandIconEl = this.element.querySelector(`#${bandIconId}`);
+        const subtitleEl = this.element.querySelector(`#${subtitleId}`);
+        const isWeb = !!iconEl;
+
+        const img = normalizeMedia(isWeb ? data.graphic : data.img?.media);
         if (img) {
             const el = this.element.querySelector(`#${imgId}`);
             if (el) {
                 if (img.width) el.width = img.width;
                 if (img.height) el.height = img.height;
-                el.alt = data.img.alt ?? "";
+                el.alt = data.img?.alt ?? "";
                 el.src = img.src;
+            }
+        }
+
+        if (isWeb) {
+            const icon = normalizeMedia(data.img?.media);
+            [iconEl, bandIconEl].forEach(el => {
+                if (!el) return;
+                if (icon) el.src = icon.src;
+                else el.remove();
+            });
+
+            if (img) bandIconEl?.remove();
+            else {
+                this.element.querySelector(`#${imgId}`)?.remove();
+                this.element.classList.add("no-graphic");
+            }
+
+            if (subtitleEl) {
+                subtitleEl.textContent = data.subtitle ?? "";
+                subtitleEl.hidden = !data.subtitle;
             }
         }
 
