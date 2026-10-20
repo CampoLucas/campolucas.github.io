@@ -61,6 +61,7 @@
     <link rel="preload" href="./data/experience.json" as="fetch" crossorigin />
     <link rel="preload" href="./data/projects.json" as="fetch" crossorigin />
     <link rel="preload" href="./data/skills.json" as="fetch" crossorigin />
+    <link rel="preload" href="./data/sections.json" as="fetch" crossorigin />
     <link rel="preload" href="./i18n/en.json" as="fetch" crossorigin />
 </head>
 <body id="app" aria-busy="true">
@@ -106,7 +107,7 @@
 
         <section class="background content"><div class="showcase-viewport">
             <!-- About Me -->
-            <section class="section-viewport" id="contact">
+            <section class="section-viewport" id="contact" data-section="about">
                 <h2 id="about-title" class="text title">
                     <span class="skeleton skeleton-line" style="--sk-w: 6em;" aria-hidden="true"></span>
                 </h2>
@@ -139,7 +140,7 @@
             </div>
 
             <!-- Experience -->
-            <section class="section-viewport">
+            <section class="section-viewport" data-section="experience">
                 <h2 id="experience-title" class="title">
                     <span class="skeleton skeleton-line" style="--sk-w: 7em;" aria-hidden="true"></span>
                 </h2>
@@ -187,7 +188,7 @@
             </div>
 
             <!-- Projects -->
-            <section class="section-viewport">
+            <section class="section-viewport" data-section="projects">
                 <h2 id="proj-title" class="title">
                     <span class="skeleton skeleton-line" style="--sk-w: 6em;" aria-hidden="true"></span>
                 </h2>
@@ -269,10 +270,10 @@
             </section> -->
 
             <!-- Skills -->
-            <section class="section-viewport">
+            <section class="section-viewport" data-section="skills">
                 <h2 id="skills-title" class="title">Skills</h2>
                 <p class="sub-title">Tools, languages and core programming concepts I use to build games and web pages.</p>
-                
+
                 <ul class="c-l-cnt">
                     <li class="c-l"> 
                         <h3><strong>Code</strong></h3>

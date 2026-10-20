@@ -17,7 +17,167 @@ export class Renderer {
         this.renderAbout();
         this.renderExperiences();
         this.renderProjects();
+        this.renderCustomSections();
+    }
 
+    renderCustomSections() {
+        const sections = this.app.sections?.sections;
+        if (!Array.isArray(sections)) return;
+
+        this.customCarousels = [];
+        const tails = new Map();
+
+        sections.forEach(section => {
+            let element = null;
+            try {
+                element = this.buildCustomSection(section);
+            }
+            catch (err) {
+                console.log(`WARNING: [renderCustomSections] Section "${section?.baseId}" failed: ${err}`);
+            }
+            if (!element) return;
+
+            const anchor = tails.get(section.after) ?? this.findSectionAnchor(section.after);
+            if (!anchor) return;
+
+            const separator = document.createElement("div");
+            separator.classList.add("section-separator");
+            const line = document.createElement("span");
+            line.classList.add("section-separator__line");
+            separator.appendChild(line);
+
+            anchor.after(separator, element);
+            tails.set(section.after, element);
+        });
+    }
+
+    findSectionAnchor(after) {
+        if (after) {
+            const found = document.querySelector(`[data-section="${CSS.escape(after)}"]`);
+            if (found) return found;
+        }
+        const all = document.querySelectorAll("[data-section]");
+        return all.length ? all[all.length - 1] : null;
+    }
+
+    buildCustomSection(section) {
+        const baseId = section.baseId;
+        if (!baseId) return null;
+
+        const element = document.createElement("section");
+        element.classList.add("section-viewport");
+        element.dataset.section = baseId;
+
+        const title = document.createElement("h2");
+        title.classList.add("title");
+        title.textContent = this.t(baseId, section.titleId) ?? "";
+        element.appendChild(title);
+
+        const subtitleText = section.subtitleId ? this.t(baseId, section.subtitleId) : null;
+        if (subtitleText) {
+            const subtitle = document.createElement("p");
+            subtitle.classList.add("sub-title");
+            subtitle.textContent = subtitleText;
+            element.appendChild(subtitle);
+        }
+
+        switch (section.layout) {
+            case "text":
+                this.renderTextSection(element, section);
+                break;
+            case "tags":
+                this.renderTagsSection(element, section);
+                break;
+            case "cards":
+                this.renderCardsSection(element, section);
+                break;
+            case "capsules":
+                this.renderCapsulesSection(element, section);
+                break;
+            default:
+                console.log(`WARNING: [buildCustomSection] Unknown layout "${section.layout}" in section "${baseId}".`);
+                return null;
+        }
+
+        return element;
+    }
+
+    renderTextSection(element, section) {
+        const baseId = section.baseId;
+
+        const list = document.createElement("ul");
+        list.classList.add("about-me-container");
+        const item = document.createElement("li");
+        item.classList.add("about-me-text");
+        list.appendChild(item);
+        element.appendChild(list);
+        this.renderParagraphs(item, this.t(baseId, section.descriptionId), ["header-description"]);
+
+        if (section.buttons && section.buttons.length) {
+            const buttons = document.createElement("div");
+            buttons.classList.add("social");
+            buttons.style.justifyContent = "center";
+            element.appendChild(buttons);
+            this.renderContactButtons(buttons, section.buttons, baseId);
+        }
+    }
+
+    renderTagsSection(element, section) {
+        const container = document.createElement("div");
+        element.appendChild(container);
+        this.renderCustomText(container, this.t(section.baseId, section.blocksId));
+    }
+
+    renderCardsSection(element, section) {
+        const container = document.createElement("div");
+        container.classList.add("experiences-cnt");
+        element.appendChild(container);
+
+        const temp = document.getElementById("game-experience");
+        const items = Array.isArray(section.items) ? section.items : [];
+        items.forEach(item => {
+            const text = this.t(section.baseId, item.baseId);
+            if (!text) {
+                console.log(`WARNING: [renderCardsSection] No text for "${section.baseId}.${item.baseId}".`);
+                return;
+            }
+            this.renderExperience(container, temp, item, text);
+        });
+    }
+
+    renderCapsulesSection(element, section) {
+        const baseId = section.baseId;
+        const container = document.createElement("div");
+        element.appendChild(container);
+
+        const projectsText = this.t(baseId, "projects") ?? {};
+        const categoriesText = this.t(baseId, "categories") ?? {};
+        const categories = Array.isArray(section.categories) ? section.categories : [];
+
+        categories.forEach(category => {
+            const capsules = [];
+            (category.projects ?? []).forEach(project => {
+                const text = projectsText[project.baseId];
+                if (!text) return;
+                const imgAlt = text[project.imgAltId];
+                const media = project.media ?? {};
+                capsules.push({
+                    id: project.baseId,
+                    title: text[project.titleId],
+                    img: media.capsuleImg ? { media: media.capsuleImg, alt: imgAlt ? imgAlt : null } : null,
+                    video: media.capsuleVideo ? { media: media.capsuleVideo, alt: imgAlt ? imgAlt : null } : null,
+                    tags: project.tags ? project.tags : null,
+                    link: project.link ? project.link : null
+                });
+            });
+
+            const catData = {
+                type: category.type,
+                title: category.titleId ? categoriesText[category.titleId] ?? null : null,
+                capsules: capsules
+            };
+            this.customCarousels.push(new CapsuleCarousel(catData, container));
+        });
     }
 
     renderHero() {

@@ -163,24 +163,6 @@
                 "roles": [ "Lead Programmer" ],
                 "imgAlt": "Muestra de Rush Rift"
             },
-            "mysticCatacombs": {
-                "title": "Mystic Catacombs",
-                "period": "Apr 2025 - May 2025",
-                "blocks": [
-                    { 
-                        "type": "desc", 
-                        "title": "Sobre el juego",
-                        "text": "Un proyecto personal enfocado en AI development y combat mechanics, creado para experimentar con system design y gameplay feel."
-                    },
-                    { 
-                        "type": "desc", 
-                        "title": "Mi rol",
-                        "text": "Desarrollado de forma independiente de principio a fin para fortalecer mis habilidades técnicas y de diseño en Unity."
-                    }
-                ],
-                "roles": [ "Programmer" ],
-                "imgAlt": "Muestra de Rush Rift"
-            },
             "gunBandit": {
                 "title": "Gun Bandit",
                 "period": "Aug 2022 - Nov 2022",
@@ -267,11 +249,24 @@
                         "text": ""
                     }
                 ]
+            },
+            "meshCombinerWindow": {
+                "title": "Mesh Combiner Window",
+                "period": "Apr - May",
+                "imgAlt": "Mesh Combiner Window",
+                "blocks": [
+                    {
+                        "type": "desc",
+                        "title": "About",
+                        "text": "Mesh Combiner Window is a tool designed to combine multiple MeshFilters into a single mesh while maintaining control over the pivot and the submeshes.\n\n\nThe tool allows you to quickly gather meshes from selected objectsm combine them into a single mesh and save the mesh. It also provides control over the pivot and how to merge the submeshes, making it useful for level optimization.\n\n\nIt is particulary useful when working with grayboxing, optimizing levels or with imported meshes that require pivot fixes and cleanup.\n\n\nIt comes with a Documentation PDF."
+                    }
+                ]
             }
         },        
         "categories": {
             "websitesTitle": "Páginas web",
-            "gamesTitle": "Juegos"
+            "gamesTitle": "Juegos",
+            "toolsTitle": "Tools"
         }
     },
     "skills": {

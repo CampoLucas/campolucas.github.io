@@ -173,24 +173,6 @@
                 "roles": [ "Lead Programmer" ],
                 "imgAlt": "Rush Rift showcase"
             },
-            "mysticCatacombs": {
-                "title": "Mystic Catacombs",
-                "period": "Apr 2025 - May 2025",
-                "blocks": [
-                        { 
-                            "type": "desc", 
-                            "title": "About the Game",
-                            "text": "A personal project focused on AI development and combat mechanics, created to experiment with system design and gameplay feel."
-                        },
-                        { 
-                            "type": "desc", 
-                            "title": "My Role",
-                            "text": "Developed independently from start to finish to strengthen my technical and design skills in Unity."
-                        }
-                    ],
-                "roles": [ "Programmer" ],
-                "imgAlt": "Rush Rift showcase"
-            },
             "gunBandit": {
                 "title": "Gun Bandit",
                 "period": "Aug 2022 - Nov 2022",
@@ -277,11 +259,24 @@
                         "text": ""
                     }
                 ]
+            },
+            "meshCombinerWindow": {
+                "title": "Mesh Combiner Window",
+                "period": "Apr - May",
+                "imgAlt": "Mesh Combiner Window",
+                "blocks": [
+                    {
+                        "type": "desc",
+                        "title": "About",
+                        "text": "Mesh Combiner Window is a tool designed to combine multiple MeshFilters into a single mesh while maintaining control over the pivot and the submeshes.\n\n\nThe tool allows you to quickly gather meshes from selected objectsm combine them into a single mesh and save the mesh. It also provides control over the pivot and how to merge the submeshes, making it useful for level optimization.\n\n\nIt is particulary useful when working with grayboxing, optimizing levels or with imported meshes that require pivot fixes and cleanup.\n\n\nIt comes with a Documentation PDF."
+                    }
+                ]
             }
         },        
         "categories": {
             "websitesTitle": "Websites",
-            "gamesTitle": "Games"
+            "gamesTitle": "Games",
+            "toolsTitle": "Tools"
         }
     },
     "skills": {

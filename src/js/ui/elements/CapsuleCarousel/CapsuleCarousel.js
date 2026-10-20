@@ -8,7 +8,7 @@ const capsulesCntId = "cap-cnt";
 export class CapsuleCarousel {
     constructor(data, container) {
         this.cloneTemplate(container, tempId);
-        this.populateCarousel(data, CapsuleType[data.type].temp);
+        this.populateCarousel(data, (CapsuleType[data.type] ?? CapsuleType.GAME).temp);
         this.setupScrolling();
     }
 

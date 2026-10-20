@@ -1,0 +1,119 @@
+{
+    "projects": [
+        {
+            "type": "GAME",
+            "project": {
+                "baseId": "mysticCatacombs",
+                "titleId": "title",
+                "category": "games",
+                "periodId": "period",
+                "roleId": "roles",
+                "blocksId": "blocks",
+                "media": {
+                    "banner": "./src/media/projects/mysticcatacombs/banner2.jpeg",
+                    "background": {
+                        "img": "./src/media/projects/mysticcatacombs/banner2.jpeg",
+                        "baseColor": "#5D6473",
+                        "overlayColor": "#0000007d",
+                        "gradientEdgeColor": "#281c18"
+                    },
+                    "capsuleImg": "./src/media/projects/mysticcatacombs/banner2.jpeg",
+                    "capsuleVideo": "./src/media/projects/mysticcatacombs/gifs/gif1-med.gif",
+                    "carouselImages": [
+                        "./src/media/projects/mysticcatacombs/gifs/gif1-high.gif",
+                        "./src/media/projects/mysticcatacombs/gifs/gif2-high.gif",
+                        "./src/media/projects/mysticcatacombs/captures/capture1.jpeg",
+                        "./src/media/projects/mysticcatacombs/captures/capture2.jpeg",
+                        "./src/media/projects/mysticcatacombs/captures/capture3.jpeg",
+                        "./src/media/projects/mysticcatacombs/captures/capture4.jpeg"
+                    ]
+                },
+                "imgAltId": "imgAlt",
+                "buttons": [
+                    {
+                        "id": "itch",
+                        "link": "https://luinbucket.itch.io/mystic-catacombs",
+                        "classList": [ "icon", "social-link", "itch" ],
+                        "hoverTextId": "itchHover",
+                        "type": "link",
+                        "newTab": true
+                    },
+                    {
+                        "id": "github",
+                        "link": "https://github.com/CampoLucas/MysticCatacombs",
+                        "classList": [ "icon", "social-link", "github" ],
+                        "hoverTextId": "itchHover",
+                        "type": "link",
+                        "newTab": true
+                    }
+                ],
+                "tags": [ "Unity", "Top-down", "Prototype", "3D", "Fantasy", "Magic" ]
+            },
+            "text": {
+                "en": {
+                    "title": "Mystic Catacombs",
+                    "period": "Apr 2025 - May 2025",
+                    "blocks": [
+                        {
+                            "type": "desc",
+                            "title": "About the Game",
+                            "text": "A personal project focused on AI development and combat mechanics, created to experiment with system design and gameplay feel."
+                        },
+                        {
+                            "type": "desc",
+                            "title": "My Role",
+                            "text": "Developed independently from start to finish to strengthen my technical and design skills in Unity."
+                        }
+                    ],
+                    "roles": [ "Programmer" ],
+                    "imgAlt": "Rush Rift showcase"
+                },
+                "es": {
+                    "title": "Mystic Catacombs",
+                    "period": "Apr 2025 - May 2025",
+                    "blocks": [
+                        {
+                            "type": "desc",
+                            "title": "Sobre el juego",
+                            "text": "Un proyecto personal enfocado en AI development y combat mechanics, creado para experimentar con system design y gameplay feel."
+                        },
+                        {
+                            "type": "desc",
+                            "title": "Mi rol",
+                            "text": "Desarrollado de forma independiente de principio a fin para fortalecer mis habilidades técnicas y de diseño en Unity."
+                        }
+                    ],
+                    "roles": [ "Programmer" ],
+                    "imgAlt": "Muestra de Rush Rift"
+                },
+                "jp": {
+                    "title": "Mystic Catacombs",
+                    "period": "Apr 2025 - May 2025",
+                    "blocks": [
+                        {
+                            "type": "desc",
+                            "title": "About the Game",
+                            "text": "A personal project focused on AI development and combat mechanics, created to experiment with system design and gameplay feel."
+                        },
+                        {
+                            "type": "desc",
+                            "title": "My Role",
+                            "text": "Developed independently from start to finish to strengthen my technical and design skills in Unity."
+                        }
+                    ],
+                    "roles": [ "Programmer" ],
+                    "imgAlt": "Rush Rift showcase"
+                }
+            },
+            "untranslated": {
+                "jp": [
+                    "[\"projects\",\"projects\",\"mysticCatacombs\",\"title\"]",
+                    "[\"projects\",\"projects\",\"mysticCatacombs\",\"period\"]",
+                    "[\"projects\",\"projects\",\"mysticCatacombs\",\"blocks\"]",
+                    "[\"projects\",\"projects\",\"mysticCatacombs\",\"roles\"]",
+                    "[\"projects\",\"projects\",\"mysticCatacombs\",\"imgAlt\"]"
+                ]
+            }
+        }
+    ]
+}

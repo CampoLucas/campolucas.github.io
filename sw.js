@@ -1,4 +1,4 @@
-const VERSION = "v22";
+const VERSION = "v29";
 const SHELL_CACHE = `shell-${VERSION}`;
 const MEDIA_CACHE = `media-${VERSION}`;
 
@@ -41,6 +41,7 @@ const SHELL = [
     "./data/experience.json",
     "./data/projects.json",
     "./data/skills.json",
+    "./data/sections.json",
     "./i18n/en.json"
 ];
 
