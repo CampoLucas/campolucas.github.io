@@ -9,6 +9,7 @@
                 "productId": "product",
                 "periodId": "period", 
                 "roleId": "role",
+                "summaryId": "summary",
                 "blocksId": "blocks",
                 "skillsId": "skills",
                 "logo": {
@@ -67,8 +68,10 @@
             {
                 "baseId": "skynetGames",
                 "companyId": "company",
-                "periodId": "period", 
+                "periodId": "period",
+                "current": true,
                 "roleId": "role",
+                "summaryId": "summary",
                 "blocksId": "blocks",
                 "skillsId": "skills",
                 "logo": {

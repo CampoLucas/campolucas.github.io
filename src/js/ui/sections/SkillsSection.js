@@ -20,60 +20,31 @@ export class SkillsSection {
         data.columns.forEach(column => {
             const item = document.createElement("li");
             item.className = "skills-column";
-
-            const title = document.createElement("h3");
-            title.textContent = renderer.tPath(data.baseId, column.titleId) ?? "";
-            item.appendChild(title);
-
-            column.groups.forEach(group => item.appendChild(this.buildGroup(data.baseId, group)));
+            item.appendChild(this.buildHeading("h3", renderer.tPath(data.baseId, column.titleId)));
+            item.appendChild(this.buildTags(column.items));
             list.appendChild(item);
         });
 
         container.appendChild(list);
+
+        (data.rows ?? []).forEach(row => {
+            const labels = (row.itemsId ?? [])
+                .map(path => renderer.tPath(data.baseId, path))
+                .filter(Boolean)
+                .map(entry => (entry.desc && !row.titleOnly ? `${entry.title} - ${entry.desc}` : entry.title));
+
+            const element = document.createElement("div");
+            element.className = "skills-row";
+            element.appendChild(this.buildHeading("h3", renderer.tPath(data.baseId, row.titleId)));
+            element.appendChild(this.buildTags(labels));
+            container.appendChild(element);
+        });
     }
 
-    buildGroup(baseId, group) {
-        const renderer = this.app.renderer;
-        const element = document.createElement("div");
-        element.className = "skills-group";
-
-        if (group.titleId) {
-            const title = document.createElement("h4");
-            title.className = "skills-group-title";
-            title.textContent = renderer.tPath(baseId, group.titleId) ?? "";
-            element.appendChild(title);
-        }
-
-        if (group.items) {
-            element.appendChild(this.buildTags(group.items));
-        }
-
-        if (group.itemsId) {
-            const labels = group.itemsId
-                .map(path => renderer.tPath(baseId, path))
-                .filter(Boolean)
-                .map(entry => entry.desc ? `${entry.title} - ${entry.desc}` : entry.title);
-            element.appendChild(this.buildTags(labels));
-        }
-
-        if (group.conceptsId) {
-            group.conceptsId.forEach(path => {
-                const concept = renderer.tPath(baseId, path);
-                if (!concept) return;
-
-                if (!concept.desc) {
-                    element.appendChild(this.buildTags([concept.title]));
-                    return;
-                }
-
-                const name = document.createElement("h5");
-                name.className = "skills-concept";
-                name.textContent = concept.title;
-                element.append(name, this.buildTags(concept.desc.split(", ")));
-            });
-        }
-
-        return element;
+    buildHeading(tag, content) {
+        const heading = document.createElement(tag);
+        heading.textContent = content ?? "";
+        return heading;
     }
 
     buildTags(items) {

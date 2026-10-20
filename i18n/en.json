@@ -25,8 +25,8 @@
         "close": "Close"
     },
     "featured": {
-        "title": "Featured Project",
-        "badge": "Selected for EVA Play Online 2026",
+        "title": "Featured",
+        "badge": "Selected for EVA 2026",
         "programmedTitle": "What I programmed",
         "programmed": [
             "Core movement",
@@ -35,7 +35,7 @@
             "Additive level-loading architecture"
         ],
         "toolsTitle": "Tools used",
-        "moreBtn": "More about the project"
+        "moreBtn": "Show more"
     },
     "about": {
         "title": "About Me",
@@ -53,11 +53,13 @@
     "experience": {
         "title": "Experience",
         "viewDetails": "View details",
+        "present": "Present",
         "threeDar": {
             "company": "3Dar",
             "product": "Eggscape",
             "period": "May 2023 - Feb 2025",
             "role": "Unity Game Developer",
+            "summary": "AR/VR multiplayer platformer developed for Oculus, awarded the Lion at the Biennale di Venezia (2022).",
             "imgAlt": "Eggscape showcase image",
             "blocks": [
                     { 
@@ -113,6 +115,7 @@
             "company": "Skynet Games",
             "period": "Feb 2026 - Present",
             "role": "Unity Game Developer",
+            "summary": "Early stage development of a mobile platform where companies can market their own products through minigames.",
             "linkedInHover": "LinkedIn Page",
             "blocks": [
                     { 

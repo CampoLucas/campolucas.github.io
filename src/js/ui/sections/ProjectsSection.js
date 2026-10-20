@@ -1,33 +1,37 @@
-import { Capsule } from "../elements/CapsuleCarousel/Capsule.js";
+import { CapsuleCarousel } from "../elements/CapsuleCarousel/CapsuleCarousel.js";
 import { CapsuleType } from "../elements/CapsuleCarousel/CapsuleType.js";
 import { projectModel } from "../popup/PopupModels.js";
 
 const kindOrder = ["GAME", "WEBPAGE", "TOOL"];
 const allKind = "ALL";
-const cardTagLimit = 3;
-const gridId = "project-grid";
+const blocksId = "project-blocks";
 
 export class ProjectsSection {
     constructor(app) {
         this.app = app;
-        this.cards = [];
+        this.blocks = [];
         this.tabs = [];
+        this.carousels = [];
     }
 
     render() {
         const renderer = this.app.renderer;
         const data = this.app.projects;
         const projectsText = renderer.t(data.baseId, "projects") ?? {};
+        const categoriesText = renderer.t(data.baseId, "categories") ?? {};
         const container = document.getElementById("proj-cap-cnt");
 
         document.getElementById("proj-title").textContent = renderer.t(data.baseId, data.titleId);
         container.innerHTML = "";
 
         const featuredId = this.app.featured?.projectId;
-        const entries = [];
+        const wrapper = document.createElement("div");
+        wrapper.id = blocksId;
+        wrapper.setAttribute("role", "tabpanel");
 
         data.categories.forEach(category => {
             const type = CapsuleType[category.type] ? category.type : "GAME";
+            const entries = [];
 
             category.projects.forEach(project => {
                 const text = projectsText[project.baseId];
@@ -37,40 +41,102 @@ export class ProjectsSection {
                 }
 
                 this.app.popups.set(project.baseId.toLowerCase(), () => projectModel(project, text));
-                if (project.baseId !== featuredId) entries.push({ project, text, type });
+                if (project.baseId !== featuredId) entries.push({ project, text });
             });
+
+            if (!entries.length) return;
+
+            const title = category.titleId ? categoriesText[category.titleId] ?? null : null;
+            const block = document.createElement("div");
+            block.className = "project-block";
+            block.dataset.kind = type;
+            wrapper.appendChild(block);
+            this.blocks.push(block);
+
+            if (type === "TOOL") this.renderToolGrid(block, title, entries);
+            else this.renderCapsules(block, type, title, entries);
         });
 
-        if (!entries.length) return;
+        if (!this.blocks.length) return;
 
-        const grid = document.createElement("div");
-        grid.id = gridId;
-        grid.className = "project-grid";
-        grid.setAttribute("role", "tabpanel");
-
-        entries.forEach(({ project, text, type }) => {
-            const capsule = new Capsule(this.capsuleData(project, text), grid, CapsuleType[type].card);
-            capsule.element.dataset.kind = type;
-            this.cards.push(capsule.element);
-        });
-
-        const kinds = kindOrder.filter(kind => entries.some(entry => entry.type === kind));
-        container.append(this.buildFilters(data.baseId, kinds), grid);
+        const kinds = kindOrder.filter(kind => this.blocks.some(block => block.dataset.kind === kind));
+        container.append(this.buildFilters(data.baseId, kinds), wrapper);
         this.select(allKind);
     }
 
-    capsuleData(project, text) {
-        const media = project.media ?? {};
-        const alt = text[project.imgAltId] ?? null;
+    renderCapsules(block, type, title, entries) {
+        const capsules = entries.map(({ project, text }) => {
+            const media = project.media ?? {};
+            const alt = text[project.imgAltId] ?? null;
 
-        return {
-            id: project.baseId,
-            title: text[project.titleId],
-            img: media.capsuleImg ? { media: media.capsuleImg, alt } : null,
-            video: media.capsuleVideo ? { media: media.capsuleVideo, alt } : null,
-            tags: project.tags ? project.tags.slice(0, cardTagLimit) : null,
-            link: project.link ?? null
-        };
+            return {
+                id: project.baseId,
+                title: text[project.titleId],
+                img: media.capsuleImg ? { media: media.capsuleImg, alt } : null,
+                video: media.capsuleVideo ? { media: media.capsuleVideo, alt } : null,
+                tags: project.tags ?? null,
+                link: project.link ?? null
+            };
+        });
+
+        this.carousels.push(new CapsuleCarousel({ type, title, capsules }, block));
+    }
+
+    renderToolGrid(block, title, entries) {
+        if (title) {
+            const heading = document.createElement("h3");
+            heading.className = "asset-heading";
+            heading.textContent = title;
+            block.appendChild(heading);
+        }
+
+        const grid = document.createElement("div");
+        grid.className = "asset-grid";
+        entries.forEach(({ project, text }, index) => grid.appendChild(this.buildAssetCard(project, text, title, index)));
+        block.appendChild(grid);
+    }
+
+    buildAssetCard(project, text, category, index) {
+        const card = document.createElement("a");
+        card.className = "asset-card";
+        card.href = project.link ?? `#${project.baseId}`;
+        if (project.link) {
+            card.target = "_blank";
+            card.rel = "noopener noreferrer";
+        }
+
+        const hue = (index * 47 + 200) % 360;
+        const thumb = document.createElement("span");
+        thumb.className = "asset-thumb";
+        thumb.style.background = `linear-gradient(135deg, hsl(${hue} 35% 34%), hsl(${(hue + 40) % 360} 40% 20%))`;
+
+        const capsule = project.media?.capsuleImg;
+        const src = typeof capsule === "string" ? capsule : capsule?.src;
+        if (src) {
+            const image = document.createElement("img");
+            image.src = src;
+            image.alt = text[project.imgAltId] ?? "";
+            image.loading = "lazy";
+            image.decoding = "async";
+            thumb.appendChild(image);
+        }
+
+        const body = document.createElement("span");
+        body.className = "asset-text";
+        body.appendChild(this.createLine("asset-title", text[project.titleId]));
+        body.appendChild(this.createLine("asset-category", category));
+        body.appendChild(this.createLine("asset-meta", text[project.periodId]));
+
+        card.append(thumb, body);
+        return card;
+    }
+
+    createLine(className, content) {
+        const line = document.createElement("span");
+        line.className = className;
+        line.textContent = content ?? "";
+        line.hidden = !content;
+        return line;
     }
 
     buildFilters(baseId, kinds) {
@@ -86,7 +152,7 @@ export class ProjectsSection {
             tab.className = "project-filter";
             tab.dataset.kind = kind;
             tab.setAttribute("role", "tab");
-            tab.setAttribute("aria-controls", gridId);
+            tab.setAttribute("aria-controls", blocksId);
             tab.textContent = labels[kind.toLowerCase()] ?? kind;
             tab.addEventListener("click", () => this.select(kind));
             tab.addEventListener("keydown", event => this.handleKey(event, tab));
@@ -119,8 +185,8 @@ export class ProjectsSection {
             tab.classList.toggle("is-selected", selected);
         });
 
-        this.cards.forEach(card => {
-            card.hidden = kind !== allKind && card.dataset.kind !== kind;
+        this.blocks.forEach(block => {
+            block.hidden = kind !== allKind && block.dataset.kind !== kind;
         });
     }
 }

@@ -6,29 +6,26 @@
         "columns": [
             {
                 "titleId": "sections.programming",
-                "groups": [
-                    { "items": [ "C#", "C++", "JavaScript", "Python", "HTML", "CSS" ] }
-                ]
+                "items": [ "C#", "C++", "JavaScript", "Python", "HTML", "CSS" ]
             },
             {
                 "titleId": "sections.tools",
-                "groups": [
-                    { "items": [ "Unity", "Unreal Engine 5", "Oculus / XR", "Photon Fusion", "Photon Quantum", "Netcode", "Rider", "Git", "Django" ] }
-                ]
+                "items": [ "Unity", "Unreal Engine 5", "Oculus / XR", "Photon Fusion", "Photon Quantum", "Netcode", "Rider", "Git", "Django" ]
             },
             {
                 "titleId": "sections.practices",
-                "groups": [
-                    { "items": [ "OOP", "ECS", "Agile", "QA", "UI/UX", "Code Documentation", "Design Patterns" ] },
-                    {
-                        "titleId": "languages.title",
-                        "itemsId": [ "languages.en", "languages.es", "languages.jp" ]
-                    },
-                    {
-                        "titleId": "concepts.title",
-                        "conceptsId": [ "concepts.designPatterns", "concepts.mvcArchitecture", "concepts.aiAlgorithms", "concepts.multiplayerArchitecture" ]
-                    }
-                ]
+                "items": [ "OOP", "ECS", "Agile", "QA", "UI/UX", "Code Documentation", "Design Patterns" ]
+            }
+        ],
+        "rows": [
+            {
+                "titleId": "languages.title",
+                "itemsId": [ "languages.en", "languages.es", "languages.jp" ]
+            },
+            {
+                "titleId": "concepts.title",
+                "itemsId": [ "concepts.designPatterns", "concepts.mvcArchitecture", "concepts.aiAlgorithms", "concepts.multiplayerArchitecture" ],
+                "titleOnly": true
             }
         ]
     }

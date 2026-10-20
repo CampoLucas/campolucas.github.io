@@ -36,6 +36,7 @@
     <link href="./src/css/components/carousel.css" rel="stylesheet" />
     <link href="./src/css/components/carousel-projects.css" rel="stylesheet" />
     <link href="./src/css/components/project-card.css" rel="stylesheet" />
+    <link href="./src/css/components/asset-grid.css" rel="stylesheet" />
     <link href="./src/css/components/side-nav.css" rel="stylesheet" />
     <link href="./src/css/components/skeleton.css" rel="stylesheet" />
     <link href="./src/css/components/separator.css" rel="stylesheet" />
@@ -129,6 +130,7 @@
                         <div class="skeleton-stack">
                             <span class="skeleton skeleton-line" style="--sk-w: 12em;"></span>
                             <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 8em;"></span>
+                            <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 6em;"></span>
                             <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 70%;"></span>
                         </div>
                     </div>
@@ -137,6 +139,7 @@
                         <div class="skeleton-stack">
                             <span class="skeleton skeleton-line" style="--sk-w: 10em;"></span>
                             <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 7em;"></span>
+                            <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 6em;"></span>
                             <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 60%;"></span>
                         </div>
                     </div>
@@ -171,14 +174,12 @@
 
                 <div id="proj-cap-cnt">
                     <div class="skeleton-projects" aria-hidden="true">
-                        <span class="skeleton skeleton-line" style="--sk-w: 14em;"></span>
-                        <div class="skeleton-cards">
-                            <span class="skeleton"></span>
-                            <span class="skeleton"></span>
-                            <span class="skeleton"></span>
-                            <span class="skeleton"></span>
-                            <span class="skeleton"></span>
-                            <span class="skeleton"></span>
+                        <span class="skeleton skeleton-line" style="--sk-w: 5em;"></span>
+                        <div class="skeleton-capsules">
+                            <span class="skeleton skeleton-media"></span>
+                            <span class="skeleton skeleton-media"></span>
+                            <span class="skeleton skeleton-media"></span>
+                            <span class="skeleton skeleton-media"></span>
                         </div>
                     </div>
                 </div>
@@ -269,10 +270,10 @@
             <div class="exp-main">
                 <h3 class="exp-role"></h3>
                 <p class="exp-company"></p>
-                <p class="exp-period"></p>
+                <p class="exp-dates"><span class="exp-period"></span><span class="exp-present"></span></p>
                 <p class="exp-summary"></p>
+                <span class="exp-more"></span>
             </div>
-            <span class="exp-more"></span>
         </a>
     </template>
 
@@ -314,43 +315,6 @@
                 </div>
             </div>
         </div>
-    </template>
-
-    <template id="card-game-el">
-        <a id="cap-link" class="pcard pcard-game" href="">
-            <div class="pcard-icon">
-                <img id="cap-banner-img" class="pcard-img" alt="" loading="lazy" decoding="async" />
-                <span id="cap-banner-video" class="capsule-video"></span>
-            </div>
-            <div class="pcard-body">
-                <p id="cap-title" class="pcard-title"></p>
-                <div id="cap-tag-cnt" class="pcard-tags"></div>
-            </div>
-        </a>
-    </template>
-
-    <template id="card-tool-el">
-        <a id="cap-link" class="pcard pcard-tool" href="">
-            <div class="pcard-preview">
-                <img id="cap-banner-img" class="pcard-img" alt="" loading="lazy" decoding="async" />
-                <span id="cap-banner-video" class="capsule-video"></span>
-            </div>
-            <div class="pcard-body">
-                <p id="cap-title" class="pcard-title"></p>
-                <div id="cap-tag-cnt" class="pcard-tags"></div>
-            </div>
-        </a>
-    </template>
-
-    <template id="card-web-el">
-        <a id="cap-link" class="pcard pcard-web" href="">
-            <div class="pcard-preview">
-                <img id="cap-banner-img" class="pcard-img" alt="" loading="lazy" decoding="async" />
-            </div>
-            <div class="pcard-body">
-                <p id="cap-title" class="pcard-title"></p>
-            </div>
-        </a>
     </template>
 
     <template id="cap-carousel-temp">

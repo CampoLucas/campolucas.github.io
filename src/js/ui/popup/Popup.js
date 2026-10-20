@@ -2,10 +2,16 @@ import { normalizeMedia } from "../elements/Media.js";
 import { buildBlock, isMediaBlock } from "./PopupBlocks.js";
 
 const focusableSelector = "a[href], button:not([disabled]), input:not([disabled]), select, textarea, video[controls], [tabindex]:not([tabindex='-1'])";
+const backgroundVars = {
+    baseColor: "--bg-base",
+    overlayColor: "--bg-overlay",
+    gradientEdgeColor: "--bg-grad-edge"
+};
 
 /**
- * Modal dialog driven by a model from PopupModels.js. The model's config picks the
- * layout, the size and which blocks render, in order. Empty blocks are skipped.
+ * Modal page driven by a model from PopupModels.js. The model's config picks the
+ * layout and which blocks render, in order. Empty blocks are skipped. Every popup
+ * shares one fixed content size.
  */
 export class Popup {
     constructor(renderer, onRequestClose) {
@@ -14,7 +20,7 @@ export class Popup {
         this.root = null;
         this.opener = null;
         this.inerted = [];
-        this.pressedOnRoot = false;
+        this.pressedOnScroller = false;
         this.handleKey = this.handleKey.bind(this);
     }
 
@@ -30,12 +36,12 @@ export class Popup {
         document.body.appendChild(this.root);
         this.lockPage();
         document.addEventListener("keydown", this.handleKey, true);
-        this.panel.focus({ preventScroll: true });
+        this.dialog.focus({ preventScroll: true });
     }
 
     showSkeleton(template) {
         this.open();
-        this.panel.setAttribute("aria-busy", "true");
+        this.dialog.setAttribute("aria-busy", "true");
         this.body.replaceChildren();
         if (template) this.body.appendChild(template.content.firstElementChild.cloneNode(true));
     }
@@ -44,10 +50,9 @@ export class Popup {
         this.open();
         this.renderer.destroyCarouselsIn(this.root);
 
-        const { layout, size, blocks } = model.config;
+        const { layout, blocks } = model.config;
         this.root.dataset.layout = layout;
-        this.root.dataset.size = size;
-        this.panel.setAttribute("aria-busy", "false");
+        this.dialog.setAttribute("aria-busy", "false");
 
         this.renderHeader(model);
         this.renderBackground(model.background);
@@ -67,7 +72,7 @@ export class Popup {
         const columns = [media, info].filter(column => column.childElementCount);
         this.body.dataset.columns = String(columns.length);
         this.body.replaceChildren(...columns);
-        this.panel.scrollTop = 0;
+        this.scroller.scrollTop = 0;
     }
 
     destroy() {
@@ -90,17 +95,23 @@ export class Popup {
         const root = document.createElement("div");
         root.className = "popup";
         root.dataset.layout = "carouselLeft";
-        root.dataset.size = "large";
 
-        const panel = document.createElement("div");
-        panel.className = "popup-panel";
-        panel.setAttribute("role", "dialog");
-        panel.setAttribute("aria-modal", "true");
-        panel.setAttribute("aria-labelledby", "popup-title");
-        panel.tabIndex = -1;
+        const backgrounds = document.createElement("div");
+        backgrounds.className = "bg-cnt";
+        backgrounds.innerHTML = `
+            <div class="bg-color"></div>
+            <div class="bg-img-cnt" hidden><img class="bg-img" alt="" decoding="async"></div>
+            <div class="bg-overlay-cnt"><div class="bg-overlay"></div><div class="bg-gradient"></div></div>`;
 
-        const background = document.createElement("div");
-        background.className = "popup-bg";
+        const scroller = document.createElement("div");
+        scroller.className = "popup-panel";
+
+        const dialog = document.createElement("div");
+        dialog.className = "popup-content";
+        dialog.setAttribute("role", "dialog");
+        dialog.setAttribute("aria-modal", "true");
+        dialog.setAttribute("aria-labelledby", "popup-title");
+        dialog.tabIndex = -1;
 
         const header = document.createElement("header");
         header.className = "popup-header";
@@ -129,30 +140,37 @@ export class Popup {
 
         const close = document.createElement("button");
         close.type = "button";
-        close.className = "popup-close";
+        close.className = "close-popup";
         close.setAttribute("aria-label", this.renderer.t("popup", "close") ?? "Close");
-        close.textContent = "×";
+        close.textContent = "X";
         close.addEventListener("click", () => this.requestClose());
 
         header.append(logo, heading, close);
 
+        const box = document.createElement("div");
+        box.className = "popup-box";
+
         const body = document.createElement("div");
         body.className = "popup-body";
+        box.appendChild(body);
 
-        panel.append(background, header, body);
-        root.appendChild(panel);
+        dialog.append(header, box);
+        scroller.appendChild(dialog);
+        root.append(backgrounds, scroller);
 
-        root.addEventListener("pointerdown", event => {
-            this.pressedOnRoot = event.target === root;
+        scroller.addEventListener("pointerdown", event => {
+            this.pressedOnScroller = event.target === scroller;
         });
-        root.addEventListener("click", event => {
-            if (this.pressedOnRoot && event.target === root) this.requestClose();
-            this.pressedOnRoot = false;
+        scroller.addEventListener("click", event => {
+            if (this.pressedOnScroller && event.target === scroller) this.requestClose();
+            this.pressedOnScroller = false;
         });
 
         this.root = root;
-        this.panel = panel;
-        this.background = background;
+        this.scroller = scroller;
+        this.dialog = dialog;
+        this.backgroundImage = backgrounds.querySelector(".bg-img");
+        this.backgroundWrap = backgrounds.querySelector(".bg-img-cnt");
         this.logo = logo;
         this.title = title;
         this.subtitle = subtitle;
@@ -182,23 +200,21 @@ export class Popup {
     }
 
     renderBackground(background) {
-        this.background.replaceChildren();
-        this.panel.style.removeProperty("--popup-base");
-        this.panel.style.removeProperty("--popup-edge");
+        Object.values(backgroundVars).forEach(name => this.root.style.removeProperty(name));
+        this.backgroundWrap.hidden = true;
+        this.backgroundImage.removeAttribute("src");
 
         if (!background) return;
 
-        if (background.baseColor) this.panel.style.setProperty("--popup-base", background.baseColor);
-        if (background.gradientEdgeColor) this.panel.style.setProperty("--popup-edge", background.gradientEdgeColor);
+        Object.entries(backgroundVars).forEach(([key, name]) => {
+            if (background[key]) this.root.style.setProperty(name, background[key]);
+        });
 
         const image = normalizeMedia(background.img);
         if (!image) return;
 
-        const element = document.createElement("img");
-        element.alt = "";
-        element.decoding = "async";
-        element.src = image.src;
-        this.background.appendChild(element);
+        this.backgroundImage.src = image.src;
+        this.backgroundWrap.hidden = false;
     }
 
     requestClose() {
@@ -218,17 +234,17 @@ export class Popup {
 
         if (event.key !== "Tab") return;
 
-        const items = [...this.panel.querySelectorAll(focusableSelector)].filter(el => el.offsetParent !== null);
+        const items = [...this.dialog.querySelectorAll(focusableSelector)].filter(el => el.offsetParent !== null);
         if (!items.length) {
             event.preventDefault();
-            this.panel.focus();
+            this.dialog.focus();
             return;
         }
 
         const first = items[0];
         const last = items[items.length - 1];
         const active = document.activeElement;
-        const outside = !this.panel.contains(active) || active === this.panel;
+        const outside = !this.dialog.contains(active) || active === this.dialog;
 
         if (event.shiftKey && (active === first || outside)) {
             event.preventDefault();

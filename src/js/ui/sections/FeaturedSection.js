@@ -1,4 +1,7 @@
+import { createMedia, loadMedia, normalizeMedia, pauseMedia, playMedia } from "../elements/Media.js";
+
 const sectionId = "featured";
+const canHover = window.matchMedia("(hover: hover)").matches;
 
 export class FeaturedSection {
     constructor(app) {
@@ -17,14 +20,13 @@ export class FeaturedSection {
             return;
         }
 
-        const renderer = this.app.renderer;
-        const copy = key => renderer.t(data.baseId, key);
+        const copy = key => this.app.renderer.t(data.baseId, key);
 
         document.getElementById("featured-title").textContent = copy(data.titleId) ?? "";
 
         const container = document.getElementById("featured-cnt");
         container.innerHTML = "";
-        this.buildCard(container, data, project, text, copy);
+        container.appendChild(this.buildCard(data, project, text, copy));
     }
 
     findProject(id) {
@@ -36,100 +38,94 @@ export class FeaturedSection {
         return null;
     }
 
-    buildCard(container, data, project, text, copy) {
-        const renderer = this.app.renderer;
-        const media = project.media ?? {};
-
-        const card = this.createEl("article", "featured-card");
-        container.appendChild(card);
-
-        const head = this.createEl("div", "featured-head");
-        head.appendChild(this.createEl("h3", "featured-name", text[project.titleId]));
-        const badge = copy(data.badgeId);
-        if (badge) head.appendChild(this.createEl("span", "featured-badge", badge));
-        card.appendChild(head);
-
-        const main = this.createEl("div", "featured-main");
-        card.appendChild(main);
-
-        const gallery = [data.video, ...(data.screenshots ?? media.carouselImages ?? [])].filter(Boolean);
-        if (gallery.length) {
-            const mediaCnt = this.createEl("div", "featured-media");
-            main.appendChild(mediaCnt);
-            renderer.addImgCarousel(mediaCnt, document.getElementById("game-carousel"), gallery, text[project.imgAltId]);
-        }
-
-        main.appendChild(this.buildSide(data, project, text, copy));
-
-        const details = this.buildDetails(data, copy);
-        if (details.childElementCount) card.appendChild(details);
+    buildCard(data, project, text, copy) {
+        const card = this.createEl("article", "featured-steam");
+        card.appendChild(this.buildCover(data, project, text));
+        card.appendChild(this.buildInfo(data, project, text, copy));
+        return card;
     }
 
-    buildSide(data, project, text, copy) {
-        const renderer = this.app.renderer;
-        const side = this.createEl("aside", "featured-side");
+    buildCover(data, project, text) {
+        const media = project.media ?? {};
+        const alt = text[project.imgAltId] ?? text[project.titleId] ?? "";
 
-        const capsule = project.media?.capsuleImg;
+        const cover = this.createEl("a", "featured-cover");
+        cover.href = `#${project.baseId}`;
+        cover.setAttribute("aria-label", text[project.titleId] ?? "");
+
+        const capsule = normalizeMedia(media.capsuleImg);
         if (capsule) {
-            const image = document.createElement("img");
-            image.className = "featured-capsule";
-            image.src = typeof capsule === "string" ? capsule : capsule.src;
+            const image = this.createEl("img", "featured-cover-img");
+            image.src = capsule.src;
+            image.alt = alt;
+            image.decoding = "async";
             if (capsule.width) image.width = capsule.width;
             if (capsule.height) image.height = capsule.height;
-            image.alt = text[project.imgAltId] ?? "";
-            image.loading = "lazy";
-            image.decoding = "async";
-            side.appendChild(image);
+            cover.appendChild(image);
         }
 
-        const about = Array.isArray(text[project.blocksId]) ? text[project.blocksId].find(block => block?.type === "desc") : null;
-        if (about) side.appendChild(renderer.getDescEl(about));
-
-        if (project.tags?.length) {
-            side.appendChild(this.buildTags(project.tags, "featured-tags"));
+        const video = canHover ? createMedia(data.video ?? media.capsuleVideo, { lazy: true, className: "featured-cover-video" }) : null;
+        if (video) {
+            cover.appendChild(video);
+            const start = () => {
+                loadMedia(video);
+                playMedia(video);
+            };
+            const stop = () => pauseMedia(video);
+            cover.addEventListener("pointerenter", start);
+            cover.addEventListener("focus", start);
+            cover.addEventListener("pointerleave", stop);
+            cover.addEventListener("blur", stop);
         }
 
-        const links = this.createEl("div", "featured-links");
-        const buttons = this.createEl("div", "social");
-        renderer.renderContactButtons(buttons, project.buttons, text);
-        if (buttons.childElementCount) links.appendChild(buttons);
-
-        const more = copy(data.moreBtnId);
-        if (more) {
-            const link = this.createEl("a", "cta-btn secondary", more);
-            link.href = `#${project.baseId}`;
-            links.appendChild(link);
-        }
-        side.appendChild(links);
-
-        return side;
+        return cover;
     }
 
-    buildDetails(data, copy) {
-        const details = this.createEl("div", "featured-details");
+    buildInfo(data, project, text, copy) {
+        const renderer = this.app.renderer;
+        const info = this.createEl("div", "featured-info");
+
+        info.appendChild(this.createEl("h3", "featured-name", text[project.titleId]));
+
+        const badge = copy(data.badgeId);
+        if (badge) info.appendChild(this.createEl("span", "featured-badge", badge));
+
+        const about = Array.isArray(text[project.blocksId]) ? text[project.blocksId].find(block => block?.type === "desc") : null;
+        if (about) info.appendChild(renderer.getDescEl(about));
+
+        if (project.tags?.length) info.appendChild(this.buildTags(project.tags));
 
         const programmed = copy(data.programmedId);
         if (Array.isArray(programmed) && programmed.length) {
-            const column = this.createEl("div", "featured-column");
-            column.appendChild(this.createEl("h4", "featured-subtitle", copy(data.programmedTitleId)));
+            info.appendChild(this.createEl("h4", "featured-subtitle", copy(data.programmedTitleId)));
             const list = this.createEl("ul", "featured-list");
             programmed.forEach(item => list.appendChild(this.createEl("li", null, item)));
-            column.appendChild(list);
-            details.appendChild(column);
+            info.appendChild(list);
         }
 
         if (data.toolsUsed?.length) {
-            const column = this.createEl("div", "featured-column");
-            column.appendChild(this.createEl("h4", "featured-subtitle", copy(data.toolsTitleId)));
-            column.appendChild(this.buildTags(data.toolsUsed, "featured-tools"));
-            details.appendChild(column);
+            info.appendChild(this.createEl("h4", "featured-subtitle", copy(data.toolsTitleId)));
+            info.appendChild(this.buildTags(data.toolsUsed));
         }
 
-        return details;
+        const links = this.createEl("div", "featured-links social");
+        renderer.renderContactButtons(links, project.buttons, text);
+        if (links.childElementCount) info.appendChild(links);
+
+        const more = copy(data.moreBtnId);
+        if (more) {
+            const row = this.createEl("div", "featured-more-row");
+            const button = this.createEl("a", "cta-btn secondary", more);
+            button.href = `#${project.baseId}`;
+            row.appendChild(button);
+            info.appendChild(row);
+        }
+
+        return info;
     }
 
-    buildTags(tags, className) {
-        const element = this.createEl("div", `info-tags ${className}`);
+    buildTags(tags) {
+        const element = this.createEl("div", "info-tags featured-tags");
         tags.forEach(tag => element.appendChild(this.createEl("div", "info-tag", tag)));
         return element;
     }

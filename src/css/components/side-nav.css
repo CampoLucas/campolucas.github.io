@@ -5,17 +5,18 @@
 }
 
 .side-nav {
-    --nav-neutral: rgba(235, 235, 245, .9);
+    --nav-neutral: rgba(235, 235, 245, .85);
+    --nav-hover: #ffffff;
     --nav-active: var(--accent-color2);
-    --nav-step: .15;
+    --nav-cell: 44px;
     position: fixed;
     left: 12px;
     top: 50%;
     z-index: 500;
     transform: translateY(-50%);
-    padding: 10px 6px;
-    border-radius: 999px;
-    background: rgba(20, 10, 34, .45);
+    padding: 6px;
+    border-radius: 26px;
+    background: rgba(20, 10, 34, .4);
     border: 1px solid rgba(255, 255, 255, .1);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
@@ -24,36 +25,39 @@
 .side-nav-list {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
+    gap: 2px;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
 .side-nav-item {
-    --distance: 0;
-    position: relative;
-    opacity: calc(1 - var(--distance) * .22);
-    transition: opacity 250ms ease;
+    --scroll-d: 0;
+    --hover-d: 9;
+    --d: min(var(--scroll-d), var(--hover-d));
+    width: var(--nav-cell);
+    height: var(--nav-cell);
 }
 
 .side-nav-button {
-    display: flex;
-    align-items: center;
-    gap: 0;
-    height: 40px;
-    padding: 0 8px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
     font: inherit;
     font-size: 14px;
     color: var(--nav-neutral);
     background: none;
     border: none;
-    border-radius: 999px;
+    border-radius: 50%;
     cursor: pointer;
-    transform: scale(calc(1 - var(--distance) * var(--nav-step)));
-    transform-origin: left center;
-    transition: transform 250ms ease, color 250ms ease, background-color 250ms ease;
+    transition: color 250ms ease;
+}
+
+.side-nav-item.is-hovered .side-nav-button {
+    color: var(--nav-hover);
 }
 
 .side-nav-item.is-active .side-nav-button {
@@ -61,7 +65,6 @@
 }
 
 .side-nav-icon {
-    flex: 0 0 24px;
     width: 24px;
     height: 24px;
     fill: none;
@@ -69,40 +72,41 @@
     stroke-width: 1.8;
     stroke-linecap: round;
     stroke-linejoin: round;
+    transform: scale(calc(1.15 - min(var(--d), 3) * .1));
+    opacity: calc(1 - min(var(--d), 3) * .14);
+    transition: transform 250ms ease, opacity 250ms ease;
 }
 
 .side-nav-label {
-    max-width: 0;
-    overflow: hidden;
+    position: absolute;
+    left: calc(100% + 10px);
+    top: 50%;
+    padding: 4px 12px;
     white-space: nowrap;
+    color: #fff;
+    background: rgba(20, 10, 34, .9);
+    border: 1px solid rgba(255, 255, 255, .12);
+    border-radius: 6px;
     opacity: 0;
-    transition: max-width 250ms ease, opacity 200ms ease, margin-left 250ms ease;
-}
-
-.side-nav-item:hover,
-.side-nav-item:focus-within {
-    opacity: 1;
+    pointer-events: none;
+    transform: translate(-8px, -50%);
+    transition: opacity 200ms ease, transform 200ms ease;
 }
 
 .side-nav-button:hover .side-nav-label,
 .side-nav-button:focus-visible .side-nav-label {
-    max-width: 10rem;
-    margin-left: 10px;
     opacity: 1;
-}
-
-.side-nav-button:hover {
-    background: rgba(255, 255, 255, .08);
+    transform: translate(0, -50%);
 }
 
 .side-nav-button:focus-visible {
     outline: 2px solid var(--accent-color2);
-    outline-offset: 2px;
+    outline-offset: -2px;
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .side-nav-item,
     .side-nav-button,
+    .side-nav-icon,
     .side-nav-label {
         transition: none;
     }
@@ -110,30 +114,23 @@
 
 @media (max-width: 1279px) {
     body {
-        padding-bottom: 60px;
+        padding-bottom: 64px;
     }
 
     .side-nav {
+        --nav-cell: 40px;
         left: 50%;
         top: auto;
         bottom: 8px;
         transform: translateX(-50%);
         max-width: calc(100% - 16px);
-        padding: 4px 8px;
+        padding: 4px 6px;
+        border-radius: 26px;
     }
 
     .side-nav-list {
         flex-direction: row;
-        align-items: center;
-        gap: 2px;
-    }
-
-    .side-nav-button {
-        height: 44px;
-        min-width: 40px;
-        justify-content: center;
-        padding: 0 8px;
-        transform-origin: center;
+        gap: 0;
     }
 
     .side-nav-label {

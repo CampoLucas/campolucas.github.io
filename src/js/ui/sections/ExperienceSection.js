@@ -30,6 +30,7 @@ export class ExperienceSection {
         const renderer = this.app.renderer;
         const template = document.getElementById(templateId);
         const viewDetails = renderer.t("experience", "viewDetails") ?? "";
+        const presentLabel = renderer.t("experience", "present") ?? "";
 
         entries.forEach(entry => {
             const text = renderer.t(group, entry.baseId);
@@ -59,7 +60,11 @@ export class ExperienceSection {
             row.querySelector(".exp-role").textContent = text[entry.roleId] ?? "";
             row.querySelector(".exp-company").textContent = product ? `${company} - ${product}` : company ?? "";
             row.querySelector(".exp-period").textContent = text[entry.periodId] ?? "";
-            row.querySelector(".exp-summary").textContent = summaryOf(text[entry.blocksId]);
+            row.querySelector(".exp-summary").textContent = text[entry.summaryId ?? "summary"] ?? summaryOf(text[entry.blocksId]);
+
+            const present = row.querySelector(".exp-present");
+            present.textContent = presentLabel;
+            present.hidden = !entry.current;
             row.querySelector(".exp-more").textContent = viewDetails;
 
             container.appendChild(row);

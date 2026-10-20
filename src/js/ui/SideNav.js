@@ -2,6 +2,7 @@ import { sectionIcons, defaultSectionIcon } from "../core/Sections.js";
 
 const svgNs = "http://www.w3.org/2000/svg";
 const maxDistance = 4;
+const noHover = 9;
 
 /**
  * Scroll-wheel style navigation built from every [data-section] element in the page,
@@ -39,6 +40,8 @@ export class SideNav {
             const id = section.dataset.section;
             const item = document.createElement("li");
             item.className = "side-nav-item";
+            item.addEventListener("pointerenter", () => this.setHover(index));
+            item.addEventListener("focusin", () => this.setHover(index));
 
             const button = document.createElement("button");
             button.type = "button";
@@ -53,6 +56,11 @@ export class SideNav {
             item.appendChild(button);
             list.appendChild(item);
             this.items.push({ item, button, index });
+        });
+
+        nav.addEventListener("pointerleave", () => this.setHover(null));
+        nav.addEventListener("focusout", event => {
+            if (!nav.contains(event.relatedTarget)) this.setHover(null);
         });
 
         nav.appendChild(list);
@@ -107,11 +115,19 @@ export class SideNav {
 
         this.items.forEach(({ item, button, index: itemIndex }) => {
             const distance = Math.min(Math.abs(itemIndex - index), maxDistance);
-            item.style.setProperty("--distance", String(distance));
+            item.style.setProperty("--scroll-d", String(distance));
             item.classList.toggle("is-active", distance === 0);
 
             if (distance === 0) button.setAttribute("aria-current", "true");
             else button.removeAttribute("aria-current");
+        });
+    }
+
+    setHover(index) {
+        this.items.forEach(({ item, index: itemIndex }) => {
+            const distance = index === null ? noHover : Math.min(Math.abs(itemIndex - index), maxDistance);
+            item.style.setProperty("--hover-d", String(distance));
+            item.classList.toggle("is-hovered", itemIndex === index);
         });
     }
 

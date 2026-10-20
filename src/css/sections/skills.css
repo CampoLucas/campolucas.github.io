@@ -10,30 +10,18 @@
     gap: 2rem;
     align-items: start;
     padding: 0;
-    margin: 0;
+    margin: 0 0 2rem;
     list-style: none;
 }
 
-.skills-column h3 {
+.skills-column h3,
+.skills-row h3 {
     margin: 0 0 .75rem;
     font-size: 1.2rem;
 }
 
-.skills-group + .skills-group {
+.skills-row + .skills-row {
     margin-top: 1.5rem;
-}
-
-.skills-group .skills-group-title {
-    margin: 0 0 .5rem;
-    font-size: 1rem;
-    color: rgba(240, 248, 255, .85);
-}
-
-.skills-group .skills-concept {
-    margin: .9rem 0 .4rem;
-    font-size: .9rem;
-    font-weight: 600;
-    color: rgba(240, 248, 255, .7);
 }
 
 .skill-tags {

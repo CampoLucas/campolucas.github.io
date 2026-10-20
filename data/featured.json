@@ -8,6 +8,5 @@
     "toolsTitleId": "toolsTitle",
     "toolsUsed": [ "Unity", "Unity Editor Tools", "C#", "Git" ],
     "moreBtnId": "moreBtn",
-    "video": null,
-    "screenshots": null
+    "video": null
 }

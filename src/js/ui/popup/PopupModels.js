@@ -1,22 +1,18 @@
 const layouts = ["carouselLeft", "carouselRight", "carouselTop", "none"];
-const sizes = ["small", "medium", "large"];
 
 const projectDefaults = {
     layout: "carouselLeft",
-    size: "large",
     blocks: ["carousel", "video", "description", "tags", "links"]
 };
 
 const experienceDefaults = {
     layout: "carouselLeft",
-    size: "large",
     blocks: ["carousel", "description", { type: "section", id: "skills" }, "links"]
 };
 
 export function resolveConfig(config, defaults) {
     return {
         layout: layouts.includes(config?.layout) ? config.layout : defaults.layout,
-        size: sizes.includes(config?.size) ? config.size : defaults.size,
         blocks: Array.isArray(config?.blocks) ? config.blocks : defaults.blocks
     };
 }

@@ -1,4 +1,4 @@
-const VERSION = "v30";
+const VERSION = "v31";
 const SHELL_CACHE = `shell-${VERSION}`;
 const MEDIA_CACHE = `media-${VERSION}`;
 
@@ -15,6 +15,7 @@ const SHELL = [
     "./src/css/components/carousel.css",
     "./src/css/components/carousel-projects.css",
     "./src/css/components/project-card.css",
+    "./src/css/components/asset-grid.css",
     "./src/css/components/side-nav.css",
     "./src/css/components/skeleton.css",
     "./src/css/components/separator.css",

@@ -8,9 +8,9 @@
 
 .exp-row {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 1rem;
-    padding: .9rem 1.1rem;
+    padding: 1rem 1.1rem;
     color: inherit;
     text-decoration: none;
     border-radius: 12px;
@@ -50,7 +50,7 @@
 }
 
 .exp-row .exp-company,
-.exp-row .exp-period,
+.exp-row .exp-dates,
 .exp-row .exp-summary {
     margin: .15rem 0 0;
     font-size: 14px;
@@ -60,24 +60,34 @@
     color: rgba(240, 248, 255, .85);
 }
 
-.exp-row .exp-period {
+.exp-row .exp-dates {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .5rem;
     font-size: 13px;
     color: rgba(240, 248, 255, .55);
 }
 
+.exp-row .exp-present {
+    padding: 1px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent-color1), var(--accent-color2));
+}
+
 .exp-row .exp-summary {
-    margin-top: .4rem;
+    margin-top: .6rem;
     color: rgba(240, 248, 255, .9);
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
 }
 
 .exp-row .exp-more {
-    flex: 0 0 auto;
-    padding: 8px 14px;
+    display: inline-block;
+    margin-top: .75rem;
+    padding: 6px 14px;
     font-size: 14px;
-    white-space: nowrap;
     border-radius: 6px;
     border: 1px solid rgba(255, 255, 255, .25);
     transition: background-color 150ms ease, border-color 150ms ease;
@@ -98,18 +108,13 @@
 
 @media only screen and (max-width: 640px) {
     .exp-row {
-        flex-wrap: wrap;
+        gap: .75rem;
+        padding: .85rem;
     }
 
-    .exp-row .exp-summary {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        white-space: normal;
-    }
-
-    .exp-row .exp-more {
-        flex-basis: 100%;
-        text-align: center;
+    .exp-row .exp-logo {
+        flex-basis: 44px;
+        width: 44px;
+        height: 44px;
     }
 }
