@@ -93,6 +93,8 @@
 
 .hero-contact {
     display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
 }
 
 

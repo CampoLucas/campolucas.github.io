@@ -1,54 +1,50 @@
 .sub-title {
     justify-self: center;
+    text-align: center;
     margin-bottom: 60px;
 }
 
-.c-l-cnt {
-    display: flex;
+.skills-columns {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: start;
     padding: 0;
-    width: 100%;
+    margin: 0;
     list-style: none;
 }
 
-.c-l {
-    width: calc(100%/3);
+.skills-column h3 {
+    margin: 0 0 .75rem;
+    font-size: 1.2rem;
 }
 
-.c-l ul {
-    list-style: none; padding: 0;
+.skills-group + .skills-group {
+    margin-top: 1.5rem;
 }
 
-.c-l li,
-.h-l li {
-    background: linear-gradient(0.35turn, #74747424, #a8a8a824, #e1e1e124);
-    padding: .25rem; 
-    border-radius: 15px; 
-    margin-bottom: 5px;
+.skills-group .skills-group-title {
+    margin: 0 0 .5rem;
+    font-size: 1rem;
+    color: rgba(240, 248, 255, .85);
 }
 
-.c-l li {
-    padding-inline-start: 1rem; 
-    margin-right: 1rem;
+.skills-group .skills-concept {
+    margin: .9rem 0 .4rem;
+    font-size: .9rem;
+    font-weight: 600;
+    color: rgba(240, 248, 255, .7);
 }
 
-.h-l {
-    list-style: none; 
-    padding: 0; 
-    display: flex; 
-    gap: .5rem;
+.skill-tags {
+    height: auto;
+    min-height: 0;
+    overflow: visible;
 }
 
-.h-l li {
-    padding-inline: 1rem;
-}
-
-@media only screen and (orientation: portrait) and (max-width:640px) {
-    .h-l,
-    .c-l-cnt {
-        flex-direction: column;
-    }
-
-    .c-l {
-        width: 100%;
+@media (max-width: 900px) {
+    .skills-columns {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 1.5rem;
     }
 }

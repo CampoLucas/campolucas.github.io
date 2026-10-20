@@ -1,0 +1,13 @@
+{
+    "baseId": "featured",
+    "projectId": "rushRift",
+    "titleId": "title",
+    "badgeId": "badge",
+    "programmedTitleId": "programmedTitle",
+    "programmedId": "programmed",
+    "toolsTitleId": "toolsTitle",
+    "toolsUsed": [ "Unity", "Unity Editor Tools", "C#", "Git" ],
+    "moreBtnId": "moreBtn",
+    "video": null,
+    "screenshots": null
+}

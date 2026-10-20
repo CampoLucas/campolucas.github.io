@@ -1,4 +1,4 @@
-const VERSION = "v29";
+const VERSION = "v30";
 const SHELL_CACHE = `shell-${VERSION}`;
 const MEDIA_CACHE = `media-${VERSION}`;
 
@@ -14,11 +14,14 @@ const SHELL = [
     "./src/css/components/social.css",
     "./src/css/components/carousel.css",
     "./src/css/components/carousel-projects.css",
+    "./src/css/components/project-card.css",
+    "./src/css/components/side-nav.css",
     "./src/css/components/skeleton.css",
     "./src/css/components/separator.css",
     "./src/css/sections/hero.css",
     "./src/css/sections/projects.css",
     "./src/css/sections/experience.css",
+    "./src/css/sections/featured.css",
     "./src/css/sections/showcases.css",
     "./src/css/sections/footer.css",
     "./src/css/sections/popup.css",
@@ -28,8 +31,17 @@ const SHELL = [
 
     "./src/js/core/App.js",
     "./src/js/core/JSONLoader.js",
+    "./src/js/core/Sections.js",
     "./src/js/ui/Renderer.js",
     "./src/js/ui/PopupHandler.js",
+    "./src/js/ui/SideNav.js",
+    "./src/js/ui/popup/Popup.js",
+    "./src/js/ui/popup/PopupBlocks.js",
+    "./src/js/ui/popup/PopupModels.js",
+    "./src/js/ui/sections/ExperienceSection.js",
+    "./src/js/ui/sections/FeaturedSection.js",
+    "./src/js/ui/sections/ProjectsSection.js",
+    "./src/js/ui/sections/SkillsSection.js",
     "./src/js/ui/elements/Media.js",
     "./src/js/ui/elements/MediaCarousel.js",
     "./src/js/ui/elements/CapsuleCarousel/CapsuleCarousel.js",
@@ -42,6 +54,7 @@ const SHELL = [
     "./data/projects.json",
     "./data/skills.json",
     "./data/sections.json",
+    "./data/featured.json",
     "./i18n/en.json"
 ];
 

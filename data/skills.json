@@ -2,35 +2,34 @@
     "skills": {
         "baseId": "skills",
         "titleId": "title",
-        "categories": [
-            { 
-                "titleId": null,
-                "items": [
-                    { 
-                        "nameId": "sections.programming",
-                        "items": [ "C#", "Python", "JavaScript", "HTML5", "CSS", "HLSL", "JSON" ]
+        "subtitleId": "subtitle",
+        "columns": [
+            {
+                "titleId": "sections.programming",
+                "groups": [
+                    { "items": [ "C#", "C++", "JavaScript", "Python", "HTML", "CSS" ] }
+                ]
+            },
+            {
+                "titleId": "sections.tools",
+                "groups": [
+                    { "items": [ "Unity", "Unreal Engine 5", "Oculus / XR", "Photon Fusion", "Photon Quantum", "Netcode", "Rider", "Git", "Django" ] }
+                ]
+            },
+            {
+                "titleId": "sections.practices",
+                "groups": [
+                    { "items": [ "OOP", "ECS", "Agile", "QA", "UI/UX", "Code Documentation", "Design Patterns" ] },
+                    {
+                        "titleId": "languages.title",
+                        "itemsId": [ "languages.en", "languages.es", "languages.jp" ]
                     },
-                    { 
-                        "nameId": "sections.tools",
-                        "items": [ "Unity", "Git", "Photon (Multiplayer)", "Rider", "Oculus", "Django", "Bootstrap" ]
-                    },
-                    { 
-                        "nameId": "sections.practices",
-                        "items": [ "Documentation", "Agile", "QA", "UI/UX" ]
+                    {
+                        "titleId": "concepts.title",
+                        "conceptsId": [ "concepts.designPatterns", "concepts.mvcArchitecture", "concepts.aiAlgorithms", "concepts.multiplayerArchitecture" ]
                     }
-                ],
-                "styleClass": "column-list"
-            },
-            {
-                "titleId": "languages.title",
-                "itemsId": [ "languages.en", "languages.es", "languages.jp" ],
-                "styleClass": "column-vertical"
-            },
-            {
-                "titleId": "concepts.title",
-                "itemsId": [ "concepts.designPatterns", "concepts.mvcArchitecture", "concepts.aiAlgorithms", "concepts.multiplayerArchitecture" ]
+                ]
             }
         ]
-
     }
 }

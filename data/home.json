@@ -13,6 +13,15 @@
                 "hoverTextId": "contactBtnHover",
                 "type": "link",
                 "newTab": false
+            },
+            {
+                "id": "featured",
+                "link": "#featured",
+                "classList": [ "cta-btn", "secondary" ],
+                "label": "featuredBtn",
+                "hoverTextId": "featuredBtnHover",
+                "type": "link",
+                "newTab": false
             }
         ]
     },

@@ -1,30 +1,43 @@
 import { MediaCarousel } from "./elements/MediaCarousel.js";
 import { normalizeMedia } from "./elements/Media.js";
 import { CapsuleCarousel } from "./elements/CapsuleCarousel/CapsuleCarousel.js";
-
-// HTML Ids
-const projectsTitle = "proj-title";
-const projectsCarouselCnt = "proj-cap-cnt";
+import { ExperienceSection } from "./sections/ExperienceSection.js";
+import { FeaturedSection } from "./sections/FeaturedSection.js";
+import { ProjectsSection } from "./sections/ProjectsSection.js";
+import { SkillsSection } from "./sections/SkillsSection.js";
+import { SideNav } from "./SideNav.js";
 
 export class Renderer {
     constructor(app) {
         this.app = app;
         this.carousels = [];
+        this.customCarousels = [];
     }
 
     init() {
-        this.renderHero();
-        this.renderAbout();
-        this.renderExperiences();
-        this.renderProjects();
-        this.renderCustomSections();
+        this.safely("renderHero", () => this.renderHero());
+        this.safely("ExperienceSection", () => new ExperienceSection(this.app).render());
+        this.safely("FeaturedSection", () => new FeaturedSection(this.app).render());
+        this.safely("ProjectsSection", () => new ProjectsSection(this.app).render());
+        this.safely("SkillsSection", () => new SkillsSection(this.app).render());
+        this.safely("renderAbout", () => this.renderAbout());
+        this.safely("renderCustomSections", () => this.renderCustomSections());
+        this.safely("SideNav", () => new SideNav(this.app).init());
+    }
+
+    safely(name, render) {
+        try {
+            render();
+        }
+        catch (err) {
+            console.log(`WARNING: [${name}] failed: ${err}`);
+        }
     }
 
     renderCustomSections() {
         const sections = this.app.sections?.sections;
         if (!Array.isArray(sections)) return;
 
-        this.customCarousels = [];
         const tails = new Map();
 
         sections.forEach(section => {
@@ -56,7 +69,7 @@ export class Renderer {
             const found = document.querySelector(`[data-section="${CSS.escape(after)}"]`);
             if (found) return found;
         }
-        const all = document.querySelectorAll("[data-section]");
+        const all = document.querySelectorAll("main [data-section]");
         return all.length ? all[all.length - 1] : null;
     }
 
@@ -133,16 +146,8 @@ export class Renderer {
         container.classList.add("experiences-cnt");
         element.appendChild(container);
 
-        const temp = document.getElementById("game-experience");
         const items = Array.isArray(section.items) ? section.items : [];
-        items.forEach(item => {
-            const text = this.t(section.baseId, item.baseId);
-            if (!text) {
-                console.log(`WARNING: [renderCardsSection] No text for "${section.baseId}.${item.baseId}".`);
-                return;
-            }
-            this.renderExperience(container, temp, item, text);
-        });
+        new ExperienceSection(this.app).renderRows(container, section.baseId, items);
     }
 
     renderCapsulesSection(element, section) {
@@ -181,22 +186,12 @@ export class Renderer {
     }
 
     renderHero() {
-        if (!this.app) {
-        }
         const data = this.app.home.hero;
         const baseId = data.baseId;
-        
-        // Title
-        const heroTitleEl = document.getElementById("hero-title");
-        const heroTitleBlocks = this.t(baseId, data.titleId);
-        this.renderStylizedText(heroTitleEl, heroTitleBlocks);
 
-        // Roles
-        const heroRolesEl = document.getElementById("hero-roles");
-        const heroRoles = this.t(baseId, data.rolesId);
-        this.renderStylizedRoles(heroRolesEl, heroRoles, "hero-role", "ceparator");
+        this.renderStylizedText(document.getElementById("hero-title"), this.t(baseId, data.titleId));
+        this.renderStylizedRoles(document.getElementById("hero-roles"), this.t(baseId, data.rolesId), "hero-role", "ceparator");
 
-        // Image
         const heroImg = document.getElementById("hero-pic");
         const heroPic = normalizeMedia(data.picture.img);
         if (heroPic && heroImg.getAttribute("src") !== heroPic.src) {
@@ -204,252 +199,29 @@ export class Renderer {
         }
         heroImg.alt = this.t(baseId, data.picture.altId) ?? "";
 
-        // Buttons
-        const btnCnt = document.getElementById("hero-btn-cnt");
-        this.renderContactButtons(btnCnt, data.buttons, baseId);
-        
+        this.renderContactButtons(document.getElementById("hero-btn-cnt"), data.buttons, baseId);
     }
 
     renderAbout() {
         const data = this.app.home.about;
         const baseId = data.baseId;
 
-        // Title
-        const titleEl = document.getElementById("about-title");
-        titleEl.textContent = this.t(baseId, data.titleId);
+        document.getElementById("about-title").textContent = this.t(baseId, data.titleId);
+        this.renderParagraphs(document.getElementById("about-desc"), this.t(baseId, data.descriptionId), ["header-description"]);
 
-        // Description
-        const aboutDescEl = document.getElementById("about-desc");
-        const aboutParagraphs = this.t(baseId, data.descriptionId);
-        this.renderParagraphs(aboutDescEl, aboutParagraphs, ["header-description"]);
-
-        // Image
         const aboutImg = document.getElementById("about-pic");
         if (aboutImg) {
             aboutImg.src = data.picture.img;
             aboutImg.alt = this.t(baseId, data.picture.altId) ?? "";
         }
 
-        // Contacts
-        const contactsEl = document.getElementById("about-contacts");
-        this.renderContactInfo(contactsEl, data.contact, "contact-link", "contact-sep");
-
-        // Buttons
-        const buttonsEl = document.getElementById("about-buttons");
-        this.renderContactButtons(buttonsEl, data.buttons, baseId);
-    }
-
-    renderExperiences() {
-        const experience = this.app.experience.experience;
-        const baseId = experience.baseId;
-        
-
-        // Title
-        const titleEl = document.getElementById("experience-title");
-        titleEl.textContent = this.t(baseId, experience.titleId);
-
-        // test
-        const experiencesEl = document.getElementById("experiences-cnt");
-        experiencesEl.innerHTML = "";
-        
-        const experiences = experience.experiences;
-        const temp = document.getElementById("game-experience");
-        for (let i = 0; i < experiences.length; i++) {
-            this.renderExperience(experiencesEl, temp, experiences[i], this.t(baseId, experiences[i].baseId));
-        }
-    }
-
-    renderProjects() {
-        const data = this.app.projects;
-        const baseId = data.baseId;
-        
-        // Title
-        const heroTitleEl = document.getElementById(projectsTitle);
-        heroTitleEl.textContent = this.t(baseId, data.titleId);
-
-        // Add carousels
-        const projectsCnt = document.getElementById(projectsCarouselCnt);
-        if (!projectsCnt) {
-            console.log(`WARNING: The project's carousel container with the id: ${projectsCarouselCnt} wasn't found`);
-            return;
-        }
-
-        projectsCnt.innerHTML = "";
-
-        // Render each category
-        if (!data.categories || data.categories.length === 0) {
-            console.log("No categories");
-        }
-
-        this.projCategories = [];
-        for (let i = 0; i < data.categories.length; i++) {
-            const capsules = [];
-
-            const category = data.categories[i];
-            const projects = category.projects;
-
-        
-            projects.forEach(project => {
-                const projId = project.baseId;
-
-                const imgAlt = this.t(baseId, "projects")[projId][project.imgAltId];
-                capsules.push({
-                    id: projId,
-                    title: this.t(baseId, "projects")[projId][project.titleId],
-                    img: project.media.capsuleImg ? { media: project.media.capsuleImg, alt: imgAlt ? imgAlt : null } : null,
-                    video: project.media.capsuleVideo ? { media: project.media.capsuleVideo, alt: imgAlt ? imgAlt : null } : null,
-                    tags: project.tags ? project.tags : null,
-                    link: project.link ? project.link : null
-                });
-            })
-            
-            const catData = {
-                type: category.type,
-                title: category.titleId ? this.t(baseId, "categories")[category.titleId] : null,
-                capsules: capsules,
-            };
-
-            this.projCategories.push(new CapsuleCarousel(catData, projectsCnt));
-            
-        }
-        
-    }
-
-    renderExperience(container, template, block, baseId) {
-        // Clone template
-        const clone = template.content.firstElementChild.cloneNode(true);
-        container.appendChild(clone);
-        
-        // Set the title section
-        const headerEl = clone.querySelector("#exp-header");
-
-        if (headerEl) {
-            const imgEl = headerEl.querySelector('img');
-            if (imgEl){
-                if (block.logo){
-                    imgEl.src = block.logo.src;
-                    imgEl.alt = baseId[block.logo.altId] ? baseId[block.logo.altId] : block.logo.altDefault;
-                }
-                else {
-                    
-                    imgEl.classList.add("hidden");
-                }
-            }
-        }
-        const titleEl = clone.querySelector("#exp-role");
-        titleEl.innerHTML = `${baseId[block.roleId]}`;
-        
-        const subTitle = clone.querySelector("#exp-company");
-
-        const subtitleText = block.productId ? `${baseId[block.companyId]} - ${baseId[block.productId]}` : `${baseId[block.companyId]}`;
-        subTitle.textContent = subtitleText;
-        
-        const thirdTitle = clone.querySelector("#exp-period");
-        thirdTitle.textContent = `${baseId[block.periodId]}`;
-
-        // Add the img carousel
-        const imgCnt = clone.querySelector("#carousel-cnt");
-        if (block && block.images && block.images.length >= 0){
-
-            const carouselTemp = document.getElementById("game-carousel");
-            this.addImgCarousel(imgCnt, carouselTemp, block.images, baseId[block.productId]);
-        }
-        else {
-            imgCnt.classList.add("hidden");
-        }
-
-        // Add the experience description
-        const descCnt = clone.querySelector("#description-cnt");
-        this.renderCustomText(descCnt, baseId[block.blocksId]);
-
-        // Skills
-        const skillEl = clone.querySelector("#skills-cnt");
-        if (skillEl) {
-            if (block.skillsId && baseId[block.skillsId]) {
-                this.renderCustomText(skillEl, baseId[block.skillsId]);
-            }
-            else {
-                skillEl.classList.add("hidden");
-            }
-        }
-
-        // Buttons
-        const btnCnt = clone.querySelector("#links-btn-cnt");
-        this.renderContactButtons(btnCnt, block.buttons, baseId);
-
-    }
-
-    renderProject(container, template, block, baseId) {
-        // Set background
-        const img = document.getElementById("bg-popup");
-        const media = block.media;
-        const hasMedia = media;
-        this.applyPopupBackground(media);
-        
-        const clone = template.content.firstElementChild.cloneNode(true);
-        container.appendChild(clone);
-
-        // Set the title section
-        const titleEl = clone.querySelector("#project-title");
-        titleEl.textContent = `${baseId[block.titleId]}`;
-
-        const thirdTitle = clone.querySelector("#project-period");
-        thirdTitle.textContent = `${baseId[block.periodId]}`;
-
-        // Add the img carousel
-        if (hasMedia && media.carouselImages) {
-            const imgCnt = clone.querySelector("#carousel-cnt");
-            const carouselTemp = document.getElementById("game-carousel");
-            this.addImgCarousel(imgCnt, carouselTemp, media.carouselImages, baseId[block.titleId]);
-        }
-    
-        // Add project description
-        const descCnt = clone.querySelector("#description-cnt");
-        this.renderCustomText(descCnt, baseId[block.blocksId]);
-
-
-        // Add the tags
-        // if (block.tags) {
-        //     const tagCnt = clone.querySelector("#tags-cnt");
-        //     tagCnt.appendChild(this.getUlEl(block.tags, "info-tags", "info-tag");
-        // }
-
-        // Buttons
-        if (block.buttons) {
-            const btnCnt = clone.querySelector("#links-btn-cnt");
-            this.renderContactButtons(btnCnt, block.buttons, baseId);
-        }
-    }
-
-    applyPopupBackground(data) {
-        if (!data) return;
-
-        const background = data.background;
-        if (!background) return;
-
-        const img = document.getElementById("bg-popup");
-        const popup = document.querySelector(".popup");
-
-        // image
-        const bgImg = normalizeMedia(background.img);
-        if (bgImg) {
-            img.src = bgImg.src;
-        } 
-        else {
-            img.classList.add("disabled");
-            return;
-        }
-
-        // colors via CSS variables
-        if (background.baseColor) popup.style.setProperty("--bg-base", background.baseColor);
-        if (background.overlayColor) popup.style.setProperty("--bg-overlay", background.overlayColor);
-        if (background.gradientEdgeColor) popup.style.setProperty("--bg-grad-edge", background.gradientEdgeColor);
+        this.renderContactInfo(document.getElementById("about-contacts"), data.contact, "contact-link", "contact-sep");
+        this.renderContactButtons(document.getElementById("about-buttons"), data.buttons, baseId);
     }
 
     addImgCarousel(container, template, images, alt) {
         container.innerHTML = "";
-        
-        // clone template
+
         const clone = template.content.firstElementChild.cloneNode(true);
         container.appendChild(clone);
 
@@ -465,15 +237,6 @@ export class Renderer {
         });
     }
 
-    
-
-    // Helpers
-    
-    t(id) {
-        if (!id) return null;
-        return this.app.lang[id] ?? this.app.defaultLang?.[id] ?? null;
-    }
-
     t(baseId, key) {
         return (
             this.app.lang?.[baseId]?.[key] ??
@@ -482,29 +245,33 @@ export class Renderer {
         );
     }
 
-    getNestedText(firstId, secondId, key) {
-        return this.t(firstId, secondId)?.[key] ?? null;
+    tPath(baseId, path) {
+        const keys = path.split(".");
+        const read = root => keys.reduce((node, key) => node?.[key], root?.[baseId]) ?? null;
+        return read(this.app.lang) ?? read(this.app.defaultLang);
     }
-    
+
+    lookup(source, key) {
+        if (!key) return null;
+        return typeof source === "string" ? this.t(source, key) : source?.[key] ?? null;
+    }
+
     renderStylizedText(container, blocks) {
         container.innerHTML = "";
-        
+
         if (!blocks) return;
 
-        const length = blocks.length;
-        for (let i = 0; i < length; i++) {
-            const block = blocks[i];
+        blocks.forEach((block, i) => {
             if (!block) {
-                console.log(`WARNING: [renderStylizedText] Block from the index ${i} is null.`)
-                continue;
+                console.log(`WARNING: [renderStylizedText] Block from the index ${i} is null.`);
+                return;
             }
 
             const span = document.createElement("span");
             span.textContent = block.text;
             span.className = block.style;
             container.appendChild(span);
-
-        }
+        });
     }
 
     renderCustomText(container, blocks) {
@@ -512,14 +279,12 @@ export class Renderer {
 
         if (!blocks) return;
 
-        const length = blocks.length;
-        
-        for (let i = 0; i < length; i++) {
-            const block = blocks[i];
+        blocks.forEach((block, i) => {
             if (!block) {
-                console.log(`WARNING: [renderCustomText] Block from the index ${i} is null.`)
-                continue;
+                console.log(`WARNING: [renderCustomText] Block from the index ${i} is null.`);
+                return;
             }
+
             switch (block.type) {
                 case "desc":
                     container.appendChild(this.getDescEl(block));
@@ -531,9 +296,7 @@ export class Renderer {
                     container.appendChild(this.getUlEl(block, "info-tags", "info-tag", false));
                     break;
             }
-
-        }
-        
+        });
     }
 
     getBlockCntEl() {
@@ -545,32 +308,26 @@ export class Renderer {
 
     getDescEl(block) {
         const cntEl = this.getBlockCntEl();
-        
+
         if (block.title) {
             const titleEl = document.createElement("h4");
             titleEl.innerHTML = block.title;
             cntEl.appendChild(titleEl);
-        } 
-        
-        if (Array.isArray(block.text)) {
-            block.text.forEach(t => {
-                const el = document.createElement("p");
-                el.innerHTML = t;
-                cntEl.appendChild(el);
-            });
         }
-        else {
-            const textEl = document.createElement("p");
-            textEl.innerHTML = block.text;
-            cntEl.appendChild(textEl);
-        }
+
+        const paragraphs = Array.isArray(block.text) ? block.text : [block.text];
+        paragraphs.forEach(text => {
+            const el = document.createElement("p");
+            el.innerHTML = text;
+            cntEl.appendChild(el);
+        });
 
         return cntEl;
     }
 
     getUlEl(block, styleClass, itemClass = null, isList = true) {
         const cntEl = this.getBlockCntEl();
-        
+
         if (block.title) {
             const titleEl = document.createElement("h4");
             titleEl.innerHTML = block.title;
@@ -581,20 +338,18 @@ export class Renderer {
 
         const ulEl = document.createElement(isList ? "ul" : "div");
         ulEl.classList.add(styleClass);
-        for (let i = 0; i < block.items.length; i++) {
+        block.items.forEach(item => {
             const liEl = document.createElement(isList ? "li" : "div");
-            liEl.innerHTML = block.items[i];
+            liEl.innerHTML = item;
 
             if (itemClass) {
                 liEl.classList = itemClass;
             }
 
             ulEl.appendChild(liEl);
-        }
+        });
 
         cntEl.appendChild(ulEl);
-
-
 
         return cntEl;
     }
@@ -607,7 +362,7 @@ export class Renderer {
         for (let i = 0; i < length; i++) {
             const block = blocks[i];
             if (!block) {
-                console.log(`WARNING: [renderStylizedRoles] Block from the index ${i} is null.`)
+                console.log(`WARNING: [renderStylizedRoles] Block from the index ${i} is null.`);
                 continue;
             }
 
@@ -628,18 +383,15 @@ export class Renderer {
 
     renderParagraphs(container, paragraphs, classes = null) {
         container.innerHTML = "";
-        
+
         if (!paragraphs) return;
 
         paragraphs.forEach(text => {
             const p = document.createElement("p");
             if (classes && classes.length !== 0) {
-                for (let i = 0; i < classes.length; i++) {
-                    const c = classes[i];
-                    if (!c) continue;
-
-                    p.classList.add(c);
-                }
+                classes.forEach(c => {
+                    if (c) p.classList.add(c);
+                });
             }
             p.textContent = text;
             container.appendChild(p);
@@ -664,45 +416,44 @@ export class Renderer {
 
         if (contact?.phone) {
             const phone = document.createElement("a");
-            phone.href = `tel:${contact.phone}`
+            phone.href = `tel:${contact.phone}`;
             phone.textContent = contact.phone;
             if (contactClass) phone.classList.add(contactClass);
             container.appendChild(phone);
         }
     }
 
-    renderContactButtons(container, buttons, baseId = null) {
+    renderContactButtons(container, buttons, source = null) {
         container.innerHTML = "";
 
         if (!buttons) return;
 
-        for (let i = 0; i < buttons.length; i++) {
-            const btn = buttons[i];
-
+        buttons.forEach((btn, i) => {
             if (!btn) {
-                console.log(`WARNING: [renderContactButtons] Button from the index ${i} is null.`)
-                continue;
+                console.log(`WARNING: [renderContactButtons] Button from the index ${i} is null.`);
+                return;
             }
 
-            if (btn.disabled) continue;
+            if (btn.disabled) return;
 
             const isLink = btn.type && btn.type !== "email";
             const a = document.createElement("a");
-            
-            // add the mailto
+
             a.href = isLink ? btn.link : `mailto:${btn.link}`;
-            
+
             if (btn.classList) {
-                for (let i = 0; i < btn.classList.length; i++) {
-                    a.classList.add(btn.classList[i]);
-                }
+                btn.classList.forEach(className => a.classList.add(className));
             }
 
             if (btn.label) {
-                a.textContent = this.t(baseId, btn.label);
+                a.textContent = this.lookup(source, btn.label);
             }
 
-            a.title = this.t(baseId, btn.hoverTextId) ?? "";
+            const hover = this.lookup(source, btn.hoverTextId);
+            if (hover) {
+                a.title = hover;
+                if (!btn.label) a.setAttribute("aria-label", hover);
+            }
 
             if (isLink && btn.newTab) {
                 a.target = "_blank";
@@ -710,6 +461,6 @@ export class Renderer {
             }
 
             container.appendChild(a);
-        }
+        });
     }
 }

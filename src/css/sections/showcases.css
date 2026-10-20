@@ -37,6 +37,13 @@
     padding-bottom: 5rem;
 }
 
+main > .section-viewport,
+main > .section-separator {
+    max-width: 1200px;
+    padding-inline: 25px;
+    box-sizing: border-box;
+}
+
 @media only screen and (orientation: portrait) and (max-width:640px) {
     .showcase-viewport {
         width: 100%;

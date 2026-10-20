@@ -7,7 +7,35 @@
         "roles": [ "Game Developer", "Web Developer" ],
         "imgAlt": "Foto de perfil",
         "contactBtn": "Contacto",
-        "contactBtnHover": "Ir a contactos"
+        "contactBtnHover": "Ir a contactos",
+        "featuredBtn": "Proyecto destacado",
+        "featuredBtnHover": "Ir al proyecto destacado"
+    },
+    "nav": {
+        "label": "Secciones de la página",
+        "hero": "Inicio",
+        "experience": "Experiencia",
+        "featured": "Destacado",
+        "projects": "Proyectos",
+        "skills": "Skills",
+        "about": "Sobre mí",
+        "footer": "Contacto"
+    },
+    "popup": {
+        "close": "Cerrar"
+    },
+    "featured": {
+        "title": "Proyecto destacado",
+        "badge": "Seleccionado para EVA Play Online 2026",
+        "programmedTitle": "Lo que programé",
+        "programmed": [
+            "Movimiento principal",
+            "Dash",
+            "Sistemas de ataque",
+            "Arquitectura de carga aditiva de niveles"
+        ],
+        "toolsTitle": "Herramientas",
+        "moreBtn": "Más sobre el proyecto"
     },
     "about": {
         "title": "Sobre mí",
@@ -24,6 +52,7 @@
     },
     "experience": {
         "title": "Experiencia",
+        "viewDetails": "Ver detalles",
         "threeDar": {
             "company": "3Dar",
             "product": "Eggscape",
@@ -78,35 +107,6 @@
                 }
             ],
             "iconAlt": "Icono de Tres Dar"
-        },
-        "independent-work": {
-            "company": "Self-employed",
-            "period": "Mar 2025 - Present",
-            "role": "Independent Game Developer",
-            "blocks": [
-                { 
-                    "type": "desc",
-                    "title": "Resumen",
-                    "text": "Trabajé en Rush Rift y en varias Unity editor tools, gameplay systems y projectos para mi portafolio."
-                }
-            ],
-            "skills": [
-                {
-                    "type": "hr-ul",
-                    "title": "Skills & Knowledge",
-                    "items": [
-                        "Unity",
-                        "C#", 
-                        "Optimization",
-                        "Design Patterns",
-                        "OOP",
-                        "Unity Editor Tools",
-                        "Behavior Trees",
-                        "UI",
-                        "Shaders"
-                    ]
-                }
-            ]
         },
         "skynetGames": {
             "company": "Skynet Games",
@@ -267,19 +267,28 @@
             "websitesTitle": "Páginas web",
             "gamesTitle": "Juegos",
             "toolsTitle": "Tools"
+        },
+        "filters": {
+            "label": "Filtrar proyectos",
+            "all": "Todos",
+            "game": "Juegos",
+            "webpage": "Páginas web",
+            "tool": "Tools"
         }
     },
     "skills": {
+        "title": "Skills",
+        "subtitle": "Herramientas, idiomas y conceptos de programación que uso para crear juegos y páginas web.",
         "sections": {
             "programming": "Código",
-            "practices": "Skills & Practices",
-            "tools": "Tools"
+            "practices": "Skills y conocimientos",
+            "tools": "Herramientas"
         },
         "languages": {
             "title": "Idiomas",
-            "en": { "title": "English", "desc": "Fluido" },
-            "es": { "title": "Spanish", "desc": "Nativo" },
-            "jp": { "title": "Japanese", "desc": "Conversacional" }
+            "en": { "title": "Inglés", "desc": "Fluido" },
+            "es": { "title": "Español", "desc": "Nativo" },
+            "jp": { "title": "Japonés", "desc": "Conversacional" }
         },
         "concepts": {
             "title": "Conceptos de programación",
