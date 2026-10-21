@@ -1,5 +1,5 @@
 import { normalizeMedia } from "../elements/Media.js";
-import { buildBlock, isFooterBlock, isMediaBlock } from "./PopupBlocks.js";
+import { buildBlock, zoneOf } from "./PopupBlocks.js";
 
 const focusableSelector = "a[href], button:not([disabled]), input:not([disabled]), select, textarea, video[controls], [tabindex]:not([tabindex='-1'])";
 const backgroundVars = {
@@ -57,22 +57,26 @@ export class Popup {
         this.renderHeader(model);
         this.renderBackground(model.background);
 
-        const media = this.createColumn("popup-media");
-        const info = this.createColumn("popup-info");
-        this.body.replaceChildren(media, info);
-
+        const zones = {
+            media: this.createColumn("popup-media"),
+            glance: this.createColumn("popup-glance"),
+            details: this.details,
+            footer: this.footer
+        };
+        this.body.replaceChildren(zones.media, zones.glance);
+        this.details.replaceChildren();
         this.footer.replaceChildren();
 
         blocks.forEach(spec => {
-            const isMedia = isMediaBlock(spec);
-            if (isMedia && layout === "none") return;
+            const zone = zoneOf(spec);
+            if (zone === "media" && layout === "none") return;
 
-            const host = isFooterBlock(spec) ? this.footer : isMedia ? media : info;
+            const host = zones[zone];
             const element = buildBlock(spec, model, this.renderer, host);
             if (element) host.appendChild(element);
         });
 
-        const columns = [media, info].filter(column => column.childElementCount);
+        const columns = [zones.media, zones.glance].filter(column => column.childElementCount);
         this.body.dataset.columns = String(columns.length);
         this.body.replaceChildren(...columns);
         this.scroller.scrollTop = 0;
@@ -155,9 +159,12 @@ export class Popup {
 
         const body = document.createElement("div");
         body.className = "popup-body";
+        const details = document.createElement("div");
+        details.className = "popup-details";
+
         const footer = document.createElement("div");
         footer.className = "popup-footer";
-        box.append(body, footer);
+        box.append(body, details, footer);
 
         dialog.append(header, box);
         scroller.appendChild(dialog);
@@ -181,6 +188,7 @@ export class Popup {
         this.subtitle = subtitle;
         this.period = period;
         this.body = body;
+        this.details = details;
         this.footer = footer;
     }
 

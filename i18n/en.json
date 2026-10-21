@@ -23,6 +23,7 @@
     },
     "popup": {
         "close": "Close",
+        "tags": "Popular tags",
         "released": "Release",
         "role": "Role"
     },

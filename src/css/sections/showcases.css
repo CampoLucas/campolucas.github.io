@@ -1,68 +1,53 @@
-/* background section */
-
-.background {
-    background: rgba(255, 255, 255, .03);
-    backdrop-filter: blur(4px);
-}
-
-.background.content {
-    padding: 10svh 0;
-    border-top: 1px solid var(--border);
-    display: flex; justify-content: center; 
-}
-
-.inner {
-    max-width: 900x;
-    margin: 0 auto;
-    padding-bottom: 5rem;
-}
-
-.showcase-viewport {
-    width: 100%;
-    max-width: 1200px;
-    display: flex; 
-    justify-content: center; 
-    flex-direction: column;
-    color: var(--text);
-    box-sizing: border-box;
-    padding-inline: 25px;
-}
-
 .section-viewport {
     width: 100%;
     box-sizing: border-box;
     font-size: 1.2rem;
     font-family: var(--font-body);
     margin: 0 auto;
-    padding-bottom: 5rem;
 }
 
-main > .section-viewport,
-main > .section-separator {
-    max-width: 1200px;
-    padding-inline: 25px;
-    box-sizing: border-box;
+.band {
+    background: var(--band-bg, var(--page-bg));
+    color: var(--text);
+    padding: 8svh max(25px, calc((100% - 1200px) / 2 + 25px));
+}
+
+.band-wide {
+    padding-inline: max(clamp(1rem, 6vw, 7rem), calc((100% - 1700px) / 2));
+}
+
+.band-experience {
+    --band-bg: var(--band-experience);
+}
+
+.band-featured {
+    --band-bg: var(--band-featured);
+}
+
+.band-projects {
+    --band-bg: var(--band-projects);
+}
+
+.band-skills {
+    --band-bg: var(--band-skills);
+}
+
+.band-about {
+    --band-bg: var(--band-about);
 }
 
 @media only screen and (orientation: portrait) and (max-width:640px) {
-    .showcase-viewport {
-        width: 100%;
-    }
-    
     .section-viewport {
         font-size: 14px;
-        padding-bottom: 1.5rem;
+    }
+
+    .band {
+        padding-block: 6svh;
     }
 }
 
 @media only screen and (orientation: landscape) and (max-width:1000px) {
-    .showcase-viewport {
-        width: 90%;
-        
-    }
-
     .section-viewport {
         font-size: 14px;
-        padding-bottom: 1.5rem;
     }
 }

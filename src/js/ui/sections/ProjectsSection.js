@@ -27,7 +27,7 @@ export class ProjectsSection {
         container.innerHTML = "";
 
         const featuredId = findFeaturedProject(data)?.baseId;
-        const labels = { released: renderer.t("popup", "released"), role: renderer.t("popup", "role") };
+        const labels = { released: renderer.t("popup", "released"), role: renderer.t("popup", "role"), tags: renderer.t("popup", "tags") };
         const wrapper = document.createElement("div");
         wrapper.id = blocksId;
         wrapper.setAttribute("role", "tabpanel");
@@ -97,11 +97,11 @@ export class ProjectsSection {
 
         const grid = document.createElement("div");
         grid.className = "tool-grid";
-        entries.forEach(({ project, text }) => grid.appendChild(this.buildToolCard(project, text)));
+        entries.forEach(({ project, text }) => grid.appendChild(this.buildToolCard(project, text, title)));
         block.appendChild(grid);
     }
 
-    buildToolCard(project, text) {
+    buildToolCard(project, text, category) {
         const card = document.createElement("a");
         card.className = "tool-card";
         card.href = project.link ?? `#${project.baseId}`;
@@ -111,7 +111,7 @@ export class ProjectsSection {
         }
 
         const preview = document.createElement("div");
-        preview.className = "tool-image";
+        preview.className = "tool-thumb";
 
         const source = normalizeMedia(project.media?.capsuleImg);
         if (source) {
@@ -124,8 +124,9 @@ export class ProjectsSection {
         }
 
         const body = document.createElement("div");
-        body.className = "tool-body";
+        body.className = "tool-text";
         body.appendChild(this.createLine("tool-title", text[project.titleId]));
+        body.appendChild(this.createLine("tool-category", category));
         body.appendChild(this.createLine("tool-meta", text[project.periodId]));
 
         if (project.displayTags?.length) {

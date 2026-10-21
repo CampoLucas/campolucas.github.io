@@ -23,6 +23,7 @@
     },
     "popup": {
         "close": "Cerrar",
+        "tags": "Etiquetas populares",
         "released": "Lanzamiento",
         "role": "Rol"
     },

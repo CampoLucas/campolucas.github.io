@@ -330,7 +330,7 @@
     flex-wrap: wrap;
     padding: var(--tags-padding);
     gap: var(--tags-gap);
-    background: linear-gradient(0.35turn, #74747424, #a8a8a824, #e1e1e124);
+    background: linear-gradient(0.35turn, var(--surface), var(--surface-raised));
     overflow: hidden;
     box-sizing: border-box;
 }

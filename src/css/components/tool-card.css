@@ -1,116 +1,118 @@
 .tool-heading {
     margin: 1.5rem 0 .5rem;
     padding-left: calc(10px + var(--items-padding, 6px));
+    font-family: var(--font-row-title);
     font-size: 20px;
     font-weight: 600;
     color: var(--text);
 }
 
 .tool-grid {
+    --card-min: 300px;
+    --card-gap: 8px;
+    --thumb: 88px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(var(--card-min), 1fr));
+    gap: var(--card-gap);
     padding: 10px;
 }
 
 .tool-card {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    gap: 10px;
     min-width: 0;
-    overflow: hidden;
+    padding: 8px;
     color: inherit;
+    font-size: 12px;
+    line-height: 1.35;
+    text-align: left;
     text-decoration: none;
-    border-radius: 12px;
-    background: var(--surface);
     border: 1px solid var(--border);
-    transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease;
+    border-radius: 4px;
+    background: var(--surface);
+    cursor: pointer;
 }
 
-.tool-card:hover,
-.tool-card:focus-visible {
-    transform: translateY(-3px);
+.tool-card:hover {
     background: var(--surface-raised);
-    border-color: var(--accent-color2);
 }
 
 .tool-card:focus-visible {
-    outline: 2px solid var(--accent-color2);
-    outline-offset: 2px;
+    outline: 1px solid var(--text);
+    outline-offset: 1px;
 }
 
-.tool-image {
-    position: relative;
-    aspect-ratio: 3 / 2;
-    overflow: hidden;
-    background: linear-gradient(135deg, color-mix(in srgb, var(--accent-color1) 35%, var(--page-bg)), color-mix(in srgb, var(--accent-color2) 25%, var(--page-bg)));
+.tool-thumb {
+    display: grid;
+    place-items: center;
+    flex: none;
+    width: var(--thumb);
+    height: var(--thumb);
+    box-sizing: border-box;
+    padding: 8px;
+    border-radius: 4px;
+    background: var(--surface-raised);
 }
 
-.tool-image img {
-    position: absolute;
-    inset: 0;
+.tool-thumb img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius: 3px;
 }
 
-.tool-body {
+.tool-text {
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    padding: 14px 16px 16px;
+    gap: 2px;
+    min-width: 0;
 }
 
 .tool-card .tool-title,
+.tool-card .tool-category,
 .tool-card .tool-meta {
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 12px;
 }
 
 .tool-card .tool-title {
     font-family: var(--font-row-title);
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--text);
 }
 
+.tool-card .tool-category,
 .tool-card .tool-meta {
-    font-size: 13px;
     color: var(--text-muted);
 }
 
 .display-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px;
-    margin-top: 6px;
+    gap: 4px;
+    margin-top: 4px;
 }
 
 .display-tag {
-    padding: 2px 8px;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: .05em;
-    text-transform: uppercase;
+    padding: 0 7px;
     font-family: var(--font-label);
-    color: var(--accent-color2);
-    border: 1px solid var(--accent-color2);
-    border-radius: 3px;
+    font-size: 11px;
+    line-height: 19px;
+    color: var(--display-tag-text);
+    background: var(--display-tag-bg);
+    border-radius: 2px;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .tool-card {
-        transition: none;
-    }
-
-    .tool-card:hover,
-    .tool-card:focus-visible {
-        transform: none;
-    }
+.tool-card:hover .display-tag {
+    background: color-mix(in srgb, var(--text) 30%, transparent);
 }
 
-@media (max-width: 640px) {
+@media (max-width: 760px) {
     .tool-grid {
         grid-template-columns: 1fr;
     }

@@ -27,6 +27,7 @@ export function projectModel(project, text, labels = {}) {
         period: null,
         logo: null,
         capsule: media.capsuleImg ?? null,
+        labels,
         meta: [
             { label: labels.released, value: text[project.periodId] },
             { label: labels.role, value: Array.isArray(roles) ? roles.join(", ") : roles }

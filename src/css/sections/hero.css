@@ -84,7 +84,7 @@
 }
 
 .hero-roles {
-    color: aliceblue; 
+    color: var(--text);
     list-style: none; 
     display: flex; 
     gap: 1rem;

@@ -39,6 +39,7 @@ export class Renderer {
         if (!Array.isArray(sections)) return;
 
         const tails = new Map();
+        let count = 0;
 
         sections.forEach(section => {
             let element = null;
@@ -53,13 +54,11 @@ export class Renderer {
             const anchor = tails.get(section.after) ?? this.findSectionAnchor(section.after);
             if (!anchor) return;
 
-            const separator = document.createElement("div");
-            separator.classList.add("section-separator");
-            const line = document.createElement("span");
-            line.classList.add("section-separator__line");
-            separator.appendChild(line);
+            element.classList.add("band");
+            element.style.setProperty("--band-bg", count % 2 === 0 ? "var(--band-custom-a)" : "var(--band-custom-b)");
+            count += 1;
 
-            anchor.after(separator, element);
+            anchor.after(element);
             tails.set(section.after, element);
         });
     }

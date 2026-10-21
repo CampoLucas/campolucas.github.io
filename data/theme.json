@@ -2,16 +2,9 @@
     "colors": {
         "pageBg": "#160922",
         "heroBg": "#04020b",
-        "surface": "#ffffff0d",
-        "surfaceRaised": "#ffffff1a",
-        "border": "#ffffff1a",
         "text": "#f0f8ff",
-        "textMuted": "#f0f8ff99",
         "accent1": "#ff4141",
-        "accent2": "#ff8801",
-        "tagBg": "#74747424",
-        "tagText": "#dbdbdb",
-        "overlay": "#00000047"
+        "accent2": "#ff8801"
     },
     "fonts": {
         "hero": "Motiva Sans",

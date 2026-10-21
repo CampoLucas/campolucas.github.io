@@ -61,7 +61,7 @@
 }
 
 .contact-link {
-    color: #f3f3f3;
+    color: var(--text);
     text-decoration: none;
     font-weight: 600;
     z-index: 9;
@@ -69,7 +69,7 @@
 }
 
 .contact-sep { 
-    color: #f3f3f3;
+    color: var(--text);
     /* opacity: 0.5;  */
 }
 

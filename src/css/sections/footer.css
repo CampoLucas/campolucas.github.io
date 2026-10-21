@@ -1,6 +1,6 @@
 .site-footer {
-    color: #eaeaea;
-    background: linear-gradient(to bottom, var(--page-bg), rgb(0, 0, 0));
+    color: var(--text);
+    background: linear-gradient(to bottom, var(--band-about), rgb(0, 0, 0));
 }
 
 .site-footer .footer-inner {

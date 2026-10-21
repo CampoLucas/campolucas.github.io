@@ -1,6 +1,7 @@
 import { createMedia, normalizeMedia } from "../elements/Media.js";
 
 const mediaTypes = new Set(["carousel", "video"]);
+const glanceTypes = new Set(["capsule", "meta", "tags"]);
 
 const builders = {
     carousel(model, renderer, spec, host) {
@@ -62,13 +63,24 @@ const builders = {
         if (!model.tags?.length) return null;
 
         const element = document.createElement("div");
-        element.className = "popup-block info-tags popup-tags";
+        element.className = "popup-block popup-tags";
+
+        if (model.labels?.tags) {
+            const label = document.createElement("p");
+            label.className = "popup-label";
+            label.textContent = model.labels.tags;
+            element.appendChild(label);
+        }
+
+        const chips = document.createElement("div");
+        chips.className = "info-tags";
         model.tags.forEach(tag => {
             const item = document.createElement("div");
             item.className = "info-tag";
             item.textContent = tag;
-            element.appendChild(item);
+            chips.appendChild(item);
         });
+        element.appendChild(chips);
         return element;
     },
 
@@ -102,12 +114,12 @@ export function normalizeBlock(spec) {
     return null;
 }
 
-export function isMediaBlock(spec) {
-    return mediaTypes.has(normalizeBlock(spec)?.type);
-}
-
-export function isFooterBlock(spec) {
-    return normalizeBlock(spec)?.type === "links";
+export function zoneOf(spec) {
+    const type = normalizeBlock(spec)?.type;
+    if (mediaTypes.has(type)) return "media";
+    if (glanceTypes.has(type)) return "glance";
+    if (type === "links") return "footer";
+    return "details";
 }
 
 export function buildBlock(spec, model, renderer, host) {
