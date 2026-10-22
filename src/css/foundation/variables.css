@@ -48,5 +48,19 @@
     --skeleton-base: rgba(255, 255, 255, 0.06);
     --skeleton-highlight: rgba(255, 255, 255, 0.14);
     --skeleton-speed: 1.4s;
-    --column: 880px;
+    --column-gutter: 24px;
+    --column-max: 1200px;
+    --column: min(100% - 2 * var(--column-gutter), var(--column-max));
+}
+
+@media (min-width: 2560px) {
+    :root {
+        --column-max: 1440px;
+    }
+}
+
+@media (min-width: 3840px) {
+    :root {
+        --column-max: 1800px;
+    }
 }

@@ -112,19 +112,22 @@ export class ProjectCarousel {
         return box;
     }
 
+    buildTags(card) {
+        const tags = createEl("ul", "tags project-card__tags");
+        (card.tags ?? []).forEach(tag => tags.appendChild(createEl("li", "tag", tag)));
+        return tags;
+    }
+
     buildGameBody(card) {
         const body = createEl("div", "project-card__body");
+        body.appendChild(createEl("h4", "project-card__name", card.name));
         body.appendChild(createEl("p", "project-card__description", card.description));
-
-        if (card.tags?.length) {
-            const tags = createEl("ul", "tags");
-            card.tags.forEach(tag => tags.appendChild(createEl("li", "tag", tag)));
-            body.appendChild(tags);
-        }
+        body.appendChild(this.buildTags(card));
         return body;
     }
 
     buildSiteBody(card) {
+        const body = createEl("div", "project-card__body");
         const row = createEl("div", "project-card__row");
 
         const icon = createEl("span", "project-card__icon");
@@ -149,7 +152,8 @@ export class ProjectCarousel {
         text.appendChild(createEl("p", "project-card__description", card.description));
 
         row.append(icon, text);
-        return row;
+        body.append(row, this.buildTags(card));
+        return body;
     }
 
     destroy() {

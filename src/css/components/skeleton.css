@@ -47,7 +47,6 @@
 }
 
 .skeleton-panel {
-    height: 268px;
     border-radius: 0;
 }
 
@@ -73,7 +72,7 @@
 }
 
 .skeleton-cards > .skeleton {
-    height: 166px;
+    aspect-ratio: 9 / 8;
     border-radius: 0;
 }
 
