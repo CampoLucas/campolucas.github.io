@@ -67,7 +67,7 @@
 }
 
 .featured__name a:hover {
-    color: var(--accent-2);
+    color: var(--role-link);
 }
 
 .featured__head .special-tag {
@@ -127,7 +127,7 @@
 }
 
 .indicator__dot[aria-current="true"] {
-    background: var(--accent-2);
+    background: var(--role-scrollbar);
 }
 
 @media (max-width: 920px) {

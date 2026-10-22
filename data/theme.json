@@ -7,8 +7,29 @@
         "accent2": "#3DDC97"
     },
     "roles": {
-        "sectionTitle": "accent2"
+        "sectionTitle": "accent2",
+        "heroRoles": "accent2",
+        "primaryButton": "accent2",
+        "tag": "accent2",
+        "specialTag": "accent1",
+        "scrollbar": "accent2",
+        "link": "accent2",
+        "hoverBorder": "accent1",
+        "particlesDots": "accent1",
+        "particlesLinks": "accent2"
     },
+    "palettes": [
+        {
+            "name": "Default",
+            "colors": {
+                "pageBg": "#1A1D27",
+                "heroBg": "#0F1117",
+                "text": "#E8E8ED",
+                "accent1": "#7C5CFF",
+                "accent2": "#3DDC97"
+            }
+        }
+    ],
     "fonts": {
         "hero": "Space Grotesk",
         "sectionTitle": "Space Grotesk",

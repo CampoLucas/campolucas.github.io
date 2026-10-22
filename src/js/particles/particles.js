@@ -2,8 +2,8 @@ const tsParticlesUrl = "https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tspartic
 
 function initParticles() {
     const rootStyles = getComputedStyle(document.documentElement);
-    const dotColor = rootStyles.getPropertyValue("--accent").trim();
-    const linkColor = rootStyles.getPropertyValue("--accent-2").trim();
+    const dotColor = rootStyles.getPropertyValue("--role-particles-dots").trim();
+    const linkColor = rootStyles.getPropertyValue("--role-particles-links").trim();
 
     tsParticles.load("particles-background", {
         fullScreen: { enable: false },

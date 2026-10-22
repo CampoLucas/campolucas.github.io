@@ -59,7 +59,7 @@
 
 .carousel-viewport video {
     object-fit: contain;
-    background: #000;
+    background: var(--hero-page-bg);
 }
 
 .carousel-viewport img.active.is-ready,
@@ -82,22 +82,6 @@
     font-size: 6rem;
 }
 
-/* .carousel-arrows .right {
-    background: linear-gradient(to right, rgba(0,0,0,0), var(--page-bg));
-}
-
-.carousel-arrows .right:hover {
-    background: linear-gradient(to right, rgba(0,0,0,.1), var(--page-bg));
-}
-
-.carousel-arrows .left {
-    background: linear-gradient(to left, rgba(0,0,0,0), var(--page-bg));
-}
-
-.carousel-arrows .left:hover {
-    background: linear-gradient(to left, rgba(0,0,0,.1), var(--page-bg));
-} */
-
 .carousel-arrows .arrow {
     pointer-events: auto;
     height: auto;
@@ -106,9 +90,9 @@
     border-radius: 50%;
     font-size: 50%;
     border-style: none;
-    color:rgb(61, 61, 61);
+    color: color-mix(in srgb, var(--text) 25%, var(--hero-page-bg));
     transition: font-size .1s ease-in;
-    background-color: rgba(0,0,0,0);
+    background-color: transparent;
     transform: translateY(-5px);
 }
 
@@ -180,7 +164,7 @@
     aspect-ratio: 1;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    background: rgba(0, 0, 0, 0.55);
+    background: color-mix(in srgb, var(--hero-page-bg) 55%, transparent);
     pointer-events: none;
 }
 
@@ -192,7 +176,7 @@
     transform: translate(-35%, -50%);
     border-style: solid;
     border-width: 7px 0 7px 12px;
-    border-color: transparent transparent transparent #fff;
+    border-color: transparent transparent transparent var(--text);
     pointer-events: none;
 }
 
@@ -244,7 +228,7 @@
     position: relative;
     flex: 1;
     height: 6px;
-    background: rgba(255,255,255,0.15);
+    background: color-mix(in srgb, var(--text) 15%, transparent);
     border-radius: 999px;
     cursor: pointer;
     touch-action: none;
@@ -264,7 +248,7 @@
 .carousel.thumbs-scrollable .carousel-thumb-scroll-track:hover,
 .carousel.is-dragging-scrollbar .carousel-thumb-scroll-track {
     height: 8px;
-    background: rgba(255,255,255,0.22);
+    background: color-mix(in srgb, var(--text) 22%, transparent);
 }
 
 .carousel-thumb-scroll-handle {
@@ -272,7 +256,7 @@
     top: 0;
     left: 0;
     height: 100%;
-    background: rgba(255,255,255,0.6);
+    background: color-mix(in srgb, var(--role-scrollbar) 70%, transparent);
     border-radius: inherit;
     transition: left .3s cubic-bezier(.2, .7, .2, 1), background-color .15s ease;
     cursor: grab;
@@ -281,7 +265,7 @@
 
 .carousel.thumbs-scrollable .carousel-thumb-scroll-handle:hover,
 .carousel.is-dragging-scrollbar .carousel-thumb-scroll-handle {
-    background: rgba(255,255,255,0.9);
+    background: var(--role-scrollbar);
 }
 
 .carousel.is-dragging-scrollbar,
@@ -293,7 +277,7 @@
 .carousel-thumb-scroll button {
     background: none;
     border: none;
-    color: white;
+    color: var(--text);
     font-size: 1.2rem;
     cursor: pointer;
 }

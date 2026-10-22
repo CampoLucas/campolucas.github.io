@@ -1,7 +1,7 @@
 
 .profile-shadow {
     --profile-pic-size: clamp(5em, 25svw, 20em);
-    --profile-pic-shadow: rgb(38, 20, 74);
+    --profile-pic-shadow: color-mix(in srgb, var(--accent-color1) 25%, var(--hero-page-bg));
     width: var(--profile-pic-size);
     height: auto;
     aspect-ratio: 1/1;
@@ -35,8 +35,8 @@
     width: 44px;
     height: 44px;
     border-radius: 8px;
-    background-color: rgba(255,255,255,0.06);
-    color: #fff;
+    background-color: color-mix(in srgb, var(--text) 6%, transparent);
+    color: var(--text);
     text-decoration: none;
     transition: transform 140ms ease, background-color 140ms ease;
     z-index: 9;
@@ -44,7 +44,7 @@
 
 .social-link:hover {
     transform: translateY(-3px);
-    background-color: rgba(255,255,255,0.12);
+    background-color: color-mix(in srgb, var(--text) 12%, transparent);
     z-index: 9;
 }
 

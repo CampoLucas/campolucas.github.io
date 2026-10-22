@@ -66,12 +66,12 @@ svg {
 
 .page::before {
     left: calc(50% - var(--column) / 2 - 175px);
-    background: linear-gradient(to left, #000, rgba(0, 0, 0, 0));
+    background: linear-gradient(to left, var(--hero-page-bg), transparent);
 }
 
 .page::after {
     right: calc(50% - var(--column) / 2 - 175px);
-    background: linear-gradient(to right, #000, rgba(0, 0, 0, 0));
+    background: linear-gradient(to right, var(--hero-page-bg), transparent);
 }
 
 .column {
@@ -88,8 +88,8 @@ svg {
     z-index: 2;
     pointer-events: none;
     background:
-        linear-gradient(#fff, #343434) left top / 2px 100% no-repeat,
-        linear-gradient(#fff, #343434) right top / 2px 100% no-repeat;
+        linear-gradient(var(--text), color-mix(in srgb, var(--text) 18%, var(--hero-page-bg))) left top / 2px 100% no-repeat,
+        linear-gradient(var(--text), color-mix(in srgb, var(--text) 18%, var(--hero-page-bg))) right top / 2px 100% no-repeat;
 }
 
 .fade {

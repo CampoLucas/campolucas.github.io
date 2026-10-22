@@ -27,7 +27,7 @@
 
 .footer__roles {
     font: 500 1rem/1.5 var(--font-body);
-    color: var(--accent-2);
+    color: var(--role-hero-roles);
 }
 
 .footer__heading {
@@ -50,7 +50,7 @@
 }
 
 .footer__list a:hover {
-    color: var(--accent-2);
+    color: var(--role-link);
     text-decoration: underline;
 }
 

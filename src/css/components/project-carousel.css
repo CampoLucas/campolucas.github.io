@@ -87,8 +87,8 @@
 }
 
 .carousel__arrow:hover {
-    border-color: var(--accent);
-    color: var(--accent);
+    border-color: var(--role-hover-border);
+    color: var(--role-hover-border);
 }
 
 .carousel__arrow:disabled {
@@ -132,7 +132,7 @@
     left: 0;
     height: 100%;
     border-radius: inherit;
-    background: var(--accent-2);
+    background: var(--role-scrollbar);
     cursor: grab;
     touch-action: none;
 }

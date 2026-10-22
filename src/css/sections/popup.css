@@ -4,13 +4,13 @@ body.popup-open {
 }
 
 .popup {
-    --bg-base: #0103265e;
-    --bg-overlay: #0000007d;
-    --bg-grad-edge: #281c18;
+    --bg-base: color-mix(in srgb, var(--hero-page-bg) 37%, transparent);
+    --bg-overlay: color-mix(in srgb, var(--hero-page-bg) 49%, transparent);
+    --bg-grad-edge: color-mix(in srgb, var(--accent-color1) 12%, var(--hero-page-bg));
     position: fixed;
     inset: 0;
     z-index: 1000;
-    background: black;
+    background: var(--hero-page-bg);
     overscroll-behavior: contain;
 }
 
@@ -42,7 +42,7 @@ body.popup-open {
     opacity: 0.25;
     justify-self: center;
     align-self: center;
-    --grad: radial-gradient(circle, rgba(0, 0, 0, 1) 35%, transparent 100%);
+    --grad: radial-gradient(circle, var(--hero-page-bg) 35%, transparent 100%);
     -webkit-mask: var(--grad);
     mask: var(--grad);
     z-index: 1;
@@ -67,7 +67,7 @@ body.popup-open {
 }
 
 .bg-gradient {
-    background: radial-gradient(circle, rgba(0, 0, 0, 0) 35%, var(--bg-grad-edge) 100%);
+    background: radial-gradient(circle, transparent 35%, var(--bg-grad-edge) 100%);
     z-index: 3;
 }
 
@@ -95,7 +95,7 @@ body.popup-open {
     padding: 1.5rem 25px;
     color: var(--text);
     font-family: var(--font-body);
-    background: rgba(255, 255, 255, .03);
+    background: color-mix(in srgb, var(--text) 3%, transparent);
     backdrop-filter: blur(4px);
     border-top: 1px solid var(--border);
     outline: none;
@@ -144,8 +144,8 @@ body.popup-open {
     width: 44px;
     height: 44px;
     padding: 0;
-    background: rgba(255, 255, 255, .06);
-    border: 1px solid rgba(255, 255, 255, .18);
+    background: color-mix(in srgb, var(--text) 6%, transparent);
+    border: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
     border-radius: 50%;
     color: var(--text);
     cursor: pointer;
@@ -153,8 +153,8 @@ body.popup-open {
 }
 
 .close-popup:hover {
-    color: #fff;
-    background: var(--accent-color1);
+    color: var(--text);
+    background: var(--role-hover-border);
 }
 
 .close-popup:focus-visible {
@@ -164,7 +164,7 @@ body.popup-open {
 
 .popup-box {
     flex: 1;
-    background-color: rgba(0, 0, 0, .2);
+    background-color: color-mix(in srgb, var(--hero-page-bg) 25%, transparent);
     padding: 12px;
 }
 
@@ -238,7 +238,7 @@ body.popup-open {
     height: auto;
     aspect-ratio: 16 / 9;
     object-fit: cover;
-    background: #000;
+    background: var(--hero-page-bg);
 }
 
 .popup-capsule {

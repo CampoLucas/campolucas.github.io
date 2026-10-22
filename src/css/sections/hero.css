@@ -61,7 +61,7 @@
 
 .hero__roles {
     font: 500 1.25rem/2 var(--font-body);
-    color: var(--accent-2);
+    color: var(--role-hero-roles);
 }
 
 .hero__avatar {

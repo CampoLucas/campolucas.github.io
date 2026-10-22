@@ -5,8 +5,8 @@
 }
 
 .side-nav {
-    --nav-neutral: rgba(235, 235, 245, .85);
-    --nav-hover: #ffffff;
+    --nav-neutral: color-mix(in srgb, var(--text) 85%, transparent);
+    --nav-hover: var(--text);
     --nav-active: var(--accent-color2);
     --nav-cell: 52px;
     position: fixed;
@@ -83,8 +83,8 @@
     left: calc(100% + 10px);
     top: 50%;
     white-space: nowrap;
-    color: #fff;
-    text-shadow: 0 1px 4px rgba(0, 0, 0, .9), 0 0 2px rgba(0, 0, 0, .9);
+    color: var(--text);
+    text-shadow: 0 1px 4px color-mix(in srgb, var(--hero-page-bg) 90%, transparent), 0 0 2px color-mix(in srgb, var(--hero-page-bg) 90%, transparent);
     opacity: 0;
     pointer-events: none;
     transform: translate(-8px, -50%);
