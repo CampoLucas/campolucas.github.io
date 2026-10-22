@@ -1,83 +1,46 @@
-
-
-h1.header-title {
-    white-space: nowrap;
-    font-size: 2em;
-    color: white;
-    margin-top: .25rem;
-    margin-bottom: .25rem;
+h1, h2, h3, h4, p {
+    margin: 0;
 }
 
-.header-title .accent {
-    background: linear-gradient(
-        -70deg,
-        var(--accent-color1),
-        var(--accent-color2),
-        var(--accent-color1)
-    );
-
-    background-size: 200% 200%;
-    background-position: 0% 50%;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-
-    animation: gradient-move 4s linear infinite;
+.section-title {
+    width: fit-content;
+    max-width: 100%;
+    margin-bottom: 18px;
+    font: 700 1.6875rem/1.2 var(--font-section-title);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: 5px;
+    color: var(--role-section-title);
 }
 
-h2.title {
-    margin-top: 0;
-    margin-bottom: 5px;
-    font-weight: 700;
-    font-size: 40px;
-    line-height: 1.15;
-    text-wrap: pretty;
-
-    background: linear-gradient(
-        -45deg, 
-        var(--title-color1), 
-        var(--title-color2), 
-        var(--title-color1));
-    
-    background-size: 200% 200%;
-    background-position: 0% 50%;
-
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-
-    animation: gradient-move 15s linear infinite;
-    text-align: center;
+.section-title:has(.skeleton) {
+    width: 70%;
 }
 
-@keyframes gradient-move {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 200% 50%;
-    }
+.section-subtitle {
+    margin: -6px 0 18px;
+    font-size: 0.9375rem;
+    line-height: 1.4;
+    color: var(--text-soft);
 }
 
-
-.header-description {
-    overflow-wrap: anywhere;
-    margin: 10px 0;
-    font-size: 13px;
-    text-shadow: 1px 1px 0 #000;
+.section-text {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-soft);
 }
 
-.section-viewport p,
-.section-viewport li {
-    font-size: 16px;
-    line-height: 1.5;
+.section-text h4 {
+    margin-bottom: 6px;
+    font: 600 1rem/1.3 var(--font-row-title);
+    color: var(--text);
 }
 
-
-@media ((orientation: portrait) and (max-width:640px)) or ((orientation: landscape) and (max-width:1000px)) {
-    .section-viewport p,
-    .section-viewport li {
-        font-size: 14px;
-    }
+.section-text .list {
+    margin: 0;
+    padding-left: 20px;
+    list-style: disc;
 }

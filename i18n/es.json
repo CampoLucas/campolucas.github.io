@@ -5,12 +5,71 @@
             { "text": "Lucas Campo", "style": "accent" }
         ],
         "roles": [ "Game Developer", "Web Developer" ],
+        "description": "Game developer con dos años de experiencia profesional en videojuegos. Construyo gameplay systems y las herramientas que usan los diseñadores para ajustarlos. Mi último juego, Rush Rift, fue seleccionado para EVA Play Online 2026.",
         "imgAlt": "Foto de perfil",
+        "linksLabel": "Contacto y perfiles",
+        "githubHover": "GitHub",
+        "linkedInHover": "LinkedIn",
+        "itchHover": "itch.io",
+        "emailHover": "Email",
         "contactBtn": "Contacto",
-        "contactBtnHover": "Ir a contactos"
+        "contactBtnHover": "Ir a contactos",
+        "featuredBtn": "Proyecto destacado",
+        "featuredBtnHover": "Ir al proyecto destacado"
+    },
+    "nav": {
+        "label": "Secciones de la página",
+        "hero": "Inicio",
+        "experience": "Experiencia",
+        "featured": "Destacado",
+        "projects": "Proyectos",
+        "skills": "Skills",
+        "about": "Sobre mí",
+        "footer": "Contacto"
+    },
+    "popup": {
+        "close": "Cerrar",
+        "tags": "Etiquetas populares",
+        "released": "Lanzamiento",
+        "role": "Rol"
+    },
+    "featured": {
+        "title": "Destacado",
+        "screenshot": "Captura",
+        "chooseScreenshot": "Elegir captura",
+        "buttons": {
+            "itch": "Jugar",
+            "github": "Código",
+            "website": "Sitio web",
+            "steam": "Steam"
+        }
+    },
+    "footer": {
+        "contactTitle": "Contacto",
+        "socialTitle": "Encontrame",
+        "cvLabel": "Descargar CV",
+        "copy": "© {year} Lucas Campo"
     },
     "about": {
         "title": "Sobre mí",
+        "studies": {
+            "role": "Estudios",
+            "company": "UADE · Taller de Juegos Experimentales",
+            "summary": "Taller de juegos experimentales con proyectos en equipo.",
+            "tag": "UADE"
+        },
+        "festivals": {
+            "role": "Festivales",
+            "company": "EVA Play Online 2026 · Rush Rift",
+            "summary": "Rush Rift fue seleccionado para la muestra online.",
+            "tag": "Seleccionado"
+        },
+        "lookingFor": {
+            "role": "Busco",
+            "company": "Puestos de game developer",
+            "summary": "Programación de gameplay y herramientas.",
+            "tag": "Disponible"
+        },
         "description": [
             "¡Hola! Soy un gameplay programmer con más de dos años de experiencia. Me enfoco en construir una arquitectura sólida y flexible, con un fuerte interés en AI behaviors, gameplay systems y complex mechanics.",
             "Siempre me atrajeron los juegos que recompensan la curiosidad y la habilidad, e intento llevar esa misma mentalidad a mi trabajo. Para mí, programar no es solo hacer que las cosas funcionen, sino ayudar a que el jugador sienta algo a través de cómo responde el juego."
@@ -24,11 +83,13 @@
     },
     "experience": {
         "title": "Experiencia",
+        "present": "Actual",
         "threeDar": {
             "company": "3Dar",
             "product": "Eggscape",
             "period": "May 2023 - Feb 2025",
             "role": "Unity Game Developer",
+            "summary": "Plataforma multiplayer de AR/VR desarrollada para Oculus, ganadora del León en la Biennale di Venezia (2022).",
             "imgAlt": "Imagen de muestra de Eggscape",
             "blocks": [
                 { 
@@ -79,39 +140,11 @@
             ],
             "iconAlt": "Icono de Tres Dar"
         },
-        "independent-work": {
-            "company": "Self-employed",
-            "period": "Mar 2025 - Present",
-            "role": "Independent Game Developer",
-            "blocks": [
-                { 
-                    "type": "desc",
-                    "title": "Resumen",
-                    "text": "Trabajé en Rush Rift y en varias Unity editor tools, gameplay systems y projectos para mi portafolio."
-                }
-            ],
-            "skills": [
-                {
-                    "type": "hr-ul",
-                    "title": "Skills & Knowledge",
-                    "items": [
-                        "Unity",
-                        "C#", 
-                        "Optimization",
-                        "Design Patterns",
-                        "OOP",
-                        "Unity Editor Tools",
-                        "Behavior Trees",
-                        "UI",
-                        "Shaders"
-                    ]
-                }
-            ]
-        },
         "skynetGames": {
             "company": "Skynet Games",
             "period": "Feb 2026 - Present",
             "role": "Unity Game Developer",
+            "summary": "Desarrollo en fase inicial de una plataforma móvil que permite a las empresas comercializar sus propios productos mediante minijuegos.",
             "linkedInHover": "Página de LinkedIn",
             "blocks": [
                 { 
@@ -148,6 +181,8 @@
             "rushRift": {
                 "title": "Rush Rift",
                 "period": "Mar. 2025 - Actualidad",
+                "featuredDesc": "Rush Rift es un juego de speedrunning en primera persona y ritmo rápido donde cada segundo cuenta. Atravesá arenas cyberpunk, encadená ataques con precisión y mantené tu impulso mientras corrés hacia la meta.",
+                "badge": "Seleccionado para EVA 2026",
                 "blocks": [
                     { 
                         "type": "desc", 
@@ -161,24 +196,6 @@
                     }
                 ],
                 "roles": [ "Lead Programmer" ],
-                "imgAlt": "Muestra de Rush Rift"
-            },
-            "mysticCatacombs": {
-                "title": "Mystic Catacombs",
-                "period": "Apr 2025 - May 2025",
-                "blocks": [
-                    { 
-                        "type": "desc", 
-                        "title": "Sobre el juego",
-                        "text": "Un proyecto personal enfocado en AI development y combat mechanics, creado para experimentar con system design y gameplay feel."
-                    },
-                    { 
-                        "type": "desc", 
-                        "title": "Mi rol",
-                        "text": "Desarrollado de forma independiente de principio a fin para fortalecer mis habilidades técnicas y de diseño en Unity."
-                    }
-                ],
-                "roles": [ "Programmer" ],
                 "imgAlt": "Muestra de Rush Rift"
             },
             "gunBandit": {
@@ -267,24 +284,56 @@
                         "text": ""
                     }
                 ]
+            },
+            "meshCombinerWindow": {
+                "title": "Mesh Combiner Window",
+                "period": "Apr - May",
+                "imgAlt": "Mesh Combiner Window",
+                "blocks": [
+                    {
+                        "type": "desc",
+                        "title": "About",
+                        "text": "Mesh Combiner Window is a tool designed to combine multiple MeshFilters into a single mesh while maintaining control over the pivot and the submeshes.\n\n\nThe tool allows you to quickly gather meshes from selected objectsm combine them into a single mesh and save the mesh. It also provides control over the pivot and how to merge the submeshes, making it useful for level optimization.\n\n\nIt is particulary useful when working with grayboxing, optimizing levels or with imported meshes that require pivot fixes and cleanup.\n\n\nIt comes with a Documentation PDF."
+                    }
+                ]
             }
         },        
         "categories": {
             "websitesTitle": "Páginas web",
-            "gamesTitle": "Juegos"
+            "gamesTitle": "Juegos",
+            "toolsTitle": "Tools"
+        },
+        "filters": {
+            "label": "Filtrar proyectos",
+            "all": "Todos",
+            "game": "Juegos",
+            "webpage": "Páginas web",
+            "tool": "Tools"
+        },
+        "actions": {
+            "game": "Ver proyecto",
+            "site": "Ver proyecto",
+            "tool": "Ver herramienta",
+            "visit": "Visitar sitio"
+        },
+        "carousel": {
+            "prev": "Anterior",
+            "next": "Siguiente"
         }
     },
     "skills": {
+        "title": "Skills",
+        "subtitle": "Herramientas, idiomas y conceptos de programación que uso para crear juegos y páginas web.",
         "sections": {
             "programming": "Código",
-            "practices": "Skills & Practices",
-            "tools": "Tools"
+            "practices": "Skills y conocimientos",
+            "tools": "Herramientas"
         },
         "languages": {
             "title": "Idiomas",
-            "en": { "title": "English", "desc": "Fluido" },
-            "es": { "title": "Spanish", "desc": "Nativo" },
-            "jp": { "title": "Japanese", "desc": "Conversacional" }
+            "en": { "title": "Inglés", "desc": "Fluido" },
+            "es": { "title": "Español", "desc": "Nativo" },
+            "jp": { "title": "Japonés", "desc": "Conversacional" }
         },
         "concepts": {
             "title": "Conceptos de programación",

@@ -9,6 +9,7 @@
                 "productId": "product",
                 "periodId": "period", 
                 "roleId": "role",
+                "summaryId": "summary",
                 "blocksId": "blocks",
                 "skillsId": "skills",
                 "logo": {
@@ -65,29 +66,12 @@
                 ]
             },
             {
-                "baseId": "independent-work",
-                "companyId": "company",
-                "periodId": "period", 
-                "roleId": "role",
-                "blocksId": "blocks",
-                "skillsId": "skills",
-                "buttons": [
-                    { 
-                        "id": "itchIo",
-                        "link": "https://luinbucket.itch.io/rushrift", 
-                        "classList": [ "icon", "social-link", "itch" ],
-                        "icon": "meta", 
-                        "hoverTextId": "linkedInHover",
-                        "type": "link",
-                        "newTab": true
-                    }
-                ]
-            },
-            {
                 "baseId": "skynetGames",
                 "companyId": "company",
-                "periodId": "period", 
+                "periodId": "period",
+                "current": true,
                 "roleId": "role",
+                "summaryId": "summary",
                 "blocksId": "blocks",
                 "skillsId": "skills",
                 "logo": {

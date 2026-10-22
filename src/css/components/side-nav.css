@@ -1,0 +1,137 @@
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+.side-nav {
+    --nav-neutral: color-mix(in srgb, var(--text) 85%, transparent);
+    --nav-hover: var(--text);
+    --nav-active: var(--accent-color2);
+    --nav-cell: 52px;
+    position: fixed;
+    left: 12px;
+    top: 50%;
+    z-index: 500;
+    transform: translateY(-50%);
+    padding: 16px 6px;
+    border-radius: 26px;
+    background: color-mix(in srgb, var(--page-bg) 55%, transparent);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.side-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.side-nav-item {
+    --scroll-d: 0;
+    --hover-d: 9;
+    --d: min(var(--scroll-d), var(--hover-d));
+    width: 44px;
+    height: var(--nav-cell);
+}
+
+.side-nav-button {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    font: inherit;
+    font-size: 0.9375rem;
+    color: var(--nav-neutral);
+    background: none;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: color 250ms ease;
+}
+
+.side-nav-item.is-hovered .side-nav-button {
+    color: var(--nav-hover);
+}
+
+.side-nav-item.is-active .side-nav-button {
+    color: var(--nav-active);
+}
+
+.side-nav-icon {
+    width: 24px;
+    height: 24px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    transform: scale(calc(1.15 - min(var(--d), 3) * .1));
+    opacity: calc(1 - min(var(--d), 3) * .14);
+    transition: transform 250ms ease, opacity 250ms ease;
+}
+
+.side-nav-label {
+    font-family: var(--font-label);
+    position: absolute;
+    left: calc(100% + 10px);
+    top: 50%;
+    white-space: nowrap;
+    color: var(--text);
+    text-shadow: 0 1px 4px color-mix(in srgb, var(--hero-page-bg) 90%, transparent), 0 0 2px color-mix(in srgb, var(--hero-page-bg) 90%, transparent);
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-8px, -50%);
+    transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.side-nav-button:hover .side-nav-label,
+.side-nav-button:focus-visible .side-nav-label {
+    opacity: 1;
+    transform: translate(0, -50%);
+}
+
+.side-nav-button:focus-visible {
+    outline: 2px solid var(--accent-color2);
+    outline-offset: -2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .side-nav-button,
+    .side-nav-icon,
+    .side-nav-label {
+        transition: none;
+    }
+}
+
+@media (max-width: 1359px) {
+    body {
+        padding-bottom: 64px;
+    }
+
+    .side-nav {
+        --nav-cell: 44px;
+        left: 50%;
+        top: auto;
+        bottom: 8px;
+        transform: translateX(-50%);
+        max-width: calc(100% - 16px);
+        padding: 4px 6px;
+        border-radius: 26px;
+    }
+
+    .side-nav-list {
+        flex-direction: row;
+        gap: 0;
+    }
+
+    .side-nav-label {
+        display: none;
+    }
+}

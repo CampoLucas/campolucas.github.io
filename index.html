@@ -23,9 +23,8 @@
         })();
     </script>
 
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://img.itch.zone">
-    <link rel="preconnect" href="https://cdn.fastly.steamstatic.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
     <link href="./src/css/foundation/variables.css" rel="stylesheet" />
     <link href="./src/css/foundation/typography.css" rel="stylesheet" />
@@ -33,358 +32,244 @@
     <link href="./src/css/components/buttons.css" rel="stylesheet" />
     <link href="./src/css/components/icons.css" rel="stylesheet" />
     <link href="./src/css/components/social.css" rel="stylesheet" />
+    <link href="./src/css/components/tags.css" rel="stylesheet" />
+    <link href="./src/css/components/entry-card.css" rel="stylesheet" />
+    <link href="./src/css/components/project-carousel.css" rel="stylesheet" />
     <link href="./src/css/components/carousel.css" rel="stylesheet" />
-    <link href="./src/css/components/carousel-projects.css" rel="stylesheet" />
+    <link href="./src/css/components/side-nav.css" rel="stylesheet" />
     <link href="./src/css/components/skeleton.css" rel="stylesheet" />
-    <link href="./src/css/components/separator.css" rel="stylesheet" />
     <link href="./src/css/sections/hero.css" rel="stylesheet" />
+    <link href="./src/css/sections/featured.css" rel="stylesheet" />
     <link href="./src/css/sections/projects.css" rel="stylesheet" />
-    <link href="./src/css/sections/experience.css" rel="stylesheet" />
-    <link href="./src/css/sections/showcases.css" rel="stylesheet" />
+    <link href="./src/css/sections/about.css" rel="stylesheet" />
+    <link href="./src/css/sections/skills.css" rel="stylesheet" />
     <link href="./src/css/sections/footer.css" rel="stylesheet" />
     <link href="./src/css/sections/popup.css" rel="stylesheet" />
-    <link href="./src/css/sections/skills.css" rel="stylesheet" />
     <link href="./src/css/effects/particles.css" rel="stylesheet" />
-    <link href="./src/css/effects/gradient.css" rel="stylesheet" />
+<!--theme:start-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;600;700&display=swap">
+    <style id="theme">:root{--page-bg:#202020;--hero-page-bg:#0d0d0d;--text:#f7f5f5;--accent-color1:#ff0f83;--accent-color2:#ff8800;--surface:color-mix(in srgb, var(--text) 5%, transparent);--surface-raised:color-mix(in srgb, var(--text) 10%, transparent);--border:color-mix(in srgb, var(--text) 10%, transparent);--text-muted:color-mix(in srgb, var(--text) 60%, transparent);--tag-bg:color-mix(in srgb, var(--text) 14%, transparent);--tag-text:color-mix(in srgb, var(--text) 85%, transparent);--display-tag-bg:color-mix(in srgb, var(--text) 22%, transparent);--display-tag-text:var(--text);--overlay:color-mix(in srgb, var(--page-bg) 55%, transparent);--band-experience:var(--page-bg);--band-featured:color-mix(in srgb, var(--page-bg) 88%, var(--accent-color1));--band-projects:color-mix(in srgb, var(--page-bg) 89%, var(--text));--band-skills:color-mix(in srgb, var(--page-bg) 88%, var(--accent-color2));--band-about:color-mix(in srgb, var(--page-bg) 86%, var(--text));--band-custom-a:color-mix(in srgb, var(--page-bg) 94%, var(--accent-color2));--band-custom-b:color-mix(in srgb, var(--page-bg) 94%, var(--accent-color1));--role-section-title:var(--accent-color2);--role-hero-roles:var(--accent-color2);--role-primary-button:var(--accent-color2);--role-tag:var(--accent-color1);--role-special-tag:var(--accent-color2);--role-scrollbar:var(--accent-color2);--role-link:var(--accent-color2);--role-hover-border:var(--accent-color1);--role-particles-dots:var(--accent-color1);--role-particles-links:var(--accent-color2);--font-hero:"Space Grotesk", sans-serif;--font-section-title:"Space Grotesk", sans-serif;--font-row-title:"Space Grotesk", sans-serif;--font-body:"Inter", sans-serif;--font-label:"Inter", sans-serif;}</style>
+<!--theme:end-->
 
     <link rel="modulepreload" href="./src/js/core/App.js" />
     <link rel="modulepreload" href="./src/js/core/JSONLoader.js" />
+    <link rel="modulepreload" href="./src/js/core/Sections.js" />
     <link rel="modulepreload" href="./src/js/ui/Renderer.js" />
+    <link rel="modulepreload" href="./src/js/ui/text.js" />
     <link rel="modulepreload" href="./src/js/ui/PopupHandler.js" />
+    <link rel="modulepreload" href="./src/js/ui/SideNav.js" />
+    <link rel="modulepreload" href="./src/js/ui/popup/Popup.js" />
+    <link rel="modulepreload" href="./src/js/ui/popup/PopupBlocks.js" />
+    <link rel="modulepreload" href="./src/js/ui/popup/PopupModels.js" />
+    <link rel="modulepreload" href="./src/js/ui/sections/ExperienceSection.js" />
+    <link rel="modulepreload" href="./src/js/ui/sections/FeaturedSection.js" />
+    <link rel="modulepreload" href="./src/js/ui/sections/ProjectsSection.js" />
+    <link rel="modulepreload" href="./src/js/ui/sections/SkillsSection.js" />
     <link rel="modulepreload" href="./src/js/ui/elements/Media.js" />
     <link rel="modulepreload" href="./src/js/ui/elements/MediaCarousel.js" />
-    <link rel="modulepreload" href="./src/js/ui/elements/CapsuleCarousel/CapsuleCarousel.js" />
-    <link rel="modulepreload" href="./src/js/ui/elements/CapsuleCarousel/Capsule.js" />
-    <link rel="modulepreload" href="./src/js/ui/elements/CapsuleCarousel/CapsuleType.js" />
+    <link rel="modulepreload" href="./src/js/ui/elements/EntryCard.js" />
+    <link rel="modulepreload" href="./src/js/ui/elements/ProjectCarousel.js" />
 
     <link rel="preload" href="./data/home.json" as="fetch" crossorigin />
     <link rel="preload" href="./data/experience.json" as="fetch" crossorigin />
     <link rel="preload" href="./data/projects.json" as="fetch" crossorigin />
     <link rel="preload" href="./data/skills.json" as="fetch" crossorigin />
+    <link rel="preload" href="./data/sections.json" as="fetch" crossorigin />
     <link rel="preload" href="./i18n/en.json" as="fetch" crossorigin />
 </head>
 <body id="app" aria-busy="true">
 
-    <main>
-        <!-- Hero Page -->
-        <section class="hero-page" id="hero-page">
-            <canvas id="particles-background"></canvas>
-            <div class="hero-top" id="hero-top">
-                <div class="hero-content">
-                    <div class="gradient"></div>
+    <header class="hero" id="hero-page" data-section="hero">
+        <div id="particles-background" aria-hidden="true"></div>
+        <div class="hero__inner">
+            <div class="hero__top">
+                <div class="hero__text">
+                    <h1 id="hero-title" class="hero__name">
+                        <span class="skeleton skeleton-fill" style="--sk-h: 55px; --sk-r: 10px;" aria-hidden="true"></span>
+                    </h1>
+                    <p id="hero-roles" class="hero__roles">
+                        <span class="skeleton skeleton-fill" style="--sk-h: 38px; --sk-r: 10px;" aria-hidden="true"></span>
+                    </p>
+                </div>
+                <div class="hero__avatar">
+                    <svg id="hero-shapes" class="hero__shapes" width="0" height="0" aria-hidden="true" focusable="false">
+                        <defs>
+                            <clipPath id="hero-blob" clipPathUnits="objectBoundingBox">
+                                <path transform="translate(0.5 0.5) scale(0.013) translate(-3.45 3.9)"
+                                    d="M22.9,-36.5C28.5,-32.1,30.9,-23.7,33.3,-15.9C35.7,-8.2,38.2,-1.2,36.7,4.9C35.1,10.9,29.7,15.9,24.7,20.9C19.6,25.9,15.1,30.8,9.6,32.2C4.1,33.6,-2.2,31.4,-7.9,28.8C-13.5,26.2,-18.4,23.2,-22.2,19.1C-26.1,15,-28.9,9.8,-30.1,4.1C-31.3,-1.6,-31,-7.8,-29.3,-14.1C-27.5,-20.3,-24.4,-26.7,-19.3,-31.3C-14.1,-35.9,-7.1,-38.8,0.8,-40.1C8.7,-41.4,17.4,-40.9,22.9,-36.5Z">
+                                    <animate attributeName="d" dur="12s" repeatCount="indefinite" calcMode="spline"
+                                        keyTimes="0;0.25;0.5;0.75;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1"
+                                        values="M22.9,-36.5C28.5,-32.1,30.9,-23.7,33.3,-15.9C35.7,-8.2,38.2,-1.2,36.7,4.9C35.1,10.9,29.7,15.9,24.7,20.9C19.6,25.9,15.1,30.8,9.6,32.2C4.1,33.6,-2.2,31.4,-7.9,28.8C-13.5,26.2,-18.4,23.2,-22.2,19.1C-26.1,15,-28.9,9.8,-30.1,4.1C-31.3,-1.6,-31,-7.8,-29.3,-14.1C-27.5,-20.3,-24.4,-26.7,-19.3,-31.3C-14.1,-35.9,-7.1,-38.8,0.8,-40.1C8.7,-41.4,17.4,-40.9,22.9,-36.5Z;M23.9,-37.5C29.5,-33.1,29.9,-23.7,32.3,-15.9C34.7,-8.2,39.2,-0.7,37.7,5.4C36.1,11.4,28.7,14.9,23.7,19.9C18.6,24.9,15.1,32.3,9.6,33.7C4.1,35.1,-1.7,30.4,-7.4,27.8C-13,25.2,-19.4,24.2,-23.2,20.1C-27.1,16,-27.9,9.8,-29.1,4.1C-30.3,-1.6,-32.5,-7.8,-30.8,-14.1C-29,-20.3,-23.4,-25.7,-18.3,-30.3C-13.1,-34.9,-7.1,-40.3,0.8,-41.6C8.7,-42.9,18.4,-41.9,23.9,-37.5Z;M22.9,-36.5C28.5,-32.1,30.9,-23.7,33.3,-15.9C35.7,-8.2,38.2,-1.2,36.7,4.9C35.1,10.9,29.7,15.9,24.7,20.9C19.6,25.9,15.1,30.8,9.6,32.2C4.1,33.6,-2.2,31.4,-7.9,28.8C-13.5,26.2,-18.4,23.2,-22.2,19.1C-26.1,15,-28.9,9.8,-30.1,4.1C-31.3,-1.6,-31,-7.8,-29.3,-14.1C-27.5,-20.3,-24.4,-26.7,-19.3,-31.3C-14.1,-35.9,-7.1,-38.8,0.8,-40.1C8.7,-41.4,17.4,-40.9,22.9,-36.5Z;M21.9,-35.5C27.5,-31.1,31.9,-23.7,34.3,-15.9C36.7,-8.2,37.2,-1.7,35.7,4.4C34.1,10.4,30.7,16.9,25.7,21.9C20.6,26.9,15.1,29.3,9.6,30.7C4.1,32.1,-2.7,32.4,-8.4,29.8C-14,27.2,-17.4,22.2,-21.2,18.1C-25.1,14,-29.9,9.8,-31.1,4.1C-32.3,-1.6,-29.5,-7.8,-27.8,-14.1C-26,-20.3,-25.4,-27.7,-20.3,-32.3C-15.1,-36.9,-7.1,-37.3,0.8,-38.6C8.7,-39.9,16.4,-39.9,21.9,-35.5Z;M22.9,-36.5C28.5,-32.1,30.9,-23.7,33.3,-15.9C35.7,-8.2,38.2,-1.2,36.7,4.9C35.1,10.9,29.7,15.9,24.7,20.9C19.6,25.9,15.1,30.8,9.6,32.2C4.1,33.6,-2.2,31.4,-7.9,28.8C-13.5,26.2,-18.4,23.2,-22.2,19.1C-26.1,15,-28.9,9.8,-30.1,4.1C-31.3,-1.6,-31,-7.8,-29.3,-14.1C-27.5,-20.3,-24.4,-26.7,-19.3,-31.3C-14.1,-35.9,-7.1,-38.8,0.8,-40.1C8.7,-41.4,17.4,-40.9,22.9,-36.5Z" />
+                                </path>
+                            </clipPath>
+                            <clipPath id="hero-blob-back" clipPathUnits="objectBoundingBox">
+                                <path transform="translate(0.5 0.5) scale(0.013) translate(-3.45 3.9)"
+                                    d="M22.9,-36.5C28.5,-32.1,30.9,-23.7,33.3,-15.9C35.7,-8.2,38.2,-1.2,36.7,4.9C35.1,10.9,29.7,15.9,24.7,20.9C19.6,25.9,15.1,30.8,9.6,32.2C4.1,33.6,-2.2,31.4,-7.9,28.8C-13.5,26.2,-18.4,23.2,-22.2,19.1C-26.1,15,-28.9,9.8,-30.1,4.1C-31.3,-1.6,-31,-7.8,-29.3,-14.1C-27.5,-20.3,-24.4,-26.7,-19.3,-31.3C-14.1,-35.9,-7.1,-38.8,0.8,-40.1C8.7,-41.4,17.4,-40.9,22.9,-36.5Z">
+                                    <animate attributeName="d" dur="12s" repeatCount="indefinite" calcMode="spline"
+                                        keyTimes="0;0.25;0.5;0.75;1" keySplines="0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1;0.45 0 0.55 1"
+                                        values="M23.9,-37.5C29.5,-33.1,29.9,-23.7,32.3,-15.9C34.7,-8.2,39.2,-0.7,37.7,5.4C36.1,11.4,28.7,14.9,23.7,19.9C18.6,24.9,15.1,32.3,9.6,33.7C4.1,35.1,-1.7,30.4,-7.4,27.8C-13,25.2,-19.4,24.2,-23.2,20.1C-27.1,16,-27.9,9.8,-29.1,4.1C-30.3,-1.6,-32.5,-7.8,-30.8,-14.1C-29,-20.3,-23.4,-25.7,-18.3,-30.3C-13.1,-34.9,-7.1,-40.3,0.8,-41.6C8.7,-42.9,18.4,-41.9,23.9,-37.5Z;M22.9,-36.5C28.5,-32.1,30.9,-23.7,33.3,-15.9C35.7,-8.2,38.2,-1.2,36.7,4.9C35.1,10.9,29.7,15.9,24.7,20.9C19.6,25.9,15.1,30.8,9.6,32.2C4.1,33.6,-2.2,31.4,-7.9,28.8C-13.5,26.2,-18.4,23.2,-22.2,19.1C-26.1,15,-28.9,9.8,-30.1,4.1C-31.3,-1.6,-31,-7.8,-29.3,-14.1C-27.5,-20.3,-24.4,-26.7,-19.3,-31.3C-14.1,-35.9,-7.1,-38.8,0.8,-40.1C8.7,-41.4,17.4,-40.9,22.9,-36.5Z;M21.9,-35.5C27.5,-31.1,31.9,-23.7,34.3,-15.9C36.7,-8.2,37.2,-1.7,35.7,4.4C34.1,10.4,30.7,16.9,25.7,21.9C20.6,26.9,15.1,29.3,9.6,30.7C4.1,32.1,-2.7,32.4,-8.4,29.8C-14,27.2,-17.4,22.2,-21.2,18.1C-25.1,14,-29.9,9.8,-31.1,4.1C-32.3,-1.6,-29.5,-7.8,-27.8,-14.1C-26,-20.3,-25.4,-27.7,-20.3,-32.3C-15.1,-36.9,-7.1,-37.3,0.8,-38.6C8.7,-39.9,16.4,-39.9,21.9,-35.5Z;M22.9,-36.5C28.5,-32.1,30.9,-23.7,33.3,-15.9C35.7,-8.2,38.2,-1.2,36.7,4.9C35.1,10.9,29.7,15.9,24.7,20.9C19.6,25.9,15.1,30.8,9.6,32.2C4.1,33.6,-2.2,31.4,-7.9,28.8C-13.5,26.2,-18.4,23.2,-22.2,19.1C-26.1,15,-28.9,9.8,-30.1,4.1C-31.3,-1.6,-31,-7.8,-29.3,-14.1C-27.5,-20.3,-24.4,-26.7,-19.3,-31.3C-14.1,-35.9,-7.1,-38.8,0.8,-40.1C8.7,-41.4,17.4,-40.9,22.9,-36.5Z;M23.9,-37.5C29.5,-33.1,29.9,-23.7,32.3,-15.9C34.7,-8.2,39.2,-0.7,37.7,5.4C36.1,11.4,28.7,14.9,23.7,19.9C18.6,24.9,15.1,32.3,9.6,33.7C4.1,35.1,-1.7,30.4,-7.4,27.8C-13,25.2,-19.4,24.2,-23.2,20.1C-27.1,16,-27.9,9.8,-29.1,4.1C-30.3,-1.6,-32.5,-7.8,-30.8,-14.1C-29,-20.3,-23.4,-25.7,-18.3,-30.3C-13.1,-34.9,-7.1,-40.3,0.8,-41.6C8.7,-42.9,18.4,-41.9,23.9,-37.5Z" />
+                                </path>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                    <img id="hero-pic" src="./src/media/profile/hero-pic.jpeg" class="hero__pic" alt=""
+                        width="640" height="640" fetchpriority="high" decoding="async">
                 </div>
             </div>
-            <div class="hero-center" id="hero-center">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 id="hero-title" class="header-title">
-                            <span class="skeleton skeleton-line skeleton-title" style="--sk-w: 9em;" aria-hidden="true"></span>
-                        </h1>
+            <p id="hero-description" class="hero__description">
+                <span class="skeleton skeleton-fill" style="--sk-h: 93px; --sk-r: 10px;" aria-hidden="true"></span>
+            </p>
+            <nav id="hero-links" class="hero__links">
+                <span class="skeleton skeleton-icon" aria-hidden="true"></span>
+                <span class="skeleton skeleton-icon" aria-hidden="true"></span>
+                <span class="skeleton skeleton-icon" aria-hidden="true"></span>
+                <span class="skeleton skeleton-icon" aria-hidden="true"></span>
+            </nav>
+        </div>
+    </header>
 
-                        <ul id="hero-roles" class="hero-roles">
-                            <li class="skeleton skeleton-line" style="--sk-w: 8em;" aria-hidden="true"></li>
-                            <li class="skeleton skeleton-line" style="--sk-w: 7em;" aria-hidden="true"></li>
-                        </ul>
-                        <div id="hero-btn-cnt" class="hero-contact">
-                            <span class="skeleton skeleton-pill" aria-hidden="true"></span>
+    <div class="page">
+        <main class="column">
+
+            <section class="section section--experience fade" id="experience" data-section="experience" aria-labelledby="experience-title">
+                <h2 id="experience-title" class="section-title">
+                    <span class="skeleton skeleton-title" aria-hidden="true"></span>
+                </h2>
+                <ul id="experiences-cnt" class="entry-list">
+                    <li class="skeleton skeleton-entry" aria-hidden="true"></li>
+                    <li class="skeleton skeleton-entry" aria-hidden="true"></li>
+                </ul>
+            </section>
+
+            <div class="section-group fade">
+                <section class="featured" id="featured" data-section="featured" aria-labelledby="featured-title">
+                    <h2 id="featured-title" class="section-title">
+                        <span class="skeleton skeleton-title" aria-hidden="true"></span>
+                    </h2>
+                    <div id="featured-cnt">
+                        <div class="featured__layout" aria-hidden="true">
+                            <span class="skeleton skeleton-gallery"></span>
+                            <span class="skeleton skeleton-panel"></span>
+                        </div>
+                        <span class="skeleton skeleton-indicator" aria-hidden="true"></span>
+                    </div>
+                </section>
+
+                <section class="projects" id="projects" data-section="projects" aria-labelledby="proj-title">
+                    <h2 id="proj-title" class="section-title">
+                        <span class="skeleton skeleton-title" aria-hidden="true"></span>
+                    </h2>
+                    <div id="proj-cap-cnt">
+                        <div class="category skeleton-category" aria-hidden="true">
+                            <div class="skeleton-cards">
+                                <span class="skeleton"></span>
+                                <span class="skeleton"></span>
+                                <span class="skeleton"></span>
+                                <span class="skeleton"></span>
+                            </div>
+                            <span class="skeleton skeleton-indicator"></span>
+                        </div>
+                        <div class="category skeleton-category" aria-hidden="true">
+                            <div class="skeleton-cards">
+                                <span class="skeleton"></span>
+                                <span class="skeleton"></span>
+                                <span class="skeleton"></span>
+                                <span class="skeleton"></span>
+                            </div>
+                            <span class="skeleton skeleton-indicator"></span>
+                        </div>
+                        <div class="category skeleton-category" aria-hidden="true">
+                            <div class="skeleton-cards">
+                                <span class="skeleton"></span>
+                                <span class="skeleton"></span>
+                                <span class="skeleton"></span>
+                                <span class="skeleton"></span>
+                            </div>
+                            <span class="skeleton skeleton-indicator"></span>
                         </div>
                     </div>
+                </section>
+            </div>
 
-                    <div class="profile-shadow">
-                        <img id="hero-pic" src="./src/media/profile/hero-pic.jpeg" class="profile-pic" alt=""
-                            width="640" height="640" fetchpriority="high" decoding="async">
+            <section class="section section--about" id="about" data-section="about" aria-labelledby="about-title">
+                <h2 id="about-title" class="section-title">
+                    <span class="skeleton skeleton-title" aria-hidden="true"></span>
+                </h2>
+                <div class="about">
+                    <div class="about__avatar">
+                        <img id="about-pic" class="about__pic" alt="" width="640" height="640" loading="lazy" decoding="async">
+                    </div>
+                    <div class="about__body">
+                        <div id="about-desc" class="about__text">
+                            <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
+                            <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
+                            <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 80%;" aria-hidden="true"></span>
+                            <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
+                            <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 60%;" aria-hidden="true"></span>
+                        </div>
+                        <nav id="about-links" class="about__links">
+                            <span class="skeleton skeleton-icon" aria-hidden="true"></span>
+                            <span class="skeleton skeleton-icon" aria-hidden="true"></span>
+                            <span class="skeleton skeleton-icon" aria-hidden="true"></span>
+                        </nav>
                     </div>
                 </div>
-                
-            </div>
-            <div class="hero-bottom" id="hero-bottom">
-                <div class="hero-content">
-                    <div class="gradient"></div>
-                </div> 
-            </div>
-        </section>
+            </section>
 
-        <section class="background content"><div class="showcase-viewport">
-            <!-- About Me -->
-            <section class="section-viewport" id="contact">
-                <h2 id="about-title" class="text title">
-                    <span class="skeleton skeleton-line" style="--sk-w: 6em;" aria-hidden="true"></span>
+            <section class="section section--skills fade" id="skills" data-section="skills" aria-labelledby="skills-title">
+                <h2 id="skills-title" class="section-title">
+                    <span class="skeleton skeleton-title" aria-hidden="true"></span>
                 </h2>
-                <ul class="about-me-container">
-                    <li id="about-desc" class="about-me-text">
-                        <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
-                        <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
-                        <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 70%;" aria-hidden="true"></span>
-                        <span class="skeleton skeleton-line skeleton-text skeleton-gap" aria-hidden="true"></span>
-                        <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
-                        <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 55%;" aria-hidden="true"></span>
-                    </li>
-                    <!-- <li class="about-me-image">
-                        <img id="about-pic" src="./src/media/legacy/about/profile-pic.jpeg" />
-                    </li> -->
+                <ul id="skills-cnt" class="skill-list">
+                    <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
+                    <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
+                    <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
+                    <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
+                    <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
                 </ul>
-                <div id="about-contacts" class="contact-info" style="padding-bottom: 2rem;">
-                    <span class="skeleton skeleton-line" style="--sk-w: 16em;" aria-hidden="true"></span>
-                </div>
+            </section>
 
-                <div id="about-buttons" class="social" style="justify-content: center;">
+        </main>
+    </div>
+
+    <footer class="footer" id="footer" data-section="footer">
+        <div class="footer__inner">
+            <div class="footer__col footer__col--brand">
+                <p id="footer-name" class="footer__name">
+                    <span class="skeleton skeleton-fill" style="--sk-w: 10em; --sk-h: 28px;" aria-hidden="true"></span>
+                </p>
+                <p id="footer-roles" class="footer__roles">
+                    <span class="skeleton skeleton-fill" style="--sk-w: 14em;" aria-hidden="true"></span>
+                </p>
+            </div>
+            <div class="footer__col">
+                <h2 id="footer-contact-title" class="footer__heading"></h2>
+                <ul id="footer-contact" class="footer__list">
+                    <li class="skeleton skeleton-fill" style="--sk-w: 14em;" aria-hidden="true"></li>
+                </ul>
+            </div>
+            <div class="footer__col">
+                <h2 id="footer-social-title" class="footer__heading"></h2>
+                <nav id="footer-links" class="footer__links">
                     <span class="skeleton skeleton-icon" aria-hidden="true"></span>
                     <span class="skeleton skeleton-icon" aria-hidden="true"></span>
                     <span class="skeleton skeleton-icon" aria-hidden="true"></span>
-                </div>
-            </section>
-            
-            <div class="section-separator">
-                <span class="section-separator__line"></span>
-            </div>
-
-            <!-- Experience -->
-            <section class="section-viewport">
-                <h2 id="experience-title" class="title">
-                    <span class="skeleton skeleton-line" style="--sk-w: 7em;" aria-hidden="true"></span>
-                </h2>
-                <div id="experiences-cnt" class="experiences-cnt">
-                    <div class="skeleton-exp" aria-hidden="true">
-                        <div class="skeleton-exp-header">
-                            <span class="skeleton skeleton-logo"></span>
-                            <div class="skeleton-stack">
-                                <span class="skeleton skeleton-line" style="--sk-w: 12em;"></span>
-                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 8em;"></span>
-                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 6em;"></span>
-                            </div>
-                        </div>
-                        <div class="skeleton-exp-body">
-                            <span class="skeleton skeleton-media"></span>
-                            <div class="skeleton-stack">
-                                <span class="skeleton skeleton-line skeleton-text"></span>
-                                <span class="skeleton skeleton-line skeleton-text"></span>
-                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 80%;"></span>
-                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 60%;"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="skeleton-exp" aria-hidden="true">
-                        <div class="skeleton-exp-header">
-                            <span class="skeleton skeleton-logo"></span>
-                            <div class="skeleton-stack">
-                                <span class="skeleton skeleton-line" style="--sk-w: 10em;"></span>
-                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 7em;"></span>
-                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 6em;"></span>
-                            </div>
-                        </div>
-                        <div class="skeleton-stack">
-                            <span class="skeleton skeleton-line skeleton-text"></span>
-                            <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 75%;"></span>
-                        </div>
-                    </div>
-                </div>
-                
-                
-            </section>
-
-            <div class="section-separator">
-                <span class="section-separator__line"></span>
-            </div>
-
-            <!-- Projects -->
-            <section class="section-viewport">
-                <h2 id="proj-title" class="title">
-                    <span class="skeleton skeleton-line" style="--sk-w: 6em;" aria-hidden="true"></span>
-                </h2>
-
-                <div id="proj-cap-cnt">
-                    <div class="skeleton-projects" aria-hidden="true">
-                        <span class="skeleton skeleton-line" style="--sk-w: 5em;"></span>
-                        <div class="skeleton-capsules">
-                            <span class="skeleton skeleton-media"></span>
-                            <span class="skeleton skeleton-media"></span>
-                            <span class="skeleton skeleton-media"></span>
-                            <span class="skeleton skeleton-media"></span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="section-separator">
-                <span class="section-separator__line"></span>
-            </div>
-
-            <!-- Skills -->
-            <!-- <section class="section-viewport">
-                <h2 id="skills-title" class="title">Skills</h2>
-                <p class="sub-title">Tools, languages and core programming concepts I use to build games and web pages.</p>
-                
-                <ul class="c-l-cnt">
-                    <li class="c-l"> 
-                        <h3><strong>Code</strong></h3>
-                        <ul>
-                            <li>C#</li>
-                            <li>C++</li>
-                            <li>JavaScript</li>
-                            <li>Python</li>
-                            <li>HTML</li>
-                            <li>CSS</li>
-                        </ul>
-                    </li>
-                    <li class="c-l"> 
-                        <h3><strong>Tools</strong></h3>
-                        <ul>
-                            <li>Unity</li>
-                            <li>Unreal Engine 5</li>
-                            <li>Oculus / XR</li>
-                            <li>Photon Fusion</li>
-                            <li>Photon Quantum</li>
-                            <li>Netcode</li>
-                            <li>Rider</li>
-                            <li>Git</li>
-                            <li>Django</li>
-                        </ul>
-                    </li>
-                    <li class="c-l"> 
-                        <h3><strong>Skills & Practices</strong></h3>
-                        <ul>
-                            <li>OOP</li>
-                            <li>ECS</li>
-                            <li>Agile</li>
-                            <li>QA</li>
-                            <li>UI/UX</li>
-                            <li>Problem Solving</li>
-                            <li>Code Documentation</li>
-                        </ul>
-                    </li>
-                </ul>
-                <h3><strong>Languages</strong></h3>
-                <ul class="h-l">
-                    <li>English — Fluent</li>
-                    <li>Spanish — Native</li>
-                    <li>Japanese — Intermediate</li>
-                </ul>
-                <h3><strong>Programming Concepts</strong></h3>
-                <ul>
-                    <li><strong>Design patterns:</strong> Factory, Builder, Command, Mediator, Strategy, Observer, Object Pooling</li>
-                    <li><strong>MVC architecture</strong></li>
-                    <li><strong>AI algorithms:</strong> A*, Dijkstra, FSM, Steering Behaviors, Obstacle Avoidance, Roulette, Flocking, Decision Trees, Behavior Trees</li>
-                    <li><strong>Multiplayer architectures:</strong> Full-Authoritative and Non-Authoritative models</li>
-                </ul>
-            </section> -->
-
-            <!-- Skills -->
-            <section class="section-viewport">
-                <h2 id="skills-title" class="title">Skills</h2>
-                <p class="sub-title">Tools, languages and core programming concepts I use to build games and web pages.</p>
-                
-                <ul class="c-l-cnt">
-                    <li class="c-l"> 
-                        <h3><strong>Code</strong></h3>
-                        <div class="info-tags" style="max-width: calc(100% - 8px);">
-                            <div class="info-tag">C#</div>
-                            <div class="info-tag">C++</div>
-                            <div class="info-tag">JavaScript</div>
-                            <div class="info-tag">Python</div>
-                            <div class="info-tag">HTML</div>
-                            <div class="info-tag">CSS</div>
-                        </div>
-                    </li>
-                    <li class="c-l"> 
-                        <h3><strong>Tools</strong></h3>
-                        <div class="info-tags" style="max-width: calc(100% - 8px);">
-                            <div class="info-tag">Unity</div>
-                            <div class="info-tag">Unreal Engine 5</div>
-                            <div class="info-tag">Oculus / XR</div>
-                            <div class="info-tag">Photon Fusion</div>
-                            <div class="info-tag">Photon Quantum</div>
-                            <div class="info-tag">Netcode</div>
-                            <div class="info-tag">Rider</div>
-                            <div class="info-tag">Git</div>
-                            <div class="info-tag">Django</div>
-                        </div>
-                    </li>
-                    <li class="c-l"> 
-                        <h3><strong>Skills & Knoledge</strong></h3>
-                        <div class="info-tags" style="max-width: calc(100% - 8px);">
-                            <div class="info-tag">OOP</div>
-                            <div class="info-tag">ECS</div>
-                            <div class="info-tag">Agile</div>
-                            <div class="info-tag">QA</div>
-                            <div class="info-tag">UI/UX</div>
-                            <div class="info-tag">Code Documentation</div>
-                            <div class="info-tag">Design Patterns</div>
-                        </div>
-                    </li>
-                </ul>
-                <h3><strong>Languages</strong></h3>
-                <div class="info-tags" style="max-width: calc(100% - 8px);">
-                    <div class="info-tag">English - Fluent</div>
-                    <div class="info-tag">Spanish - Native</div>
-                    <div class="info-tag">Japanese - Intermediate</div>
-                </div>
-        
-                <h3><strong>Programming Concepts</strong></h3>
-                <ul>
-                    <li><strong>Design patterns:</strong> Factory, Builder, Command, Mediator, Strategy, Observer, Object Pooling</li>
-                    <li><strong>MVC architecture</strong></li>
-                    <li><strong>AI algorithms:</strong> A*, Dijkstra, FSM, Steering Behaviors, Obstacle Avoidance, Roulette, Flocking, Decision Trees, Behavior Trees</li>
-                    <li><strong>Multiplayer architectures:</strong> Full-Authoritative and Non-Authoritative models</li>
-                </ul>
-            </section>
-        </section></div>
-    </main>
-
-    <footer class="site-footer">
-        <div class="footer-inner">
-            <div class="footer-contacts" role="contentinfo">
-                <div class="social">
-                    <a class="icon linkedin social-link" href="https://www.linkedin.com/in/lucascampo3333/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"></a>
-                    <a class="icon email social-link" href="mailto:campolucas2001@gmail.com" aria-label="Send email"></a>
-                </div>
-
-                <div class="contact-info">
-                    <a href="mailto:campolucas2001@gmail.com" class="contact-link">campolucas2001@gmail.com</a>
-                    <span class="contact-sep">•</span>
-                    <a href="tel:+541127403576" class="contact-link">+54 11 2740-3576</a>
-                </div>
+                </nav>
+                <a id="footer-cv" class="button button--primary footer__cv" download hidden></a>
             </div>
         </div>
+        <p id="footer-copy" class="footer__copy"></p>
     </footer>
 
-
-    <!-- Templates -->
-    <!-- Experience element for games -->
-    <template id="game-experience">
-        <div class="section-exp">
-            <div class="header" id="exp-header">
-                <img width="70" height="70" loading="lazy" decoding="async" alt="" />
-                <div class="section-exp-title">
-                    <h3 id="exp-role"></h3>
-                    <h4 id="exp-company"></h4>
-                    <h5 id="exp-period"></h4>
-                </div>
-            </div>
-
-            <ul>
-                <li id="carousel-cnt" class="carousel-cnt"></li>
-                <li id="description-cnt"></li>
-            </ul>
-
-            
-            <div id="skills-cnt"></div>
-
-            <div id="links-btn-cnt" class="social" style="justify-content: center;">
-            </div>
-        </div>
-    </template>
-
-    <!-- Carousel -->
     <template id="game-carousel">
         <div class="carousel" data-carousel>
             <div class="carousel-viewport">
-                <!-- Images -->
                 <div class="carousel-img-cnt" img-cnt></div>
             </div>
-            
-            <!-- Desktop -->
+
             <div class="carousel-thumbs">
-                <!-- Thumnails -->
                 <div class="carousel-thumbs-track" thumb-cnt></div>
                 <div class="carousel-thumb-scroll">
                     <button class="left" data-prev aria-label="Scroll thumbnails left">‹</button>
@@ -394,9 +279,7 @@
                     <button class="right" data-next aria-label="Scroll thumbnails right">›</button>
                 </div>
             </div>
-            
-            <!-- Mobile -->
-        
+
             <div class="carousel-arrows">
                 <button class="arrow left" data-prev aria-label="Previous"><span>‹</span></button>
                 <div class="carousel-dots" dot-cnt></div>
@@ -405,34 +288,9 @@
         </div>
     </template>
 
-    <!-- Popup -->
-    <template id="popup-template">
-        <div class="popup">
-            <div class="bg-cnt">
-                <div class="bg-color"></div>
-                <div class="bg-img-cnt">
-                    <img id="bg-popup" class="bg-img" alt="" decoding="async" />
-                </div>
-                <div class="bg-overlay-cnt">
-                    <div class="bg-overlay"></div>
-                    <div class="bg-gradient"></div>
-                </div>
-
-            </div>
-            <div class="popup-panel background content"> 
-                <div class="showcase-viewport bg-content">
-                    <div id="popup-viewport" class="section-viewport">
-                        <!-- game-experience template here, reuse all the methods -->
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </template>
-
     <template id="popup-skeleton">
         <div class="skeleton-exp skeleton-popup" aria-hidden="true">
-            <span class="skeleton skeleton-line skeleton-title" style="--sk-w: 10em;"></span>
+            <span class="skeleton skeleton-line skeleton-title-line" style="--sk-w: 10em;"></span>
             <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 8em;"></span>
             <div class="skeleton-exp-body">
                 <span class="skeleton skeleton-media"></span>
@@ -444,81 +302,6 @@
             </div>
         </div>
     </template>
-
-    <template id="game-project">
-        <div class="section-exp">
-            <div style="display: flex; justify-content: space-between;">
-                <div class="section-exp-title">
-                    <h3 id="project-title" style="font-size: 30px;"></h3>
-                    <h4 id="project-period"></h4>
-                </div>
-                <button id="close-popup-btn" class="close-popup">X</button>
-
-            </div>
-
-            <div style="background-color: rgba(0, 0, 0, .2); padding: 12px;">
-
-                <ul style="margin-top: 0;">
-                    <li id="carousel-cnt" class="carousel-cnt"></li>
-                    <li>
-                        <div id="description-cnt"></div>
-                        <div id="tags-cnt"></div>
-                    </li>
-                </ul>
-    
-                <div id="links-btn-cnt" class="social" style="justify-content: center;">
-            </div>
-            </div>
-        </div>
-    </template>
-
-    <!-- Capsule Carousel Templates -->
-
-    <template id="cap-carousel-temp">
-        <div class="projects-carousel">
-            <div class="title-grid">
-                <div class="section-title"><span id="cap-carousel-title"></span></div>
-            </div>
-            <div class="carousel-container">
-                <div class="carousel-items">
-                    <div id="cap-cnt" class="focus">
-                        
-                    </div>
-                </div>
-                <div class="carousel-thumbs"></div>
-                <div class="arrow left hidden"><div></div></div>
-                <div class="arrow right hidden"><div></div></div>
-            </div>
-        </div>
-    </template>
-
-    <template id="cap-game-el">
-        <a id="cap-link" class="game-capsule" href="">
-            <div class="capsule-img-cnt">
-                <img id="cap-banner-img" class="capsule-img" alt="" loading="lazy" decoding="async" />
-                <span id="cap-banner-video" class="capsule-video"></span>
-            </div>
-            <div class="info-cnt">
-                <div id="cap-tag-cnt" class="info-tags">
-                    <!-- <div class="info-tag">Bullet hell</div> -->
-                    
-                </div>
-            </div>
-        </a>
-    </template>
-
-    <template id="cap-web-el">
-        <a id="cap-link" class="website-capsule" href="">
-            <div class="capsule-img-cnt">
-                <img id="cap-banner-img" alt="" loading="lazy" decoding="async" style="width: 100%;" />
-            </div>
-            <div class="info-cnt">
-                <p id="cap-title"></p>
-            </div>
-        </a>
-    </template>
-    
-
 
     <script type="module" src="./src/js/core/App.js"></script>
     <script src="./src/js/particles/particles.js" defer></script>

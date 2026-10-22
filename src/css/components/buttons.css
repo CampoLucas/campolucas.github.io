@@ -1,19 +1,71 @@
+.button,
 .cta-btn {
-    background: #ff4141;
-    color: white;
-    padding: 12px 26px;
-    border-radius: 6px;
-    /* margin-top: 20px; */
-    font-size: 1rem;
-    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    height: 34px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    font: 600 0.875rem/1 var(--font-label);
+    white-space: nowrap;
     cursor: pointer;
-    text-decoration: none;
+    transition: filter 0.2s, background 0.2s;
 }
 
-.cta-btn.more {
-    background-color: #802525;
-    margin-top: 10px;
-    padding: 12px 12px;
+.button svg {
+    width: 14px;
+    height: 14px;
 }
 
+.button--primary,
+.cta-btn {
+    background: var(--role-primary-button);
+    color: var(--bg);
+}
 
+.button--primary:hover,
+.cta-btn:hover {
+    filter: brightness(1.1);
+}
+
+.button--ghost,
+.cta-btn.secondary {
+    border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+    background: color-mix(in srgb, var(--bg) 60%, transparent);
+    color: var(--text);
+}
+
+.button--ghost:hover,
+.cta-btn.secondary:hover {
+    filter: none;
+    background: var(--accent-tint);
+}
+
+.icon-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    background: var(--column-bg);
+    border: 1px solid var(--line);
+    color: var(--text);
+    transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.icon-button::before {
+    content: "";
+    width: 22px;
+    height: 22px;
+    background: currentColor;
+    -webkit-mask: var(--icon) center / contain no-repeat;
+    mask: var(--icon) center / contain no-repeat;
+}
+
+.icon-button:hover {
+    border-color: var(--role-hover-border);
+    color: var(--role-hover-border);
+    transform: translateY(-2px);
+}

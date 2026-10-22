@@ -1,99 +1,65 @@
-const popupTemplate = "popup-template";
-const popupSkeletonTemplate = "popup-skeleton";
+import { Popup } from "./popup/Popup.js";
+
+const skeletonTemplate = "popup-skeleton";
 
 export class PopupHandler {
     constructor(app) {
         this.app = app;
+        this.popup = null;
         this.handleRoute = this.handleRoute.bind(this);
+        this.close = this.close.bind(this);
     }
 
     init() {
         window.addEventListener("hashchange", this.handleRoute);
 
-        if (location.hash.length > 1) {
-            this.showSkeleton();
+        if (this.slug() && !this.isPageAnchor(this.slug())) {
+            this.ensurePopup().showSkeleton(document.getElementById(skeletonTemplate));
         }
 
-        this.app.ready.then(() => {
-            this.handleRoute();
-        })
+        this.app.ready.then(() => this.handleRoute());
+    }
+
+    slug() {
+        try {
+            return decodeURIComponent(location.hash.slice(1));
+        }
+        catch {
+            return "";
+        }
+    }
+
+    isPageAnchor(slug) {
+        return !!document.getElementById(slug) || !!document.querySelector(`[data-section="${CSS.escape(slug)}"]`);
     }
 
     handleRoute() {
-        const slug = location.hash.slice(1);
+        const build = this.app.popups.get(this.slug().toLowerCase());
 
-        this.removePopup();
-
-        if (!slug) return;
-
-        const projects = [];
-
-        this.app.projects.categories.forEach(c => {
-            projects.push(...c.projects);
-        });
-
-        // check if there is a project with that id
-        const project = projects.find(p => p.baseId.toLowerCase() === slug.toLowerCase());
-        if (project) {
-            document.body.classList.add("popup-open");
-            this.createPopup(project);
+        if (!build) {
+            this.destroy();
+            return;
         }
 
+        this.ensurePopup().show(build());
     }
 
-    appendPopup() {
-        const template = document.getElementById(popupTemplate);
-
-        if (!template) {
-            console.log(`WARNING: Couldn't find the tamplate "${popupTemplate}"`);
-            return null;
+    ensurePopup() {
+        if (!this.popup) {
+            this.popup = new Popup(this.app.renderer, this.close);
         }
-
-        const popup = template.content.firstElementChild.cloneNode(true);
-        document.body.appendChild(popup);
-        return popup;
+        return this.popup;
     }
 
-    showSkeleton() {
-        const skeleton = document.getElementById(popupSkeletonTemplate);
-        const popup = this.appendPopup();
-        if (!popup || !skeleton) return;
-
-        popup.querySelector("#popup-viewport").appendChild(skeleton.content.firstElementChild.cloneNode(true));
-        document.body.classList.add("popup-open");
+    close() {
+        history.replaceState(null, document.title, window.location.pathname + window.location.search);
+        this.destroy();
     }
 
-    createPopup(project) {
-        const popup = this.appendPopup();
-        if (!popup) return;
+    destroy() {
+        if (!this.popup) return;
 
-        const cnt = document.getElementById("popup-viewport");
-        const temp = document.getElementById("game-project");
-        const render = this.app.renderer;
-        const projects = this.app.projects;
-        const baseId = projects.baseId;
-
-        const id = render.t(baseId, "projects")[project.baseId];
-        render.renderProject(cnt, temp, project, id);
-        const closeBtn = popup.querySelector("#close-popup-btn");
-        closeBtn.onclick = () => {
-            history.replaceState(
-                null,
-                document.title,
-                window.location.pathname + window.location.search
-            );
-            
-            this.removePopup();
-        }
-    }
-
-    removePopup() {
-        document.body.classList.remove("popup-open");
-
-        const popup = document.querySelector(".popup");
-        if (!popup) return;
-
-        this.app.renderer.destroyCarouselsIn(popup);
-        popup.remove();
+        this.popup.destroy();
+        this.popup = null;
     }
 }

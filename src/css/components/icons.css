@@ -47,3 +47,27 @@
 .icon.meta {
     background-image: url("../../media/icons/meta.svg");
 }
+
+.icon-button.github {
+    --icon: url("../../media/icons/github.svg");
+}
+
+.icon-button.linkedin {
+    --icon: url("../../media/icons/linkedin.svg");
+}
+
+.icon-button.itch {
+    --icon: url("../../media/icons/itch.svg");
+}
+
+.icon-button.email {
+    --icon: url("../../media/icons/email.svg");
+}
+
+.icon-button.website {
+    --icon: url("../../media/icons/website.svg");
+}
+
+.icon-button.meta {
+    --icon: url("../../media/icons/meta.svg");
+}

@@ -3,16 +3,39 @@
         "baseId": "hero",
         "titleId": "title",
         "rolesId": "roles",
+        "descriptionId": "description",
         "picture": { "img": "./src/media/profile/hero-pic.jpeg", "altId": "imgAlt" },
         "buttons": [
-            { 
-                "id": "contacts",
-                "link": "#contact", 
-                "classList": [ "cta-btn" ],
-                "label": "contactBtn",
-                "hoverTextId": "contactBtnHover",
+            {
+                "id": "github",
+                "link": "https://github.com/CampoLucas",
+                "classList": [ "icon-button", "github" ],
+                "hoverTextId": "githubHover",
                 "type": "link",
-                "newTab": false
+                "newTab": true
+            },
+            {
+                "id": "linked-in",
+                "link": "https://www.linkedin.com/in/lucascampo3333/",
+                "classList": [ "icon-button", "linkedin" ],
+                "hoverTextId": "linkedInHover",
+                "type": "link",
+                "newTab": true
+            },
+            {
+                "id": "itch",
+                "link": "https://luinbucket.itch.io/",
+                "classList": [ "icon-button", "itch" ],
+                "hoverTextId": "itchHover",
+                "type": "link",
+                "newTab": true
+            },
+            {
+                "id": "mail",
+                "link": "campolucas2001@gmail.com",
+                "classList": [ "icon-button", "email" ],
+                "hoverTextId": "emailHover",
+                "type": "email"
             }
         ]
     },
@@ -21,45 +44,76 @@
         "titleId": "title",
         "descriptionId": "description",
         "contact": { "email": "campolucas2001@gmail.com", "phone": "+54 11 2740-3576" },
+        "items": [
+            {
+                "baseId": "studies",
+                "roleId": "role",
+                "companyId": "company",
+                "summaryId": "summary",
+                "tagId": "tag",
+                "initials": "UA"
+            },
+            {
+                "baseId": "festivals",
+                "roleId": "role",
+                "companyId": "company",
+                "summaryId": "summary",
+                "tagId": "tag",
+                "initials": "EVA"
+            },
+            {
+                "baseId": "lookingFor",
+                "roleId": "role",
+                "companyId": "company",
+                "summaryId": "summary",
+                "tagId": "tag",
+                "initials": "LF"
+            }
+        ],
         "buttons": [
-            { 
+            {
                 "id": "linked-in",
-                "link": "https://www.linkedin.com/in/lucascampo3333/", 
-                "classList": [ "icon", "social-link", "linkedin" ],
-                "icon": "linkedin", 
+                "link": "https://www.linkedin.com/in/lucascampo3333/",
+                "classList": [ "icon-button", "linkedin" ],
+                "icon": "linkedin",
                 "hoverTextId": "linkedInHover",
                 "type": "link",
                 "newTab": true
             },
-            { 
-                "id": "github", 
-                "link": "https://github.com/CampoLucas", 
-                "classList": [ "icon", "social-link", "github" ],
-                "icon": "github", 
+            {
+                "id": "github",
+                "link": "https://github.com/CampoLucas",
+                "classList": [ "icon-button", "github" ],
+                "icon": "github",
                 "hoverTextId": "githubHover",
                 "type": "link",
                 "newTab": true
             },
-            { 
-                "id": "mail", 
-                "link": "campolucas2001@gmail.com", 
-                "classList": [ "icon", "social-link", "email"],
-                "icon": "email", 
+            {
+                "id": "mail",
+                "link": "campolucas2001@gmail.com",
+                "classList": [ "icon-button", "email" ],
+                "icon": "email",
                 "hoverTextId": "emailHover",
                 "type": "email",
                 "disabled": true
             },
-            { 
-                "id": "itch", 
-                "link": "https://luinbucket.itch.io/", 
-                "classList": [ "icon", "social-link", "itch"],
-                "icon": "itch", 
+            {
+                "id": "itch",
+                "link": "https://luinbucket.itch.io/",
+                "classList": [ "icon-button", "itch" ],
+                "icon": "itch",
                 "hoverTextId": "itchHover",
                 "type": "link",
                 "newTab": true
             }
         ],
-        "picture": { "img": "https://images.hobbydb.com/processed_uploads/subject_photo/subject_photo/image/138021/Adam-Sandler-getty-H-2023_png.new0f7be117-12a1-4121-bdc3-ffd988ca5b8d_large.png", "altId": "imgAlt" }
+        "picture": { "img": "./src/media/profile/hero-pic.jpeg", "altId": "imgAlt" }
+    },
+    "footer": {
+        "baseId": "footer",
+        "copyId": "copy",
+        "contact": { "email": "campolucas2001@gmail.com", "phone": "" },
+        "cv": { "link": "", "labelId": "cvLabel" }
     }
 }
-

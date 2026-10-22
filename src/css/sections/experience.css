@@ -1,157 +1,108 @@
-
-.section-exp {
-    margin-bottom: 2rem;
-}
-
-.section-exp-title {
-}
-
-.section-exp ul {
+.experiences-cnt {
     display: flex;
-    gap: 1rem;
-    list-style-type: none;
-    padding: 0;
-    margin-top: .5rem;
-}
-
-.section-exp .carousel-cnt {
-    min-width: 40%;
-    max-width: 650px;
-}
-
-.section-exp .description-cnt .social {
-    justify-content: start; 
-    padding-top: 1.5rem;
-}
-
-.section-exp h3, 
-.section-exp h4 {
-    margin-bottom: 5px;
-}
-
-.section-exp h4, 
-.section-exp h5 {
-    margin-top: 5px; 
-    font-weight: 100; 
-    font-size: 14px;
-    margin-bottom: .5rem;
-}
-
-.section-exp h3 {
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: .25rem;
-}
-
-.section-exp h5 {
-    color: rgba(240, 248, 255, 0.607)
-}
-
-.section-exp .header {
-    display:inline-flex; 
-    gap: 1rem;
-}
-
-.section-exp .header img {
-    border-radius: 5px; 
-    aspect-ratio: 1/1; 
-    height: 70px; 
-    width: auto; 
-    align-self: center;
-}
-
-.block-cnt h3 {
-    margin-top: 0;
-}
-
-.block-cnt li,
-.block-cnt p {
-    margin-top: 0;
-    font-size: 14px;
-}
-
-.block-cnt {
-    margin-bottom: 14px;
-}
-
-.block-cnt .list {
     flex-direction: column;
-    
-    list-style-type: disc;
-    padding-inline-start: 30px;
-    unicode-bidi: isolate;
+    gap: .75rem;
+    max-width: 900px;
+    margin: 1.5rem auto 0;
 }
 
-.block-cnt li {
-    display: list-item;
+.exp-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 1.1rem;
+    color: inherit;
+    text-decoration: none;
+    border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: background-color 150ms ease, border-color 150ms ease;
 }
 
-.block-cnt .info-tags {
-    box-sizing: border-box;
-    /* height: 47px; */
-    /* padding: 8px; */
+.exp-row:hover,
+.exp-row:focus-visible {
+    background: var(--surface-raised);
+    border-color: var(--accent-color2);
 }
 
-.block-cnt h4 {
-    font-weight: bold;
-    font-size: 1rem;
+.exp-row:focus-visible {
+    outline: 2px solid var(--accent-color2);
+    outline-offset: 2px;
 }
 
-.skill-chip {
-    background: #f1f1f173;
-    padding: 6px 10px;
-    border-radius: 16px;
+.exp-row .exp-logo {
+    flex: 0 0 56px;
+    width: 56px;
+    height: 56px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.exp-row .exp-main {
+    flex: 1;
+    min-width: 0;
+}
+
+.exp-row .exp-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .75rem;
+}
+
+.exp-row .exp-role {
+    font-family: var(--font-row-title);
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.exp-row .exp-company,
+.exp-row .exp-period,
+.exp-row .exp-summary {
+    margin: .15rem 0 0;
+    font-size: 14px;
+}
+
+.exp-row .exp-company {
+    color: var(--text);
+}
+
+.exp-row .exp-period {
     font-size: 13px;
+    color: var(--text-muted);
 }
 
-
-@media (max-width: 1200px) {
-    .section-exp .carousel-cnt {
-        max-width: 100%;
-    }
-    
-    .section-exp ul {
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .section-exp {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
+.exp-row .exp-present {
+    flex: 0 0 auto;
+    padding: 1px 8px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 999px;
+    background: linear-gradient(90deg, var(--accent-color1), var(--accent-color2));
 }
 
+.exp-row .exp-summary {
+    margin-top: .6rem;
+    color: var(--text);
+}
 
-@media only screen and (orientation: portrait) and (max-width:640px) {
-    /* #experiences-cnt {
-        margin-inline: 25px;
-    } */
-    
-    .section-exp ul {
-        flex-direction: column;
-        justify-content: center;
-    }
-    
-    .section-exp .carousel-cnt {
-        width: 100%;
-    }
-
-    .section-exp .description-cnt .social {
-        justify-content: center;
+@media (prefers-reduced-motion: reduce) {
+    .exp-row {
+        transition: none;
     }
 }
 
+@media only screen and (max-width: 640px) {
+    .exp-row {
+        gap: .75rem;
+        padding: .85rem;
+    }
 
-
-@media only screen and (orientation: landscape) and (max-width:1000px) {
-    
-    
-    
-    
-    
-    .section-exp .description-cnt .social {
-        justify-content: center;
+    .exp-row .exp-logo {
+        flex-basis: 44px;
+        width: 44px;
+        height: 44px;
     }
 }
-
