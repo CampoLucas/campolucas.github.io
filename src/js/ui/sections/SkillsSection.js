@@ -1,4 +1,4 @@
-import { buildEntryCard } from "../elements/EntryCard.js";
+import { createEl, initialsOf } from "../text.js";
 
 export class SkillsSection {
     constructor(app) {
@@ -16,7 +16,7 @@ export class SkillsSection {
         container.innerHTML = "";
 
         (data.columns ?? []).forEach(column => {
-            container.appendChild(this.buildCard(renderer.tPath(data.baseId, column.titleId), column.items ?? [], column));
+            container.appendChild(this.buildGroup(renderer.tPath(data.baseId, column.titleId), column.items ?? [], column));
         });
 
         (data.rows ?? []).forEach(row => {
@@ -25,20 +25,30 @@ export class SkillsSection {
                 .filter(Boolean)
                 .map(entry => (entry.desc && !row.titleOnly ? `${entry.title} - ${entry.desc}` : entry.title));
 
-            container.appendChild(this.buildCard(renderer.tPath(data.baseId, row.titleId), labels, row));
+            container.appendChild(this.buildGroup(renderer.tPath(data.baseId, row.titleId), labels, row));
         });
     }
 
-    buildCard(title, items, source) {
+    buildGroup(title, items, source) {
         const renderer = this.app.renderer;
         const baseId = this.app.skills.skills.baseId;
+        const group = createEl("li", "skill-group");
 
-        return buildEntryCard({
-            initials: source.initials ?? null,
-            role: title ?? "",
-            description: items.join(" · "),
-            tag: source.tagId ? renderer.tPath(baseId, source.tagId) : null,
-            multiline: true
-        });
+        const icon = createEl("span", "skill-group__icon", source.initials ?? initialsOf(title));
+        icon.setAttribute("aria-hidden", "true");
+
+        const body = createEl("div", "skill-group__body");
+        const head = createEl("div", "skill-group__head");
+        head.appendChild(createEl("h3", "skill-group__title", title ?? ""));
+
+        const special = source.tagId ? renderer.tPath(baseId, source.tagId) : null;
+        if (special) head.appendChild(createEl("span", "special-tag", special));
+
+        const tags = createEl("ul", "tags skill-group__tags");
+        items.filter(Boolean).forEach(item => tags.appendChild(createEl("li", "tag", item)));
+
+        body.append(head, tags);
+        group.append(icon, body);
+        return group;
     }
 }
