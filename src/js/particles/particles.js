@@ -1,30 +1,27 @@
 const tsParticlesUrl = "https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js";
 
 function initParticles() {
-    // Get CSS variables
     const rootStyles = getComputedStyle(document.documentElement);
-    const heroBg = rootStyles.getPropertyValue('--hero-page-bg').trim();
-    const particleColor = rootStyles.getPropertyValue('--particle-color').trim();
-    const particleLinksColor = rootStyles.getPropertyValue('--particle-links-color').trim();
-    const particleWidth = rootStyles.getPropertyValue('--particle-width').trim();
+    const dotColor = rootStyles.getPropertyValue("--accent").trim();
+    const linkColor = rootStyles.getPropertyValue("--accent-2").trim();
 
     tsParticles.load("particles-background", {
         fullScreen: { enable: false },
-        background: {
-            color: heroBg
-        },
+        fpsLimit: 60,
+        background: { color: "transparent" },
+        detectRetina: true,
         particles: {
             number: {
                 value: 80,
                 density: { enable: true, area: 800 }
             },
-            color: { value: particleColor },
+            color: { value: dotColor },
             links: {
                 enable: true,
                 distance: 150,
-                color: particleLinksColor,
+                color: linkColor,
                 opacity: 0.3,
-                width: particleWidth
+                width: 1
             },
             move: {
                 enable: true,
@@ -32,6 +29,7 @@ function initParticles() {
             }
         },
         interactivity: {
+            detectsOn: "window",
             events: {
                 onHover: { enable: true, mode: "grab" }
             },
@@ -43,6 +41,7 @@ function initParticles() {
 }
 
 function loadParticles() {
+    if (!document.getElementById("particles-background")) return;
     const script = document.createElement("script");
     script.src = tsParticlesUrl;
     script.async = true;

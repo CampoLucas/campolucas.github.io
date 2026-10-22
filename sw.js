@@ -1,4 +1,4 @@
-const VERSION = "v34";
+const VERSION = "v35";
 const SHELL_CACHE = `shell-${VERSION}`;
 const MEDIA_CACHE = `media-${VERSION}`;
 
@@ -23,6 +23,7 @@ const SHELL = [
     "./src/css/sections/projects.css",
     "./src/css/sections/footer.css",
     "./src/css/sections/popup.css",
+    "./src/css/effects/particles.css",
 
     "./src/js/core/App.js",
     "./src/js/core/JSONLoader.js",
@@ -42,6 +43,7 @@ const SHELL = [
     "./src/js/ui/elements/MediaCarousel.js",
     "./src/js/ui/elements/EntryCard.js",
     "./src/js/ui/elements/ProjectCarousel.js",
+    "./src/js/particles/particles.js",
 
     "./data/home.json",
     "./data/experience.json",

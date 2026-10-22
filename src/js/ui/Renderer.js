@@ -210,6 +210,9 @@ export class Renderer {
             heroImg.src = heroPic.src;
         }
         heroImg.alt = this.t(baseId, data.picture.altId) ?? "";
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            document.getElementById("hero-shapes")?.pauseAnimations();
+        }
 
         const links = document.getElementById("hero-links");
         links.setAttribute("aria-label", this.t(baseId, "linksLabel") ?? "Contact and profiles");
