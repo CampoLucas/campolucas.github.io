@@ -74,7 +74,7 @@
             {
                 "id": "linked-in",
                 "link": "https://www.linkedin.com/in/lucascampo3333/",
-                "classList": [ "icon", "social-link", "linkedin" ],
+                "classList": [ "icon-button", "linkedin" ],
                 "icon": "linkedin",
                 "hoverTextId": "linkedInHover",
                 "type": "link",
@@ -83,7 +83,7 @@
             {
                 "id": "github",
                 "link": "https://github.com/CampoLucas",
-                "classList": [ "icon", "social-link", "github" ],
+                "classList": [ "icon-button", "github" ],
                 "icon": "github",
                 "hoverTextId": "githubHover",
                 "type": "link",
@@ -92,7 +92,7 @@
             {
                 "id": "mail",
                 "link": "campolucas2001@gmail.com",
-                "classList": [ "icon", "social-link", "email"],
+                "classList": [ "icon-button", "email" ],
                 "icon": "email",
                 "hoverTextId": "emailHover",
                 "type": "email",
@@ -101,14 +101,14 @@
             {
                 "id": "itch",
                 "link": "https://luinbucket.itch.io/",
-                "classList": [ "icon", "social-link", "itch"],
+                "classList": [ "icon-button", "itch" ],
                 "icon": "itch",
                 "hoverTextId": "itchHover",
                 "type": "link",
                 "newTab": true
             }
         ],
-        "picture": { "img": "https://images.hobbydb.com/processed_uploads/subject_photo/subject_photo/image/138021/Adam-Sandler-getty-H-2023_png.new0f7be117-12a1-4121-bdc3-ffd988ca5b8d_large.png", "altId": "imgAlt" }
+        "picture": { "img": "./src/media/profile/hero-pic.jpeg", "altId": "imgAlt" }
     },
     "footer": {
         "baseId": "footer",

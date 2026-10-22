@@ -1,4 +1,4 @@
-const VERSION = "v40";
+const VERSION = "v41";
 const SHELL_CACHE = `shell-${VERSION}`;
 const MEDIA_CACHE = `media-${VERSION}`;
 
@@ -21,6 +21,7 @@ const SHELL = [
     "./src/css/sections/hero.css",
     "./src/css/sections/featured.css",
     "./src/css/sections/projects.css",
+    "./src/css/sections/about.css",
     "./src/css/sections/footer.css",
     "./src/css/sections/popup.css",
     "./src/css/effects/particles.css",

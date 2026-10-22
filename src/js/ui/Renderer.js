@@ -226,9 +226,22 @@ export class Renderer {
 
         document.getElementById("about-title").textContent = this.t(baseId, data.titleId);
 
-        const container = document.getElementById("about-cnt");
-        container.innerHTML = "";
-        new ExperienceSection(this.app).renderRows(container, baseId, data.items ?? []);
+        const picture = normalizeMedia(data.picture?.img);
+        const img = document.getElementById("about-pic");
+        if (picture) {
+            img.src = picture.src;
+            img.alt = this.t(baseId, data.picture.altId) ?? "";
+        }
+        else {
+            img.closest(".about__avatar").remove();
+        }
+
+        const paragraphs = this.t(baseId, data.descriptionId ?? "description");
+        this.renderParagraphs(document.getElementById("about-desc"), Array.isArray(paragraphs) ? paragraphs : paragraphs ? [paragraphs] : null);
+
+        const links = document.getElementById("about-links");
+        links.setAttribute("aria-label", this.t("hero", "linksLabel") ?? "Contact and profiles");
+        this.renderContactButtons(links, data.buttons, baseId);
     }
 
     renderFooter() {
