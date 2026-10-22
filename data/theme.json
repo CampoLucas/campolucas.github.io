@@ -1,17 +1,17 @@
 {
     "colors": {
-        "pageBg": "#1A1D27",
-        "heroBg": "#0F1117",
-        "text": "#E8E8ED",
-        "accent1": "#7C5CFF",
-        "accent2": "#3DDC97"
+        "pageBg": "#202020",
+        "heroBg": "#0d0d0d",
+        "text": "#f7f5f5",
+        "accent1": "#ff0f83",
+        "accent2": "#ff8800"
     },
     "roles": {
         "sectionTitle": "accent2",
         "heroRoles": "accent2",
         "primaryButton": "accent2",
-        "tag": "accent2",
-        "specialTag": "accent1",
+        "tag": "accent1",
+        "specialTag": "accent2",
         "scrollbar": "accent2",
         "link": "accent2",
         "hoverBorder": "accent1",
@@ -27,6 +27,56 @@
                 "text": "#E8E8ED",
                 "accent1": "#7C5CFF",
                 "accent2": "#3DDC97"
+            }
+        },
+        {
+            "name": "France",
+            "colors": {
+                "pageBg": "#1a1d27",
+                "heroBg": "#0F1117",
+                "text": "#E8E8ED",
+                "accent1": "#ef233c",
+                "accent2": "#b3001e"
+            }
+        },
+        {
+            "name": "Lemon soda pop",
+            "colors": {
+                "pageBg": "#202020",
+                "heroBg": "#0d0d0d",
+                "text": "#f7f5f5",
+                "accent1": "#ffde22",
+                "accent2": "#e0003c"
+            }
+        },
+        {
+            "name": "EVA 1",
+            "colors": {
+                "pageBg": "#202020",
+                "heroBg": "#0d0d0d",
+                "text": "#f7f5f5",
+                "accent1": "#ffde22",
+                "accent2": "#b2ceed"
+            }
+        },
+        {
+            "name": "EVA 2",
+            "colors": {
+                "pageBg": "#202020",
+                "heroBg": "#0d0d0d",
+                "text": "#f7f5f5",
+                "accent1": "#ffcc11",
+                "accent2": "#b2ceed"
+            }
+        },
+        {
+            "name": "EVA 3",
+            "colors": {
+                "pageBg": "#202020",
+                "heroBg": "#0d0d0d",
+                "text": "#f7f5f5",
+                "accent1": "#ffcc11",
+                "accent2": "#69a4e8"
             }
         }
     ],
