@@ -10,24 +10,11 @@ h1, h2, h3, h4, p {
     letter-spacing: 0.06em;
     text-transform: uppercase;
     border-radius: 5px;
-}
-
-.section-title::before {
-    content: "";
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 0 12px 3px 0;
-    border-radius: 2px;
-    background: var(--accent-2);
+    color: var(--role-section-title);
 }
 
 .section-title:has(.skeleton) {
     width: 70%;
-}
-
-.section-title:has(.skeleton)::before {
-    display: none;
 }
 
 .section-subtitle {

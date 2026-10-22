@@ -48,6 +48,9 @@
     grid-auto-flow: column;
     grid-auto-columns: calc((100% - (var(--per-view) - 1) * var(--card-gap)) / var(--per-view));
     gap: var(--card-gap);
+    margin: -10px;
+    padding: 10px;
+    scroll-padding-inline: 10px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
@@ -139,17 +142,19 @@
 }
 
 .project-card {
+    position: relative;
     display: flex;
     flex-direction: column;
+    height: 100%;
     overflow: hidden;
-    background: linear-gradient(-60deg, color-mix(in srgb, var(--accent-2) 24%, var(--column-bg)) 5%, color-mix(in srgb, var(--accent) 40%, var(--column-bg)) 95%);
-    border: 1px solid color-mix(in srgb, var(--accent) 45%, var(--hero-page-bg));
-    transition: border-color 0.2s;
+    background: linear-gradient(-60deg, color-mix(in srgb, var(--text) 7%, var(--hero-page-bg)) 5%, color-mix(in srgb, var(--text) 20%, var(--hero-page-bg)) 95%);
+    transition: transform 0.2s;
 }
 
 .project-card:hover,
 .project-card:focus-visible {
-    border-color: color-mix(in srgb, var(--accent) 75%, var(--hero-page-bg));
+    z-index: 2;
+    transform: scale(1.05);
 }
 
 .project-card:focus-visible {

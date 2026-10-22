@@ -6,6 +6,9 @@
         "accent1": "#7C5CFF",
         "accent2": "#3DDC97"
     },
+    "roles": {
+        "sectionTitle": "accent2"
+    },
     "fonts": {
         "hero": "Space Grotesk",
         "sectionTitle": "Space Grotesk",
