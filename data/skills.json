@@ -6,24 +6,29 @@
         "columns": [
             {
                 "titleId": "sections.programming",
+                "initials": "</>",
                 "items": [ "C#", "C++", "JavaScript", "Python", "HTML", "CSS" ]
             },
             {
                 "titleId": "sections.tools",
+                "initials": "TL",
                 "items": [ "Unity", "Unreal Engine 5", "Oculus / XR", "Photon Fusion", "Photon Quantum", "Netcode", "Rider", "Git", "Django" ]
             },
             {
                 "titleId": "sections.practices",
+                "initials": "SK",
                 "items": [ "OOP", "ECS", "Agile", "QA", "UI/UX", "Code Documentation", "Design Patterns" ]
             }
         ],
         "rows": [
             {
                 "titleId": "languages.title",
+                "initials": "LA",
                 "itemsId": [ "languages.en", "languages.es", "languages.jp" ]
             },
             {
                 "titleId": "concepts.title",
+                "initials": "PC",
                 "itemsId": [ "concepts.designPatterns", "concepts.mvcArchitecture", "concepts.aiAlgorithms", "concepts.multiplayerArchitecture" ],
                 "titleOnly": true
             }

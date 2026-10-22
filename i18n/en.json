@@ -5,7 +5,13 @@
             { "text": "Lucas Campo", "style": "accent" }
         ],
         "roles": [ "Game Developer", "Web Developer" ],
+        "description": "Game developer with two years of professional work in games. I build gameplay systems and the tools designers use to tune them. My latest game, Rush Rift, was selected for EVA Play Online 2026.",
         "imgAlt": "Profile picture",
+        "linksLabel": "Contact and profiles",
+        "githubHover": "GitHub",
+        "linkedInHover": "LinkedIn",
+        "itchHover": "itch.io",
+        "emailHover": "Email",
         "contactBtn": "Contact",
         "contactBtnHover": "Go to contacts",
         "featuredBtn": "Featured project",
@@ -28,10 +34,40 @@
         "role": "Role"
     },
     "featured": {
-        "title": "Featured"
+        "title": "Featured",
+        "screenshot": "Screenshot",
+        "chooseScreenshot": "Choose screenshot",
+        "buttons": {
+            "itch": "Play",
+            "github": "Source",
+            "website": "Website",
+            "steam": "Steam"
+        }
+    },
+    "footer": {
+        "title": "Let's make something",
+        "copy": "© {year} Lucas Campo"
     },
     "about": {
-        "title": "About Me",
+        "title": "About",
+        "studies": {
+            "role": "Studies",
+            "company": "UADE · Taller de Juegos Experimentales",
+            "summary": "Experimental games workshop with team projects.",
+            "tag": "UADE"
+        },
+        "festivals": {
+            "role": "Festivals",
+            "company": "EVA Play Online 2026 · Rush Rift",
+            "summary": "Rush Rift was selected for the online showcase.",
+            "tag": "Selected"
+        },
+        "lookingFor": {
+            "role": "Looking for",
+            "company": "Game developer roles",
+            "summary": "Gameplay and tools programming.",
+            "tag": "Open to work"
+        },
         "description": [
             "Hey! I'm a gameplay programmer with over two years of experience. I focus on building solid and flexible architecture, with a strong interest in AI behaviors, gameplay systems, and complex mechanics.",
             "I've always been drawn to games that reward curiosity and skill, and I try to bring that same mindset into my work. For me, programming isn't just about making things work, it's about helping the player feel something through how the game responds."
@@ -270,6 +306,16 @@
             "game": "Games",
             "webpage": "Websites",
             "tool": "Tools"
+        },
+        "actions": {
+            "game": "View project",
+            "site": "View project",
+            "tool": "View tool",
+            "visit": "Visit site"
+        },
+        "carousel": {
+            "prev": "Previous",
+            "next": "Next"
         }
     },
     "skills": {

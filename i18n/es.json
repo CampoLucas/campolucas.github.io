@@ -5,7 +5,13 @@
             { "text": "Lucas Campo", "style": "accent" }
         ],
         "roles": [ "Game Developer", "Web Developer" ],
+        "description": "Game developer con dos años de experiencia profesional en videojuegos. Construyo gameplay systems y las herramientas que usan los diseñadores para ajustarlos. Mi último juego, Rush Rift, fue seleccionado para EVA Play Online 2026.",
         "imgAlt": "Foto de perfil",
+        "linksLabel": "Contacto y perfiles",
+        "githubHover": "GitHub",
+        "linkedInHover": "LinkedIn",
+        "itchHover": "itch.io",
+        "emailHover": "Email",
         "contactBtn": "Contacto",
         "contactBtnHover": "Ir a contactos",
         "featuredBtn": "Proyecto destacado",
@@ -28,10 +34,40 @@
         "role": "Rol"
     },
     "featured": {
-        "title": "Destacado"
+        "title": "Destacado",
+        "screenshot": "Captura",
+        "chooseScreenshot": "Elegir captura",
+        "buttons": {
+            "itch": "Jugar",
+            "github": "Código",
+            "website": "Sitio web",
+            "steam": "Steam"
+        }
+    },
+    "footer": {
+        "title": "Hagamos algo juntos",
+        "copy": "© {year} Lucas Campo"
     },
     "about": {
         "title": "Sobre mí",
+        "studies": {
+            "role": "Estudios",
+            "company": "UADE · Taller de Juegos Experimentales",
+            "summary": "Taller de juegos experimentales con proyectos en equipo.",
+            "tag": "UADE"
+        },
+        "festivals": {
+            "role": "Festivales",
+            "company": "EVA Play Online 2026 · Rush Rift",
+            "summary": "Rush Rift fue seleccionado para la muestra online.",
+            "tag": "Seleccionado"
+        },
+        "lookingFor": {
+            "role": "Busco",
+            "company": "Puestos de game developer",
+            "summary": "Programación de gameplay y herramientas.",
+            "tag": "Disponible"
+        },
         "description": [
             "¡Hola! Soy un gameplay programmer con más de dos años de experiencia. Me enfoco en construir una arquitectura sólida y flexible, con un fuerte interés en AI behaviors, gameplay systems y complex mechanics.",
             "Siempre me atrajeron los juegos que recompensan la curiosidad y la habilidad, e intento llevar esa misma mentalidad a mi trabajo. Para mí, programar no es solo hacer que las cosas funcionen, sino ayudar a que el jugador sienta algo a través de cómo responde el juego."
@@ -271,6 +307,16 @@
             "game": "Juegos",
             "webpage": "Páginas web",
             "tool": "Tools"
+        },
+        "actions": {
+            "game": "Ver proyecto",
+            "site": "Ver proyecto",
+            "tool": "Ver herramienta",
+            "visit": "Visitar sitio"
+        },
+        "carousel": {
+            "prev": "Anterior",
+            "next": "Siguiente"
         }
     },
     "skills": {

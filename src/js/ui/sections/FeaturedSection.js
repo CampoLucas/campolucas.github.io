@@ -1,9 +1,12 @@
-import { createMedia, loadMedia, normalizeMedia, pauseMedia, playMedia } from "../elements/Media.js";
+import { createMedia, loadMedia, normalizeMedia } from "../elements/Media.js";
+import { createEl } from "../text.js";
+import { projectSummary } from "./ProjectsSection.js";
 
 const sectionId = "featured";
-const canHover = window.matchMedia("(hover: hover)").matches;
-const defaultOrder = ["images", "description"];
-const defaultImageCount = 2;
+const defaultImageCount = 5;
+const advanceDelay = 5000;
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const playIcon = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg>';
 
 export function findFeaturedProject(projects) {
     for (const category of projects?.categories ?? []) {
@@ -20,9 +23,12 @@ function isShown(display, key) {
 export class FeaturedSection {
     constructor(app) {
         this.app = app;
-        this.video = null;
-        this.cover = null;
-        this.preview = null;
+        this.index = 0;
+        this.slides = [];
+        this.dots = [];
+        this.timer = null;
+        this.visible = false;
+        this.paused = false;
     }
 
     render() {
@@ -41,173 +47,176 @@ export class FeaturedSection {
 
         const container = document.getElementById("featured-cnt");
         container.innerHTML = "";
-        container.appendChild(this.buildCard(project, text));
+
+        const layout = createEl("div", "featured__layout");
+        layout.append(this.buildGallery(project, text), this.buildPanel(project, text));
+        container.appendChild(layout);
+
+        if (this.slides.length > 1) container.appendChild(this.buildIndicator());
+        this.go(0);
+        this.observe();
     }
 
-    buildCard(project, text) {
-        const card = this.createEl("article", "featured-steam");
-        const main = this.createEl("div", "featured-main");
-        main.appendChild(this.buildCover(project, text));
-        main.appendChild(this.buildInfo(project, text));
-        card.appendChild(main);
-
-        if (isShown(project.display, "showLinks")) {
-            const links = this.createEl("div", "featured-links social");
-            this.app.renderer.renderContactButtons(links, project.buttons, text);
-            if (links.childElementCount) card.appendChild(links);
-        }
-
-        this.bindPreview(card);
-        return card;
-    }
-
-    buildCover(project, text) {
+    imagesOf(project) {
         const display = project.display;
-        const media = project.media ?? {};
-        const alt = text[project.imgAltId] ?? text[project.titleId] ?? "";
+        const count = Number.isInteger(display?.imageCount) ? display.imageCount : defaultImageCount;
+        const shots = isShown(display, "showImages")
+            ? (project.media?.carouselImages ?? []).map(entry => normalizeMedia(entry)).filter(entry => entry && !entry.isVideo).slice(0, count)
+            : [];
+        if (shots.length) return shots;
 
-        const cover = this.createEl("div", "featured-cover");
-        this.cover = cover;
-
-        const image = normalizeMedia(display?.media?.img ?? media.capsuleImg);
-        if (image) {
-            const element = this.createEl("img", "featured-cover-img");
-            element.src = image.src;
-            element.alt = alt;
-            element.decoding = "async";
-            if (image.width) element.width = image.width;
-            if (image.height) element.height = image.height;
-            cover.appendChild(element);
-        }
-
-        const video = canHover ? createMedia(display?.media?.video ?? media.capsuleVideo, { lazy: true, className: "featured-cover-video" }) : null;
-        if (video) {
-            cover.appendChild(video);
-            this.video = video;
-        }
-
-        this.preview = this.createEl("img", "featured-cover-preview");
-        this.preview.alt = "";
-        this.preview.decoding = "async";
-        cover.appendChild(this.preview);
-
-        return cover;
+        const cover = normalizeMedia(display?.media?.img ?? project.media?.capsuleImg);
+        return cover ? [cover] : [];
     }
 
-    bindPreview(card) {
-        const video = this.video;
-        if (!video) return;
+    buildGallery(project, text) {
+        const title = text[project.titleId] ?? "";
+        const alt = text[project.imgAltId] ?? title;
 
-        const start = () => {
-            loadMedia(video);
-            playMedia(video);
-        };
-        const stop = () => pauseMedia(video);
-        card.addEventListener("pointerenter", start);
-        card.addEventListener("focusin", start);
-        card.addEventListener("pointerleave", stop);
-        card.addEventListener("focusout", stop);
-    }
+        const gallery = createEl("div", "gallery");
+        gallery.setAttribute("aria-roledescription", "carousel");
+        gallery.setAttribute("aria-label", title);
 
-    buildInfo(project, text) {
-        const display = project.display;
-        const info = this.createEl("div", "featured-info");
-
-        const head = this.createEl("div", "featured-head");
-        const title = this.createEl("h3", "featured-name");
-        const link = this.createEl("a", "featured-link", text[project.titleId]);
+        const link = createEl("a", "gallery__link");
         link.href = `#${project.baseId}`;
-        title.appendChild(link);
-        head.appendChild(title);
+        link.setAttribute("aria-label", title);
+
+        this.track = createEl("div", "gallery__track");
+        const images = this.imagesOf(project);
+        images.forEach((entry, i) => {
+            const slide = createEl("div", "media gallery__slide");
+            slide.setAttribute("aria-roledescription", "slide");
+            slide.setAttribute("aria-label", `${i + 1} / ${images.length}`);
+            const image = createMedia(entry, { lazy: true, alt, className: "media__img" });
+            if (image) slide.appendChild(image);
+            this.track.appendChild(slide);
+            this.slides.push(slide);
+        });
+
+        link.appendChild(this.track);
+        gallery.appendChild(link);
+
+        gallery.addEventListener("pointerenter", () => this.setPaused(true));
+        gallery.addEventListener("pointerleave", () => this.setPaused(false));
+        gallery.addEventListener("focusin", () => this.setPaused(true));
+        gallery.addEventListener("focusout", () => this.setPaused(false));
+
+        this.gallery = gallery;
+        return gallery;
+    }
+
+    buildPanel(project, text) {
+        const display = project.display;
+        const panel = createEl("div", "featured__panel");
+
+        const head = createEl("div", "featured__head");
+        const name = createEl("h3", "featured__name");
+        const link = createEl("a", null, text[project.titleId]);
+        link.href = `#${project.baseId}`;
+        name.appendChild(link);
+        head.appendChild(name);
 
         const badge = isShown(display, "showBadge") ? text[display?.badgeId ?? "badge"] : null;
-        if (badge) head.appendChild(this.createEl("span", "featured-badge", badge));
-        info.appendChild(head);
+        if (badge) head.appendChild(createEl("span", "special-tag", badge));
+        panel.appendChild(head);
 
-        const order = Array.isArray(display?.order) ? display.order : defaultOrder;
-        const builders = {
-            images: () => this.buildShots(project),
-            description: () => this.buildDescription(project, text)
-        };
-        order.forEach(key => {
-            const element = builders[key]?.();
-            if (element) info.appendChild(element);
-        });
-
-        if (isShown(display, "showTags") && project.tags?.length) {
-            const tags = this.createEl("div", "info-tags featured-tags");
-            project.tags.forEach(tag => tags.appendChild(this.createEl("div", "info-tag", tag)));
-            info.appendChild(tags);
+        if (isShown(display, "showDescription")) {
+            panel.appendChild(createEl("p", "featured__description", projectSummary(project, text)));
         }
 
-        return info;
+        if (isShown(display, "showTags") && project.tags?.length) {
+            const tags = createEl("ul", "tags featured__tags");
+            project.tags.forEach(tag => tags.appendChild(createEl("li", "tag", tag)));
+            panel.appendChild(tags);
+        }
+
+        if (isShown(display, "showLinks")) {
+            const actions = this.buildActions(project, text);
+            if (actions) panel.appendChild(actions);
+        }
+
+        return panel;
     }
 
-    buildDescription(project, text) {
-        if (!isShown(project.display, "showDescription")) return null;
+    buildActions(project, text) {
+        const buttons = (project.buttons ?? []).filter(button => button && !button.disabled && button.link);
+        if (!buttons.length) return null;
 
-        const description = this.descriptionOf(project, text);
-        return description ? this.createEl("p", "featured-desc", description) : null;
-    }
+        const renderer = this.app.renderer;
+        const actions = createEl("div", "featured__actions");
 
-    buildShots(project) {
-        const display = project.display;
-        if (!isShown(display, "showImages")) return null;
+        buttons.forEach((button, i) => {
+            const link = createEl("a", `button ${i === 0 ? "button--primary" : "button--ghost"}`);
+            link.href = button.type === "email" ? `mailto:${button.link}` : button.link;
+            if (button.newTab && button.type !== "email") {
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+            }
 
-        const count = Number.isInteger(display?.imageCount) ? display.imageCount : defaultImageCount;
-        const shots = (project.media?.carouselImages ?? [])
-            .map(entry => normalizeMedia(entry))
-            .filter(entry => entry && !entry.isVideo)
-            .slice(0, count);
-        if (!shots.length) return null;
-
-        const strip = this.createEl("div", "featured-shots");
-        shots.forEach(shot => {
-            const item = this.createEl("a", "featured-shot");
-            item.href = `#${project.baseId}`;
-            const image = this.createEl("img");
-            image.src = shot.thumb ?? shot.src;
-            image.alt = "";
-            image.loading = "lazy";
-            image.decoding = "async";
-            item.appendChild(image);
-
-            const show = () => this.showPreview(shot.src);
-            const hide = () => this.hidePreview();
-            item.addEventListener("pointerenter", show);
-            item.addEventListener("focus", show);
-            item.addEventListener("pointerleave", hide);
-            item.addEventListener("blur", hide);
-            strip.appendChild(item);
+            const label = renderer.tPath("featured", `buttons.${button.id}`) ?? text[button.hoverTextId] ?? button.id;
+            if (i === 0) link.innerHTML = playIcon;
+            link.append(label);
+            actions.appendChild(link);
         });
-        return strip;
+
+        return actions;
     }
 
-    showPreview(src) {
-        if (!this.preview || !this.cover) return;
+    buildIndicator() {
+        const label = this.app.renderer.t("featured", "screenshot") ?? "Screenshot";
+        const indicator = createEl("div", "indicator");
+        indicator.setAttribute("role", "tablist");
+        indicator.setAttribute("aria-label", this.app.renderer.t("featured", "chooseScreenshot") ?? label);
 
-        this.preview.src = src;
-        this.cover.classList.add("is-previewing");
+        this.slides.forEach((slide, i) => {
+            const dot = createEl("button", "indicator__dot");
+            dot.type = "button";
+            dot.setAttribute("role", "tab");
+            dot.setAttribute("aria-label", `${label} ${i + 1}`);
+            dot.addEventListener("click", () => {
+                this.go(i);
+                this.restart();
+            });
+            indicator.appendChild(dot);
+            this.dots.push(dot);
+        });
+
+        return indicator;
     }
 
-    hidePreview() {
-        this.cover?.classList.remove("is-previewing");
+    go(i) {
+        if (!this.slides.length) return;
+
+        this.index = (i + this.slides.length) % this.slides.length;
+        this.track.style.transform = `translateX(-${this.index * 100}%)`;
+        this.dots.forEach((dot, n) => {
+            const current = n === this.index;
+            dot.setAttribute("aria-selected", String(current));
+            dot.setAttribute("aria-current", String(current));
+            dot.tabIndex = current ? 0 : -1;
+        });
     }
 
-    descriptionOf(project, text) {
-        const custom = project.display?.descriptionId ? text[project.display.descriptionId] : null;
-        if (custom) return custom;
+    observe() {
+        if (!this.gallery) return;
 
-        const blocks = text[project.blocksId];
-        const first = Array.isArray(blocks) ? blocks.find(block => block?.type === "desc") : null;
-        const paragraph = Array.isArray(first?.text) ? first.text[0] : first?.text;
-        return paragraph ? new DOMParser().parseFromString(paragraph, "text/html").body.textContent.trim() : "";
+        const observer = new IntersectionObserver(entries => {
+            this.visible = entries[entries.length - 1].isIntersecting;
+            if (this.visible) this.slides.forEach(slide => loadMedia(slide.querySelector("[data-src]")));
+            this.restart();
+        }, { rootMargin: "200px 0px" });
+        observer.observe(this.gallery);
     }
 
-    createEl(tag, className = null, text = null) {
-        const element = document.createElement(tag);
-        if (className) element.className = className;
-        if (text) element.textContent = text;
-        return element;
+    setPaused(paused) {
+        this.paused = paused;
+        this.restart();
+    }
+
+    restart() {
+        clearInterval(this.timer);
+        this.timer = null;
+        if (this.slides.length < 2 || !this.visible || this.paused || reducedMotion.matches) return;
+        this.timer = setInterval(() => this.go(this.index + 1), advanceDelay);
     }
 }

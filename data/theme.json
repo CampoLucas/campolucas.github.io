@@ -1,16 +1,16 @@
 {
     "colors": {
-        "pageBg": "#160922",
-        "heroBg": "#04020b",
-        "text": "#f0f8ff",
-        "accent1": "#ff4141",
-        "accent2": "#ff8801"
+        "pageBg": "#1A1D27",
+        "heroBg": "#0F1117",
+        "text": "#E8E8ED",
+        "accent1": "#7C5CFF",
+        "accent2": "#3DDC97"
     },
     "fonts": {
-        "hero": "Motiva Sans",
-        "sectionTitle": "Motiva Sans",
-        "rowTitle": "Motiva Sans",
-        "body": "Motiva Sans",
-        "label": "Motiva Sans"
+        "hero": "Space Grotesk",
+        "sectionTitle": "Space Grotesk",
+        "rowTitle": "Space Grotesk",
+        "body": "Inter",
+        "label": "Inter"
     }
 }

@@ -1,3 +1,5 @@
+import { buildEntryCard } from "../elements/EntryCard.js";
+
 export class SkillsSection {
     constructor(app) {
         this.app = app;
@@ -9,23 +11,13 @@ export class SkillsSection {
         if (!data) return;
 
         document.getElementById("skills-title").textContent = renderer.t(data.baseId, data.titleId) ?? "";
-        document.getElementById("skills-subtitle").textContent = renderer.t(data.baseId, data.subtitleId) ?? "";
 
         const container = document.getElementById("skills-cnt");
         container.innerHTML = "";
 
-        const list = document.createElement("ul");
-        list.className = "skills-columns";
-
-        data.columns.forEach(column => {
-            const item = document.createElement("li");
-            item.className = "skills-column";
-            item.appendChild(this.buildHeading("h3", renderer.tPath(data.baseId, column.titleId)));
-            item.appendChild(this.buildTags(column.items));
-            list.appendChild(item);
+        (data.columns ?? []).forEach(column => {
+            container.appendChild(this.buildCard(renderer.tPath(data.baseId, column.titleId), column.items ?? [], column));
         });
-
-        container.appendChild(list);
 
         (data.rows ?? []).forEach(row => {
             const labels = (row.itemsId ?? [])
@@ -33,31 +25,20 @@ export class SkillsSection {
                 .filter(Boolean)
                 .map(entry => (entry.desc && !row.titleOnly ? `${entry.title} - ${entry.desc}` : entry.title));
 
-            const element = document.createElement("div");
-            element.className = "skills-row";
-            element.appendChild(this.buildHeading("h3", renderer.tPath(data.baseId, row.titleId)));
-            element.appendChild(this.buildTags(labels));
-            container.appendChild(element);
+            container.appendChild(this.buildCard(renderer.tPath(data.baseId, row.titleId), labels, row));
         });
     }
 
-    buildHeading(tag, content) {
-        const heading = document.createElement(tag);
-        heading.textContent = content ?? "";
-        return heading;
-    }
+    buildCard(title, items, source) {
+        const renderer = this.app.renderer;
+        const baseId = this.app.skills.skills.baseId;
 
-    buildTags(items) {
-        const tags = document.createElement("div");
-        tags.className = "info-tags skill-tags";
-
-        items.forEach(item => {
-            const tag = document.createElement("div");
-            tag.className = "info-tag";
-            tag.textContent = item;
-            tags.appendChild(tag);
+        return buildEntryCard({
+            initials: source.initials ?? null,
+            role: title ?? "",
+            description: items.join(" · "),
+            tag: source.tagId ? renderer.tPath(baseId, source.tagId) : null,
+            multiline: true
         });
-
-        return tags;
     }
 }

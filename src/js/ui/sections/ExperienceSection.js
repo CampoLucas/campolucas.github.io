@@ -1,16 +1,6 @@
 import { experienceModel } from "../popup/PopupModels.js";
-
-const templateId = "experience-row";
-
-function summaryOf(blocks) {
-    const first = Array.isArray(blocks) ? blocks.find(block => block?.type === "desc") : null;
-    if (!first) return "";
-
-    const text = Array.isArray(first.text) ? first.text[0] : first.text;
-    if (!text) return "";
-
-    return new DOMParser().parseFromString(text, "text/html").body.textContent.trim();
-}
+import { buildEntryCard } from "../elements/EntryCard.js";
+import { summaryOf } from "../text.js";
 
 export class ExperienceSection {
     constructor(app) {
@@ -28,10 +18,9 @@ export class ExperienceSection {
 
     renderRows(container, group, entries) {
         const renderer = this.app.renderer;
-        const template = document.getElementById(templateId);
         const presentLabel = renderer.t("experience", "present") ?? "";
 
-        entries.forEach(entry => {
+        (entries ?? []).forEach(entry => {
             const text = renderer.t(group, entry.baseId);
             if (!text) {
                 console.log(`WARNING: [ExperienceSection] No text for "${group}.${entry.baseId}".`);
@@ -39,33 +28,24 @@ export class ExperienceSection {
             }
 
             const id = `${group}-${entry.baseId}`;
-            this.app.popups.set(id.toLowerCase(), () => experienceModel(entry, text));
-
-            const row = template.content.firstElementChild.cloneNode(true);
-            row.href = `#${id}`;
-
-            const logo = row.querySelector(".exp-logo");
-            if (entry.logo) {
-                logo.src = entry.logo.src;
-                logo.alt = text[entry.logo.altId] ?? entry.logo.altDefault ?? "";
-            }
-            else {
-                logo.remove();
-            }
+            const blocks = text[entry.blocksId];
+            const opensPopup = (Array.isArray(blocks) && blocks.length > 0) || (entry.images?.length ?? 0) > 0;
+            if (opensPopup) this.app.popups.set(id.toLowerCase(), () => experienceModel(entry, text));
 
             const company = text[entry.companyId];
             const product = entry.productId ? text[entry.productId] : null;
+            const role = text[entry.roleId] ?? "";
 
-            row.querySelector(".exp-role").textContent = text[entry.roleId] ?? "";
-            row.querySelector(".exp-company").textContent = product ? `${company} - ${product}` : company ?? "";
-            row.querySelector(".exp-period").textContent = text[entry.periodId] ?? "";
-            row.querySelector(".exp-summary").textContent = text[entry.summaryId ?? "summary"] ?? summaryOf(text[entry.blocksId]);
-
-            const present = row.querySelector(".exp-present");
-            present.textContent = presentLabel;
-            present.hidden = !entry.current;
-
-            container.appendChild(row);
+            container.appendChild(buildEntryCard({
+                href: opensPopup ? `#${id}` : null,
+                logo: entry.logo ? { src: entry.logo.src, alt: text[entry.logo.altId] ?? entry.logo.altDefault ?? "" } : null,
+                initials: entry.initials ?? null,
+                role,
+                company: product ? `${company} · ${product}` : company ?? "",
+                range: text[entry.periodId] ?? "",
+                description: text[entry.summaryId ?? "summary"] ?? summaryOf(blocks),
+                tag: entry.current ? presentLabel : text[entry.tagId ?? "tag"] ?? null
+            }));
         });
     }
 }

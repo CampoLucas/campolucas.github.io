@@ -1,17 +1,9 @@
 :root {
-    --page-bg: #160922;
-    --hero-page-bg: #04020b;
-    --particle-color: rgb(231, 186, 230);
-    --particle-links-color: rgb(234, 75, 223);
-    --particle-width: 3;
-
-    --text-scale: clamp(0.8rem, 1.5svw, 2rem);
-    --text: #f0f8ff;
-    --accent-color1: #ff4141;
-    --accent-color2: #ff8801;
-
-    --title-color1: var(--accent-color2);
-    --title-color2: var(--accent-color1);
+    --page-bg: #1A1D27;
+    --hero-page-bg: #0F1117;
+    --text: #E8E8ED;
+    --accent-color1: #7C5CFF;
+    --accent-color2: #3DDC97;
 
     --surface: color-mix(in srgb, var(--text) 5%, transparent);
     --surface-raised: color-mix(in srgb, var(--text) 10%, transparent);
@@ -30,15 +22,31 @@
     --band-custom-a: color-mix(in srgb, var(--page-bg) 94%, var(--accent-color2));
     --band-custom-b: color-mix(in srgb, var(--page-bg) 94%, var(--accent-color1));
 
-    --font-hero: "Motiva Sans", sans-serif;
-    --font-section-title: "Motiva Sans", sans-serif;
-    --font-row-title: "Motiva Sans", sans-serif;
-    --font-body: "Motiva Sans", sans-serif;
-    --font-label: "Motiva Sans", sans-serif;
+    --font-hero: "Space Grotesk", sans-serif;
+    --font-section-title: "Space Grotesk", sans-serif;
+    --font-row-title: "Space Grotesk", sans-serif;
+    --font-body: "Inter", sans-serif;
+    --font-label: "Inter", sans-serif;
 }
+
 :root {
+    --bg: var(--hero-page-bg);
+    --column-bg: var(--page-bg);
+    --accent: var(--accent-color1);
+    --accent-2: var(--accent-color2);
+    --text-soft: color-mix(in srgb, var(--text) 64%, transparent);
+    --text-faint: color-mix(in srgb, var(--text) 42%, transparent);
+    --line: color-mix(in srgb, var(--text) 8%, transparent);
+    --card: color-mix(in srgb, var(--text) 3.5%, transparent);
+    --accent-tint: color-mix(in srgb, var(--accent) 20%, transparent);
+    --accent-edge: color-mix(in srgb, var(--accent) 55%, transparent);
+    --accent-hover: color-mix(in srgb, var(--accent) 45%, transparent);
+    --accent-2-tint: color-mix(in srgb, var(--accent-2) 8%, transparent);
+    --accent-2-edge: color-mix(in srgb, var(--accent-2) 30%, transparent);
+    --media-placeholder: linear-gradient(135deg, color-mix(in srgb, var(--accent) 32%, transparent), color-mix(in srgb, var(--accent-2) 14%, transparent)), var(--bg);
+    --skeleton-grad: linear-gradient(170deg, #383E50 0%, var(--page-bg) 115%);
     --skeleton-base: rgba(255, 255, 255, 0.06);
     --skeleton-highlight: rgba(255, 255, 255, 0.14);
-    --skeleton-radius: 6px;
     --skeleton-speed: 1.4s;
+    --column: 880px;
 }

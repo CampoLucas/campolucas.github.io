@@ -1,6 +1,6 @@
 import { MediaCarousel } from "./elements/MediaCarousel.js";
 import { normalizeMedia } from "./elements/Media.js";
-import { CapsuleCarousel } from "./elements/CapsuleCarousel/CapsuleCarousel.js";
+import { ProjectCarousel } from "./elements/ProjectCarousel.js";
 import { ExperienceSection } from "./sections/ExperienceSection.js";
 import { FeaturedSection } from "./sections/FeaturedSection.js";
 import { ProjectsSection } from "./sections/ProjectsSection.js";
@@ -21,6 +21,7 @@ export class Renderer {
         this.safely("ProjectsSection", () => new ProjectsSection(this.app).render());
         this.safely("SkillsSection", () => new SkillsSection(this.app).render());
         this.safely("renderAbout", () => this.renderAbout());
+        this.safely("renderFooter", () => this.renderFooter());
         this.safely("renderCustomSections", () => this.renderCustomSections());
         this.safely("SideNav", () => new SideNav(this.app).init());
     }
@@ -54,18 +55,17 @@ export class Renderer {
             const anchor = tails.get(section.after) ?? this.findSectionAnchor(section.after);
             if (!anchor) return;
 
-            element.classList.add("band");
-            element.style.setProperty("--band-bg", count % 2 === 0 ? "var(--band-custom-a)" : "var(--band-custom-b)");
+            element.classList.add(count % 2 === 0 ? "fade" : "section--flat");
             count += 1;
 
-            anchor.after(element);
+            (anchor.closest(".section-group") ?? anchor).after(element);
             tails.set(section.after, element);
         });
     }
 
     findSectionAnchor(after) {
         if (after) {
-            const found = document.querySelector(`[data-section="${CSS.escape(after)}"]`);
+            const found = document.querySelector(`main [data-section="${CSS.escape(after)}"]`);
             if (found) return found;
         }
         const all = document.querySelectorAll("main [data-section]");
@@ -77,18 +77,21 @@ export class Renderer {
         if (!baseId) return null;
 
         const element = document.createElement("section");
-        element.classList.add("section-viewport");
+        element.classList.add("section", "section--custom");
         element.dataset.section = baseId;
+        element.id = baseId;
 
         const title = document.createElement("h2");
-        title.classList.add("title");
+        title.classList.add("section-title");
+        title.id = `${baseId}-title`;
         title.textContent = this.t(baseId, section.titleId) ?? "";
         element.appendChild(title);
+        element.setAttribute("aria-labelledby", title.id);
 
         const subtitleText = section.subtitleId ? this.t(baseId, section.subtitleId) : null;
         if (subtitleText) {
             const subtitle = document.createElement("p");
-            subtitle.classList.add("sub-title");
+            subtitle.classList.add("section-subtitle");
             subtitle.textContent = subtitleText;
             element.appendChild(subtitle);
         }
@@ -117,18 +120,14 @@ export class Renderer {
     renderTextSection(element, section) {
         const baseId = section.baseId;
 
-        const list = document.createElement("ul");
-        list.classList.add("about-me-container");
-        const item = document.createElement("li");
-        item.classList.add("about-me-text");
-        list.appendChild(item);
-        element.appendChild(list);
-        this.renderParagraphs(item, this.t(baseId, section.descriptionId), ["header-description"]);
+        const body = document.createElement("div");
+        body.classList.add("section-text");
+        element.appendChild(body);
+        this.renderParagraphs(body, this.t(baseId, section.descriptionId));
 
         if (section.buttons && section.buttons.length) {
             const buttons = document.createElement("div");
-            buttons.classList.add("social");
-            buttons.style.justifyContent = "center";
+            buttons.classList.add("section-links");
             element.appendChild(buttons);
             this.renderContactButtons(buttons, section.buttons, baseId);
         }
@@ -136,13 +135,14 @@ export class Renderer {
 
     renderTagsSection(element, section) {
         const container = document.createElement("div");
+        container.classList.add("section-text");
         element.appendChild(container);
         this.renderCustomText(container, this.t(section.baseId, section.blocksId));
     }
 
     renderCardsSection(element, section) {
-        const container = document.createElement("div");
-        container.classList.add("experiences-cnt");
+        const container = document.createElement("ul");
+        container.classList.add("entry-list");
         element.appendChild(container);
 
         const items = Array.isArray(section.items) ? section.items : [];
@@ -151,36 +151,46 @@ export class Renderer {
 
     renderCapsulesSection(element, section) {
         const baseId = section.baseId;
+        element.classList.add("section--carousels");
         const container = document.createElement("div");
         element.appendChild(container);
 
         const projectsText = this.t(baseId, "projects") ?? {};
         const categoriesText = this.t(baseId, "categories") ?? {};
+        const actions = this.t("projects", "actions") ?? {};
+        const labels = this.t("projects", "carousel") ?? {};
+        const variants = { GAME: "game", WEBPAGE: "site", TOOL: "tool" };
         const categories = Array.isArray(section.categories) ? section.categories : [];
 
         categories.forEach(category => {
-            const capsules = [];
+            const variant = variants[category.type] ?? "game";
+            const cards = [];
             (category.projects ?? []).forEach(project => {
                 const text = projectsText[project.baseId];
-                if (!text) return;
-                const imgAlt = text[project.imgAltId];
+                if (!text || !project.link) return;
                 const media = project.media ?? {};
-                capsules.push({
+                const name = text[project.titleId] ?? "";
+                const siteImage = media.featureGraphic ?? null;
+                cards.push({
                     id: project.baseId,
-                    title: text[project.titleId],
-                    img: media.capsuleImg ? { media: media.capsuleImg, alt: imgAlt ? imgAlt : null } : null,
-                    video: media.capsuleVideo ? { media: media.capsuleVideo, alt: imgAlt ? imgAlt : null } : null,
-                    tags: project.tags ? project.tags : null,
-                    link: project.link ? project.link : null
+                    variant,
+                    name,
+                    description: text.shortDesc ?? text.description ?? "",
+                    tags: project.tags ?? [],
+                    special: text.badge ?? null,
+                    image: variant === "site" ? siteImage ?? media.capsuleImg ?? null : media.capsuleImg ?? null,
+                    imageIsIcon: variant === "site" && !siteImage,
+                    icon: media.icon ?? (variant === "site" ? media.capsuleImg ?? null : null),
+                    alt: text[project.imgAltId] ?? name,
+                    href: project.link,
+                    external: true,
+                    action: actions.visit ?? "Visit site"
                 });
             });
 
-            const catData = {
-                type: category.type,
-                title: category.titleId ? categoriesText[category.titleId] ?? null : null,
-                capsules: capsules
-            };
-            this.customCarousels.push(new CapsuleCarousel(catData, container));
+            if (!cards.length) return;
+            const title = category.titleId ? categoriesText[category.titleId] ?? null : null;
+            this.customCarousels.push(new ProjectCarousel(container, { title, cards, labels }));
         });
     }
 
@@ -189,7 +199,10 @@ export class Renderer {
         const baseId = data.baseId;
 
         this.renderStylizedText(document.getElementById("hero-title"), this.t(baseId, data.titleId));
-        this.renderStylizedRoles(document.getElementById("hero-roles"), this.t(baseId, data.rolesId), "hero-role", "ceparator");
+
+        const roles = this.t(baseId, data.rolesId);
+        document.getElementById("hero-roles").textContent = Array.isArray(roles) ? roles.join(" · ") : roles ?? "";
+        document.getElementById("hero-description").textContent = this.t(baseId, data.descriptionId ?? "description") ?? "";
 
         const heroImg = document.getElementById("hero-pic");
         const heroPic = normalizeMedia(data.picture.img);
@@ -198,7 +211,9 @@ export class Renderer {
         }
         heroImg.alt = this.t(baseId, data.picture.altId) ?? "";
 
-        this.renderContactButtons(document.getElementById("hero-btn-cnt"), data.buttons, baseId);
+        const links = document.getElementById("hero-links");
+        links.setAttribute("aria-label", this.t(baseId, "linksLabel") ?? "Contact and profiles");
+        this.renderContactButtons(links, data.buttons, baseId);
     }
 
     renderAbout() {
@@ -206,16 +221,32 @@ export class Renderer {
         const baseId = data.baseId;
 
         document.getElementById("about-title").textContent = this.t(baseId, data.titleId);
-        this.renderParagraphs(document.getElementById("about-desc"), this.t(baseId, data.descriptionId), ["header-description"]);
 
-        const aboutImg = document.getElementById("about-pic");
-        if (aboutImg) {
-            aboutImg.src = data.picture.img;
-            aboutImg.alt = this.t(baseId, data.picture.altId) ?? "";
+        const container = document.getElementById("about-cnt");
+        container.innerHTML = "";
+        new ExperienceSection(this.app).renderRows(container, baseId, data.items ?? []);
+    }
+
+    renderFooter() {
+        const data = this.app.home.footer;
+        if (!data) return;
+
+        const baseId = data.baseId;
+        const email = data.contact?.email ?? this.app.home.about?.contact?.email ?? null;
+
+        document.getElementById("footer-title").textContent = this.t(baseId, data.titleId) ?? "";
+
+        const link = document.getElementById("footer-email");
+        if (email) {
+            link.href = `mailto:${email}`;
+            link.textContent = email;
+        }
+        else {
+            link.remove();
         }
 
-        this.renderContactInfo(document.getElementById("about-contacts"), data.contact, "contact-link", "contact-sep");
-        this.renderContactButtons(document.getElementById("about-buttons"), data.buttons, baseId);
+        const copy = this.t(baseId, data.copyId) ?? "";
+        document.getElementById("footer-copy").textContent = copy.replace("{year}", String(new Date().getFullYear()));
     }
 
     addImgCarousel(container, template, images, alt) {
@@ -353,33 +384,6 @@ export class Renderer {
         return cntEl;
     }
 
-    renderStylizedRoles(container, blocks, elementClass, ceparatorClass = null) {
-        container.innerHTML = "";
-
-        if (!blocks) return;
-        const length = blocks.length;
-        for (let i = 0; i < length; i++) {
-            const block = blocks[i];
-            if (!block) {
-                console.log(`WARNING: [renderStylizedRoles] Block from the index ${i} is null.`);
-                continue;
-            }
-
-            const span = document.createElement("span");
-            span.classList.add(elementClass);
-            span.textContent = block;
-            container.appendChild(span);
-
-            if (ceparatorClass && i < length - 1) {
-                const sep = document.createElement("span");
-                sep.classList.add(elementClass);
-                sep.classList.add(ceparatorClass);
-                sep.textContent = " | ";
-                container.appendChild(sep);
-            }
-        }
-    }
-
     renderParagraphs(container, paragraphs, classes = null) {
         container.innerHTML = "";
 
@@ -395,31 +399,6 @@ export class Renderer {
             p.textContent = text;
             container.appendChild(p);
         });
-    }
-
-    renderContactInfo(container, contact, contactClass = null, ceparatorClass = null) {
-        container.innerHTML = "";
-
-        if (contact?.email) {
-            const email = document.createElement("a");
-            email.href = `mailto:${contact.email}`;
-            email.textContent = contact.email;
-            if (contactClass) email.classList.add(contactClass);
-            container.appendChild(email);
-        }
-
-        const ceparator = document.createElement("span");
-        ceparator.textContent = "•";
-        if (ceparatorClass) ceparator.classList.add(ceparatorClass);
-        container.appendChild(ceparator);
-
-        if (contact?.phone) {
-            const phone = document.createElement("a");
-            phone.href = `tel:${contact.phone}`;
-            phone.textContent = contact.phone;
-            if (contactClass) phone.classList.add(contactClass);
-            container.appendChild(phone);
-        }
     }
 
     renderContactButtons(container, buttons, source = null) {

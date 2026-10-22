@@ -1,0 +1,42 @@
+.special-tag {
+    display: inline-flex;
+    align-items: center;
+    flex: none;
+    height: 22px;
+    padding: 0 9px;
+    border-radius: 5px;
+    background: var(--accent-tint);
+    border: 1px solid var(--accent-edge);
+    font: 600 11px/1 var(--font-label);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    color: var(--text);
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 6px;
+}
+
+.tag,
+.info-tag {
+    display: inline-flex;
+    align-items: center;
+    height: 20px;
+    padding: 0 8px;
+    border-radius: 999px;
+    background: var(--accent-2-tint);
+    border: 1px solid var(--accent-2-edge);
+    color: var(--accent-2);
+    font: 500 11px/1 var(--font-label);
+    white-space: nowrap;
+}
+
+.info-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 6px;
+}
