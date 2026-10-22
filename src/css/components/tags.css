@@ -1,42 +1,47 @@
+.tags,
+.info-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 4px;
+    overflow: hidden;
+}
+
+.tag,
+.info-tag,
 .special-tag {
     display: inline-flex;
     align-items: center;
     flex: none;
-    height: 22px;
-    padding: 0 9px;
-    border-radius: 5px;
-    background: var(--accent-tint);
-    border: 1px solid var(--accent-edge);
-    font: 600 11px/1 var(--font-label);
-    letter-spacing: 0.02em;
+    padding: 2px 6px;
+    border-radius: 0;
+    background: color-mix(in srgb, var(--accent-2) 34%, var(--hero-page-bg));
+    color: color-mix(in srgb, var(--accent-2) 20%, var(--text));
+    font: 400 0.75rem/1.5 var(--font-label);
     white-space: nowrap;
+}
+
+.special-tag {
+    background: linear-gradient(90deg,
+        color-mix(in srgb, var(--accent) 85%, var(--hero-page-bg)),
+        color-mix(in srgb, var(--accent-2) 60%, var(--hero-page-bg)),
+        color-mix(in srgb, var(--accent) 85%, var(--hero-page-bg))) 0 0 / 200% 100%;
     color: var(--text);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 45%, transparent);
+    animation: special-tag-scroll 4s linear infinite;
 }
 
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    gap: 6px;
+@keyframes special-tag-scroll {
+    to {
+        background-position: -200% 0;
+    }
 }
 
-.tag,
-.info-tag {
-    display: inline-flex;
-    align-items: center;
-    height: 20px;
-    padding: 0 8px;
-    border-radius: 999px;
-    background: var(--accent-2-tint);
-    border: 1px solid var(--accent-2-edge);
-    color: var(--accent-2);
-    font: 500 11px/1 var(--font-label);
-    white-space: nowrap;
-}
-
-.info-tags {
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    gap: 6px;
+@media (prefers-reduced-motion: reduce) {
+    .special-tag {
+        animation: none;
+    }
 }

@@ -48,7 +48,7 @@ export class ProjectsSection {
             if (!cards.length) return;
 
             const title = category.titleId ? categoriesText[category.titleId] ?? null : null;
-            this.carousels.push(new ProjectCarousel(container, { title, cards, labels: carouselLabels }));
+            this.carousels.push(new ProjectCarousel(container, { title, cards, labels: carouselLabels, maxVisible: category.maxVisible }));
         });
     }
 
@@ -62,8 +62,9 @@ export class ProjectsSection {
         let imageIsIcon = false;
         let icon = media.icon ?? null;
 
+        if (variant !== "game") icon = icon ?? media.capsuleImg ?? null;
+
         if (variant === "site") {
-            icon = icon ?? media.capsuleImg ?? null;
             image = wide;
             if (!image && media.capsuleImg) {
                 image = media.capsuleImg;
@@ -81,6 +82,7 @@ export class ProjectsSection {
             image,
             imageIsIcon,
             icon,
+            preview: media.capsuleVideo ?? null,
             alt: text[project.imgAltId] ?? name,
             href: project.link ?? `#${project.baseId}`,
             external: Boolean(project.link),

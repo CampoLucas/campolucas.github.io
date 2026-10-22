@@ -52,14 +52,18 @@
 
 .featured__head {
     display: flex;
+    flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between;
-    gap: 8px;
+    gap: 6px;
 }
 
 .featured__name {
+    width: 100%;
     min-width: 0;
-    font: 700 19px/24px var(--font-row-title);
+    font: 700 1.25rem/1.25 var(--font-row-title);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .featured__name a:hover {
@@ -67,24 +71,27 @@
 }
 
 .featured__head .special-tag {
-    max-width: 60%;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    max-width: 100%;
+    height: auto;
+    padding-block: 2px;
+    line-height: 1.3;
+    white-space: normal;
 }
 
 .featured__description {
     flex: 1 1 0;
-    min-height: 18px;
-    font-size: 13px;
-    line-height: 18px;
-    color: var(--text-soft);
+    min-height: 1lh;
+    font-size: 0.875rem;
+    line-height: 1.4;
+    color: var(--text);
     overflow: hidden;
-    -webkit-mask-image: linear-gradient(to bottom, var(--text) calc(100% - 18px), transparent);
-    mask-image: linear-gradient(to bottom, var(--text) calc(100% - 18px), transparent);
+    -webkit-mask-image: linear-gradient(to bottom, var(--text) calc(100% - 1lh), transparent);
+    mask-image: linear-gradient(to bottom, var(--text) calc(100% - 1lh), transparent);
 }
 
 .featured__tags {
-    height: 46px;
+    flex: none;
+    height: calc(2 * (4px + 1.125rem) + 4px);
     overflow: hidden;
 }
 
@@ -162,7 +169,7 @@
     .featured__description {
         grid-area: desc;
         flex: none;
-        height: 36px;
+        height: 2lh;
         margin: 0 14px 10px;
         display: -webkit-box;
         -webkit-line-clamp: 2;

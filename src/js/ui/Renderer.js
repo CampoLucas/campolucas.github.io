@@ -180,7 +180,8 @@ export class Renderer {
                     special: text.badge ?? null,
                     image: variant === "site" ? siteImage ?? media.capsuleImg ?? null : media.capsuleImg ?? null,
                     imageIsIcon: variant === "site" && !siteImage,
-                    icon: media.icon ?? (variant === "site" ? media.capsuleImg ?? null : null),
+                    icon: media.icon ?? (variant !== "game" ? media.capsuleImg ?? null : null),
+                    preview: media.capsuleVideo ?? null,
                     alt: text[project.imgAltId] ?? name,
                     href: project.link,
                     external: true,
@@ -190,7 +191,7 @@ export class Renderer {
 
             if (!cards.length) return;
             const title = category.titleId ? categoriesText[category.titleId] ?? null : null;
-            this.customCarousels.push(new ProjectCarousel(container, { title, cards, labels }));
+            this.customCarousels.push(new ProjectCarousel(container, { title, cards, labels, maxVisible: category.maxVisible }));
         });
     }
 

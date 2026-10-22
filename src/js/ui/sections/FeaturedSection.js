@@ -113,6 +113,7 @@ export class FeaturedSection {
         const name = createEl("h3", "featured__name");
         const link = createEl("a", null, text[project.titleId]);
         link.href = `#${project.baseId}`;
+        link.title = text[project.titleId] ?? "";
         name.appendChild(link);
         head.appendChild(name);
 

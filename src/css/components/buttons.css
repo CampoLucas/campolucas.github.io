@@ -8,7 +8,7 @@
     padding: 0 14px;
     border-radius: 8px;
     border: 1px solid transparent;
-    font: 600 13px/1 var(--font-label);
+    font: 600 0.875rem/1 var(--font-label);
     white-space: nowrap;
     cursor: pointer;
     transition: filter 0.2s, background 0.2s;
