@@ -249,21 +249,47 @@ export class Renderer {
         if (!data) return;
 
         const baseId = data.baseId;
-        const email = data.contact?.email ?? this.app.home.about?.contact?.email ?? null;
+        const hero = this.app.home.hero ?? {};
+        const email = data.contact?.email || this.app.home.about?.contact?.email || null;
+        const phone = data.contact?.phone || null;
 
-        document.getElementById("footer-title").textContent = this.t(baseId, data.titleId) ?? "";
+        const name = this.t(hero.baseId, hero.titleId);
+        document.getElementById("footer-name").textContent = Array.isArray(name) ? name.map(block => block?.text ?? "").join("") : name ?? "";
+        const roles = this.t(hero.baseId, hero.rolesId);
+        document.getElementById("footer-roles").textContent = Array.isArray(roles) ? roles.join(" · ") : roles ?? "";
 
-        const link = document.getElementById("footer-email");
-        if (email) {
-            link.href = `mailto:${email}`;
-            link.textContent = email;
+        document.getElementById("footer-contact-title").textContent = this.t(baseId, "contactTitle") ?? "Contact";
+        const contact = document.getElementById("footer-contact");
+        contact.innerHTML = "";
+        if (email) contact.appendChild(this.footerContact(`mailto:${email}`, email));
+        if (phone) contact.appendChild(this.footerContact(`tel:${phone.replace(/[^\d+]/g, "")}`, phone));
+
+        document.getElementById("footer-social-title").textContent = this.t(baseId, "socialTitle") ?? "Find me";
+        const links = document.getElementById("footer-links");
+        links.setAttribute("aria-label", this.t(baseId, "socialTitle") ?? "Find me");
+        this.renderContactButtons(links, (hero.buttons ?? []).filter(btn => btn?.type !== "email"), hero.baseId);
+
+        const cv = document.getElementById("footer-cv");
+        if (data.cv?.link) {
+            cv.href = data.cv.link;
+            cv.textContent = this.t(baseId, data.cv.labelId ?? "cvLabel") ?? "Download CV";
+            cv.hidden = false;
         }
         else {
-            link.remove();
+            cv.remove();
         }
 
         const copy = this.t(baseId, data.copyId) ?? "";
         document.getElementById("footer-copy").textContent = copy.replace("{year}", String(new Date().getFullYear()));
+    }
+
+    footerContact(href, label) {
+        const item = document.createElement("li");
+        const link = document.createElement("a");
+        link.href = href;
+        link.textContent = label;
+        item.appendChild(link);
+        return item;
     }
 
     addImgCarousel(container, template, images, alt) {

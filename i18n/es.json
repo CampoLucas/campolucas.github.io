@@ -45,7 +45,9 @@
         }
     },
     "footer": {
-        "title": "Hagamos algo juntos",
+        "contactTitle": "Contacto",
+        "socialTitle": "Encontrame",
+        "cvLabel": "Descargar CV",
         "copy": "© {year} Lucas Campo"
     },
     "about": {

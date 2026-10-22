@@ -1,4 +1,4 @@
-const VERSION = "v42";
+const VERSION = "v43";
 const SHELL_CACHE = `shell-${VERSION}`;
 const MEDIA_CACHE = `media-${VERSION}`;
 

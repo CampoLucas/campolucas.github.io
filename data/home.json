@@ -112,8 +112,8 @@
     },
     "footer": {
         "baseId": "footer",
-        "titleId": "title",
         "copyId": "copy",
-        "contact": { "email": "campolucas2001@gmail.com" }
+        "contact": { "email": "campolucas2001@gmail.com", "phone": "" },
+        "cv": { "link": "", "labelId": "cvLabel" }
     }
 }

@@ -45,7 +45,9 @@
         }
     },
     "footer": {
-        "title": "Let's make something",
+        "contactTitle": "Contact",
+        "socialTitle": "Find me",
+        "cvLabel": "Download CV",
         "copy": "© {year} Lucas Campo"
     },
     "about": {
