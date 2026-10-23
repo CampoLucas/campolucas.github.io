@@ -171,4 +171,8 @@
         gap: 16px;
         margin-top: 24px;
     }
+
+    .hero__cv {
+        margin-top: 24px;
+    }
 }
