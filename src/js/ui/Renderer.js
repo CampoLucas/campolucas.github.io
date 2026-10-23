@@ -218,6 +218,17 @@ export class Renderer {
         const links = document.getElementById("hero-links");
         links.setAttribute("aria-label", this.t(baseId, "linksLabel") ?? "Contact and profiles");
         this.renderContactButtons(links, data.buttons, baseId);
+
+        const cv = document.getElementById("hero-cv");
+        const footer = this.app.home.footer;
+        if (footer?.cv?.link) {
+            cv.href = footer.cv.link;
+            cv.textContent = this.t(footer.baseId, footer.cv.labelId ?? "cvLabel") ?? "Download CV";
+            cv.hidden = false;
+        }
+        else {
+            cv.remove();
+        }
     }
 
     renderAbout() {
