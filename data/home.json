@@ -114,6 +114,6 @@
         "baseId": "footer",
         "copyId": "copy",
         "contact": { "email": "campolucas2001@gmail.com", "phone": "" },
-        "cv": { "link": "", "labelId": "cvLabel" }
+        "cv": { "link": "./src/media/cv/lucas-campo-cv.pdf", "labelId": "cvLabel" }
     }
 }
