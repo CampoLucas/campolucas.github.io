@@ -78,6 +78,16 @@
                 "accent1": "#ffcc11",
                 "accent2": "#69a4e8"
             }
+        },
+        {
+            "name": "Prefered style #1",
+            "colors": {
+                "pageBg": "#202020",
+                "heroBg": "#0d0d0d",
+                "text": "#f7f5f5",
+                "accent1": "#ff0f83",
+                "accent2": "#ff8800"
+            }
         }
     ],
     "fonts": {

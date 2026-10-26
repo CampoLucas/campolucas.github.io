@@ -109,6 +109,11 @@
                                 "src": "./src/media/projects/rush-rift/carousel/03.webp",
                                 "width": 1920,
                                 "height": 1080
+                            },
+                            "video": {
+                                "src": "./src/media/projects/rush-rift/display-video.mp4",
+                                "width": 1920,
+                                "height": 1080
                             }
                         }
                     },
@@ -125,9 +130,18 @@
                             "id": "github",
                             "link": "https://github.com/CampoLucas/RushRift", 
                             "classList": [ "icon", "social-link", "github" ],
-                            "hoverTextId": "itchHover",
+                            "hoverTextId": "githubHover",
                             "type": "link",
                             "newTab": true
+                        },
+                        {
+                            "id": "github",
+                            "link": "https://play.expoeva.com/showroom-2026/rush-rift/",
+                            "classList": [ "cta-btn" ],
+                            "hoverTextId": "btnEVAHover",
+                            "type": "link",
+                            "newTab": true,
+                            "label": "btnEVALabel"
                         }
                     ],
                     "tags": ["EVA2026", "Speedrunning", "FPS", "Unity", "Singleplayer", "Shooter", "Fast-paced"]

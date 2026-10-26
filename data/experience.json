@@ -69,7 +69,6 @@
                 "baseId": "skynetGames",
                 "companyId": "company",
                 "periodId": "period",
-                "current": true,
                 "roleId": "role",
                 "summaryId": "summary",
                 "blocksId": "blocks",

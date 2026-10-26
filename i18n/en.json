@@ -143,7 +143,7 @@
         },
         "skynetGames": {
             "company": "Skynet Games",
-            "period": "Feb 2026 - Present",
+            "period": "Feb 2026 - Jun 2026",
             "role": "Unity Game Developer",
             "summary": "Early stage development of a mobile platform where companies can market their own products through minigames.",
             "linkedInHover": "LinkedIn Page",
@@ -195,7 +195,8 @@
                         }
                     ],
                 "roles": [ "Lead Programmer" ],
-                "imgAlt": "Rush Rift showcase"
+                "imgAlt": "Rush Rift showcase",
+                "btnEVALabel": "EVA Play"
             },
             "gunBandit": {
                 "title": "Gun Bandit",
