@@ -1,4 +1,4 @@
-import { createMedia, loadMedia, normalizeMedia } from "../elements/Media.js";
+import { createMedia, isVideo, loadMedia, normalizeMedia, pauseMedia, playMedia } from "../elements/Media.js";
 import { createEl } from "../text.js";
 import { projectSummary } from "./ProjectsSection.js";
 
@@ -57,16 +57,67 @@ export class FeaturedSection {
         this.observe();
     }
 
-    imagesOf(project) {
+    slidesOf(project) {
         const display = project.display;
         const count = Number.isInteger(display?.imageCount) ? display.imageCount : defaultImageCount;
+        const video = isShown(display, "showVideo") ? normalizeMedia(display?.media?.video) : null;
+        const lead = video?.isVideo ? [video] : [];
         const shots = isShown(display, "showImages")
             ? (project.media?.carouselImages ?? []).map(entry => normalizeMedia(entry)).filter(entry => entry && !entry.isVideo).slice(0, count)
             : [];
-        if (shots.length) return shots;
+        if (shots.length) return [...lead, ...shots];
 
         const cover = normalizeMedia(display?.media?.img ?? project.media?.capsuleImg);
-        return cover ? [cover] : [];
+        return cover ? [...lead, cover] : lead;
+    }
+
+    buildVideo(entry, alt) {
+        const video = createMedia(entry, { lazy: true, alt, className: "media__img" });
+        if (!video) return null;
+        video.loop = false;
+        video.addEventListener("ended", () => {
+            if (this.currentVideo() !== video) return;
+            if (this.paused || this.slides.length < 2) {
+                this.restart();
+                return;
+            }
+            this.go(this.index + 1);
+            this.restart();
+        });
+        video.addEventListener("error", () => this.dropSlide(video.closest(".gallery__slide")), { once: true });
+        return video;
+    }
+
+    dropSlide(slide) {
+        const i = this.slides.indexOf(slide);
+        if (i < 0 || this.slides.length < 2) return;
+        slide.remove();
+        this.slides.splice(i, 1);
+        const [dot] = this.dots.splice(i, 1);
+        dot?.remove();
+        if (this.slides.length < 2) this.dots.splice(0).forEach(d => d.closest(".indicator")?.remove());
+        this.slides.forEach((s, n) => s.setAttribute("aria-label", `${n + 1} / ${this.slides.length}`));
+        this.go(Math.min(this.index, this.slides.length - 1));
+        this.restart();
+    }
+
+    currentVideo() {
+        const el = this.slides[this.index]?.querySelector("video");
+        return isVideo(el) ? el : null;
+    }
+
+    syncVideos() {
+        this.slides.forEach((slide, n) => {
+            const video = slide.querySelector("video");
+            if (!isVideo(video)) return;
+            if (n === this.index && this.visible && !reducedMotion.matches) {
+                playMedia(video);
+                return;
+            }
+            if (this.visible && !video.poster) loadMedia(video);
+            pauseMedia(video);
+            if (n !== this.index && video.currentTime) video.currentTime = 0;
+        });
     }
 
     buildGallery(project, text) {
@@ -82,12 +133,12 @@ export class FeaturedSection {
         link.setAttribute("aria-label", title);
 
         this.track = createEl("div", "gallery__track");
-        const images = this.imagesOf(project);
-        images.forEach((entry, i) => {
+        const entries = this.slidesOf(project);
+        entries.forEach((entry, i) => {
             const slide = createEl("div", "media gallery__slide");
             slide.setAttribute("aria-roledescription", "slide");
-            slide.setAttribute("aria-label", `${i + 1} / ${images.length}`);
-            const image = createMedia(entry, { lazy: true, alt, className: "media__img" });
+            slide.setAttribute("aria-label", `${i + 1} / ${entries.length}`);
+            const image = entry.isVideo ? this.buildVideo(entry, alt) : createMedia(entry, { lazy: true, alt, className: "media__img" });
             if (image) slide.appendChild(image);
             this.track.appendChild(slide);
             this.slides.push(slide);
@@ -196,6 +247,7 @@ export class FeaturedSection {
             dot.setAttribute("aria-current", String(current));
             dot.tabIndex = current ? 0 : -1;
         });
+        this.syncVideos();
     }
 
     observe() {
@@ -203,7 +255,8 @@ export class FeaturedSection {
 
         const observer = new IntersectionObserver(entries => {
             this.visible = entries[entries.length - 1].isIntersecting;
-            if (this.visible) this.slides.forEach(slide => loadMedia(slide.querySelector("[data-src]")));
+            if (this.visible) this.slides.forEach(slide => loadMedia(slide.querySelector("img[data-src]")));
+            this.syncVideos();
             this.restart();
         }, { rootMargin: "200px 0px" });
         observer.observe(this.gallery);
@@ -218,6 +271,11 @@ export class FeaturedSection {
         clearInterval(this.timer);
         this.timer = null;
         if (this.slides.length < 2 || !this.visible || this.paused || reducedMotion.matches) return;
-        this.timer = setInterval(() => this.go(this.index + 1), advanceDelay);
+        const video = this.currentVideo();
+        if (video && !video.ended) return;
+        this.timer = setInterval(() => {
+            this.go(this.index + 1);
+            if (this.currentVideo()) this.restart();
+        }, advanceDelay);
     }
 }

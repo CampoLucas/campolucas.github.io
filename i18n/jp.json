@@ -54,6 +54,55 @@
                     "items": [ "Unity", "C#", "Optimization", "OPP", "UI/UX" ]
                 }
             ]
+        },
+        "threeDar": {
+            "company": "3Dar",
+            "product": "Eggscape",
+            "period": "May 2023 - Feb 2025",
+            "role": "Unity Game Developer",
+            "summary": "AR/VR multiplayer platformer developed for Oculus, awarded the Lion at the Biennale di Venezia (2022).",
+            "imgAlt": "Eggscape showcase image",
+            "blocks": [
+                {
+                    "type": "desc",
+                    "title": "Project",
+                    "text": "AR/VR multiplayer platformer developed for Oculus, awarded the Lion at the Biennale di Venezia (2022)."
+                },
+                {
+                    "type": "ul",
+                    "title": "Key Contributions",
+                    "items": [
+                        "Worked on the <b>enemy AI</b> using <b>pathfinding, obstacle avoidance, FSM, and behavior trees</b> with unique states and a custom combat system.",
+                        "Worked on <b>player's combat mechanics</b>, implemented a flying kick and a spinning kick and a <b>wall climbing mechanic</b>.",
+                        "Made a <b>grabbing and throwing system</b>, including grabbing weapons.",
+                        "<b>Fixed</b> a large number of <b>asynchronous bugs</b> in the game.",
+                        "Implemented a <b>lobby shop</b> with clothing and skin selection, <b>including cinematics</b> for entering it."
+                    ]
+                }
+            ],
+            "skills": [
+                {
+                    "type": "hr-ul",
+                    "title": "Skills & knowledge",
+                    "items": [
+                        "Multiplayer Architecture",
+                        "Optimization",
+                        "Design Patterns",
+                        "OOP",
+                        "ECS",
+                        "Behavior Trees",
+                        "Finite State Machines",
+                        "Pathfinding",
+                        "Combat AI"
+                    ]
+                },
+                {
+                    "type": "hr-ul",
+                    "title": "Tools",
+                    "items": [ "Unity", "C#", "Photon", "Photon Quantum", "Oculus VR", "XR Interaction Toolkit", "Git" ]
+                }
+            ],
+            "iconAlt": "Three Dar icon"
         }
     },
     "projects": {
@@ -74,7 +123,13 @@
                     }
                 ],
                 "roles": [ "Lead Programmer" ],
-                "imgAlt": "ラッシュ・リフトの紹介"
+                "imgAlt": "ラッシュ・リフトの紹介",
+                "githubHover": "",
+                "btnEVALabel": "",
+                "btnEVAHover": "",
+                "badge": "",
+                "itchHover": "",
+                "featuredDesc": ""
             },
             "gunBandit": {
                 "title": "Gun Bandit",

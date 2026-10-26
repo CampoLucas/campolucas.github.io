@@ -1,4 +1,4 @@
-const VERSION = "v62";
+const VERSION = "v66";
 const SHELL_CACHE = `shell-${VERSION}`;
 const MEDIA_CACHE = `media-${VERSION}`;
 
@@ -11,6 +11,7 @@ const SHELL = [
     "./src/css/layout/layout.css",
     "./src/css/components/buttons.css",
     "./src/css/components/icons.css",
+    "./src/css/components/icons-custom.css",
     "./src/css/components/social.css",
     "./src/css/components/tags.css",
     "./src/css/components/entry-card.css",

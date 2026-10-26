@@ -41,7 +41,8 @@
             "itch": "Play",
             "github": "Source",
             "website": "Website",
-            "steam": "Steam"
+            "steam": "Steam",
+            "evaPlay": "Eva Play"
         }
     },
     "footer": {
@@ -139,7 +140,8 @@
                         ]
                     }
                 ],
-            "iconAlt": "Three Dar icon"
+            "iconAlt": "Three Dar icon",
+            "metaHover": "Meta page"
         },
         "skynetGames": {
             "company": "Skynet Games",
@@ -196,7 +198,10 @@
                     ],
                 "roles": [ "Lead Programmer" ],
                 "imgAlt": "Rush Rift showcase",
-                "btnEVALabel": "EVA Play"
+                "btnEVALabel": "EVA Play",
+                "itchHover": "Itch",
+                "githubHover": "Github",
+                "btnEVAHover": "EVA Play"
             },
             "gunBandit": {
                 "title": "Gun Bandit",
@@ -301,7 +306,7 @@
         "categories": {
             "websitesTitle": "Websites",
             "gamesTitle": "Games",
-            "toolsTitle": "Tools"
+            "toolsTitle": "My Tools"
         },
         "filters": {
             "label": "Filter projects",

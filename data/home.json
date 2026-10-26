@@ -4,7 +4,7 @@
         "titleId": "title",
         "rolesId": "roles",
         "descriptionId": "description",
-        "picture": { "img": "./src/media/profile/hero-pic.jpeg", "altId": "imgAlt" },
+        "picture": { "img": "./src/media/profile/hero.webp", "altId": "imgAlt" },
         "buttons": [
             {
                 "id": "github",

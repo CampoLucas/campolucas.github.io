@@ -16,7 +16,11 @@
                     "media": {
                         "banner": "./src/media/projects/rushrift/banners/banner.jpeg",
                         "background": {
-                            "img": "./src/media/projects/rushrift/banners/banner2.jpeg",
+                            "img": {
+                                "src": "./src/media/projects/rush-rift/background.png",
+                                "width": 640,
+                                "height": 360
+                            },
                             "baseColor": "#0103265e",
                             "overlayColor": "#00000018",
                             "gradientEdgeColor": "#6000893b"
@@ -135,7 +139,7 @@
                             "newTab": true
                         },
                         {
-                            "id": "github",
+                            "id": "evaPlay",
                             "link": "https://play.expoeva.com/showroom-2026/rush-rift/",
                             "classList": [ "cta-btn" ],
                             "hoverTextId": "btnEVAHover",

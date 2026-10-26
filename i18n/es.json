@@ -196,7 +196,11 @@
                     }
                 ],
                 "roles": [ "Lead Programmer" ],
-                "imgAlt": "Muestra de Rush Rift"
+                "imgAlt": "Muestra de Rush Rift",
+                "btnEVAHover": "",
+                "btnEVALabel": "",
+                "githubHover": "",
+                "itchHover": ""
             },
             "gunBandit": {
                 "title": "Gun Bandit",
@@ -299,9 +303,9 @@
             }
         },        
         "categories": {
-            "websitesTitle": "Páginas web",
+            "websitesTitle": "Páginas Web",
             "gamesTitle": "Juegos",
-            "toolsTitle": "Tools"
+            "toolsTitle": "Mis Herramientas"
         },
         "filters": {
             "label": "Filtrar proyectos",

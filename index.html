@@ -31,6 +31,7 @@
     <link href="./src/css/layout/layout.css" rel="stylesheet" />
     <link href="./src/css/components/buttons.css" rel="stylesheet" />
     <link href="./src/css/components/icons.css" rel="stylesheet" />
+    <link href="./src/css/components/icons-custom.css" rel="stylesheet" />
     <link href="./src/css/components/social.css" rel="stylesheet" />
     <link href="./src/css/components/tags.css" rel="stylesheet" />
     <link href="./src/css/components/entry-card.css" rel="stylesheet" />
@@ -114,8 +115,8 @@
                             </clipPath>
                         </defs>
                     </svg>
-                    <img id="hero-pic" src="./src/media/profile/hero-pic.jpeg" class="hero__pic" alt=""
-                        width="640" height="640" fetchpriority="high" decoding="async">
+                    <img id="hero-pic" src="./src/media/profile/hero.webp" class="hero__pic" alt=""
+                        width="473" height="473" fetchpriority="high" decoding="async">
                 </div>
             </div>
             <p id="hero-description" class="hero__description">
@@ -194,43 +195,45 @@
                 </section>
             </div>
 
-            <section class="section section--about" id="about" data-section="about" aria-labelledby="about-title">
-                <h2 id="about-title" class="section-title">
-                    <span class="skeleton skeleton-title" aria-hidden="true"></span>
-                </h2>
-                <div class="about">
-                    <div class="about__avatar">
-                        <img id="about-pic" class="about__pic" alt="" width="640" height="640" loading="lazy" decoding="async">
-                    </div>
-                    <div class="about__body">
-                        <div id="about-desc" class="about__text">
-                            <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
-                            <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
-                            <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 80%;" aria-hidden="true"></span>
-                            <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
-                            <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 60%;" aria-hidden="true"></span>
+            <div class="section-group fade">
+                <section class="section section--about" id="about" data-section="about" aria-labelledby="about-title">
+                    <h2 id="about-title" class="section-title">
+                        <span class="skeleton skeleton-title" aria-hidden="true"></span>
+                    </h2>
+                    <div class="about">
+                        <div class="about__avatar">
+                            <img id="about-pic" class="about__pic" alt="" width="640" height="640" loading="lazy" decoding="async">
                         </div>
-                        <nav id="about-links" class="about__links">
-                            <span class="skeleton skeleton-icon" aria-hidden="true"></span>
-                            <span class="skeleton skeleton-icon" aria-hidden="true"></span>
-                            <span class="skeleton skeleton-icon" aria-hidden="true"></span>
-                        </nav>
+                        <div class="about__body">
+                            <div id="about-desc" class="about__text">
+                                <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
+                                <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
+                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 80%;" aria-hidden="true"></span>
+                                <span class="skeleton skeleton-line skeleton-text" aria-hidden="true"></span>
+                                <span class="skeleton skeleton-line skeleton-text" style="--sk-w: 60%;" aria-hidden="true"></span>
+                            </div>
+                            <nav id="about-links" class="about__links">
+                                <span class="skeleton skeleton-icon" aria-hidden="true"></span>
+                                <span class="skeleton skeleton-icon" aria-hidden="true"></span>
+                                <span class="skeleton skeleton-icon" aria-hidden="true"></span>
+                            </nav>
+                        </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
-            <section class="section section--skills fade" id="skills" data-section="skills" aria-labelledby="skills-title">
-                <h2 id="skills-title" class="section-title">
-                    <span class="skeleton skeleton-title" aria-hidden="true"></span>
-                </h2>
-                <ul id="skills-cnt" class="skill-list">
-                    <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
-                    <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
-                    <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
-                    <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
-                    <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
-                </ul>
-            </section>
+                <section class="section section--skills" id="skills" data-section="skills" aria-labelledby="skills-title">
+                    <h2 id="skills-title" class="section-title">
+                        <span class="skeleton skeleton-title" aria-hidden="true"></span>
+                    </h2>
+                    <ul id="skills-cnt" class="skill-list">
+                        <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
+                        <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
+                        <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
+                        <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
+                        <li class="skeleton skeleton-fill" style="--sk-h: 86px; --sk-r: 8px;" aria-hidden="true"></li>
+                    </ul>
+                </section>
+            </div>
 
         </main>
     </div>
